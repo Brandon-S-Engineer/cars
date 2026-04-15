@@ -1,5 +1,4 @@
 import { prisma } from '@/lib/db'
-import { auth } from '@/lib/auth'
 import { requireAdmin } from '@/lib/require-admin'
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
