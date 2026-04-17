@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, Users, BarChart2, LogOut } from 'lucide-react'
+import { LayoutDashboard, Users, BarChart2, LogOut, Settings } from 'lucide-react'
 import { signOut } from '../../../node_modules/next-auth/react'
 import { cn } from '@/lib/utils'
 import { Separator } from '@/components/ui/separator'
@@ -12,6 +12,7 @@ const navItems = [
   { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
   { href: '/dashboard/users', label: 'Users', icon: Users },
   { href: '/dashboard/metrics', label: 'Metrics', icon: BarChart2 },
+  { href: '/dashboard/profile', label: 'Perfil', icon: Settings },
 ]
 
 export default function Sidebar() {
