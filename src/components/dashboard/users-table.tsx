@@ -208,6 +208,7 @@ export default function UsersTable({ users }: { users: User[] }) {
     {
       accessorKey: 'role',
       header: 'Rol',
+      cell: ({ row }) => row.getValue('role') === 'ADMIN' ? 'Admin' : 'Usuario',
     },
     {
       accessorKey: 'createdAt',

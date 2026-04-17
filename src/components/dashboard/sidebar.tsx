@@ -1,21 +1,21 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Users, BarChart2, LogOut } from 'lucide-react';
-import { signOut } from 'next-auth/react';
-import { cn } from '@/lib/utils';
-import { Separator } from '@/components/ui/separator';
-import { Button } from '@/components/ui/button';
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { LayoutDashboard, Users, BarChart2, LogOut } from 'lucide-react'
+import { signOut } from '../../../node_modules/next-auth/react'
+import { cn } from '@/lib/utils'
+import { Separator } from '@/components/ui/separator'
+import { Button } from '@/components/ui/button'
 
 const navItems = [
   { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
   { href: '/dashboard/users', label: 'Users', icon: Users },
   { href: '/dashboard/metrics', label: 'Metrics', icon: BarChart2 },
-];
+]
 
 export default function Sidebar() {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     <aside className='w-64 h-screen border-r bg-background flex flex-col fixed left-0 top-0'>
@@ -27,8 +27,8 @@ export default function Sidebar() {
 
       <nav className='flex-1 p-4 space-y-1'>
         {navItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = pathname === item.href;
+          const Icon = item.icon
+          const isActive = pathname === item.href
           return (
             <Link
               key={item.href}
@@ -37,7 +37,7 @@ export default function Sidebar() {
               <Icon className='h-4 w-4' />
               {item.label}
             </Link>
-          );
+          )
         })}
       </nav>
 
@@ -53,5 +53,5 @@ export default function Sidebar() {
         </Button>
       </div>
     </aside>
-  );
+  )
 }
