@@ -1,6 +1,6 @@
 'use client'
 
-import { useReactTable, getCoreRowModel, getSortedRowModel, getFilteredRowModel, getPaginationRowModel, flexRender, ColumnDef, SortingState, Row } from '@tanstack/react-table'
+import { useReactTable, getCoreRowModel, getSortedRowModel, getFilteredRowModel, getPaginationRowModel, flexRender, ColumnDef, SortingState } from '@tanstack/react-table'
 import { useState, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 import { Input } from '@/components/ui/input'
@@ -213,6 +213,19 @@ export default function UsersTable({ users }: { users: User[] }) {
     })
   }, [users, startDate, endDate])
 
+  const exportCSV = () => {
+    const headers = ['Nombre', 'Email', 'Rol', 'Creado']
+    const rows = filteredUsers.map((u) => [u.name ?? '', u.email, u.role === 'ADMIN' ? 'Admin' : 'Usuario', new Date(u.createdAt).toLocaleDateString()])
+    const csv = [headers, ...rows].map((r) => r.join(',')).join('\n')
+    const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'usuarios.csv'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
   const columns: ColumnDef<User>[] = [
     {
       accessorKey: 'name',
@@ -275,7 +288,15 @@ export default function UsersTable({ users }: { users: User[] }) {
           onChange={(e) => setGlobalFilter(e.target.value)}
           className='max-w-sm'
         />
-        <CreateUserDialog onSuccess={refresh} />
+        <div className='flex gap-2'>
+          <Button
+            variant='outline'
+            size='sm'
+            onClick={exportCSV}>
+            Exportar CSV
+          </Button>
+          <CreateUserDialog onSuccess={refresh} />
+        </div>
       </div>
 
       <div className='flex items-center gap-4'>
