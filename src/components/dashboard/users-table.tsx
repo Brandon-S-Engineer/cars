@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { toast } from 'sonner'
 
 type User = {
   id: string
@@ -59,6 +60,7 @@ function CreateUserDialog({ onSuccess }: { onSuccess: () => void }) {
     }
     reset()
     setOpen(false)
+    toast.success('Usuario creado')
     onSuccess()
   }
 
@@ -134,6 +136,7 @@ function EditUserDialog({ user, onSuccess }: { user: User; onSuccess: () => void
       body: JSON.stringify(data),
     })
     setOpen(false)
+    toast.success('Usuario actualizado')
     onSuccess()
   }
 
@@ -182,6 +185,51 @@ function EditUserDialog({ user, onSuccess }: { user: User; onSuccess: () => void
   )
 }
 
+function DeleteUserDialog({ userId, onSuccess }: { userId: string; onSuccess: () => void }) {
+  const [open, setOpen] = useState(false)
+
+  const handleDelete = async () => {
+    await fetch(`/api/users/${userId}`, { method: 'DELETE' })
+    setOpen(false)
+    toast.success('Usuario eliminado')
+    onSuccess()
+  }
+
+  return (
+    <Dialog
+      open={open}
+      onOpenChange={setOpen}>
+      <DialogTrigger
+        render={
+          <Button
+            variant='destructive'
+            size='sm'
+          />
+        }>
+        Eliminar
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>¿Eliminar usuario?</DialogTitle>
+        </DialogHeader>
+        <p className='text-sm text-muted-foreground'>Esta acción no se puede deshacer.</p>
+        <div className='flex justify-end gap-2 mt-4'>
+          <Button
+            variant='outline'
+            onClick={() => setOpen(false)}>
+            Cancelar
+          </Button>
+          <Button
+            variant='destructive'
+            onClick={handleDelete}>
+            Eliminar
+          </Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
 export default function UsersTable({ users }: { users: User[] }) {
   const router = useRouter()
   const [sorting, setSorting] = useState<SortingState>([])
@@ -190,12 +238,6 @@ export default function UsersTable({ users }: { users: User[] }) {
   const [endDate, setEndDate] = useState('')
 
   const refresh = () => router.refresh()
-
-  const handleDelete = async (id: string) => {
-    if (!confirm('¿Eliminar este usuario?')) return
-    await fetch(`/api/users/${id}`, { method: 'DELETE' })
-    refresh()
-  }
 
   const filteredUsers = useMemo(() => {
     return users.filter((user) => {
@@ -255,12 +297,10 @@ export default function UsersTable({ users }: { users: User[] }) {
             user={row.original}
             onSuccess={refresh}
           />
-          <Button
-            variant='destructive'
-            size='sm'
-            onClick={() => handleDelete(row.original.id)}>
-            Eliminar
-          </Button>
+          <DeleteUserDialog
+            userId={row.original.id}
+            onSuccess={refresh}
+          />
         </div>
       ),
     },
