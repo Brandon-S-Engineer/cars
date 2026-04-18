@@ -1,7 +1,7 @@
 'use client'
 
-import { useReactTable, getCoreRowModel, getSortedRowModel, getFilteredRowModel, getPaginationRowModel, flexRender, ColumnDef, SortingState } from '@tanstack/react-table'
-import { useState } from 'react'
+import { useReactTable, getCoreRowModel, getSortedRowModel, getFilteredRowModel, getPaginationRowModel, flexRender, ColumnDef, SortingState, Row } from '@tanstack/react-table'
+import { useState, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -100,7 +100,7 @@ function CreateUserDialog({ onSuccess }: { onSuccess: () => void }) {
             <select
               {...register('role')}
               className='w-full border rounded-md px-3 py-2 text-sm bg-background'>
-              <option value='USER'>User</option>
+              <option value='USER'>Usuario</option>
               <option value='ADMIN'>Admin</option>
             </select>
           </div>
@@ -167,7 +167,7 @@ function EditUserDialog({ user, onSuccess }: { user: User; onSuccess: () => void
             <select
               {...register('role')}
               className='w-full border rounded-md px-3 py-2 text-sm bg-background'>
-              <option value='USER'>User</option>
+              <option value='USER'>Usuario</option>
               <option value='ADMIN'>Admin</option>
             </select>
           </div>
@@ -186,6 +186,8 @@ export default function UsersTable({ users }: { users: User[] }) {
   const router = useRouter()
   const [sorting, setSorting] = useState<SortingState>([])
   const [globalFilter, setGlobalFilter] = useState('')
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
 
   const refresh = () => router.refresh()
 
@@ -194,6 +196,22 @@ export default function UsersTable({ users }: { users: User[] }) {
     await fetch(`/api/users/${id}`, { method: 'DELETE' })
     refresh()
   }
+
+  const filteredUsers = useMemo(() => {
+    return users.filter((user) => {
+      if (!startDate && !endDate) return true
+      const created = new Date(user.createdAt)
+      const start = startDate ? new Date(startDate) : null
+      const end = endDate ? new Date(endDate) : null
+      if (start && created < start) return false
+      if (end) {
+        const endOfDay = new Date(end)
+        endOfDay.setHours(23, 59, 59, 999)
+        if (created > endOfDay) return false
+      }
+      return true
+    })
+  }, [users, startDate, endDate])
 
   const columns: ColumnDef<User>[] = [
     {
@@ -208,7 +226,7 @@ export default function UsersTable({ users }: { users: User[] }) {
     {
       accessorKey: 'role',
       header: 'Rol',
-      cell: ({ row }) => row.getValue('role') === 'ADMIN' ? 'Admin' : 'Usuario',
+      cell: ({ row }) => <span className={`px-2 py-1 rounded-full text-xs font-medium ${row.getValue('role') === 'ADMIN' ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'}`}>{row.getValue('role') === 'ADMIN' ? 'Admin' : 'Usuario'}</span>,
     },
     {
       accessorKey: 'createdAt',
@@ -236,7 +254,7 @@ export default function UsersTable({ users }: { users: User[] }) {
   ]
 
   const table = useReactTable({
-    data: users,
+    data: filteredUsers,
     columns,
     state: { sorting, globalFilter },
     onSortingChange: setSorting,
@@ -258,6 +276,38 @@ export default function UsersTable({ users }: { users: User[] }) {
           className='max-w-sm'
         />
         <CreateUserDialog onSuccess={refresh} />
+      </div>
+
+      <div className='flex items-center gap-4'>
+        <div className='flex items-center gap-2'>
+          <Label className='text-sm text-muted-foreground whitespace-nowrap'>Desde</Label>
+          <Input
+            type='date'
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            className='w-40'
+          />
+        </div>
+        <div className='flex items-center gap-2'>
+          <Label className='text-sm text-muted-foreground whitespace-nowrap'>Hasta</Label>
+          <Input
+            type='date'
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            className='w-40'
+          />
+        </div>
+        {(startDate || endDate) && (
+          <Button
+            variant='ghost'
+            size='sm'
+            onClick={() => {
+              setStartDate('')
+              setEndDate('')
+            }}>
+            Limpiar
+          </Button>
+        )}
       </div>
 
       <div className='rounded-md border'>
