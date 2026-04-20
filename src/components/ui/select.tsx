@@ -1,0 +1,24 @@
+import { cn } from '@/lib/utils'
+import { ChevronDown } from 'lucide-react'
+import React from 'react'
+
+export function Select({
+  className = '',
+  children,
+  ...rest
+}: React.SelectHTMLAttributes<HTMLSelectElement>) {
+  return (
+    <div className="relative">
+      <select
+        className={cn(
+          'flex h-9 w-full appearance-none rounded-md border border-input bg-background px-3 py-1 pr-8 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+          className,
+        )}
+        {...rest}
+      >
+        {children}
+      </select>
+      <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 h-4 w-4 opacity-50" />
+    </div>
+  )
+}
