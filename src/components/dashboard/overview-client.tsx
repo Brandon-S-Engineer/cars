@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useMemo } from 'react'
 import {
   Users,
   Activity,
@@ -111,7 +110,7 @@ export default function OverviewClient({
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">{greeting}, {firstName}</h1>
           <p className="text-sm text-muted-foreground mt-1">
-            Here's what's happening across your workspace this week.
+            Here&apos;s what&apos;s happening across your workspace this week.
           </p>
         </div>
         <div className="flex items-center gap-2">

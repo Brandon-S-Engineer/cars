@@ -27,7 +27,7 @@ const COUNTRIES = [
   { c: 'Other', code: '··', v: 220, pct: 7 },
 ]
 
-export default function MetricsClient({ totalUsers, adminUsers, regularUsers, monthly, daily }: Props) {
+export default function MetricsClient({ totalUsers, adminUsers: _adminUsers, regularUsers: _regularUsers, monthly, daily }: Props) {
   const [range, setRange] = useState<'7d' | '30d' | '12m'>('30d')
 
   const data = range === '12m' ? monthly : daily
