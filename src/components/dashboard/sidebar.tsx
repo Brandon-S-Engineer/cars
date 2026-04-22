@@ -8,6 +8,7 @@ import {
   BarChart2,
   Settings,
   FileText,
+  CreditCard,
   LogOut,
 } from 'lucide-react'
 import { signOut } from 'next-auth/react'
@@ -18,6 +19,7 @@ const NAV = [
   { href: '/dashboard/users', label: 'Users', icon: Users },
   { href: '/dashboard/metrics', label: 'Metrics', icon: BarChart2 },
   { href: '/dashboard/posts', label: 'Posts', icon: FileText },
+  { href: '/dashboard/subscriptions', label: 'Subscriptions', icon: CreditCard },
   { href: '/dashboard/profile', label: 'Profile', icon: Settings },
 ]
 

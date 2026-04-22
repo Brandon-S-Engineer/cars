@@ -52,3 +52,29 @@ enum Role {
   ADMIN
   USER
 }
+
+model StripeTransaction {
+  id            String   @id @default(cuid())
+  stripeId      String   @unique
+  customerEmail String
+  amount        Int
+  currency      String   @default("usd")
+  status        String
+  stripeCreatedAt DateTime
+
+  createdAt     DateTime @default(now())
+}
+
+model StripeSubscription {
+  id                   String   @id @default(cuid())
+  stripeSubscriptionId String   @unique
+  stripeCustomerId     String
+  customerEmail        String
+  status               String
+  planName             String
+  currentPeriodEnd     DateTime
+  cancelAtPeriodEnd    Boolean  @default(false)
+
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
