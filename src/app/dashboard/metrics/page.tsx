@@ -42,13 +42,22 @@ function generateDailyData() {
 
 async function fetchTransactions() {
   try {
-    const list = await stripe.paymentIntents.list({ limit: 20, expand: ['data.latest_charge'] })
+    const list = await stripe.paymentIntents.list({
+      limit: 20,
+      expand: ['data.latest_charge', 'data.customer'],
+    })
     return list.data.map((pi) => {
       const charge = pi.latest_charge as import('stripe').Stripe.Charge | null
+      const customer = pi.customer as import('stripe').Stripe.Customer | null
+
       let customerEmail = pi.receipt_email ?? ''
+      if (!customerEmail && customer && !('deleted' in customer) && customer.email) {
+        customerEmail = customer.email
+      }
       if (!customerEmail && charge?.billing_details?.email) {
         customerEmail = charge.billing_details.email
       }
+
       const isRefunded = charge?.refunded ?? false
       const status = isRefunded ? 'refunded' : pi.status === 'succeeded' ? 'paid' : 'failed'
       return {
@@ -60,7 +69,8 @@ async function fetchTransactions() {
         date: pi.created,
       }
     })
-  } catch {
+  } catch (err) {
+    console.error('[transactions] fetch failed:', err)
     return []
   }
 }

@@ -4,10 +4,12 @@ import Stripe from 'stripe'
 
 async function fetchSubscriptions(): Promise<SubscriptionRow[]> {
   try {
+    // expand depth capped at 4 levels: data.items.data.price = 4
+    // going one deeper to .product would hit Stripe's limit and return a 400
     const list = await stripe.subscriptions.list({
       limit: 50,
       status: 'all',
-      expand: ['data.customer', 'data.items.data.price.product'],
+      expand: ['data.customer', 'data.items.data.price'],
     })
 
     return list.data.map((sub) => {
@@ -15,15 +17,8 @@ async function fetchSubscriptions(): Promise<SubscriptionRow[]> {
       const customerEmail = !customer.deleted && customer.email ? customer.email : '—'
 
       const item = sub.items.data[0]
-      let planName = 'Unknown'
-      if (item) {
-        const product = item.price.product
-        if (typeof product === 'object' && !('deleted' in product && product.deleted)) {
-          planName = (product as Stripe.Product).name ?? item.price.id
-        } else if (typeof product === 'string') {
-          planName = item.price.id
-        }
-      }
+      // price.product is unexpanded (string ID); use the price nickname set at creation
+      const planName = item?.price.nickname ?? item?.price.id ?? 'Unknown'
 
       // In Stripe API 2026-03-25.dahlia, current_period_end is on SubscriptionItem
       const currentPeriodEnd = item?.current_period_end ?? Math.floor(Date.now() / 1000)
@@ -37,7 +32,8 @@ async function fetchSubscriptions(): Promise<SubscriptionRow[]> {
         cancelAtPeriodEnd: sub.cancel_at_period_end,
       }
     })
-  } catch {
+  } catch (err) {
+    console.error('[subscriptions] fetch failed:', err)
     return []
   }
 }
