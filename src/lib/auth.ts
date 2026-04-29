@@ -3,10 +3,10 @@ import { PrismaAdapter } from '@auth/prisma-adapter'
 import Credentials from 'next-auth/providers/credentials'
 import { prisma } from '@/lib/db'
 import bcrypt from 'bcryptjs'
-import { Adapter } from 'next-auth/adapters'
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  adapter: PrismaAdapter(prisma) as Adapter,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  adapter: PrismaAdapter(prisma) as any,
   session: { strategy: 'jwt' },
   providers: [
     Credentials({
@@ -14,7 +14,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      async authorize(credentials: any) {
         if (!credentials?.email || !credentials?.password) return null
 
         const user = await prisma.user.findUnique({
@@ -37,14 +38,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   callbacks: {
-    jwt({ token, user }) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    jwt({ token, user }: { token: any; user: any }) {
       if (user) {
         token.role = user.role
         token.id = user.id as string
       }
       return token
     },
-    session({ session, token }) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    session({ session, token }: { session: any; token: any }) {
       session.user.role = token.role as string
       session.user.id = token.id as string
       return session

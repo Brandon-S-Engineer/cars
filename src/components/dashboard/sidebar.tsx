@@ -9,6 +9,7 @@ import {
   Settings,
   FileText,
   CreditCard,
+  Sheet,
   LogOut,
 } from 'lucide-react'
 import { signOut } from 'next-auth/react'
@@ -20,6 +21,7 @@ const NAV = [
   { href: '/dashboard/metrics', label: 'Metrics', icon: BarChart2 },
   { href: '/dashboard/posts', label: 'Posts', icon: FileText },
   { href: '/dashboard/subscriptions', label: 'Subscriptions', icon: CreditCard },
+  { href: '/dashboard/sheets', label: 'Sheets', icon: Sheet },
   { href: '/dashboard/profile', label: 'Profile', icon: Settings },
 ]
 
@@ -68,7 +70,10 @@ export default function Sidebar({
         )}
         {NAV.map((item) => {
           const Icon = item.icon
-          const isActive = pathname === item.href
+          const isActive =
+          item.href === '/dashboard'
+            ? pathname === '/dashboard'
+            : pathname === item.href || pathname.startsWith(item.href + '/')
           return (
             <Link
               key={item.href}
