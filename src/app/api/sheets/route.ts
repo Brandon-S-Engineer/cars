@@ -38,10 +38,7 @@ export async function POST(req: Request) {
     try {
       resolvedName = await getSpreadsheetTitle(spreadsheetId)
     } catch {
-      return NextResponse.json(
-        { error: 'Could not access the spreadsheet. Make sure the service account has been granted Viewer access.' },
-        { status: 400 },
-      )
+      return NextResponse.json({ error: 'Could not access the spreadsheet. Make sure the service account has been granted Viewer access.' }, { status: 400 })
     }
   }
 
