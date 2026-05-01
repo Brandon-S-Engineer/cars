@@ -66,13 +66,24 @@ function ConnectSheetDialog({ onSuccess }: { onSuccess: () => void }) {
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger render={<Button size='sm'><Plus className='h-4 w-4 mr-1.5' />Connect sheet</Button>} />
+    <Dialog
+      open={open}
+      onOpenChange={setOpen}>
+      <DialogTrigger
+        render={
+          <Button size='sm'>
+            <Plus className='h-4 w-4 mr-1.5' />
+            Connect sheet
+          </Button>
+        }
+      />
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Connect a Google Sheet</DialogTitle>
         </DialogHeader>
-        <form onSubmit={handleSubmit(onSubmit)} className='space-y-4 pt-1'>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className='space-y-4 pt-1'>
           <div className='space-y-2'>
             <Label>Sheet URL or Spreadsheet ID</Label>
             <Input
@@ -80,27 +91,32 @@ function ConnectSheetDialog({ onSuccess }: { onSuccess: () => void }) {
               placeholder='https://docs.google.com/spreadsheets/d/...'
             />
             {errors.input && <p className='text-sm text-destructive'>{errors.input.message}</p>}
-            <p className='text-xs text-muted-foreground'>
-              Make sure the service account has been shared as a Viewer on this sheet.
-            </p>
+            <p className='text-xs text-muted-foreground'>Make sure the service account has been shared as a Viewer on this sheet.</p>
           </div>
           <div className='space-y-2'>
             <Label>
               Display name <span className='text-muted-foreground'>(optional)</span>
             </Label>
-            <Input {...register('name')} placeholder='Leave blank to use the sheet title' />
+            <Input
+              {...register('name')}
+              placeholder='Leave blank to use the sheet title'
+            />
           </div>
           <div className='space-y-2'>
             <Label>
               Range <span className='text-muted-foreground'>(optional)</span>
             </Label>
-            <Input {...register('range')} placeholder='Sheet1  or  Sheet1!A1:Z100' />
-            <p className='text-xs text-muted-foreground'>
-              Defaults to the first sheet. Use A1 notation to limit columns.
-            </p>
+            <Input
+              {...register('range')}
+              placeholder='Sheet1  or  Sheet1!A1:Z100'
+            />
+            <p className='text-xs text-muted-foreground'>Defaults to the first sheet. Use A1 notation to limit columns.</p>
           </div>
           {serverError && <p className='text-sm text-destructive'>{serverError}</p>}
-          <Button type='submit' className='w-full' disabled={loading}>
+          <Button
+            type='submit'
+            className='w-full'
+            disabled={loading}>
             {loading ? <Loader2 className='h-4 w-4 animate-spin mr-2' /> : null}
             Connect
           </Button>
@@ -121,10 +137,16 @@ function DisconnectDialog({ sheet, onSuccess }: { sheet: ConnectedSheet; onSucce
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog
+      open={open}
+      onOpenChange={setOpen}>
       <DialogTrigger
         render={
-          <Button variant='ghost' size='sm' className='text-muted-foreground hover:text-destructive' />
+          <Button
+            variant='ghost'
+            size='sm'
+            className='text-muted-foreground hover:text-destructive'
+          />
         }>
         <Trash2 className='h-4 w-4' />
       </DialogTrigger>
@@ -132,12 +154,18 @@ function DisconnectDialog({ sheet, onSuccess }: { sheet: ConnectedSheet; onSucce
         <DialogHeader>
           <DialogTitle>Disconnect &ldquo;{sheet.name}&rdquo;?</DialogTitle>
         </DialogHeader>
-        <p className='text-sm text-muted-foreground'>
-          This removes the connection from this dashboard. The Google Sheet itself will not be affected.
-        </p>
+        <p className='text-sm text-muted-foreground'>This removes the connection from this dashboard. The Google Sheet itself will not be affected.</p>
         <div className='flex justify-end gap-2 mt-4'>
-          <Button variant='outline' onClick={() => setOpen(false)}>Cancel</Button>
-          <Button variant='destructive' onClick={handleDelete}>Disconnect</Button>
+          <Button
+            variant='outline'
+            onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
+          <Button
+            variant='destructive'
+            onClick={handleDelete}>
+            Disconnect
+          </Button>
         </div>
       </DialogContent>
     </Dialog>
@@ -153,9 +181,7 @@ export default function SheetsList({ sheets }: { sheets: ConnectedSheet[] }) {
       <div className='flex items-center justify-between'>
         <div>
           <h1 className='text-xl font-semibold'>Google Sheets</h1>
-          <p className='text-sm text-muted-foreground mt-0.5'>
-            Connect sheets and view their data inside the dashboard.
-          </p>
+          <p className='text-sm text-muted-foreground mt-0.5'>Connect sheets and view their data inside the dashboard.</p>
         </div>
         <ConnectSheetDialog onSuccess={refresh} />
       </div>
@@ -167,9 +193,7 @@ export default function SheetsList({ sheets }: { sheets: ConnectedSheet[] }) {
               <Sheet className='h-5 w-5 text-muted-foreground' />
             </div>
             <p className='text-sm font-medium'>No sheets connected</p>
-            <p className='text-sm text-muted-foreground text-center max-w-xs'>
-              Connect a Google Sheet to view and explore its data here. Share your sheet with the service account first.
-            </p>
+            <p className='text-sm text-muted-foreground text-center max-w-xs'>Connect a Google Sheet to view and explore its data here. Share your sheet with the service account first.</p>
             <ConnectSheetDialog onSuccess={refresh} />
           </CardContent>
         </Card>
@@ -177,7 +201,9 @@ export default function SheetsList({ sheets }: { sheets: ConnectedSheet[] }) {
         <Card>
           <CardHeader className='pb-3'>
             <CardTitle className='text-base'>Connected sheets</CardTitle>
-            <CardDescription>{sheets.length} {sheets.length === 1 ? 'sheet' : 'sheets'} connected</CardDescription>
+            <CardDescription>
+              {sheets.length} {sheets.length === 1 ? 'sheet' : 'sheets'} connected
+            </CardDescription>
           </CardHeader>
           <CardContent className='p-0'>
             <div className='rounded-md border mx-6 mb-6'>
@@ -193,15 +219,13 @@ export default function SheetsList({ sheets }: { sheets: ConnectedSheet[] }) {
                 </thead>
                 <tbody>
                   {sheets.map((sheet) => (
-                    <tr key={sheet.id} className='border-b last:border-0 hover:bg-muted/30 transition-colors'>
+                    <tr
+                      key={sheet.id}
+                      className='border-b last:border-0 hover:bg-muted/30 transition-colors'>
                       <td className='px-4 py-3 font-medium'>{sheet.name}</td>
-                      <td className='px-4 py-3 font-mono text-xs text-muted-foreground truncate max-w-[180px]'>
-                        {sheet.spreadsheetId}
-                      </td>
+                      <td className='px-4 py-3 font-mono text-xs text-muted-foreground truncate max-w-[180px]'>{sheet.spreadsheetId}</td>
                       <td className='px-4 py-3 font-mono text-xs text-muted-foreground'>{sheet.range}</td>
-                      <td className='px-4 py-3 text-muted-foreground'>
-                        {new Date(sheet.createdAt).toLocaleDateString()}
-                      </td>
+                      <td className='px-4 py-3 text-muted-foreground'>{new Date(sheet.createdAt).toLocaleDateString()}</td>
                       <td className='px-4 py-3'>
                         <div className='flex items-center gap-1'>
                           <Link
@@ -210,7 +234,10 @@ export default function SheetsList({ sheets }: { sheets: ConnectedSheet[] }) {
                             <ExternalLink className='h-3.5 w-3.5 mr-1.5' />
                             View
                           </Link>
-                          <DisconnectDialog sheet={sheet} onSuccess={refresh} />
+                          <DisconnectDialog
+                            sheet={sheet}
+                            onSuccess={refresh}
+                          />
                         </div>
                       </td>
                     </tr>
