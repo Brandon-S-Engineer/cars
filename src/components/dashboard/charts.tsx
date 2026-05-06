@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, useEffect, useMemo } from 'react'
+import { useRef, useState, useEffect, useMemo, useId } from 'react'
 import { cn } from '@/lib/utils'
 
 // ─── LineChart ──────────────────────────────────────────────────────────────
@@ -232,7 +232,8 @@ export function Sparkline({
   height?: number
   fill?: boolean
 }) {
-  const gradId = useMemo(() => 's' + Math.random().toString(36).slice(2), [])
+  const rawId = useId()
+  const gradId = 'spark' + rawId.replace(/:/g, '')
   if (!data || data.length === 0) return null
 
   const max = Math.max(...data)
