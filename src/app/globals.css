@@ -1,8 +1,20 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
+
+@keyframes row-flash {
+  0%   { background-color: transparent; }
+  20%  { background-color: oklch(0.85 0.15 85 / 0.5); }
+  50%  { background-color: oklch(0.85 0.15 85 / 0.7); }
+  80%  { background-color: oklch(0.85 0.15 85 / 0.5); }
+  100% { background-color: transparent; }
+}
+.row-flash {
+  animation: row-flash 1.8s ease-in-out;
+}
 
 @theme inline {
   --color-background: var(--background);

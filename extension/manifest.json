@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Inventario Sync — Automundo",
+  "version": "1.0",
+  "description": "Sincroniza el inventario de Google Sheets al dashboard con un clic.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://docs.google.com/spreadsheets/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": [
+    "https://docs.google.com/",
+    "http://localhost:3000/"
+  ]
+}

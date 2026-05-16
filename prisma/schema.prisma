@@ -53,38 +53,21 @@ enum Role {
   USER
 }
 
-model StripeTransaction {
-  id            String   @id @default(cuid())
-  stripeId      String   @unique
-  customerEmail String
-  amount        Int
-  currency      String   @default("usd")
-  status        String
-  stripeCreatedAt DateTime
-
-  createdAt     DateTime @default(now())
+model GoogleOAuthToken {
+  id           String   @id @default("singleton")
+  accessToken  String
+  refreshToken String?
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
-model StripeSubscription {
-  id                   String   @id @default(cuid())
-  stripeSubscriptionId String   @unique
-  stripeCustomerId     String
-  customerEmail        String
-  status               String
-  planName             String
-  currentPeriodEnd     DateTime
-  cancelAtPeriodEnd    Boolean  @default(false)
-
-  createdAt            DateTime @default(now())
-  updatedAt            DateTime @updatedAt
-}
-
-model ConnectedSheet {
-  id            String   @id @default(cuid())
-  name          String
-  spreadsheetId String
-  range         String   @default("Sheet1")
-
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+model InventarioConfig {
+  id            String    @id @default("singleton")
+  spreadsheetId String    @default("")
+  sheetName     String    @default("Sheet1")
+  cachedCsv     String?
+  lastSyncAt    DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }

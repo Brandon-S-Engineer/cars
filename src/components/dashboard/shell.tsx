@@ -26,7 +26,7 @@ export default function DashboardShell({ user, children }: { user: { name: strin
   }
 
   return (
-    <div className='flex min-h-screen bg-background text-foreground'>
+    <div className='flex min-h-screen bg-sidebar text-foreground'>
       <Sidebar collapsed={collapsed} />
       <div className='flex-1 min-w-0 flex flex-col'>
         <TopBar

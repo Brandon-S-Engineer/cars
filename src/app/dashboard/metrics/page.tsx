@@ -1,5 +1,4 @@
 import { prisma } from '@/lib/db'
-import { stripe } from '@/lib/stripe'
 import MetricsClient from '@/components/dashboard/metrics-client'
 
 function seededRng(seed: number) {
@@ -40,49 +39,11 @@ function generateDailyData() {
   return data
 }
 
-async function fetchTransactions() {
-  try {
-    const list = await stripe.paymentIntents.list({
-      limit: 20,
-      expand: ['data.latest_charge', 'data.customer'],
-    })
-    return list.data.map((pi) => {
-      const charge = pi.latest_charge as import('stripe').Stripe.Charge | null
-      const customer = pi.customer as import('stripe').Stripe.Customer | null
-
-      let customerEmail = pi.receipt_email ?? ''
-      if (!customerEmail && customer && !('deleted' in customer) && customer.email) {
-        customerEmail = customer.email
-      }
-      if (!customerEmail && charge?.billing_details?.email) {
-        customerEmail = charge.billing_details.email
-      }
-
-      const isRefunded = charge?.refunded ?? false
-      const status = isRefunded ? 'refunded' : pi.status === 'succeeded' ? 'paid' : 'failed'
-      return {
-        id: pi.id,
-        customerEmail: customerEmail || '—',
-        amount: pi.amount,
-        currency: pi.currency,
-        status,
-        date: pi.created,
-      }
-    })
-  } catch (err) {
-    console.error('[transactions] fetch failed:', err)
-    return []
-  }
-}
-
 export default async function MetricsPage() {
-  const [[totalUsers, adminUsers, regularUsers], transactions] = await Promise.all([
-    Promise.all([
-      prisma.user.count(),
-      prisma.user.count({ where: { role: 'ADMIN' } }),
-      prisma.user.count({ where: { role: 'USER' } }),
-    ]),
-    fetchTransactions(),
+  const [totalUsers, adminUsers, regularUsers] = await Promise.all([
+    prisma.user.count(),
+    prisma.user.count({ where: { role: 'ADMIN' } }),
+    prisma.user.count({ where: { role: 'USER' } }),
   ])
 
   const monthly = generateMonthlyData(totalUsers)
@@ -95,7 +56,6 @@ export default async function MetricsPage() {
       regularUsers={regularUsers}
       monthly={monthly}
       daily={daily}
-      transactions={transactions}
     />
   )
 }

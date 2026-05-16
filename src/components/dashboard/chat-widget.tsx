@@ -1,9 +1,20 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import { Bot, Loader2, MessageSquare, Send, Trash2, User, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
+import ReactMarkdown from 'react-markdown'
+import { useInventarioHighlight } from '@/lib/inventario-highlight-store'
+
+// Convert "JEEP #11" / "TRANSITO IMA / AMSA #36" to markdown links
+function linkifyRefs(text: string): string {
+  return text.replace(
+    /(JEEP|MAINSTREAM|LCV|TRANSITO IMA \/ AMSA) #(\d+)/g,
+    (_, tab, num) => `[${tab} #${num}](inventario://${encodeURIComponent(tab)}/${num})`,
+  )
+}
 
 type Role = 'user' | 'assistant'
 
@@ -64,12 +75,30 @@ async function* streamCompletion(messages: { role: Role; content: string }[]) {
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
-  const [messages, setMessages] = useState<Message[]>([])
+  const [messages, setMessages] = useState<Message[]>(() => {
+    if (typeof window === 'undefined') return []
+    try { return JSON.parse(localStorage.getItem('chat-messages') ?? '[]') } catch { return [] }
+  })
   const [input, setInput] = useState('')
   const [streaming, setStreaming] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const pathname = usePathname()
+  const router = useRouter()
+  const setHighlight = useInventarioHighlight((s) => s.setHighlight)
+
+  // Persist messages to localStorage on every change
+  useEffect(() => {
+    try { localStorage.setItem('chat-messages', JSON.stringify(messages)) } catch {}
+  }, [messages])
+
+  const handleInventarioRef = useCallback((tab: string, rowNum: number) => {
+    setHighlight(tab, rowNum)
+    if (!pathname.includes('inventario')) {
+      router.push('/dashboard/inventario')
+    }
+  }, [pathname, router, setHighlight])
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -129,7 +158,7 @@ export default function ChatWidget() {
       {/* Chat panel */}
       {open && (
         <div
-          className='fixed bottom-[4.5rem] right-6 z-50 w-[380px] max-w-[calc(100vw-1.5rem)] flex flex-col rounded-xl border border-border bg-popover text-popover-foreground shadow-xl overflow-hidden'
+          className='fixed bottom-[4.5rem] right-6 z-50 w-[520px] max-w-[calc(100vw-1.5rem)] flex flex-col rounded-xl border border-border bg-popover text-popover-foreground shadow-xl overflow-hidden'
           style={{ maxHeight: 'min(580px, calc(100vh - 7rem))' }}>
           {/* Header */}
           <div className='flex items-center gap-2.5 px-4 py-3 border-b border-border shrink-0'>
@@ -144,7 +173,7 @@ export default function ChatWidget() {
               <Button
                 variant='ghost'
                 size='icon-sm'
-                onClick={() => !streaming && setMessages([])}
+                onClick={() => { if (!streaming) { setMessages([]); localStorage.removeItem('chat-messages') } }}
                 disabled={streaming}
                 title='Clear conversation'>
                 <Trash2 className='h-3.5 w-3.5' />
@@ -179,9 +208,32 @@ export default function ChatWidget() {
                   <div className={cn('h-6 w-6 rounded-full flex items-center justify-center shrink-0 mb-0.5', msg.role === 'assistant' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground')}>
                     {msg.role === 'assistant' ? <Bot className='h-3.5 w-3.5' /> : <User className='h-3.5 w-3.5' />}
                   </div>
-                  <div className={cn('max-w-[75%] px-3 py-2 rounded-xl text-sm leading-relaxed whitespace-pre-wrap break-words', msg.role === 'assistant' ? 'bg-muted text-foreground rounded-bl-none' : 'bg-primary text-primary-foreground rounded-br-none')}>
+                  <div className={cn('max-w-[75%] px-3 py-2 rounded-xl text-sm leading-relaxed break-words', msg.role === 'assistant' ? 'bg-muted text-foreground rounded-bl-none' : 'bg-primary text-primary-foreground rounded-br-none')}>
                     {msg.content !== '' ? (
-                      msg.content
+                      msg.role === 'assistant'
+                        ? <div className='prose prose-sm dark:prose-invert max-w-none prose-p:my-1 prose-ul:my-1 prose-li:my-0 prose-strong:font-semibold'>
+                            <ReactMarkdown
+                              components={{
+                                a: ({ href, children }) => {
+                                  if (href?.startsWith('inventario://')) {
+                                    const [tab, num] = href.replace('inventario://', '').split('/')
+                                    return (
+                                      <button
+                                        onClick={() => handleInventarioRef(decodeURIComponent(tab), Number(num))}
+                                        className='text-blue-400 font-semibold hover:underline cursor-pointer bg-transparent border-none p-0 leading-none'
+                                      >
+                                        {children}
+                                      </button>
+                                    )
+                                  }
+                                  return <a href={href}>{children}</a>
+                                },
+                              }}
+                            >
+                              {linkifyRefs(msg.content)}
+                            </ReactMarkdown>
+                          </div>
+                        : msg.content
                     ) : (
                       <span className='inline-flex items-center gap-1.5 text-muted-foreground'>
                         <Loader2 className='h-3 w-3 animate-spin' />

@@ -1,25 +1,14 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { ArrowUp, ArrowDown, RefreshCw } from 'lucide-react'
-import { useReactTable, getCoreRowModel, getSortedRowModel, getFilteredRowModel, getPaginationRowModel, flexRender, ColumnDef, SortingState } from '@tanstack/react-table'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { LineChart, BarChart, ProgressBar } from '@/components/dashboard/charts'
 import { cn } from '@/lib/utils'
 
 type DailyPoint = { date: string; users: number; signups: number; sessions: number }
 type MonthlyPoint = { month: string; users: number; sessions: number; revenue: number }
-
-type StripeTransaction = {
-  id: string
-  customerEmail: string
-  amount: number
-  currency: string
-  status: string
-  date: number
-}
 
 type Props = {
   totalUsers: number
@@ -27,7 +16,6 @@ type Props = {
   regularUsers: number
   monthly: MonthlyPoint[]
   daily: DailyPoint[]
-  transactions: StripeTransaction[]
 }
 
 const COUNTRIES = [
@@ -39,148 +27,7 @@ const COUNTRIES = [
   { c: 'Other', code: '··', v: 220, pct: 7 },
 ]
 
-const STATUS_STYLES: Record<string, string> = {
-  paid: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400',
-  failed: 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400',
-  refunded: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-400',
-}
-
-function fmtAmount(amount: number, currency: string) {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: currency.toUpperCase(),
-  }).format(amount / 100)
-}
-
-function TransactionsTable({ transactions }: { transactions: StripeTransaction[] }) {
-  const [sorting, setSorting] = useState<SortingState>([])
-  const [globalFilter, setGlobalFilter] = useState('')
-
-  const columns: ColumnDef<StripeTransaction>[] = useMemo(
-    () => [
-      {
-        accessorKey: 'customerEmail',
-        header: 'Customer',
-      },
-      {
-        accessorKey: 'amount',
-        header: 'Amount',
-        cell: ({ row }) => fmtAmount(row.getValue('amount'), row.original.currency),
-      },
-      {
-        accessorKey: 'status',
-        header: 'Status',
-        cell: ({ row }) => {
-          const s: string = row.getValue('status')
-          return (
-            <span className={cn('px-2 py-1 rounded-full text-xs font-medium', STATUS_STYLES[s] ?? 'bg-muted text-muted-foreground')}>
-              {s.charAt(0).toUpperCase() + s.slice(1)}
-            </span>
-          )
-        },
-      },
-      {
-        accessorKey: 'date',
-        header: 'Date',
-        cell: ({ row }) =>
-          new Date((row.getValue('date') as number) * 1000).toLocaleDateString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric',
-          }),
-      },
-    ],
-    [],
-  )
-
-  const table = useReactTable({
-    data: transactions,
-    columns,
-    state: { sorting, globalFilter },
-    onSortingChange: setSorting,
-    onGlobalFilterChange: setGlobalFilter,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    initialState: { pagination: { pageSize: 10 } },
-  })
-
-  return (
-    <Card>
-      <CardHeader className="pb-3">
-        <div className="flex items-center justify-between gap-3 flex-wrap">
-          <div>
-            <CardTitle className="text-base">Transactions</CardTitle>
-            <CardDescription>Recent Stripe payments (test mode)</CardDescription>
-          </div>
-          <Input
-            placeholder="Search..."
-            value={globalFilter}
-            onChange={(e) => setGlobalFilter(e.target.value)}
-            className="max-w-xs h-8 text-sm"
-          />
-        </div>
-      </CardHeader>
-      <CardContent className="p-0">
-        <div className="rounded-b-md border-t">
-          <table className="w-full text-sm">
-            <thead>
-              {table.getHeaderGroups().map((hg) => (
-                <tr key={hg.id} className="border-b bg-muted/50">
-                  {hg.headers.map((header) => (
-                    <th
-                      key={header.id}
-                      className="px-4 py-3 text-left font-medium text-muted-foreground cursor-pointer select-none"
-                      onClick={header.column.getToggleSortingHandler()}
-                    >
-                      {flexRender(header.column.columnDef.header, header.getContext())}
-                      {header.column.getIsSorted() === 'asc' ? ' ↑' : header.column.getIsSorted() === 'desc' ? ' ↓' : ''}
-                    </th>
-                  ))}
-                </tr>
-              ))}
-            </thead>
-            <tbody>
-              {table.getRowModel().rows.length === 0 ? (
-                <tr>
-                  <td colSpan={columns.length} className="px-4 py-8 text-center text-muted-foreground">
-                    No transactions found. Add a real Stripe test key to load data.
-                  </td>
-                </tr>
-              ) : (
-                table.getRowModel().rows.map((row) => (
-                  <tr key={row.id} className="border-b hover:bg-muted/30 transition-colors">
-                    {row.getVisibleCells().map((cell) => (
-                      <td key={cell.id} className="px-4 py-3">
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </td>
-                    ))}
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
-        <div className="flex items-center justify-between px-4 py-3">
-          <p className="text-sm text-muted-foreground">
-            Page {table.getState().pagination.pageIndex + 1} of {Math.max(1, table.getPageCount())}
-          </p>
-          <div className="flex gap-2">
-            <Button variant="outline" size="sm" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
-              Previous
-            </Button>
-            <Button variant="outline" size="sm" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
-              Next
-            </Button>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  )
-}
-
-export default function MetricsClient({ totalUsers, adminUsers: _adminUsers, regularUsers: _regularUsers, monthly, daily, transactions }: Props) {
+export default function MetricsClient({ totalUsers, adminUsers: _adminUsers, regularUsers: _regularUsers, monthly, daily }: Props) {
   const [range, setRange] = useState<'7d' | '30d' | '12m'>('30d')
 
   const data = range === '12m' ? monthly : daily
@@ -313,7 +160,6 @@ export default function MetricsClient({ totalUsers, adminUsers: _adminUsers, reg
         </Card>
       </div>
 
-      <TransactionsTable transactions={transactions} />
     </div>
   )
 }

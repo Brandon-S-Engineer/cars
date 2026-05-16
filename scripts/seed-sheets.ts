@@ -16,7 +16,7 @@ import { google } from 'googleapis'
 import { PrismaClient } from '@prisma/client'
 
 // ---------------------------------------------------------------------------
-// Env loading — same pattern as scripts/stripe-seed.ts
+// Env loading
 // ---------------------------------------------------------------------------
 function loadEnv() {
   const envPath = path.resolve(__dirname, '../.env')
@@ -52,8 +52,7 @@ interface SheetTab {
 
 /**
  * Monthly Revenue: MRR/ARR growth curve, expansion + churn breakdown.
- * Complements the individual Stripe transactions already in the DB by
- * showing the aggregate business-level view over time.
+ * Shows the aggregate business-level view over time.
  */
 function monthlyRevenue(): string[][] {
   const headers = ['Month', 'MRR ($)', 'ARR ($)', 'New MRR ($)', 'Expansion MRR ($)', 'Churned MRR ($)', 'Net New MRR ($)', 'Active Customers']
