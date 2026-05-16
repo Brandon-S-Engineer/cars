@@ -158,14 +158,16 @@ function buildStandardColumns(headers: string[], rows: string[][]): Col[] {
     }
   })
 
+  const listaSnap = listaCol as { idx: number } | null
+  const ofertaSnap = ofertaCol as { idx: number } | null
   const displayPrice: Col[] = []
-  if (listaCol) {
-    displayPrice.push({ label: 'Precio', idx: listaCol.idx, role: 'price' })
-    if (ofertaCol) {
-      displayPrice.push({ label: 'Oferta', idx: ofertaCol.idx, role: 'price', listaIdx: listaCol.idx })
+  if (listaSnap) {
+    displayPrice.push({ label: 'Precio', idx: listaSnap.idx, role: 'price' })
+    if (ofertaSnap) {
+      displayPrice.push({ label: 'Oferta', idx: ofertaSnap.idx, role: 'price', listaIdx: listaSnap.idx })
     }
-  } else if (ofertaCol) {
-    displayPrice.push({ label: 'Precio', idx: ofertaCol.idx, role: 'price' })
+  } else if (ofertaSnap) {
+    displayPrice.push({ label: 'Precio', idx: ofertaSnap.idx, role: 'price' })
   }
 
   // Safety net: if still no price found, look for any column with large numeric values
