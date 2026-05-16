@@ -8,10 +8,10 @@ import { cn } from '@/lib/utils'
 
 const NAV = [
   { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
+  { href: '/dashboard/inventario', label: 'Inventario', icon: Car },
   { href: '/dashboard/users', label: 'Users', icon: Users },
   { href: '/dashboard/metrics', label: 'Metrics', icon: BarChart2 },
   { href: '/dashboard/posts', label: 'Posts', icon: FileText },
-  { href: '/dashboard/inventario', label: 'Inventario', icon: Car },
   { href: '/dashboard/profile', label: 'Profile', icon: Settings },
 ]
 
@@ -22,9 +22,7 @@ export default function Sidebar({ collapsed = false, orgName = 'Edith' }: { coll
     <aside className={cn('h-screen border-r border-border bg-sidebar text-sidebar-foreground flex flex-col sticky top-0 transition-[width] duration-200 shrink-0', collapsed ? 'w-14' : 'w-[170px]')}>
       {/* Logo */}
       <div className={cn('flex items-center gap-2.5 px-4 h-14 border-b border-border', collapsed && 'justify-center px-0')}>
-        <div className='h-7 w-7 rounded-md bg-foreground text-background flex items-center justify-center shrink-0 text-[13px] font-bold'>
-          E
-        </div>
+        <div className='h-7 w-7 rounded-md bg-foreground text-background flex items-center justify-center shrink-0 text-[13px] font-bold'>E</div>
         {!collapsed && (
           <div className='flex-1 min-w-0'>
             <div className='text-sm font-semibold truncate'>{orgName}</div>

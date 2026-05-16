@@ -11,6 +11,13 @@ export async function GET() {
     create: { email: 'admin@test.com', name: 'Admin', password: hashedPassword, role: 'ADMIN' },
   })
 
+  const edithPassword = await bcrypt.hash('Eory2507', 10)
+  await prisma.user.upsert({
+    where: { email: 'edithia.07@gmail.com' },
+    update: {},
+    create: { email: 'edithia.07@gmail.com', name: 'Edith Soria', password: edithPassword, role: 'ADMIN' },
+  })
+
   const names = ['Sofia García', 'Carlos López', 'María Martínez', 'Juan Rodríguez', 'Ana Sánchez', 'Luis Hernández', 'Carmen Díaz', 'Pedro Morales']
 
   for (const name of names) {

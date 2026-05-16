@@ -1,7 +1,7 @@
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message.type !== 'SYNC_INVENTARIO') return true
 
-  fetch('http://localhost:3000/api/inventario/sync', {
+  fetch('https://cars-git-main-brandon-i-sorias-projects.vercel.app/api/inventario/sync', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ tabs: message.tabs, spreadsheetId: message.spreadsheetId }),
