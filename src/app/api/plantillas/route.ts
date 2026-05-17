@@ -13,7 +13,7 @@ export async function GET() {
   const session = await auth()
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  const plantillas = await prisma.plantilla.findMany({ orderBy: [{ orden: 'asc' }, { createdAt: 'asc' }] })
+  const plantillas = await prisma.plantilla.findMany({ orderBy: [{ orden: 'asc' }, { createdAt: 'desc' }] })
   return NextResponse.json(plantillas)
 }
 
