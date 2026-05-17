@@ -178,11 +178,12 @@ export default function PlantillasClient() {
     setPlantillas((prev) => [{ id: '__new__', pregunta: '', respuesta: '', orden: 0 }, ...prev])
   }
 
+  const normalize = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
   const filtered = search.trim()
     ? plantillas.filter(
         (p) =>
-          p.pregunta.toLowerCase().includes(search.toLowerCase()) ||
-          p.respuesta.toLowerCase().includes(search.toLowerCase()),
+          normalize(p.pregunta).includes(normalize(search)) ||
+          normalize(p.respuesta).includes(normalize(search)),
       )
     : plantillas
 
