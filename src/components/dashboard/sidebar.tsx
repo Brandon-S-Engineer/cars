@@ -2,17 +2,14 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, Users, BarChart2, Settings, FileText, Car, LogOut } from 'lucide-react'
+import { Settings, Car, LogOut, Megaphone } from 'lucide-react'
 import { signOut } from 'next-auth/react'
 import { cn } from '@/lib/utils'
 
 const NAV = [
-  { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
   { href: '/dashboard/inventario', label: 'Inventario', icon: Car },
-  { href: '/dashboard/users', label: 'Users', icon: Users },
-  { href: '/dashboard/metrics', label: 'Metrics', icon: BarChart2 },
-  { href: '/dashboard/posts', label: 'Posts', icon: FileText },
-  { href: '/dashboard/profile', label: 'Profile', icon: Settings },
+  { href: '/dashboard/anunciador', label: 'Anunciador', icon: Megaphone },
+  { href: '/dashboard/profile', label: 'Perfil', icon: Settings },
 ]
 
 export default function Sidebar({ collapsed = false, orgName = 'Edith' }: { collapsed?: boolean; orgName?: string }) {

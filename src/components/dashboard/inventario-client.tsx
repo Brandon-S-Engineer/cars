@@ -1,11 +1,13 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Car, RefreshCw, Loader2, AlertCircle, ExternalLink, ChevronUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 import { useInventarioHighlight } from '@/lib/inventario-highlight-store'
+import { type CarAnuncio, useAnunciador } from '@/lib/anunciador-store'
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -254,7 +256,7 @@ function NoDataState() {
 
 // ── Brand table ───────────────────────────────────────────────────────────────
 
-function BrandTable({ tab, search, highlightRow }: { tab: TabData; search: string; highlightRow: number | null }) {
+function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; search: string; highlightRow: number | null; onRowClick: (car: CarAnuncio) => void }) {
   const isTransito = tab.name === 'TRANSITO IMA / AMSA'
   const cols = useMemo(
     () => isTransito ? buildTransitoColumns(tab.headers) : buildStandardColumns(tab.headers, tab.rows),
@@ -337,8 +339,33 @@ function BrandTable({ tab, search, highlightRow }: { tab: TabData; search: strin
                 <tr
                   key={num}
                   data-row-num={num}
+                  onClick={() => {
+                    const getByLabel = (kw: string) => {
+                      const col = cols.find((c) => c.label.toLowerCase().includes(kw))
+                      return col ? (row[col.idx]?.trim() || null) : null
+                    }
+                    const precioCol = cols.find((c) => c.role === 'price' && c.listaIdx === undefined)
+                    const ofertaCol = cols.find((c) => c.listaIdx !== undefined)
+                    const listaRaw = precioCol ? (row[precioCol.idx] ?? '') : ''
+                    const ofertaRaw = ofertaCol ? (row[ofertaCol.idx] ?? '') : ''
+                    const listaNum = Number(listaRaw.replace(/[^0-9.]/g, ''))
+                    const ofertaNum = Number(ofertaRaw.replace(/[^0-9.]/g, ''))
+                    const añoCol = cols.find((c) => c.label === 'Modelo')
+                    onRowClick({
+                      tab: tab.name,
+                      num,
+                      descripcion: getByLabel('descrip') ?? getByLabel('modelo y'),
+                      año: añoCol ? (row[añoCol.idx]?.trim() || null) : null,
+                      precio: listaNum > 0 ? listaRaw : null,
+                      oferta: ofertaNum > 0 && ofertaNum !== listaNum ? ofertaRaw : null,
+                      colorExt: getByLabel('color ext'),
+                      colorInt: getByLabel('color int'),
+                      sucursal: getByLabel('sucursal') ?? getByLabel('ubicac'),
+                      status: kind,
+                    })
+                  }}
                   className={cn(
-                    'border-b last:border-0 transition-colors',
+                    'border-b last:border-0 transition-colors cursor-pointer',
                     num === highlightRow ? 'row-flash' : rowStyle(kind, num % 2 === 0),
                   )}
                 >
@@ -394,6 +421,8 @@ function BrandTable({ tab, search, highlightRow }: { tab: TabData; search: strin
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 export default function InventarioClient() {
+  const router = useRouter()
+  const setCar = useAnunciador((s) => s.setCar)
   const [data, setData] = useState<InventarioData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -569,7 +598,12 @@ export default function InventarioClient() {
         </div>
       </div>
 
-      <BrandTable tab={currentTab} search={search} highlightRow={highlightRow} />
+      <BrandTable
+        tab={currentTab}
+        search={search}
+        highlightRow={highlightRow}
+        onRowClick={(car) => { setCar(car); router.push('/dashboard/anunciador') }}
+      />
 
       {/* Scroll to top */}
       {scrolled && (
