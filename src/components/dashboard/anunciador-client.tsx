@@ -19,7 +19,7 @@ function generatePost(car: CarAnuncio): string {
   const lines: string[] = []
 
   const titulo = [car.año, car.descripcion].filter(Boolean).join(' ')
-  if (titulo) lines.push(`🚗 ${titulo}`)
+  if (titulo) lines.push(titulo)
   lines.push('')
 
   const listaNum = car.precio ? Number(car.precio.replace(/[^0-9.]/g, '')) : 0
@@ -27,24 +27,23 @@ function generatePost(car: CarAnuncio): string {
   const tieneOferta = ofertaNum > 0 && ofertaNum !== listaNum
 
   if (tieneOferta && car.precio) {
-    lines.push(`🔥 Precio especial: ${fmt(car.oferta!)}`)
-    lines.push(`   Precio lista: ${fmt(car.precio)}`)
+    lines.push(`Precio especial: ${fmt(car.oferta!)}`)
+    lines.push(`Precio lista: ${fmt(car.precio)}`)
   } else if (car.precio) {
-    lines.push(`💰 Precio: ${fmt(car.precio)}`)
+    lines.push(`Precio: ${fmt(car.precio)}`)
   }
   lines.push('')
 
-  if (car.colorExt) lines.push(`🎨 Color exterior: ${car.colorExt}`)
-  if (car.colorInt) lines.push(`🎨 Color interior: ${car.colorInt}`)
-  if (car.sucursal) lines.push(`📍 Sucursal: ${car.sucursal}`)
+  if (car.colorExt) lines.push(`Color exterior: ${car.colorExt}`)
+  if (car.colorInt) lines.push(`Color interior: ${car.colorInt}`)
   lines.push('')
 
-  if (car.status === 'normal') lines.push('✅ ¡Disponible para entrega inmediata!')
-  else if (car.status === 'demo') lines.push('🏷️ Unidad de exhibición disponible para venta')
-  else if (car.status === 'reservado' || car.status === 'demo-reservado') lines.push('⚠️ Unidad actualmente apartada')
+  if (car.status === 'normal') lines.push('Disponible para entrega inmediata.')
+  else if (car.status === 'demo') lines.push('Unidad de exhibicion disponible para venta.')
+  else if (car.status === 'reservado' || car.status === 'demo-reservado') lines.push('Unidad actualmente apartada.')
   lines.push('')
 
-  lines.push('¿Te interesa? ¡Escríbeme! 📲')
+  lines.push('Escribeme para mas informacion.')
 
   return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim()
 }
