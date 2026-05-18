@@ -67,7 +67,10 @@ const STANDARD_ORDER: Record<string, number> = {
 }
 
 // Transito columns to skip
-const TRANSITO_SKIP = new Set(['no.', 'no', 'n°', 'marca'])
+const TRANSITO_SKIP = new Set(['no.', 'no', 'n°'])
+
+// Priority order for TRANSITO columns
+const TRANSITO_PRIORITY = ['unidad', 'color', 'marca', 'modelo', 'distribuidor', 'vin']
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -192,13 +195,22 @@ function buildStandardColumns(headers: string[], rows: string[][]): Col[] {
   return [...displayPrice, ...rest]
 }
 
-// TRANSITO IMA/ AMSA: different schema, just skip row numbers and brand
+// TRANSITO IMA/ AMSA: different schema, priority columns first then the rest
 function buildTransitoColumns(headers: string[]): Col[] {
-  return headers.flatMap((h, i) => {
+  const all = headers.flatMap((h, i) => {
     const key = h.toLowerCase().trim()
     if (TRANSITO_SKIP.has(key) || !key) return []
     return [{ label: h.trim(), idx: i, role: 'other' as ColRole }]
   })
+  const priority: Col[] = []
+  const rest: Col[] = []
+  for (const col of all) {
+    const key = col.label.toLowerCase().trim()
+    const rank = TRANSITO_PRIORITY.indexOf(key)
+    if (rank >= 0) priority[rank] = col
+    else rest.push(col)
+  }
+  return [...priority.filter(Boolean), ...rest]
 }
 
 // ── Row styling ───────────────────────────────────────────────────────────────
