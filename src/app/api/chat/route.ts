@@ -45,7 +45,7 @@ const INVENTORY_TOOL = {
         },
         marca: {
           type: 'string',
-          description: 'Tab del inventario: JEEP, MAINSTREAM, LCV, o TRANSITO IMA / AMSA',
+          description: 'Tab del inventario: JEEP, MAINSTREAM, LCV, o TRANSITO IMA/ AMSA',
         },
         excluir_reservados: {
           type: 'boolean',
@@ -241,7 +241,7 @@ Tu trabajo es ayudarle a responder preguntas de clientes sobre disponibilidad de
 REGLAS:
 - Cuando un cliente pregunte por un auto, SIEMPRE llama a buscar_inventario antes de responder. Nunca respondas sobre disponibilidad sin haberla consultado.
 - Al presentar resultados: incluye la referencia exacta, el nombre del auto (nombre:), precio (precio:), precio de oferta si existe y es diferente (oferta:), color exterior, color interior, sucursal y status.
-- IMPORTANTE: la referencia viene como "NOMBRE_TABLA #número" (ej: "JEEP #11", "MAINSTREAM #5", "TRANSITO IMA / AMSA #394"). Copia SIEMPRE el nombre exacto de la tabla que aparece antes del # — nunca lo sustituyas por otro.
+- IMPORTANTE: la referencia viene como "NOMBRE_TABLA #número" (ej: "JEEP #11", "MAINSTREAM #5", "TRANSITO IMA/ AMSA #394"). Copia SIEMPRE el nombre exacto de la tabla que aparece antes del # — nunca lo sustituyas por otro.
 - Los colores están etiquetados ext: (exterior) e int: (interior). La sucursal aparece como sucursal:XXXX.
 - Unidades [RESERVADO por otro cliente]: ya están apartadas, no contarlas como disponibles — mencionarlo claramente.
 - Unidades [DEMO disponible]: son de exhibición pero también se venden.

@@ -28,7 +28,7 @@ type ColRole = 'price' | 'vin' | 'eco' | 'other'
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
-const BRAND_ORDER = ['JEEP', 'MAINSTREAM', 'LCV', 'TRANSITO IMA / AMSA']
+const BRAND_ORDER = ['JEEP', 'MAINSTREAM', 'LCV', 'TRANSITO IMA/ AMSA']
 
 const SORT_ORDER: Record<RowKind, number> = {
   demo: 0,
@@ -192,7 +192,7 @@ function buildStandardColumns(headers: string[], rows: string[][]): Col[] {
   return [...displayPrice, ...rest]
 }
 
-// TRANSITO IMA / AMSA: different schema, just skip row numbers and brand
+// TRANSITO IMA/ AMSA: different schema, just skip row numbers and brand
 function buildTransitoColumns(headers: string[]): Col[] {
   return headers.flatMap((h, i) => {
     const key = h.toLowerCase().trim()
@@ -257,7 +257,7 @@ function NoDataState() {
 // ── Brand table ───────────────────────────────────────────────────────────────
 
 function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; search: string; highlightRow: number | null; onRowClick: (car: CarAnuncio) => void }) {
-  const isTransito = tab.name === 'TRANSITO IMA / AMSA'
+  const isTransito = tab.name === 'TRANSITO IMA/ AMSA'
   const cols = useMemo(
     () => isTransito ? buildTransitoColumns(tab.headers) : buildStandardColumns(tab.headers, tab.rows),
     [tab, isTransito]
