@@ -44,6 +44,11 @@ function generatePost(car: CarAnuncio): string {
   lines.push('')
 
   lines.push('Escribeme para mas informacion.')
+  lines.push('')
+  lines.push('Somos agencia.')
+  lines.push('Planes de crédito y arrendamiento.')
+  lines.push('Desgloce de IVA.')
+  lines.push('Tomamos coches a cuenta.')
 
   return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim()
 }
