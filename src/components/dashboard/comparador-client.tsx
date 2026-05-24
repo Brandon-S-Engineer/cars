@@ -1,100 +1,52 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { GitCompareArrows, X, Plus } from 'lucide-react'
+import { GitCompareArrows, ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { FICHAS, MODELOS, fichaLabel, type FichaTecnica } from '@/lib/fichas-data'
+import { MODELOS, modeloLabel, type ModeloFicha, type Version } from '@/lib/fichas-data'
 
-// ── Selector de ficha ─────────────────────────────────────────────────────────
+// ── Selector de modelo+año ────────────────────────────────────────────────────
 
-function FichaSelector({
+function ModeloSelector({
   value,
-  onSelect,
-  onRemove,
-  usedIds,
-  removable,
+  onChange,
 }: {
-  value: string | null
-  onSelect: (id: string) => void
-  onRemove: () => void
-  usedIds: string[]
-  removable: boolean
+  value: ModeloFicha
+  onChange: (m: ModeloFicha) => void
 }) {
   const [open, setOpen] = useState(false)
 
-  const fichaActual = value ? FICHAS.find((f) => f.id === value) : null
-
   return (
     <div className="relative">
-      <div
+      <button
+        onClick={() => setOpen((o) => !o)}
         className={cn(
-          'flex items-center gap-2 rounded-xl border bg-card px-3 py-2.5 cursor-pointer hover:border-foreground/30 transition-colors min-w-[200px]',
+          'flex items-center gap-2 rounded-xl border bg-card px-4 py-2.5 text-sm font-medium transition-colors hover:border-foreground/30',
           open && 'border-foreground/40 ring-1 ring-foreground/20',
-        )}
-        onClick={() => setOpen((o) => !o)}>
-        {fichaActual ? (
-          <div className="flex-1 min-w-0">
-            <div className="text-xs text-muted-foreground">{fichaActual.modelo}</div>
-            <div className="text-sm font-semibold">
-              {fichaActual.año} {fichaActual.version}
-            </div>
-          </div>
-        ) : (
-          <div className="flex-1 text-sm text-muted-foreground">Seleccionar versión…</div>
-        )}
-        <div className="flex items-center gap-1">
-          {removable && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                onRemove()
-              }}
-              className="p-0.5 rounded hover:bg-destructive/10 hover:text-destructive transition-colors">
-              <X className="h-3.5 w-3.5" />
-            </button>
-          )}
-        </div>
-      </div>
+        )}>
+        <span className="text-muted-foreground text-xs mr-1">Auto</span>
+        {modeloLabel(value)}
+        <ChevronDown className={cn('h-4 w-4 text-muted-foreground transition-transform', open && 'rotate-180')} />
+      </button>
 
       {open && (
         <>
           <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
-          <div className="absolute top-full left-0 mt-1 z-20 w-64 rounded-xl border bg-popover shadow-lg overflow-hidden">
-            {MODELOS.map((modelo) => {
-              const fichasModelo = FICHAS.filter((f) => f.modelo === modelo)
-              return (
-                <div key={modelo}>
-                  <div className="px-3 pt-2.5 pb-1 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
-                    {modelo}
-                  </div>
-                  {fichasModelo.map((ficha) => {
-                    const disabled = usedIds.includes(ficha.id) && ficha.id !== value
-                    return (
-                      <button
-                        key={ficha.id}
-                        disabled={disabled}
-                        onClick={() => {
-                          onSelect(ficha.id)
-                          setOpen(false)
-                        }}
-                        className={cn(
-                          'w-full text-left px-3 py-2 text-sm flex items-center justify-between transition-colors',
-                          ficha.id === value
-                            ? 'bg-foreground text-background font-medium'
-                            : disabled
-                              ? 'opacity-40 cursor-not-allowed'
-                              : 'hover:bg-accent',
-                        )}>
-                        <span>
-                          {ficha.año} {ficha.version}
-                        </span>
-                      </button>
-                    )
-                  })}
-                </div>
-              )
-            })}
+          <div className="absolute top-full left-0 mt-1 z-20 w-60 rounded-xl border bg-popover shadow-lg overflow-hidden py-1">
+            {MODELOS.map((m) => (
+              <button
+                key={m.id}
+                onClick={() => { onChange(m); setOpen(false) }}
+                className={cn(
+                  'w-full text-left px-4 py-2 text-sm flex items-center justify-between transition-colors',
+                  m.id === value.id
+                    ? 'bg-foreground text-background font-medium'
+                    : 'hover:bg-accent',
+                )}>
+                {modeloLabel(m)}
+                <span className="text-xs opacity-60">{m.versiones.length} versiones</span>
+              </button>
+            ))}
           </div>
         </>
       )}
@@ -102,30 +54,65 @@ function FichaSelector({
   )
 }
 
+// ── Toggle de versiones ───────────────────────────────────────────────────────
+
+function VersionesToggle({
+  versiones,
+  selectedIds,
+  onToggle,
+}: {
+  versiones: Version[]
+  selectedIds: string[]
+  onToggle: (id: string) => void
+}) {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="text-xs text-muted-foreground mr-1">Versiones:</span>
+      {versiones.map((v, idx) => {
+        const active = selectedIds.includes(v.id)
+        return (
+          <button
+            key={v.id}
+            onClick={() => onToggle(v.id)}
+            className={cn(
+              'px-3.5 py-1.5 rounded-full text-sm font-medium border transition-colors',
+              active
+                ? 'bg-foreground text-background border-foreground'
+                : 'bg-background text-muted-foreground border-border hover:text-foreground hover:border-foreground/40',
+            )}>
+            {v.nombre}
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
 // ── Tabla comparadora ─────────────────────────────────────────────────────────
 
 function ComparadorTabla({
-  fichas,
+  versiones,
   categoriaId,
   soloDiferencias,
 }: {
-  fichas: FichaTecnica[]
+  versiones: Version[]
   categoriaId: string
   soloDiferencias: boolean
 }) {
-  const categorias = categoriaId === 'todas'
-    ? fichas[0].categorias.map((c) => c.id)
+  const catIds = categoriaId === 'todas'
+    ? versiones[0].categorias.map((c) => c.id)
     : [categoriaId]
 
   return (
     <div className="rounded-xl border overflow-hidden">
-      {categorias.map((catId, catIdx) => {
-        const catRef = fichas[0].categorias.find((c) => c.id === catId)
+      {catIds.map((catId, catIdx) => {
+        const catRef = versiones[0].categorias.find((c) => c.id === catId)
         if (!catRef) return null
 
+        // Build canonical label set from first version's category
         const rows = catRef.specs.map((spec) => {
-          const valores = fichas.map((ficha) => {
-            const cat = ficha.categorias.find((c) => c.id === catId)
+          const valores = versiones.map((v) => {
+            const cat = v.categorias.find((c) => c.id === catId)
             return cat?.specs.find((s) => s.label === spec.label)?.valor ?? '—'
           })
           const hayDiferencia = new Set(valores).size > 1
@@ -137,7 +124,6 @@ function ComparadorTabla({
 
         return (
           <div key={catId}>
-            {/* Encabezado de categoría */}
             <div
               className={cn(
                 'px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground bg-muted/40 border-b',
@@ -149,33 +135,31 @@ function ComparadorTabla({
             {rowsFiltrados.map((row, rowIdx) => (
               <div
                 key={row.label}
-                className={cn(
-                  'grid border-b last:border-b-0',
-                  row.hayDiferencia && 'bg-amber-50/60 dark:bg-amber-950/20',
-                )}
-                style={{ gridTemplateColumns: `220px repeat(${fichas.length}, 1fr)` }}>
+                className={cn('grid border-b last:border-b-0')}
+                style={{ gridTemplateColumns: `200px repeat(${versiones.length}, 1fr)` }}>
                 {/* Label */}
                 <div
                   className={cn(
-                    'px-4 py-2.5 text-xs text-muted-foreground border-r flex items-center',
+                    'px-4 py-2.5 text-xs text-muted-foreground border-r flex items-center gap-1.5',
                     rowIdx % 2 === 0 ? 'bg-muted/20' : '',
-                    row.hayDiferencia && 'bg-amber-50/80 dark:bg-amber-950/30',
+                    row.hayDiferencia && 'bg-amber-50/70 dark:bg-amber-950/25',
                   )}>
                   {row.hayDiferencia && (
-                    <span className="mr-1.5 h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0 inline-block" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-500 shrink-0 inline-block" />
                   )}
                   {row.label}
                 </div>
 
-                {/* Valores por ficha */}
+                {/* Valores */}
                 {row.valores.map((valor, colIdx) => (
                   <div
                     key={colIdx}
                     className={cn(
                       'px-4 py-2.5 text-sm border-r last:border-r-0',
                       rowIdx % 2 === 0 ? 'bg-background' : 'bg-muted/10',
-                      row.hayDiferencia && colIdx === 0 && 'bg-amber-50/40 dark:bg-amber-950/10',
-                      row.hayDiferencia && colIdx === row.valores.length - 1 && 'bg-green-50/60 dark:bg-green-950/20 font-medium text-green-700 dark:text-green-400',
+                      row.hayDiferencia && 'bg-amber-50/30 dark:bg-amber-950/10',
+                      row.hayDiferencia && colIdx === versiones.length - 1 &&
+                        'bg-green-50/70 dark:bg-green-950/20 font-medium text-green-700 dark:text-green-400',
                     )}>
                     {valor}
                   </div>
@@ -191,76 +175,73 @@ function ComparadorTabla({
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 
-const TODAS_CATEGORIAS = { id: 'todas', nombre: 'Todas las categorías' }
+const TODAS = { id: 'todas', nombre: 'Todas' }
 
 export default function ComparadorClient() {
-  const [selectedIds, setSelectedIds] = useState<(string | null)[]>([
-    'commander-2025-overland',
-    'commander-2026-overland',
-  ])
+  const [modelo, setModelo] = useState<ModeloFicha>(MODELOS[0])
+  const [selectedIds, setSelectedIds] = useState<string[]>(() =>
+    MODELOS[0].versiones.map((v) => v.id),
+  )
   const [categoriaId, setCategoriaId] = useState('todas')
   const [soloDiferencias, setSoloDiferencias] = useState(false)
 
-  const fichasSeleccionadas = useMemo(
-    () => selectedIds.map((id) => (id ? FICHAS.find((f) => f.id === id) : null)).filter(Boolean) as FichaTecnica[],
-    [selectedIds],
+  const handleModeloChange = (m: ModeloFicha) => {
+    setModelo(m)
+    setSelectedIds(m.versiones.map((v) => v.id))
+    setCategoriaId('todas')
+    setSoloDiferencias(false)
+  }
+
+  const toggleVersion = (id: string) => {
+    setSelectedIds((prev) => {
+      if (prev.includes(id)) {
+        if (prev.length <= 2) return prev
+        return prev.filter((v) => v !== id)
+      }
+      return [...prev, id]
+    })
+  }
+
+  const versionesSeleccionadas = useMemo(
+    () => modelo.versiones.filter((v) => selectedIds.includes(v.id)),
+    [modelo, selectedIds],
   )
 
-  const listas = useMemo(() => {
-    if (fichasSeleccionadas.length === 0) return []
-    return [TODAS_CATEGORIAS, ...fichasSeleccionadas[0].categorias.map((c) => ({ id: c.id, nombre: c.nombre }))]
-  }, [fichasSeleccionadas])
+  const categoriaTabs = useMemo(() => {
+    if (versionesSeleccionadas.length === 0) return []
+    return [TODAS, ...versionesSeleccionadas[0].categorias.map((c) => ({ id: c.id, nombre: c.nombre }))]
+  }, [versionesSeleccionadas])
 
-  const usedIds = selectedIds.filter(Boolean) as string[]
-
-  const addSlot = () => setSelectedIds((prev) => [...prev, null])
-
-  const updateSlot = (idx: number, id: string) =>
-    setSelectedIds((prev) => prev.map((v, i) => (i === idx ? id : v)))
-
-  const removeSlot = (idx: number) =>
-    setSelectedIds((prev) => prev.filter((_, i) => i !== idx))
-
-  const listaCompleta = fichasSeleccionadas.length >= 2
+  const listo = versionesSeleccionadas.length >= 2
 
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h1 className="text-xl font-semibold">Comparador de versiones</h1>
-          <p className="text-sm text-muted-foreground mt-0.5">
-            Selecciona dos o más versiones para comparar sus especificaciones.
-          </p>
-        </div>
+      <div>
+        <h1 className="text-xl font-semibold">Comparador de versiones</h1>
+        <p className="text-sm text-muted-foreground mt-0.5">
+          Elige un auto y selecciona las versiones que quieras comparar.
+        </p>
       </div>
 
-      {/* Selectores */}
-      <div className="flex flex-wrap items-start gap-3">
-        {selectedIds.map((id, idx) => (
-          <FichaSelector
-            key={idx}
-            value={id}
-            usedIds={usedIds}
-            removable={selectedIds.length > 2}
-            onSelect={(newId) => updateSlot(idx, newId)}
-            onRemove={() => removeSlot(idx)}
-          />
-        ))}
-        {selectedIds.length < 4 && (
-          <Button variant="outline" size="sm" className="h-[62px] px-4 rounded-xl border-dashed gap-2" onClick={addSlot}>
-            <Plus className="h-4 w-4" />
-            Agregar
-          </Button>
-        )}
+      {/* Paso 1 — Modelo */}
+      <div className="flex flex-wrap items-center gap-4">
+        <ModeloSelector value={modelo} onChange={handleModeloChange} />
+
+        {/* Paso 2 — Versiones */}
+        <VersionesToggle
+          versiones={modelo.versiones}
+          selectedIds={selectedIds}
+          onToggle={toggleVersion}
+        />
       </div>
 
       {/* Filtros */}
-      {listaCompleta && (
+      {listo && (
         <div className="flex items-center justify-between gap-4 flex-wrap">
-          {/* Tabs de categoría */}
+          {/* Categorías */}
           <div className="flex items-center gap-1 flex-wrap">
-            {listas.map((cat) => (
+            {categoriaTabs.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setCategoriaId(cat.id)}
@@ -268,14 +249,14 @@ export default function ComparadorClient() {
                   'px-3 py-1.5 rounded-lg text-xs font-medium transition-colors',
                   categoriaId === cat.id
                     ? 'bg-foreground text-background'
-                    : 'bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80',
+                    : 'bg-muted text-muted-foreground hover:text-foreground',
                 )}>
                 {cat.nombre}
               </button>
             ))}
           </div>
 
-          {/* Toggle solo diferencias */}
+          {/* Solo diferencias */}
           <button
             onClick={() => setSoloDiferencias((v) => !v)}
             className={cn(
@@ -291,31 +272,29 @@ export default function ComparadorClient() {
       )}
 
       {/* Encabezados de columna */}
-      {listaCompleta && (
+      {listo && (
         <div
           className="grid rounded-xl border bg-card overflow-hidden"
-          style={{ gridTemplateColumns: `220px repeat(${fichasSeleccionadas.length}, 1fr)` }}>
+          style={{ gridTemplateColumns: `200px repeat(${versionesSeleccionadas.length}, 1fr)` }}>
           <div className="px-4 py-3 border-r text-xs text-muted-foreground font-medium">Especificación</div>
-          {fichasSeleccionadas.map((ficha, idx) => (
+          {versionesSeleccionadas.map((v, idx) => (
             <div
-              key={ficha.id}
+              key={v.id}
               className={cn(
                 'px-4 py-3 border-r last:border-r-0',
-                idx === fichasSeleccionadas.length - 1 && 'bg-green-50/50 dark:bg-green-950/10',
+                idx === versionesSeleccionadas.length - 1 && 'bg-green-50/50 dark:bg-green-950/10',
               )}>
-              <div className="text-[10px] text-muted-foreground uppercase tracking-wider">{ficha.modelo}</div>
-              <div className="text-sm font-bold">
-                {ficha.año} {ficha.version}
-              </div>
+              <div className="text-[10px] text-muted-foreground uppercase tracking-wider">{modelo.modelo} {modelo.año}</div>
+              <div className="text-sm font-bold">{v.nombre}</div>
             </div>
           ))}
         </div>
       )}
 
       {/* Tabla */}
-      {listaCompleta ? (
+      {listo ? (
         <ComparadorTabla
-          fichas={fichasSeleccionadas}
+          versiones={versionesSeleccionadas}
           categoriaId={categoriaId}
           soloDiferencias={soloDiferencias}
         />
@@ -326,16 +305,18 @@ export default function ComparadorClient() {
           </div>
           <div>
             <h2 className="text-base font-semibold">Selecciona al menos dos versiones</h2>
-            <p className="text-sm text-muted-foreground mt-1">Usa los selectores de arriba para elegir qué comparar.</p>
+            <p className="text-sm text-muted-foreground mt-1">
+              Activa las versiones con los botones de arriba.
+            </p>
           </div>
         </div>
       )}
 
       {/* Leyenda */}
-      {listaCompleta && !soloDiferencias && (
+      {listo && !soloDiferencias && (
         <p className="text-xs text-muted-foreground flex items-center gap-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-amber-500 inline-block" />
-          Las filas resaltadas indican especificaciones que difieren entre versiones. La última columna se resalta en verde.
+          Las filas resaltadas indican especificaciones que difieren entre versiones. La última columna seleccionada se resalta en verde.
         </p>
       )}
     </div>
