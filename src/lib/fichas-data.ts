@@ -310,14 +310,6 @@ export const MODELOS: ModeloFicha[] = [
       { id: 'overland-2026', nombre: 'Overland', categorias: COMMANDER_BASE_CATS('2026') },
     ],
   },
-  {
-    id: 'commander-2025',
-    modelo: 'Commander',
-    año: 2025,
-    versiones: [
-      { id: 'overland-2025', nombre: 'Overland', categorias: COMMANDER_BASE_CATS('2025') },
-    ],
-  },
 ]
 
 export function modeloLabel(m: ModeloFicha): string {

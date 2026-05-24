@@ -195,7 +195,7 @@ export default function ComparadorClient() {
   const toggleVersion = (id: string) => {
     setSelectedIds((prev) => {
       if (prev.includes(id)) {
-        if (prev.length <= 2) return prev
+        if (prev.length <= 1) return prev
         return prev.filter((v) => v !== id)
       }
       return [...prev, id]
@@ -212,7 +212,7 @@ export default function ComparadorClient() {
     return [TODAS, ...versionesSeleccionadas[0].categorias.map((c) => ({ id: c.id, nombre: c.nombre }))]
   }, [versionesSeleccionadas])
 
-  const listo = versionesSeleccionadas.length >= 2
+  const listo = versionesSeleccionadas.length >= 1
 
   return (
     <div className="space-y-6">
@@ -256,8 +256,8 @@ export default function ComparadorClient() {
             ))}
           </div>
 
-          {/* Solo diferencias */}
-          <button
+          {/* Solo diferencias — solo aplica cuando hay más de 1 versión */}
+          {versionesSeleccionadas.length > 1 && <button
             onClick={() => setSoloDiferencias((v) => !v)}
             className={cn(
               'flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors',
@@ -267,7 +267,7 @@ export default function ComparadorClient() {
             )}>
             <span className="h-1.5 w-1.5 rounded-full bg-amber-500 inline-block" />
             Solo diferencias
-          </button>
+          </button>}
         </div>
       )}
 
