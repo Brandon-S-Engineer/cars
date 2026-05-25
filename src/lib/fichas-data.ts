@@ -1503,6 +1503,136 @@ const PARTNER_FL_HDI_MAXI_PACK: Categoria[] = merge(PARTNER_FL_HDI_MAXI, {
   ],
 })
 
+// ─────────────────────────────────────────────────────────────────────────────
+// PEUGEOT 2008 FL 2026  —  Allure Pack (base) y GT
+// ─────────────────────────────────────────────────────────────────────────────
+
+const P2008_ALLURE: Categoria[] = [
+  {
+    id: 'desempeno', nombre: 'Desempeño', specs: [
+      { label: 'Motor',                  valor: 'PureTech 1.2L Turbo Gasolina (1,199 cc)' },
+      { label: 'Potencia',               valor: '130 hp @ 5,500 rpm' },
+      { label: 'Torque neto',            valor: '230 Nm @ 1,750 rpm' },
+      { label: 'Combustible',            valor: 'Gasolina' },
+      { label: 'Transmisión',            valor: 'Automática 6 velocidades (AT6)' },
+      { label: 'Tracción',               valor: 'Delantera (FWD)' },
+      { label: 'Dirección',              valor: 'Asistencia Eléctrica' },
+      { label: 'Suspensión delantera',   valor: 'Pseudo MacPherson' },
+      { label: 'Suspensión trasera',     valor: 'Barra de torsión' },
+      { label: 'Frenos delanteros',      valor: 'Discos ventilados' },
+      { label: 'Frenos traseros',        valor: 'Discos sólidos' },
+      { label: 'Velocidad máxima',       valor: '199 km/h' },
+      { label: 'Aceleración 0-100 km/h', valor: '10.2 s' },
+      { label: 'Tanque de combustible',  valor: '44 litros' },
+      { label: 'Consumo ciudad',         valor: '15.2 km/l' },
+      { label: 'Consumo carretera',      valor: '20.9 km/l' },
+      { label: 'Consumo combinado',      valor: '17.3 km/l' },
+      { label: 'Emisiones CO₂',          valor: '130.4 g/km' },
+    ],
+  },
+  {
+    id: 'dimensiones', nombre: 'Dimensiones y Capacidades', specs: [
+      { label: 'Largo',                  valor: '4,304 mm' },
+      { label: 'Ancho con retrovisores', valor: '1,987 mm' },
+      { label: 'Alto',                   valor: '1,523 – 1,550 mm' },
+      { label: 'Pasajeros',              valor: '5' },
+      { label: 'Puertas',                valor: '5' },
+      { label: 'Neumáticos',             valor: '215/60 R17' },
+      { label: 'Rines',                  valor: 'Aluminio 17" bi-tono' },
+      { label: 'Cajuela',                valor: '434 / 1,467 L' },
+      { label: 'Peso vehicular',         valor: '1,225 kg' },
+      { label: 'Peso bruto vehicular',   valor: '1,730 kg' },
+    ],
+  },
+  {
+    id: 'interior', nombre: 'Interior', specs: [
+      { label: 'Tapicería',                  valor: 'Tela y piel' },
+      { label: 'A/C',                        valor: 'Automático' },
+      { label: 'Asiento conductor',          valor: 'Confort — ajuste manual de altura y profundidad' },
+      { label: 'Asiento pasajero',           valor: 'Confort — ajuste manual de altura y profundidad' },
+      { label: 'Asientos calefactables',     valor: 'No incluidos' },
+      { label: 'Masaje conductor',           valor: 'No incluido' },
+      { label: 'Cargador inalámbrico',       valor: 'Sí' },
+      { label: 'Cristales',                  valor: 'Eléctricos delanteros y traseros One Touch, antipinzamiento' },
+      { label: 'Espejo retrovisor',          valor: 'Electrocrómico' },
+      { label: 'Freno de estacionamiento',   valor: 'Eléctrico' },
+      { label: 'Pack Ambience LED',          valor: 'No incluido' },
+      { label: 'Clúster',                    valor: 'Digital 10"' },
+      { label: 'Pantalla',                   valor: '10" HD táctil' },
+      { label: 'Audio',                      valor: 'AM/FM + conectividad inalámbrica + USB + Apple CarPlay® y Android Auto®' },
+      { label: 'Volante',                    valor: 'Multifunción diámetro reducido, ajuste altura y profundidad' },
+      { label: 'Toma de 12V',                valor: 'Sí' },
+    ],
+  },
+  {
+    id: 'exterior', nombre: 'Exterior', specs: [
+      { label: 'Faros',                  valor: 'LED con sensor de luz y lluvia' },
+      { label: 'Espejos laterales',      valor: 'Ajuste y plegado eléctrico' },
+      { label: 'Acceso',                 valor: 'Manos libres con botón de encendido' },
+      { label: 'Techo panorámico',       valor: 'Retráctil' },
+      { label: 'Acabado techo',          valor: 'Estándar' },
+      { label: 'Barras de techo',        valor: 'Negro brillante' },
+      { label: 'Cristales traseros',     valor: 'Tintados' },
+      { label: 'Colores disponibles',    valor: 'Blanco Okénite, Gris Artense, Gris Selenium, Rojo Elixir' },
+    ],
+  },
+  {
+    id: 'seguridad', nombre: 'Seguridad', specs: [
+      { label: 'ABS',                            valor: 'Sí' },
+      { label: 'ESP',                            valor: 'Desconectable' },
+      { label: 'AFU (frenado urgencia)',         valor: 'Sí' },
+      { label: 'Grip Control',                   valor: '3 modos + Hill Assist Descent Control' },
+      { label: 'Hill Assist',                    valor: 'Sí' },
+      { label: 'Bolsas de aire',                 valor: '6 (frontales + laterales fila 1 + cortina)' },
+      { label: 'Cámara de reversa',              valor: '180°' },
+      { label: 'Monitoreo ángulos muertos',      valor: 'No incluido' },
+      { label: 'Sensores estacionamiento',       valor: 'Delanteros y traseros' },
+      { label: 'Cierre centralizado auto.',      valor: 'Con bloqueo automático durante la conducción' },
+      { label: 'Control crucero',                valor: 'Sí + limitador de velocidad' },
+      { label: 'ISOFIX',                         valor: '3 puntos de sujeción' },
+      { label: 'Monitor presión neumáticos',     valor: 'Sí' },
+      { label: 'Llanta de refacción',            valor: '16"' },
+      { label: 'ADAS — Atención conductor',      valor: 'Sí' },
+      { label: 'ADAS — Colisión frontal',        valor: 'No incluida' },
+      { label: 'ADAS — Asistencia de carril',    valor: 'Sí' },
+      { label: 'ADAS — Reconocimiento señales',  valor: 'Sí' },
+      { label: 'ADAS — Luces automáticas',       valor: 'Sí' },
+    ],
+  },
+]
+
+const P2008_GT: Categoria[] = merge(P2008_ALLURE, {
+  interior: {
+    'Tapicería':              'Alcántara',
+    'Asiento conductor':      'Dynamic alcántara calefactable con ajuste eléctrico',
+    'Asiento pasajero':       'Dynamic alcántara con ajuste manual',
+    'Asientos calefactables': 'Sí (conductor)',
+    'Masaje conductor':       'Sí',
+    'Pack Ambience LED':      'Sí (8 colores)',
+    'Clúster':                '3D "Quartz" con efecto holográfico',
+  },
+  exterior: {
+    'Faros':          'FULL LED con sensor de luz y lluvia',
+    'Acabado techo':  '"Black Diamond"',
+  },
+  seguridad: {
+    'Cámara de reversa':        '360°',
+    'Monitoreo ángulos muertos':'Sí',
+    'ADAS — Colisión frontal':  'Sí + frenado de emergencia',
+  },
+})
+
+;(MODELOS as ModeloFicha[]).push({
+  id: '2008-fl-2026',
+  marca: 'Peugeot',
+  modelo: '2008 FL',
+  año: 2026,
+  versiones: [
+    { id: 'allure-pack', nombre: 'Allure Pack', categorias: P2008_ALLURE },
+    { id: 'gt',          nombre: 'GT',          categorias: P2008_GT },
+  ],
+})
+
 export function modeloLabel(m: ModeloFicha): string {
   return `${m.modelo} ${m.año}`
 }
