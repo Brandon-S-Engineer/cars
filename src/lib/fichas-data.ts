@@ -1030,6 +1030,111 @@ const RIFTER_HDI: Categoria[] = merge(RIFTER_PURETECH, {
   ],
 })
 
+// ─────────────────────────────────────────────────────────────────────────────
+// PEUGEOT MANAGER FL 2026  —  L2H2 (base) y L4H2 (carrocería larga)
+// ─────────────────────────────────────────────────────────────────────────────
+
+const MANAGER_FL_L2H2: Categoria[] = [
+  {
+    id: 'desempeno', nombre: 'Desempeño', specs: [
+      { label: 'Motor',                  valor: '2.2L Turbo Diésel Euro VI' },
+      { label: 'Potencia',               valor: '138 hp' },
+      { label: 'Torque neto',            valor: '350 Nm @ 1,400 rpm' },
+      { label: 'Combustible',            valor: 'Diésel' },
+      { label: 'Transmisión',            valor: 'Manual 6 velocidades' },
+      { label: 'Tracción',               valor: 'FWD' },
+      { label: 'Dirección',              valor: 'Asistencia Eléctrica (EPS)' },
+      { label: 'Suspensión delantera',   valor: 'McPherson' },
+      { label: 'Suspensión trasera',     valor: 'Barra de torsión' },
+      { label: 'Frenos delanteros',      valor: 'Discos' },
+      { label: 'Frenos traseros',        valor: 'Discos' },
+      { label: 'Velocidad máxima',       valor: '132 km/h' },
+      { label: 'Tanque de combustible',  valor: '90 litros' },
+      { label: 'Tanque AdBlue',          valor: '19 litros' },
+    ],
+  },
+  {
+    id: 'carga', nombre: 'Área de Carga', specs: [
+      { label: 'Volumen de carga',       valor: '11.5 m³' },
+      { label: 'Capacidad de carga',     valor: '1,850 kg' },
+      { label: 'Ancho área de carga',    valor: '1,870 mm' },
+      { label: 'Alto área de carga',     valor: '1,932 mm' },
+    ],
+  },
+  {
+    id: 'dimensiones', nombre: 'Dimensiones', specs: [
+      { label: 'Largo total',            valor: '5,413 mm' },
+      { label: 'Ancho total',            valor: '2,609 mm' },
+      { label: 'Alto total',             valor: '2,524 mm' },
+      { label: 'Peso vehicular',         valor: '2,010 kg' },
+      { label: 'Peso bruto vehicular',   valor: '4,005 kg' },
+      { label: 'Pasajeros',              valor: '2' },
+      { label: 'Neumáticos',             valor: '215/75/R16' },
+      { label: 'Rines',                  valor: 'Acero 16"' },
+    ],
+  },
+  {
+    id: 'interior', nombre: 'Interior', specs: [
+      { label: 'Tapicería',              valor: 'Tela' },
+      { label: 'A/C',                    valor: 'Manual' },
+      { label: 'Asiento conductor',      valor: 'Individual con ajuste manual' },
+      { label: 'Asiento(s) pasajero',    valor: 'Individual con ajuste manual' },
+      { label: 'Almacenamiento bajo asiento conductor', valor: 'No incluido' },
+      { label: 'Freno de estacionamiento', valor: 'Mecánico' },
+    ],
+  },
+  {
+    id: 'exterior', nombre: 'Exterior', specs: [
+      { label: 'Faros',                  valor: 'Halógeno' },
+      { label: 'Espejos laterales',      valor: 'Con ajuste eléctrico' },
+      { label: 'Señalizaciones laterales', valor: 'No incluidas' },
+      { label: 'Color disponible',       valor: 'Blanco Icy' },
+    ],
+  },
+  {
+    id: 'seguridad', nombre: 'Seguridad', specs: [
+      { label: 'ABS',                    valor: 'Sí' },
+      { label: 'ESP + ASR',              valor: 'Sí' },
+      { label: 'Bolsas de aire',         valor: 'Frontales conductor y pasajero' },
+      { label: 'Arranque en pendiente',  valor: 'Hill Assist Control' },
+      { label: 'Control crucero',        valor: 'Sí + limitador de velocidad' },
+      { label: 'Sensores estacionamiento', valor: 'Traseros' },
+      { label: 'Monitor presión llantas', valor: 'Sí' },
+      { label: 'Alerta atención conductor', valor: 'Sí' },
+      { label: 'Placa protección motor', valor: 'Sí' },
+    ],
+  },
+]
+
+const MANAGER_FL_L4H2: Categoria[] = merge(MANAGER_FL_L2H2, {
+  carga: {
+    'Volumen de carga': '15 m³',
+  },
+  dimensiones: {
+    'Largo total':    '6,363 mm',
+    'Peso vehicular': '2,155 kg',
+    'Pasajeros':      '3',
+  },
+  interior: {
+    'Asiento(s) pasajero':  'Banca "Eat&Work" para 2 pasajeros',
+    'Almacenamiento bajo asiento conductor': 'Sí',
+  },
+  exterior: {
+    'Señalizaciones laterales': 'Sí',
+  },
+})
+
+;(MODELOS as ModeloFicha[]).push({
+  id: 'manager-fl-2026',
+  marca: 'Peugeot',
+  modelo: 'Manager FL',
+  año: 2026,
+  versiones: [
+    { id: 'l2h2', nombre: 'L2H2', categorias: MANAGER_FL_L2H2 },
+    { id: 'l4h2', nombre: 'L4H2', categorias: MANAGER_FL_L4H2 },
+  ],
+})
+
 export function modeloLabel(m: ModeloFicha): string {
   return `${m.modelo} ${m.año}`
 }
