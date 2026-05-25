@@ -2441,6 +2441,230 @@ const RAM_1500_LIMITED: Categoria[] = merge(RAM_1500_LARAMIE, {
   ],
 })
 
+// RAM 700 2026
+// ─────────────────────────────────────────────────────────────────────────────
+
+const RAM_700_TRADESMAN_REG_CAB: Categoria[] = [
+  {
+    id: 'desempeno', nombre: 'Desempeño', specs: [
+      { label: 'Motor',                valor: '1.3L Firefly 4 cilindros' },
+      { label: 'Potencia',             valor: '98 HP @ 6,000 rpm' },
+      { label: 'Torque',               valor: '94 lb-ft @ 4,000 rpm' },
+      { label: 'Transmisión',          valor: 'Manual 5 velocidades con indicador electrónico' },
+      { label: 'Tracción',             valor: '4x2 FWD (Delantera)' },
+      { label: 'Dirección',            valor: 'Electroasistida' },
+      { label: 'Diámetro de giro',     valor: '10.7 m' },
+      { label: 'Frenos delanteros',    valor: 'Disco' },
+      { label: 'Frenos traseros',      valor: 'Tambor' },
+      { label: 'Suspensión delantera', valor: 'McPherson' },
+      { label: 'Suspensión trasera',   valor: 'Eje rígido de muelles longitudinales' },
+      { label: 'Consumo ciudad',       valor: '16.2 km/L' },
+      { label: 'Consumo carretera',    valor: '21.8 km/L' },
+      { label: 'Consumo combinado',    valor: '18.3 km/L' },
+    ],
+  },
+  {
+    id: 'dimensiones', nombre: 'Dimensiones y Capacidades', specs: [
+      { label: 'Largo',                   valor: '4,474 mm' },
+      { label: 'Ancho',                   valor: '1,732 mm' },
+      { label: 'Alto',                    valor: '1,595 mm' },
+      { label: 'Distancia entre ejes',    valor: '2,737 mm' },
+      { label: 'Pasajeros',               valor: '2' },
+      { label: 'Volumen de carga',        valor: '1,354 L' },
+      { label: 'Capacidad de carga',      valor: '750 kg' },
+      { label: 'Capacidad de arrastre',   valor: '400 kg' },
+      { label: 'Ancho carga máximo',      valor: '1,336 mm' },
+      { label: 'Altura de carga',         valor: '606 mm' },
+      { label: 'Longitud carga máxima',   valor: '1,717 mm' },
+      { label: 'Neumáticos',              valor: '185/60R15' },
+      { label: 'Rines',                   valor: 'Acero 15"' },
+      { label: 'Llanta de repuesto',      valor: 'Tamaño completo (debajo área de carga)' },
+      { label: 'Placa protectora cárter', valor: '—' },
+    ],
+  },
+  {
+    id: 'exterior', nombre: 'Exterior', specs: [
+      { label: 'Faros',                 valor: 'Halógeno' },
+      { label: 'DRL',                   valor: 'Halógeno' },
+      { label: 'Luces antiniebla',      valor: '—' },
+      { label: 'Micas delanteras',      valor: 'Parcialmente ahumadas' },
+      { label: 'Parrilla',              valor: 'Color negro R-A-M' },
+      { label: 'Fascia',                valor: 'Negra con texturizado' },
+      { label: 'Manijas',               valor: 'Negras con texturizado' },
+      { label: 'Espejos',               valor: 'Laterales negros manuales' },
+      { label: 'Puertas',               valor: '2' },
+      { label: 'Sensor temperatura',    valor: '—' },
+      { label: 'Compuerta combustible', valor: 'Manual' },
+      { label: 'Ganchos carga',         valor: '10' },
+      { label: 'Batea',                 valor: 'Recubrimiento Bedliner + cubierta lona + iluminación' },
+      { label: 'Barras techo',          valor: '—' },
+      { label: 'Roll Bar',              valor: '—' },
+      { label: 'Colores disponibles',   valor: 'Blanco, Plata, Rojo Colorado' },
+    ],
+  },
+  {
+    id: 'interior', nombre: 'Interior', specs: [
+      { label: 'Tapicería',              valor: 'Tela Heavy Duty gris obscuro' },
+      { label: 'A/C',                    valor: 'Manual' },
+      { label: 'Asiento conductor',      valor: 'Manual 4 posiciones' },
+      { label: 'Pasajeros 2ª fila',      valor: '—' },
+      { label: 'Volante',                valor: 'Con ajuste de altura' },
+      { label: 'Clúster',                valor: 'TFT 3.5"' },
+      { label: 'Pantalla',               valor: '7" — Apple CarPlay® y Android Auto inalámbrico' },
+      { label: 'Audio',                  valor: '2 bocinas + 2 tweeters' },
+      { label: 'Conectividad',           valor: 'USB + toma 12V' },
+      { label: 'Cargador inalámbrico',   valor: '—' },
+      { label: 'Modo sport',             valor: '—' },
+      { label: 'Paletas de cambios',     valor: '—' },
+      { label: 'Cristales traseros',     valor: '—' },
+      { label: 'Ventana trasera',        valor: 'Fija' },
+      { label: 'Desempañador trasero',   valor: '—' },
+      { label: 'Guantera iluminada',     valor: '—' },
+      { label: 'Memoria espejo reversa', valor: '—' },
+      { label: 'Descansabrazos',         valor: '—' },
+      { label: 'Tapetes',                valor: '—' },
+    ],
+  },
+  {
+    id: 'seguridad', nombre: 'Seguridad', specs: [
+      { label: 'Frenos ABS',            valor: 'Sí' },
+      { label: 'ESC',                   valor: 'Sí' },
+      { label: 'EBD',                   valor: 'Sí' },
+      { label: 'Control tracción (TC+)', valor: 'Sí' },
+      { label: 'Arranque en pendiente', valor: 'Sí' },
+      { label: 'Bolsas de aire',        valor: 'Delanteras + laterales delanteras' },
+      { label: 'Cámara',                valor: 'Reversa con guías activas' },
+      { label: 'Sensores reversa',      valor: 'Acústicos' },
+      { label: 'TPMS',                  valor: '—' },
+      { label: 'ISOFIX',                valor: '—' },
+      { label: 'Cinturones delanteros', valor: 'Con pretensores' },
+      { label: 'Cinturones traseros',   valor: '—' },
+      { label: 'Alarma antirrobo',      valor: 'Sí' },
+      { label: 'Llave de codificación', valor: 'Navaja con control remoto' },
+      { label: 'FPS',                   valor: 'Sí' },
+    ],
+  },
+]
+
+const RAM_700_TRADESMAN_CREW_CAB: Categoria[] = merge(RAM_700_TRADESMAN_REG_CAB, {
+  desempeno: {
+    'Consumo ciudad':    '16.7 km/L',
+    'Consumo carretera': '21.0 km/L',
+    'Consumo combinado': '18.4 km/L',
+  },
+  dimensiones: {
+    'Alto':                   '1,586 mm',
+    'Pasajeros':              'Hasta 5',
+    'Volumen de carga':       '844 L',
+    'Capacidad de carga':     '650 kg',
+    'Ancho carga máximo':     '1,310 mm',
+    'Longitud carga máxima':  '1,178 mm',
+    'Placa protectora cárter':'Sí',
+  },
+  exterior: {
+    'Puertas':       '4',
+    'Ganchos carga': '8',
+  },
+  interior: {
+    'Pasajeros 2ª fila':   '3 pasajeros con cabeceras',
+    'Audio':               '6 bocinas + 2 tweeters',
+    'Cristales traseros':  'Eléctricos',
+    'Desempañador trasero':'Sí',
+  },
+  seguridad: {
+    'ISOFIX':             'Sí',
+    'Cinturones traseros':'3 de 3 puntos',
+  },
+})
+
+const RAM_700_BIGHORN_MT: Categoria[] = merge(RAM_700_TRADESMAN_CREW_CAB, {
+  dimensiones: {
+    'Alto':  '1,585 mm',
+    'Rines': 'Acero 15" / aluminio 15" (opcional)',
+  },
+  exterior: {
+    'Luces antiniebla':    'Sí',
+    'Espejos':             'Eléctricos al color con direccionales',
+    'Fascia':              'Al color de la carrocería',
+    'Manijas':             'Al color de la carrocería',
+    'Sensor temperatura':  'Sí',
+    'Compuerta combustible':'Eléctrica',
+    'Colores disponibles': 'Blanco, Plata, Gris Cuarzo, Rojo Colorado',
+  },
+  interior: {
+    'Guantera iluminada':     'Sí',
+    'Memoria espejo reversa': 'Automática (espejo derecho en reversa)',
+  },
+  seguridad: {
+    'TPMS': 'Sí',
+  },
+})
+
+const RAM_700_BIGHORN_CVT: Categoria[] = merge(RAM_700_BIGHORN_MT, {
+  desempeno: {
+    'Transmisión':      'CVT',
+    'Consumo ciudad':   '16.2 km/L',
+    'Consumo carretera':'22.0 km/L',
+    'Consumo combinado':'18.4 km/L',
+  },
+  dimensiones: {
+    'Capacidad de carga': '600 kg',
+  },
+  interior: {
+    'Volante':            'Forrado en piel',
+    'Cargador inalámbrico':'Sí',
+    'Modo sport':         'Sí',
+    'Paletas de cambios': 'Sí',
+  },
+})
+
+const RAM_700_LARAMIE: Categoria[] = merge(RAM_700_BIGHORN_CVT, {
+  desempeno: {
+    'Motor':              '1.0L Turbo 3 cilindros',
+    'Potencia':           '118 HP @ 5,750 rpm',
+    'Torque':             '148 lb-ft @ 1,750 rpm',
+    'Diámetro de giro':   '10.8 m',
+    'Consumo ciudad':     '15.2 km/L',
+    'Consumo carretera':  '19.9 km/L',
+    'Consumo combinado':  '17.0 km/L',
+  },
+  dimensiones: {
+    'Largo':              '4,480 mm',
+    'Capacidad de carga': '650 kg',
+    'Neumáticos':         '205/55R16 ALL TERRAIN',
+    'Rines':              'Aluminio 16"',
+  },
+  exterior: {
+    'Faros':           'LED',
+    'DRL':             'LED',
+    'Luces antiniebla':'LED',
+    'Parrilla':        'Nueva fascia y parrilla R-A-M',
+    'Fascia':          'Al color + bisel plateado inferior',
+    'Barras techo':    'Longitudinales',
+    'Roll Bar':        'Sí',
+  },
+  interior: {
+    'Tapicería':      'Piel',
+    'A/C':            'Automático',
+    'Descansabrazos': 'Conductor',
+    'Tapetes':        'Con bordado LARAMIE',
+  },
+})
+
+;(MODELOS as ModeloFicha[]).push({
+  id: 'ram-700-2026',
+  marca: 'RAM',
+  modelo: 'RAM 700',
+  año: 2026,
+  versiones: [
+    { id: 'tradesman-reg-cab',  nombre: 'Tradesman Regular Cab', categorias: RAM_700_TRADESMAN_REG_CAB  },
+    { id: 'tradesman-crew-cab', nombre: 'Tradesman Crew Cab',    categorias: RAM_700_TRADESMAN_CREW_CAB },
+    { id: 'bighorn-mt',         nombre: 'Bighorn MT',            categorias: RAM_700_BIGHORN_MT         },
+    { id: 'bighorn-cvt',        nombre: 'Bighorn CVT',           categorias: RAM_700_BIGHORN_CVT        },
+    { id: 'laramie-cvt-turbo',  nombre: 'Laramie CVT Turbo',     categorias: RAM_700_LARAMIE            },
+  ],
+})
+
 export function modeloLabel(m: ModeloFicha): string {
   return `${m.modelo} ${m.año}`
 }
