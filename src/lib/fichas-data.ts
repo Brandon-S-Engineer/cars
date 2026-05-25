@@ -1433,6 +1433,7 @@ const PARTNER_FL_2027_HDI_MAXI_PACK: Categoria[] = merge(PARTNER_FL_HDI_MAXI_PAC
   año: 2027,
   versiones: [
     { id: 'puretech-gasolina', nombre: 'PureTech (Gasolina)', categorias: RIFTER_PURETECH },
+    { id: 'hdi-diesel',        nombre: 'HDI (Diésel)',        categorias: RIFTER_HDI       },
   ],
 })
 
