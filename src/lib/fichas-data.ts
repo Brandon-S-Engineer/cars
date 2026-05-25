@@ -1135,6 +1135,111 @@ const MANAGER_FL_L4H2: Categoria[] = merge(MANAGER_FL_L2H2, {
   ],
 })
 
+// ─────────────────────────────────────────────────────────────────────────────
+// DODGE DURANGO HELLCAT ROAD PREDATOR EDITION 2026
+// ─────────────────────────────────────────────────────────────────────────────
+
+;(MODELOS as ModeloFicha[]).push({
+  id: 'durango-hellcat-2026',
+  marca: 'Dodge',
+  modelo: 'Durango Hellcat',
+  año: 2026,
+  versiones: [
+    {
+      id: 'road-predator',
+      nombre: 'Road Predator Edition',
+      categorias: [
+        {
+          id: 'desempeno', nombre: 'Desempeño', specs: [
+            { label: 'Motor',                      valor: '6.2L supercargado HEMI V8 SRT' },
+            { label: 'Potencia',                   valor: '710 HP' },
+            { label: 'Torque',                     valor: '645 lb-ft' },
+            { label: 'Transmisión',                valor: 'Automática 8 velocidades' },
+            { label: 'Tracción',                   valor: 'Quadra-Trac On Demand (AWD)' },
+            { label: 'Sistema Selec-Trac',         valor: 'Sí' },
+            { label: 'Diferencial trasero',        valor: 'Deslizamiento limitado' },
+            { label: 'Dirección',                  valor: 'Eléctrica, ajuste alt. y telescópico, modo seleccionable' },
+            { label: 'Suspensión',                 valor: 'De competición' },
+            { label: 'Modos de manejo',            valor: 'SPORT + SRT Performance Pages + Launch Control' },
+            { label: 'Paletas de cambio',          valor: 'Al volante' },
+            { label: 'Aceleración 0-100 km/h',    valor: '3.5 s' },
+            { label: 'Arranque',                   valor: 'Botón de arranque + remoto' },
+            { label: 'Alternador',                 valor: '220 Amp' },
+            { label: 'Batería',                    valor: '700 Amp, libre de mantenimiento' },
+            { label: 'Alimentación 12V',           valor: 'Delantera y trasera' },
+          ],
+        },
+        {
+          id: 'interior', nombre: 'Interior', specs: [
+            { label: 'Pasajeros',                  valor: '6 (3 filas)' },
+            { label: 'Tapicería',                  valor: 'Piel laguna Demonic Red (alto desempeño)' },
+            { label: 'A/C',                        valor: 'Automático 3 zonas' },
+            { label: 'Asiento conductor',          valor: '8 vías + 4 vías lumbar, calefactable y ventilado' },
+            { label: 'Asiento pasajero',           valor: '8 vías, calefactable y ventilado' },
+            { label: '2ª fila',                    valor: 'Tipo capitán, calefactable' },
+            { label: '2ª y 3ª fila',               valor: 'Mini consola' },
+            { label: 'Volante',                    valor: 'SRT forrado en piel calefactable' },
+            { label: 'Pantalla',                   valor: '10.1" táctil' },
+            { label: 'Navegación',                 valor: 'GPS integrada' },
+            { label: 'Audio',                      valor: '19 altavoces Harman Kardon + subwoofer, 825 W' },
+            { label: 'Apple CarPlay / Android Auto', valor: 'Sí (inalámbrico)' },
+            { label: 'Carga inalámbrica',          valor: 'Sí' },
+            { label: 'USB / AUX',                  valor: '2 USB + AUX' },
+            { label: 'Retrovisor interior',        valor: 'Electrocrómico' },
+            { label: 'Iluminación interior',       valor: 'LED' },
+            { label: 'Parabrisas',                 valor: 'Acústico' },
+            { label: 'Supresión de ruido activa',  valor: 'Sí' },
+            { label: 'Control garage universal',   valor: 'Sí' },
+            { label: 'Cinturones',                 valor: 'Color Hammerhead Grey' },
+          ],
+        },
+        {
+          id: 'exterior', nombre: 'Exterior', specs: [
+            { label: 'Rines',                      valor: '20" × 10" Forged Y-Spoke Lights Out' },
+            { label: 'Neumáticos',                 valor: '295/45ZR20 BSW All Season' },
+            { label: 'Frenos delanteros',          valor: 'Brembo® con calipers rojos' },
+            { label: 'Cofre',                      valor: 'Pintado negro, diseño High Performance' },
+            { label: 'Escape',                     valor: 'Doble punta color negro' },
+            { label: 'Faros delanteros',           valor: 'LED automáticos' },
+            { label: 'DRL',                        valor: 'LED' },
+            { label: 'Luces traseras',             valor: 'LED' },
+            { label: 'Espejos laterales',          valor: 'Calefactables, plegables, con indicadores y memoria, negro brillante' },
+            { label: 'Espejo conductor',           valor: 'Electrocrómico' },
+            { label: 'Acceso pasivo',              valor: 'Puertas delanteras' },
+            { label: 'Portón trasero',             valor: 'Eléctrico' },
+            { label: 'Quemacocos',                 valor: 'Eléctrico' },
+            { label: 'Parrilla',                   valor: 'Color negro' },
+            { label: 'Rieles en toldo',            valor: 'Negro' },
+            { label: 'Color',                      valor: 'Destroyer Grey' },
+            { label: 'Largo',                      valor: '5,101 mm' },
+            { label: 'Ancho',                      valor: '1,924 mm' },
+            { label: 'Alto',                       valor: '1,790 mm' },
+          ],
+        },
+        {
+          id: 'seguridad', nombre: 'Seguridad', specs: [
+            { label: 'Frenos ABS HD',              valor: 'Disco' },
+            { label: 'Frenos Brembo®',             valor: 'Delanteros' },
+            { label: 'Frenos asistencia lluvia',   valor: 'Sí + Ready Alert' },
+            { label: 'Control estabilidad (ESC)',  valor: 'Sí' },
+            { label: 'Control tracción (TC)',       valor: 'Sí' },
+            { label: 'HSA (arranque en pendiente)', valor: 'Sí' },
+            { label: 'Asistencia estacionamiento', valor: 'Frontal y trasero con STOP' },
+            { label: 'Punto ciego y ruta transversal', valor: 'Sí' },
+            { label: 'Control balance de remolque',valor: 'Sí' },
+            { label: 'Cámara trasera',             valor: 'Sí' },
+            { label: 'Bolsas de aire',             valor: 'Frontales + laterales + cortina 3 filas + rodilla conductor + complementarias' },
+            { label: 'LATCH',                      valor: 'Sí' },
+            { label: 'Monitor presión neumáticos', valor: 'Sí' },
+            { label: 'Alarma',                     valor: 'Sí + antirrobo centralizado' },
+            { label: 'Seguros de puertas',         valor: 'Eléctricos' },
+          ],
+        },
+      ],
+    },
+  ],
+})
+
 export function modeloLabel(m: ModeloFicha): string {
   return `${m.modelo} ${m.año}`
 }
