@@ -1423,6 +1423,20 @@ const PARTNER_FL_2027_HDI_MAXI_PACK: Categoria[] = merge(PARTNER_FL_HDI_MAXI_PAC
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
+// PEUGEOT RIFTER 2027  —  PureTech Allure Pack
+// ─────────────────────────────────────────────────────────────────────────────
+
+;(MODELOS as ModeloFicha[]).push({
+  id: 'rifter-2027',
+  marca: 'Peugeot',
+  modelo: 'Rifter',
+  año: 2027,
+  versiones: [
+    { id: 'puretech-gasolina', nombre: 'PureTech (Gasolina)', categorias: RIFTER_PURETECH },
+  ],
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
 // DODGE DURANGO HELLCAT 2026  —  Road Predator Edition + Red Fury
 // ─────────────────────────────────────────────────────────────────────────────
 
