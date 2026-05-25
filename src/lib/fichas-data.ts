@@ -1689,6 +1689,170 @@ const P2008_GT: Categoria[] = merge(P2008_ALLURE, {
   ],
 })
 
+// ─────────────────────────────────────────────────────────────────────────────
+// RAM 4000 2026  —  Reg Cab Chassis P / PL / Crew Cab Chassis
+// ─────────────────────────────────────────────────────────────────────────────
+
+const RAM_4000_REG_CAB_P: Categoria[] = [
+  {
+    id: 'desempeno', nombre: 'Desempeño', specs: [
+      { label: 'Motor',                valor: '6.4L V8 HEMI Upgrade HD' },
+      { label: 'Potencia',             valor: '405 HP @ 5,500 rpm' },
+      { label: 'Torque',               valor: '429 lb-ft @ 4,000 rpm' },
+      { label: 'Transmisión',          valor: 'Automática 8 velocidades' },
+      { label: 'Tracción',             valor: 'Trasera' },
+      { label: 'Selector tracción',    valor: 'No incluido' },
+      { label: 'Dirección',            valor: 'Asistida' },
+      { label: 'Suspensión delantera', valor: '3 links, barra transversal, resortes helicoidales, eje sólido y barra estabilizadora' },
+      { label: 'Suspensión trasera',   valor: 'Muelles 2 etapas, eje sólido doble rodada, diferencial deslizamiento limitado, barra estabilizadora' },
+      { label: 'Amortiguadores',       valor: 'Trabajo pesado' },
+    ],
+  },
+  {
+    id: 'dimensiones', nombre: 'Dimensiones y Capacidades', specs: [
+      { label: 'Largo',                   valor: '5,977 mm' },
+      { label: 'Ancho sin espejos',       valor: '2,118 mm' },
+      { label: 'Alto',                    valor: '2,055 mm' },
+      { label: 'Distancia entre ejes',    valor: '3,647 mm' },
+      { label: 'Peso vehicular',          valor: '2,817 kg' },
+      { label: 'Peso bruto vehicular',    valor: '—' },
+      { label: 'Capacidad de carga',      valor: '3,305 kg' },
+      { label: 'Capacidad de arrastre',   valor: '7,094 kg' },
+      { label: 'Carga por ejes del/tra',  valor: '2,494 / 4,467 kg' },
+      { label: 'Neumáticos',             valor: 'LT235/80R17E All Season' },
+      { label: 'Rines',                   valor: 'Acero 17" negro' },
+      { label: 'Llanta de refacción',     valor: 'Tamaño completo' },
+    ],
+  },
+  {
+    id: 'interior', nombre: 'Interior', specs: [
+      { label: 'A/C',                     valor: 'Sí, con filtro de cabina N95+BIO' },
+      { label: 'Asiento conductor',       valor: 'Manual 4 posiciones' },
+      { label: 'Asiento pasajero',        valor: 'Manual 4 posiciones' },
+      { label: 'Asientos',                valor: 'Banco 40/20/40 en tela' },
+      { label: 'Almacenamiento trasero',  valor: 'Detrás del asiento' },
+      { label: 'Reposabrazos delantero',  valor: 'Con portavasos' },
+      { label: 'Cabeceras delanteras',    valor: 'Ajuste 4 posiciones' },
+      { label: 'Cabeceras traseras',      valor: 'No incluidas' },
+      { label: 'Asiento trasero',         valor: 'No plegable' },
+      { label: 'Bandeja de almacenamiento', valor: 'No incluida' },
+      { label: 'Botón de arranque',       valor: 'Sí' },
+      { label: 'Entrada remota sin llave', valor: 'No incluida' },
+      { label: 'Cerraduras eléctricas',   valor: 'No incluidas' },
+      { label: 'Consola superior',        valor: 'No incluida' },
+      { label: 'Espejo retrovisor',       valor: 'Día/noche' },
+      { label: 'Indicador temp. y brújula', valor: 'Sí' },
+      { label: 'Piso',                    valor: 'Vinilo negro uso rudo' },
+      { label: 'Palanca de cambios',      valor: 'Uretano en columna de dirección' },
+      { label: 'Sistema antirrobo',       valor: 'Llave Sentry' },
+      { label: 'Seguros de puertas',      valor: 'Manuales' },
+      { label: 'Ventanas delanteras',     valor: 'Manuales' },
+      { label: 'Ventanilla trasera',      valor: 'Fija' },
+      { label: 'Pantalla',                valor: 'Táctil 8.4"' },
+      { label: 'Clúster',                 valor: 'TFT color 3.5"' },
+      { label: 'Apple CarPlay / Android Auto', valor: 'Sí' },
+      { label: 'Audio',                   valor: '4 altavoces' },
+      { label: 'Media Hub',               valor: '2 USB + auxiliar + carga y datos' },
+      { label: 'Manos libres',            valor: 'Inalámbrico (teléfono y audio)' },
+      { label: 'GPS',                     valor: 'Entrada de antena' },
+      { label: 'Puerto USB carga remoto', valor: 'Sí' },
+      { label: 'Toma 12V',               valor: 'Sí' },
+    ],
+  },
+  {
+    id: 'exterior', nombre: 'Exterior', specs: [
+      { label: 'Faros',                   valor: 'LED automáticos con conducción diurna' },
+      { label: 'Faros antiniebla',        valor: 'LED' },
+      { label: 'Luces en toldo',          valor: 'Navegación' },
+      { label: 'Espejos exteriores',      valor: 'Telescópicos ajuste manual, negro' },
+      { label: 'Manijas de puerta',       valor: 'Negro' },
+      { label: 'Parrilla',                valor: 'Malla negra mate' },
+      { label: 'Ganchos de remolque',     valor: 'Sí' },
+      { label: 'Arnés de remolque',       valor: '7 pines' },
+      { label: 'Interruptores auxiliares', valor: 'Montados en consola central' },
+      { label: 'Retardo apagado faros',   valor: 'Sí' },
+      { label: 'Monitoreo voltaje ralentí', valor: 'Sí' },
+      { label: 'Color exterior',          valor: 'Blanco brillante' },
+      { label: 'Color interior',          valor: 'Negro' },
+    ],
+  },
+  {
+    id: 'seguridad', nombre: 'Seguridad', specs: [
+      { label: 'Frenos ABS',              valor: 'Disco en 4 ruedas' },
+      { label: 'ESP (estabilidad)',        valor: 'Sí' },
+      { label: 'Bolsas de aire',          valor: 'Delanteras multietapas' },
+      { label: 'Colisión frontal',        valor: 'Sistema de asistencia plus' },
+      { label: 'Frenado urgencia (peat./cicl.)', valor: 'Sí' },
+      { label: 'Control crucero',         valor: 'Adaptativo con stop' },
+      { label: 'Asistencia frenado',      valor: 'Ready Alert' },
+      { label: 'Cinturones delanteros',   valor: 'Con ajuste de altura' },
+      { label: 'Limpiaparabrisas',        valor: 'Intermitente' },
+      { label: 'Aviso lámpara fundida LED', valor: 'Sí' },
+      { label: 'Drive by Wire',           valor: 'Sí (acelerador electrónico)' },
+      { label: 'Enfriador aceite trans.', valor: 'Auxiliar' },
+      { label: 'Enfriamiento motor',      valor: 'Para trabajo pesado' },
+    ],
+  },
+]
+
+const RAM_4000_REG_CAB_PL: Categoria[] = merge(RAM_4000_REG_CAB_P, {
+  desempeno: {
+    'Transmisión': 'Automática 8 velocidades LCV',
+  },
+  dimensiones: {
+    'Largo':                 '6,586 mm',
+    'Ancho sin espejos':     '2,334 mm',
+    'Alto':                  '2,029 mm',
+    'Distancia entre ejes':  '4,249 mm',
+    'Peso vehicular':        '2,843 kg',
+    'Peso bruto vehicular':  '6,122 kg',
+    'Capacidad de carga':    '3,279 kg',
+    'Capacidad de arrastre': '7,067 kg',
+  },
+})
+
+const RAM_4000_CREW_CAB: Categoria[] = merge(RAM_4000_REG_CAB_P, {
+  desempeno: {
+    'Transmisión':        'Automática 8 velocidades LCV',
+    'Tracción':           '4x4',
+    'Selector tracción':  'Electrónico en movimiento',
+  },
+  dimensiones: {
+    'Largo':                '6,711 mm',
+    'Alto':                 '2,047 mm',
+    'Distancia entre ejes': '4,374 mm',
+    'Peso vehicular':       '3,245 kg',
+    'Capacidad de carga':   '2,877 kg',
+    'Capacidad de arrastre':'6,663 kg',
+  },
+  interior: {
+    'Almacenamiento trasero':   'Compartimento debajo del asiento trasero',
+    'Reposabrazos delantero':   'No incluido',
+    'Cabeceras traseras':       'Ajuste 2 posiciones',
+    'Asiento trasero':          'Plegable',
+    'Bandeja de almacenamiento':'Sí',
+    'Entrada remota sin llave': 'Sí',
+    'Cerraduras eléctricas':    'Sensibles a la velocidad',
+    'Consola superior':         'Sí',
+    'Seguros de puertas':       'Eléctricos',
+    'Ventanas delanteras':      'Eléctricas un toque arriba y abajo',
+    'Ventanilla trasera':       'Manual (trasera)',
+    'Audio':                    '6 altavoces',
+  },
+})
+
+;(MODELOS as ModeloFicha[]).push({
+  id: 'ram-4000-2026',
+  marca: 'RAM',
+  modelo: 'RAM 4000',
+  año: 2026,
+  versiones: [
+    { id: 'reg-cab-p',  nombre: 'Reg Cab Chassis P',  categorias: RAM_4000_REG_CAB_P  },
+    { id: 'reg-cab-pl', nombre: 'Reg Cab Chassis PL', categorias: RAM_4000_REG_CAB_PL },
+    { id: 'crew-cab',   nombre: 'Crew Cab Chassis',   categorias: RAM_4000_CREW_CAB   },
+  ],
+})
+
 export function modeloLabel(m: ModeloFicha): string {
   return `${m.modelo} ${m.año}`
 }
