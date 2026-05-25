@@ -629,6 +629,116 @@ const ATTITUDE_GT: Categoria[] = merge(ATTITUDE_SPORT, {
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
+// PEUGEOT EXPERT 2026  —  SC Furgón (base) y FL Furgón (facelift con i-Cockpit)
+// ─────────────────────────────────────────────────────────────────────────────
+
+const EXPERT_SC_CATS: Categoria[] = [
+  {
+    id: 'desempeno', nombre: 'Desempeño', specs: [
+      { label: 'Motor',                  valor: 'Turbo Diésel directo 2.0L (1,997 cc)' },
+      { label: 'Potencia',               valor: '150 hp @ 4,000 rpm' },
+      { label: 'Torque neto',            valor: '370 Nm @ 2,000 rpm' },
+      { label: 'Combustible',            valor: 'Diésel' },
+      { label: 'Transmisión',            valor: 'Manual 6 velocidades' },
+      { label: 'Dirección',              valor: 'Asistencia Eléctrica' },
+      { label: 'Suspensión delantera',   valor: 'Pseudo MacPherson reforzada' },
+      { label: 'Suspensión trasera',     valor: 'Barra de torsión realzada' },
+      { label: 'Frenos delanteros',      valor: 'Discos ventilados' },
+      { label: 'Frenos traseros',        valor: 'Discos sólidos' },
+      { label: 'Velocidad máxima',       valor: '170 km/h' },
+      { label: 'Aceleración 0-100 km/h', valor: '10.6 s' },
+      { label: 'Tanque de combustible',  valor: '70 litros' },
+      { label: 'Consumo ciudad',         valor: '13.7 km/l' },
+      { label: 'Consumo carretera',      valor: '19.2 km/l' },
+      { label: 'Consumo combinado',      valor: '16.7 km/l' },
+      { label: 'Emisiones CO₂',          valor: '146 g/km' },
+    ],
+  },
+  {
+    id: 'carga', nombre: 'Área de Carga', specs: [
+      { label: 'Volumen de carga',       valor: '6.1 m³' },
+      { label: 'Capacidad de carga',     valor: '1,400 kg' },
+      { label: 'Largo área de carga',    valor: '2,862 mm' },
+      { label: 'Ancho área de carga',    valor: '1,636 mm' },
+      { label: 'Alto área de carga',     valor: '1,397 mm' },
+      { label: 'Ganchos de sujeción',    valor: '8 en piso' },
+      { label: 'Pared divisoria',        valor: 'Fija entre cabina y área de carga' },
+      { label: 'Acceso lateral',         valor: 'Puerta corrediza' },
+      { label: 'Acceso trasero',         valor: 'Puertas simétricas 50/50 apertura 180°' },
+      { label: 'Peso vehicular',         valor: '1,665 kg' },
+      { label: 'Peso bruto vehicular',   valor: '3,060 kg' },
+    ],
+  },
+  {
+    id: 'dimensiones', nombre: 'Dimensiones', specs: [
+      { label: 'Largo total',            valor: '5,333 mm' },
+      { label: 'Ancho con retrovisores', valor: '2,204 mm' },
+      { label: 'Alto',                   valor: '1,935 – 1,940 mm' },
+      { label: 'Neumáticos',             valor: '215/65/R16' },
+      { label: 'Rines',                  valor: 'Acero de 16" con tapón central' },
+      { label: 'Pasajeros',              valor: '3 (conductor + banca 2 personas)' },
+      { label: 'Puertas',                valor: '5' },
+    ],
+  },
+  {
+    id: 'interior', nombre: 'Interior', specs: [
+      { label: 'Tapicería',              valor: 'Tela' },
+      { label: 'A/C',                    valor: 'Manual' },
+      { label: 'Asiento conductor',      valor: 'Individual con reposacabezas, descansabrazos y ajuste de altura/profundidad/inclinación' },
+      { label: 'Asientos pasajeros',     valor: 'Banca delantera para 2 con reposacabezas y almacenamiento inferior' },
+      { label: 'Pantalla',               valor: 'Táctil 5" monocromática' },
+      { label: 'Clúster',                valor: 'Analógico' },
+      { label: 'Audio',                  valor: 'Radio AM/FM con entrada USB' },
+      { label: 'Toma de 12V',            valor: 'Sí' },
+      { label: 'Cristales delanteros',   valor: 'Eléctricos One Touch Up & Down' },
+      { label: 'Freno de estacionamiento', valor: 'Mecánico' },
+      { label: 'Volante',                valor: 'Con control de audio, ajuste de altura y profundidad' },
+    ],
+  },
+  {
+    id: 'exterior', nombre: 'Exterior', specs: [
+      { label: 'Faros',                  valor: 'Halógeno' },
+      { label: 'Encendido automático',   valor: 'Sí (Pack Visibilidad)' },
+      { label: 'Sensor de lluvia',       valor: 'Sí (Pack Visibilidad)' },
+      { label: 'Espejos laterales',      valor: 'Con ajuste eléctrico' },
+      { label: 'Tercera luz de freno',   valor: 'Sí' },
+      { label: 'Color disponible',       valor: 'Blanco Icy' },
+    ],
+  },
+  {
+    id: 'seguridad', nombre: 'Seguridad', specs: [
+      { label: 'ABS',                       valor: 'Sí' },
+      { label: 'ESP (Estabilidad)',          valor: 'Sí' },
+      { label: 'ASR (Tracción)',             valor: 'Sí' },
+      { label: 'Bolsas de aire',            valor: 'Frontales conductor y pasajero' },
+      { label: 'AFU (Frenado urgencia)',    valor: 'Sí' },
+      { label: 'Arranque en pendiente',     valor: 'Hill Assist Control' },
+      { label: 'Control crucero',           valor: 'Sí + limitador de velocidad' },
+      { label: 'Cámara de reversa',         valor: 'No incluida' },
+      { label: 'Cierre centralizado auto.', valor: 'No incluido' },
+      { label: 'Sensores estacionamiento',  valor: 'Traseros' },
+      { label: 'Monitor presión llantas',   valor: 'Sí' },
+      { label: 'Alerta atención conductor', valor: 'Sí' },
+      { label: 'Desbloqueo en colisión',    valor: 'Automático' },
+      { label: 'Placa protección motor',    valor: 'Sí' },
+      { label: 'Llanta de refacción',       valor: 'Homogénea' },
+    ],
+  },
+]
+
+const EXPERT_FL_CATS: Categoria[] = merge(EXPERT_SC_CATS, {
+  interior: {
+    'Pantalla': 'Táctil 10" — Apple CarPlay® y Android Auto®',
+    'Clúster':  'Digital 10"',
+    'Audio':    'Radio AM/FM + USB + Conectividad inalámbrica',
+  },
+  seguridad: {
+    'Cámara de reversa':         '180°',
+    'Cierre centralizado auto.': 'Con bloqueo automático durante la conducción',
+  },
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
 // EXPORT
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -680,105 +790,13 @@ export const MODELOS: ModeloFicha[] = [
   },
   // ── Peugeot ───────────────────────────────────────────────────────────────
   {
-    id: 'expert-sc-2026',
+    id: 'expert-2026',
     marca: 'Peugeot',
-    modelo: 'Expert SC',
+    modelo: 'Expert',
     año: 2026,
     versiones: [
-      {
-        id: 'furgon-sc',
-        nombre: 'Furgón SC',
-        categorias: [
-          {
-            id: 'desempeno', nombre: 'Desempeño', specs: [
-              { label: 'Motor',                  valor: 'Turbo Diésel directo 2.0L (1,997 cc)' },
-              { label: 'Potencia',               valor: '150 hp @ 4,000 rpm' },
-              { label: 'Torque neto',            valor: '370 Nm @ 2,000 rpm' },
-              { label: 'Combustible',            valor: 'Diésel' },
-              { label: 'Transmisión',            valor: 'Manual 6 velocidades' },
-              { label: 'Dirección',              valor: 'Asistencia Eléctrica' },
-              { label: 'Suspensión delantera',   valor: 'Pseudo MacPherson reforzada' },
-              { label: 'Suspensión trasera',     valor: 'Barra de torsión realzada' },
-              { label: 'Frenos delanteros',      valor: 'Discos ventilados' },
-              { label: 'Frenos traseros',        valor: 'Discos sólidos' },
-              { label: 'Velocidad máxima',       valor: '170 km/h' },
-              { label: 'Aceleración 0-100 km/h', valor: '10.6 s' },
-              { label: 'Tanque de combustible',  valor: '70 litros' },
-              { label: 'Consumo ciudad',         valor: '13.7 km/l' },
-              { label: 'Consumo carretera',      valor: '19.2 km/l' },
-              { label: 'Consumo combinado',      valor: '16.7 km/l' },
-              { label: 'Emisiones CO₂',          valor: '146 g/km' },
-            ],
-          },
-          {
-            id: 'carga', nombre: 'Área de Carga', specs: [
-              { label: 'Volumen de carga',       valor: '6.1 m³' },
-              { label: 'Capacidad de carga',     valor: '1,400 kg' },
-              { label: 'Largo área de carga',    valor: '2,862 mm' },
-              { label: 'Ancho área de carga',    valor: '1,636 mm' },
-              { label: 'Alto área de carga',     valor: '1,397 mm' },
-              { label: 'Ganchos de sujeción',    valor: '8 en piso' },
-              { label: 'Pared divisoria',        valor: 'Fija entre cabina y área de carga' },
-              { label: 'Acceso lateral',         valor: 'Puerta corrediza' },
-              { label: 'Acceso trasero',         valor: 'Puertas simétricas 50/50 apertura 180°' },
-              { label: 'Peso vehicular',         valor: '1,665 kg' },
-              { label: 'Peso bruto vehicular',   valor: '3,060 kg' },
-            ],
-          },
-          {
-            id: 'dimensiones', nombre: 'Dimensiones', specs: [
-              { label: 'Largo total',            valor: '5,333 mm' },
-              { label: 'Ancho con retrovisores', valor: '2,204 mm' },
-              { label: 'Alto',                   valor: '1,935 – 1,940 mm' },
-              { label: 'Neumáticos',             valor: '215/65/R16' },
-              { label: 'Rines',                  valor: 'Acero de 16" con tapón central' },
-              { label: 'Pasajeros',              valor: '3 (conductor + banca 2 personas)' },
-              { label: 'Puertas',                valor: '5' },
-            ],
-          },
-          {
-            id: 'interior', nombre: 'Interior', specs: [
-              { label: 'Tapicería',              valor: 'Tela' },
-              { label: 'A/C',                    valor: 'Manual' },
-              { label: 'Asiento conductor',      valor: 'Individual con reposacabezas, descansabrazos y ajuste de altura/profundidad/inclinación' },
-              { label: 'Asientos pasajeros',     valor: 'Banca delantera para 2 con reposacabezas y almacenamiento inferior' },
-              { label: 'Pantalla',               valor: 'Táctil 5" monocromática' },
-              { label: 'Audio',                  valor: 'Radio AM/FM con entrada USB' },
-              { label: 'Toma de 12V',            valor: 'Sí' },
-              { label: 'Cristales delanteros',   valor: 'Eléctricos One Touch Up & Down' },
-              { label: 'Freno de estacionamiento', valor: 'Mecánico' },
-              { label: 'Volante',                valor: 'Con control de audio, ajuste de altura y profundidad' },
-            ],
-          },
-          {
-            id: 'exterior', nombre: 'Exterior', specs: [
-              { label: 'Faros',                  valor: 'Halógeno' },
-              { label: 'Encendido automático',   valor: 'Sí (Pack Visibilidad)' },
-              { label: 'Sensor de lluvia',       valor: 'Sí (Pack Visibilidad)' },
-              { label: 'Espejos laterales',      valor: 'Con ajuste eléctrico' },
-              { label: 'Tercera luz de freno',   valor: 'Sí' },
-              { label: 'Color disponible',       valor: 'Blanco Icy' },
-            ],
-          },
-          {
-            id: 'seguridad', nombre: 'Seguridad', specs: [
-              { label: 'ABS',                    valor: 'Sí' },
-              { label: 'ESP (Estabilidad)',       valor: 'Sí' },
-              { label: 'ASR (Tracción)',          valor: 'Sí' },
-              { label: 'Bolsas de aire',         valor: 'Frontales conductor y pasajero' },
-              { label: 'AFU (Frenado urgencia)', valor: 'Sí' },
-              { label: 'Arranque en pendiente',  valor: 'Hill Assist Control' },
-              { label: 'Control crucero',        valor: 'Sí + limitador de velocidad' },
-              { label: 'Sensores estacionamiento', valor: 'Traseros' },
-              { label: 'Monitor presión llantas', valor: 'Sí' },
-              { label: 'Alerta atención conductor', valor: 'Sí' },
-              { label: 'Desbloqueo en colisión', valor: 'Automático' },
-              { label: 'Placa protección motor', valor: 'Sí' },
-              { label: 'Llanta de refacción',    valor: 'Homogénea' },
-            ],
-          },
-        ],
-      },
+      { id: 'furgon-sc', nombre: 'SC Furgón', categorias: EXPERT_SC_CATS },
+      { id: 'furgon-fl', nombre: 'FL Furgón', categorias: EXPERT_FL_CATS },
     ],
   },
 ]
