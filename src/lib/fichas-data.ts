@@ -4,12 +4,14 @@ export { MARCA_ORDER, merge, modeloLabel } from './fichas/_shared'
 import type { ModeloFicha } from './fichas/_shared'
 import { MODELOS_JEEP } from './fichas/jeep'
 import { MODELOS_DODGE } from './fichas/dodge'
+import { MODELOS_FIAT } from './fichas/fiat'
 import { MODELOS_PEUGEOT } from './fichas/peugeot'
 import { MODELOS_RAM } from './fichas/ram'
 
 export const MODELOS: ModeloFicha[] = [
   ...MODELOS_JEEP,
   ...MODELOS_DODGE,
+  ...MODELOS_FIAT,
   ...MODELOS_PEUGEOT,
   ...MODELOS_RAM,
 ]
