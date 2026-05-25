@@ -1399,6 +1399,24 @@ const PARTNER_FL_HDI_MAXI_PACK: Categoria[] = merge(PARTNER_FL_HDI_MAXI, {
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
+// PEUGEOT PARTNER FL 2027  —  Maxi Pack (PureTech)
+// ─────────────────────────────────────────────────────────────────────────────
+
+const PARTNER_FL_2027_MAXI: Categoria[] = merge(PARTNER_FL_PURETECH, {
+  exterior: { 'Colores disponibles': 'Blanco Icy' },
+})
+
+;(MODELOS as ModeloFicha[]).push({
+  id: 'partner-fl-2027',
+  marca: 'Peugeot',
+  modelo: 'Partner FL',
+  año: 2027,
+  versiones: [
+    { id: 'maxi-pack', nombre: 'Maxi Pack', categorias: PARTNER_FL_2027_MAXI },
+  ],
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
 // DODGE DURANGO HELLCAT 2026  —  Road Predator Edition + Red Fury
 // ─────────────────────────────────────────────────────────────────────────────
 
