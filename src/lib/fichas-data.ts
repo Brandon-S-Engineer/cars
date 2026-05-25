@@ -1406,13 +1406,19 @@ const PARTNER_FL_2027_MAXI: Categoria[] = merge(PARTNER_FL_PURETECH, {
   exterior: { 'Colores disponibles': 'Blanco Icy' },
 })
 
+const PARTNER_FL_2027_HDI_MAXI_PACK: Categoria[] = merge(PARTNER_FL_HDI_MAXI_PACK, {
+  carga:    { 'Alto área de carga':  '1,200 – 1,270 mm' },
+  exterior: { 'Colores disponibles': 'Blanco Icy' },
+})
+
 ;(MODELOS as ModeloFicha[]).push({
   id: 'partner-fl-2027',
   marca: 'Peugeot',
   modelo: 'Partner FL',
   año: 2027,
   versiones: [
-    { id: 'maxi-pack', nombre: 'Maxi Pack', categorias: PARTNER_FL_2027_MAXI },
+    { id: 'maxi-pack',     nombre: 'Maxi Pack',     categorias: PARTNER_FL_2027_MAXI          },
+    { id: 'hdi-maxi-pack', nombre: 'HDI Maxi Pack', categorias: PARTNER_FL_2027_HDI_MAXI_PACK },
   ],
 })
 
