@@ -1932,6 +1932,7 @@ const RAM_1500_TUNGSTEN: Categoria[] = [
       { label: 'Control activo ruido',   valor: 'Sí (cabina)' },
       { label: 'Control garaje universal', valor: 'Sí' },
       { label: 'Almacenamiento 2ª fila', valor: 'Sí (piso)' },
+      { label: 'Acentos',               valor: '—' },
       { label: 'Perilla selectora',      valor: 'Sí' },
       { label: 'Tapetes',                valor: 'Sí' },
     ],
@@ -1946,6 +1947,7 @@ const RAM_1500_TUNGSTEN: Categoria[] = [
       { label: 'Espejos exteriores',     valor: 'Eléctricos premium, cromados, calefactados, plegables automáticos, atenuación automática, luz direccional/cortesía, gran angular convexo, luz aproximación' },
       { label: 'Estribos',               valor: 'Plegables eléctricos' },
       { label: 'Techo',                  valor: 'Corredizo panorámico doble panel' },
+      { label: 'Performance Hood',       valor: '—' },
       { label: 'Escape',                 valor: 'Doble con puntas brillantes' },
       { label: 'Antena',                 valor: 'Aleta de tiburón' },
       { label: 'Manijas exteriores',     valor: 'Al color de la carrocería' },
@@ -2199,6 +2201,46 @@ const RAM_1500_TRADESMAN_V6_4X2: Categoria[] = merge(RAM_1500_TUNGSTEN, {
   },
 })
 
+const RAM_1500_RHO: Categoria[] = merge(RAM_1500_TUNGSTEN, {
+  desempeno: {
+    'Transmisión':          'Automática 8 velocidades + paletas al volante',
+    'Caja de transferencia':'Electrónica Full Time, Control Selec-Speed™',
+    'Suspensión delantera': 'Horquillas independientes con resortes helicoidales, amortiguadores Bilstein e2 Black Hawk® Active Performance y barra estabilizadora',
+    'Suspensión trasera':   '5 links con resortes helicoidales, amortiguadores Bilstein e2 Black Hawk® Active Performance, eje sólido y barra estabilizadora',
+  },
+  dimensiones: {
+    'Capacidad de carga':    '690 kg',
+    'Capacidad de arrastre': '3,800 kg',
+    'Neumáticos':            'Goodyear All Terrain LT325/65R18D',
+    'Rines':                 'Beadlock de aluminio 18×9.0"',
+  },
+  interior: {
+    'Tapicería':            'Piel envolvente',
+    'Pedales':              'Ajuste eléctrico',
+    'Control activo ruido': '—',
+    'Perilla selectora':    '—',
+    'Acentos':              'Fibra de carbono real',
+    'Tapetes':              'Mopar® delanteros y traseros',
+  },
+  exterior: {
+    'Faros':              'Proyección LED con bifunción automática',
+    'Luces antiniebla':   'LED',
+    'Espejos exteriores': 'Negros, eléctricos premium, calefactados, plegables automáticos, atenuación automática, luz direccional/cortesía, gran angular convexo, luz aproximación',
+    'Estribos':           'Off-road',
+    'Performance Hood':   'Sí',
+    'Escape':             'Doble con puntas en negro',
+    'Manijas exteriores': 'Negro',
+    'Fascia delantera':   'Negra + guardafangos todoterreno + placa protectora caja transferencia',
+    'RAMBOX®':            '—',
+    'Batea':              'Protección aspersión + puerta eléctrica con apertura remota + escalón desplegable + iluminación LED + 4 ganchos',
+    'Colores disponibles':'Hydro Blue, Flame Red, Billet Silver, Bright White, Diamond Black Crystal',
+  },
+  tecnologia: {
+    'Audio':        'Harman Kardon® Premium — 19 bocinas',
+    'Manos libres': '—',
+  },
+})
+
 const RAM_1500_TRADESMAN_V6_4X4: Categoria[] = merge(RAM_1500_TRADESMAN_V6_4X2, {
   desempeno: {
     'Tracción':            '4x4',
@@ -2218,6 +2260,7 @@ const RAM_1500_TRADESMAN_V6_4X4: Categoria[] = merge(RAM_1500_TRADESMAN_V6_4X2, 
   modelo: 'RAM 1500',
   año: 2026,
   versiones: [
+    { id: 'rho',               nombre: 'RHO',                 categorias: RAM_1500_RHO                },
     { id: 'tungsten',          nombre: 'Tungsten',            categorias: RAM_1500_TUNGSTEN            },
     { id: 'tradesman-v6-4x2',  nombre: 'Tradesman V6 4x2',   categorias: RAM_1500_TRADESMAN_V6_4X2   },
     { id: 'tradesman-v6-4x4',  nombre: 'Tradesman V6 4x4',   categorias: RAM_1500_TRADESMAN_V6_4X4   },
