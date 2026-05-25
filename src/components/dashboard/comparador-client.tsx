@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react'
 import { GitCompareArrows, ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { MODELOS, modeloLabel, type ModeloFicha, type Version } from '@/lib/fichas-data'
+import { MODELOS, MARCA_ORDER, modeloLabel, type ModeloFicha, type Version } from '@/lib/fichas-data'
 
 // ── Selector de modelo+año ────────────────────────────────────────────────────
 
@@ -32,20 +32,27 @@ function ModeloSelector({
       {open && (
         <>
           <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
-          <div className="absolute top-full left-0 mt-1 z-20 w-60 rounded-xl border bg-popover shadow-lg overflow-hidden py-1">
-            {MODELOS.map((m) => (
-              <button
-                key={m.id}
-                onClick={() => { onChange(m); setOpen(false) }}
-                className={cn(
-                  'w-full text-left px-4 py-2 text-sm flex items-center justify-between transition-colors',
-                  m.id === value.id
-                    ? 'bg-foreground text-background font-medium'
-                    : 'hover:bg-accent',
-                )}>
-                {modeloLabel(m)}
-                <span className="text-xs opacity-60">{m.versiones.length} versiones</span>
-              </button>
+          <div className="absolute top-full left-0 mt-1 z-20 w-64 rounded-xl border bg-popover shadow-lg overflow-hidden py-1">
+            {MARCA_ORDER.filter((marca) => MODELOS.some((m) => m.marca === marca)).map((marca) => (
+              <div key={marca}>
+                <div className="px-4 pt-2.5 pb-1 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  {marca}
+                </div>
+                {MODELOS.filter((m) => m.marca === marca).map((m) => (
+                  <button
+                    key={m.id}
+                    onClick={() => { onChange(m); setOpen(false) }}
+                    className={cn(
+                      'w-full text-left px-4 py-2 text-sm flex items-center justify-between transition-colors',
+                      m.id === value.id
+                        ? 'bg-foreground text-background font-medium'
+                        : 'hover:bg-accent',
+                    )}>
+                    {modeloLabel(m)}
+                    <span className="text-xs opacity-60">{m.versiones.length} {m.versiones.length === 1 ? 'versión' : 'versiones'}</span>
+                  </button>
+                ))}
+              </div>
             ))}
           </div>
         </>

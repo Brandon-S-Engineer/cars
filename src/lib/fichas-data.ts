@@ -1,7 +1,9 @@
 export type Spec = { label: string; valor: string }
 export type Categoria = { id: string; nombre: string; specs: Spec[] }
 export type Version = { id: string; nombre: string; categorias: Categoria[] }
-export type ModeloFicha = { id: string; modelo: string; año: number; versiones: Version[] }
+export type ModeloFicha = { id: string; marca: string; modelo: string; año: number; versiones: Version[] }
+
+export const MARCA_ORDER = ['Jeep', 'Dodge', 'Fiat', 'Peugeot', 'RAM']
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -287,12 +289,172 @@ const COMMANDER_BASE_CATS = (v: '2025' | '2026'): Categoria[] => [
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
+// DODGE JOURNEY 2026
+// ─────────────────────────────────────────────────────────────────────────────
+
+const JOURNEY_SXT: Categoria[] = [
+  {
+    id: 'desempeno', nombre: 'Desempeño', specs: [
+      { label: 'Motor',                   valor: '1.5 L Turbo DCVVT 4I GDI' },
+      { label: 'Potencia',                valor: '156 HP' },
+      { label: 'Torque',                  valor: '184 lb-pie' },
+      { label: 'Transmisión',             valor: 'Automática 6 velocidades' },
+      { label: 'Suspensión delantera',    valor: 'McPherson independiente' },
+      { label: 'Suspensión trasera',      valor: 'Multi-link independiente' },
+      { label: 'Frenos delanteros',       valor: 'Discos ventilados' },
+      { label: 'Frenos traseros',         valor: 'Discos' },
+      { label: 'Dirección',               valor: 'EPS (Asistencia Eléctrica)' },
+      { label: 'Rines',                   valor: 'Aluminio bitono 18" cara pulida' },
+      { label: 'Neumáticos',              valor: '235/55' },
+      { label: 'Consumo carretera',       valor: '18.90 km/l' },
+      { label: 'Consumo ciudad',          valor: '12.66 km/l' },
+      { label: 'Consumo combinado',       valor: '14.87 km/l' },
+      { label: 'Longitud',                valor: '4,695 mm' },
+      { label: 'Ancho',                   valor: '1,885 mm' },
+      { label: 'Altura',                  valor: '1,700 mm' },
+    ],
+  },
+  {
+    id: 'exterior', nombre: 'Exterior', specs: [
+      { label: 'Faros delanteros',           valor: 'Halógenos' },
+      { label: 'Faros de niebla',            valor: 'LED' },
+      { label: 'DRL',                        valor: 'LED' },
+      { label: 'Luces traseras',             valor: 'LED' },
+      { label: 'Alerón trasero con luz LED', valor: 'Sí' },
+      { label: 'Espejos laterales',          valor: 'Eléctricos abatibles, calefactables, con luz direccional' },
+      { label: 'Espejos con tilt down',      valor: 'No incluido' },
+      { label: 'Quemacocos',                 valor: 'Estándar (protección contra atascos)' },
+      { label: 'Techo panorámico',           valor: 'No incluido' },
+      { label: 'Cajuela eléctrica',          valor: 'No incluida' },
+      { label: 'Estribos laterales',         valor: 'No incluidos' },
+      { label: 'Rieles en techo',            valor: 'Funcionales integrados' },
+      { label: 'Sensor de lluvia/luz',       valor: 'Sí' },
+    ],
+  },
+  {
+    id: 'interior', nombre: 'Interior', specs: [
+      { label: 'Tapicería',                       valor: 'Tela con insertos en piel sintética' },
+      { label: 'Asiento conductor',               valor: 'Eléctrico 8 vías' },
+      { label: 'Asiento pasajero',                valor: 'Manual' },
+      { label: 'Memoria asiento conductor',       valor: 'No incluida' },
+      { label: 'Asientos calefactables/ventilados', valor: 'No incluidos' },
+      { label: 'Pantalla principal',              valor: '10" LCD' },
+      { label: 'Panel de instrumentos',           valor: '12.3" LCD' },
+      { label: 'A/C',                             valor: 'Automático doble zona' },
+      { label: 'Espejo retrovisor interior',      valor: 'Manual día/noche' },
+      { label: 'Iluminación ambiental',           valor: 'No incluida' },
+      { label: 'Cargador inalámbrico',            valor: 'No incluido' },
+      { label: 'Purificador de aire',             valor: 'No incluido' },
+      { label: 'Segunda fila',                    valor: 'Abatible 60/40 y respaldos reclinables' },
+      { label: 'Puertos USB delanteros',          valor: '2' },
+      { label: 'Filtro de aire PM 2.5',           valor: 'Sí' },
+      { label: 'Volante',                         valor: 'Multifuncional en piel, ajuste altura y profundidad' },
+    ],
+  },
+  {
+    id: 'tecnologia', nombre: 'Tecnología y Entretenimiento', specs: [
+      { label: 'Apple CarPlay',              valor: 'No incluido' },
+      { label: 'Android Auto',               valor: 'No incluido' },
+      { label: 'MirrorLink®',                valor: 'No incluido' },
+      { label: 'Keyless Entry & GO®',        valor: 'No incluido' },
+      { label: 'Cámara de reversa',          valor: 'Sí' },
+      { label: 'Visión 360°',                valor: 'No incluida' },
+      { label: 'Audio',                      valor: '6 bocinas' },
+      { label: 'Cargador tel. inalámbrico',  valor: 'No incluido' },
+      { label: 'Cierre express',             valor: 'No incluido' },
+      { label: 'Modo Sport',                 valor: 'No incluido' },
+      { label: 'Sistema Start & Stop',       valor: 'Sí' },
+    ],
+  },
+  {
+    id: 'seguridad', nombre: 'Seguridad', specs: [
+      { label: 'ABS',                                    valor: 'Sí' },
+      { label: 'ESP (Estabilidad Electrónica)',           valor: 'Sí' },
+      { label: 'EBD (Distribución de frenado)',          valor: 'Sí' },
+      { label: 'Freno de estacionamiento (EPB + AutoHold)', valor: 'Sí' },
+      { label: 'Bolsas de aire',                         valor: 'Frontales + cortina + laterales delanteras' },
+      { label: 'Advertencia colisión frontal (FCW)',     valor: 'No incluida' },
+      { label: 'Advertencia salida de carril (LDW)',     valor: 'No incluida' },
+      { label: 'Descenso de pendientes (HDC)',           valor: 'No incluido' },
+      { label: 'Luces inteligentes Smartbeam',           valor: 'No incluidas' },
+      { label: 'Arranque en pendiente (HSA)',            valor: 'Sí' },
+      { label: 'Frenado hidráulico (HBA)',               valor: 'Sí' },
+      { label: 'Sensores de estacionamiento',            valor: 'Delanteros y traseros' },
+      { label: 'Cinturones 2ª fila con pretensores',    valor: 'No incluidos' },
+      { label: 'ISOFIX',                                 valor: 'Sí' },
+      { label: 'TPMS (presión de llantas)',              valor: 'Sí' },
+      { label: 'Alarma antirrobo',                       valor: 'Sí' },
+    ],
+  },
+]
+
+const JOURNEY_SPORT: Categoria[] = merge(JOURNEY_SXT, {
+  desempeno: {
+    'Rines':              'Aluminio bitono 19" cara pulida',
+    'Neumáticos':         '235/50',
+  },
+  exterior: {
+    'Faros delanteros':  'LED',
+    'Espejos con tilt down': 'Sí',
+  },
+  interior: {
+    'Tapicería':                         'Piel sintética Leatherette negra',
+    'Asiento conductor':                 'Eléctrico 10 vías con 3 memorias y entrada de cortesía',
+    'Asiento pasajero':                  'Eléctrico 4 vías',
+    'Memoria asiento conductor':         'Sí (3 memorias)',
+    'Asientos calefactables/ventilados': 'Sí (3 niveles ajustables)',
+    'Espejo retrovisor interior':        'Automático día/noche con USB',
+    'Iluminación ambiental':             'Sí',
+    'Cargador inalámbrico':              'Sí',
+  },
+  tecnologia: {
+    'Apple CarPlay':             'Sí',
+    'Android Auto':              'Sí',
+    'Keyless Entry & GO®':       'Sí',
+    'Cámara de reversa':         '— (incluido en visión 360°)',
+    'Visión 360°':               'Sí',
+    'Cargador tel. inalámbrico': 'Sí',
+    'Cierre express':            'Sí (cristales y quemacocos)',
+  },
+  seguridad: {
+    'Advertencia colisión frontal (FCW)':  'Sí',
+    'Advertencia salida de carril (LDW)':  'Sí',
+    'Descenso de pendientes (HDC)':        'Sí',
+    'Luces inteligentes Smartbeam':        'Sí',
+    'Cinturones 2ª fila con pretensores':  'Sí',
+  },
+})
+
+const JOURNEY_GT_PLUS: Categoria[] = merge(JOURNEY_SPORT, {
+  desempeno: {
+    'Consumo carretera': '18.19 km/l',
+    'Consumo ciudad':    '12.45 km/l',
+    'Consumo combinado': '14.51 km/l',
+  },
+  exterior: {
+    'Quemacocos':       'Techo panorámico',
+    'Cajuela eléctrica':'Eléctrica con apertura intermedia y anti atrapadura',
+    'Estribos laterales':'Sí (con logotipo DODGE)',
+  },
+  interior: {
+    'Purificador de aire': 'Sí (ionizador de iones negativos)',
+  },
+  tecnologia: {
+    'MirrorLink®':  'Sí',
+    'Modo Sport':   'Sí',
+    'Audio':        '8 bocinas',
+  },
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
 // EXPORT
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const MODELOS: ModeloFicha[] = [
+  // ── Jeep ──────────────────────────────────────────────────────────────────
   {
     id: 'grand-cherokee-2026',
+    marca: 'Jeep',
     modelo: 'Grand Cherokee',
     año: 2026,
     versiones: [
@@ -304,10 +466,23 @@ export const MODELOS: ModeloFicha[] = [
   },
   {
     id: 'commander-2026',
+    marca: 'Jeep',
     modelo: 'Commander',
     año: 2026,
     versiones: [
       { id: 'overland-2026', nombre: 'Overland', categorias: COMMANDER_BASE_CATS('2026') },
+    ],
+  },
+  // ── Dodge ─────────────────────────────────────────────────────────────────
+  {
+    id: 'journey-2026',
+    marca: 'Dodge',
+    modelo: 'Journey',
+    año: 2026,
+    versiones: [
+      { id: 'sxt',     nombre: 'SXT',     categorias: JOURNEY_SXT },
+      { id: 'sport',   nombre: 'Sport',   categorias: JOURNEY_SPORT },
+      { id: 'gt-plus', nombre: 'GT Plus', categorias: JOURNEY_GT_PLUS },
     ],
   },
 ]
