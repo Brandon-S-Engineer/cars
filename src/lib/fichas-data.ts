@@ -447,6 +447,188 @@ const JOURNEY_GT_PLUS: Categoria[] = merge(JOURNEY_SPORT, {
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
+// DODGE ATTITUDE 2026
+// ─────────────────────────────────────────────────────────────────────────────
+
+const ATTITUDE_SXT: Categoria[] = [
+  {
+    id: 'desempeno', nombre: 'Desempeño', specs: [
+      { label: 'Motor',                 valor: '1.5L Turbo GDI' },
+      { label: 'Potencia',              valor: '168 HP' },
+      { label: 'Torque',                valor: '184 lb-ft' },
+      { label: 'Transmisión',           valor: 'Automática 7 vel. doble embrague (DCT)' },
+      { label: 'Suspensión delantera',  valor: 'McPherson independiente' },
+      { label: 'Suspensión trasera',    valor: 'Multi-link Beam' },
+      { label: 'Frenos delanteros',     valor: 'Discos ventilados' },
+      { label: 'Frenos traseros',       valor: 'Discos' },
+      { label: 'Dirección',             valor: 'EPS (Asistencia Eléctrica)' },
+      { label: 'Rines',                 valor: 'Aluminio bitono cara pulida 17"' },
+      { label: 'Neumáticos',            valor: '225/50 R17' },
+      { label: 'Consumo carretera',     valor: '22.55 km/l' },
+      { label: 'Consumo ciudad',        valor: '15.43 km/l' },
+      { label: 'Consumo combinado',     valor: '17.98 km/l' },
+      { label: 'Longitud',              valor: '4,700 mm' },
+      { label: 'Ancho',                 valor: '1,850 mm' },
+      { label: 'Altura',                valor: '1,432 mm' },
+    ],
+  },
+  {
+    id: 'exterior', nombre: 'Exterior', specs: [
+      { label: 'Faros delanteros',          valor: 'LED (ajuste de altura / función "Sígueme a casa")' },
+      { label: 'DRL',                        valor: 'LED' },
+      { label: 'Luces de niebla traseras',   valor: 'Sí' },
+      { label: 'Faros automáticos',          valor: 'Sí' },
+      { label: 'Alerón trasero',             valor: 'No incluido' },
+      { label: 'Espejos laterales',          valor: 'Con ajuste eléctrico' },
+      { label: 'Espejos abatibles',          valor: 'No incluidos (solo ajuste eléctrico)' },
+      { label: 'Espejos calefactables',      valor: 'No incluidos' },
+      { label: 'Espejos con señal de giro',  valor: 'No incluidos' },
+      { label: 'Doble salida de escape',     valor: 'Cromada' },
+      { label: 'Sensor de lluvia',           valor: 'Sí' },
+      { label: 'Colores disponibles',        valor: 'Blanco brillante, Granito' },
+    ],
+  },
+  {
+    id: 'interior', nombre: 'Interior', specs: [
+      { label: 'Tapicería',                      valor: 'Tela' },
+      { label: 'A/C',                             valor: 'Manual' },
+      { label: 'Asiento conductor',              valor: 'Ajuste manual 6 vías' },
+      { label: 'Asiento pasajero',               valor: 'Manual' },
+      { label: 'Asientos ventilados',            valor: 'No incluidos' },
+      { label: 'Keyless Entry & Go®',             valor: 'No incluido' },
+      { label: 'Espejo retrovisor',              valor: 'Día/noche manual' },
+      { label: 'Iluminación ambiental',          valor: 'No incluida' },
+      { label: 'Paletas de cambio al volante',   valor: 'No incluidas' },
+      { label: 'Quemacocos eléctrico',           valor: 'No incluido' },
+      { label: 'Apoyo lumbar conductor',         valor: 'No incluido' },
+      { label: 'Apoyabrazos 2ª fila',            valor: 'No incluido' },
+      { label: 'Salida de aire trasera',         valor: 'No incluida' },
+      { label: 'Ventanas un solo toque',         valor: 'No incluidas' },
+      { label: 'Volante',                        valor: 'Sin forro en piel' },
+      { label: 'Tomacorriente 12V',              valor: 'Sí (1ª fila)' },
+      { label: 'Filtro de aire',                 valor: 'Sí' },
+    ],
+  },
+  {
+    id: 'tecnologia', nombre: 'Tecnología y Entretenimiento', specs: [
+      { label: 'Panel de instrumentos',          valor: 'LCD 7" configurable' },
+      { label: 'Pantalla infotainment',          valor: 'No incluida' },
+      { label: 'Audio',                          valor: 'DTS 6 bocinas' },
+      { label: 'Android Auto',                   valor: 'Sí' },
+      { label: 'Apple CarPlay / MirrorLink',     valor: 'No incluido' },
+      { label: 'Cargador inalámbrico',           valor: 'No incluido' },
+      { label: 'Puertos USB 1ª fila',            valor: '2' },
+      { label: 'Puerto USB 2ª fila',             valor: 'No incluido' },
+      { label: 'Sonido de escape',               valor: 'No incluido' },
+      { label: 'Sistema de manos libres',        valor: 'Sí' },
+    ],
+  },
+  {
+    id: 'seguridad', nombre: 'Seguridad', specs: [
+      { label: 'ABS',                                   valor: 'Sí' },
+      { label: 'ESP (Estabilidad Electrónica)',          valor: 'Sí' },
+      { label: 'EBD (Distribución de frenado)',         valor: 'Sí' },
+      { label: 'EPB + AutoHold',                        valor: 'Sí' },
+      { label: 'AEB (Frenado Autónomo de Emergencia)',  valor: 'No incluido' },
+      { label: 'HBA (Frenado Hidráulico)',              valor: 'Sí' },
+      { label: 'HSA (Arranque en pendiente)',           valor: 'Sí' },
+      { label: 'Control de crucero',                    valor: 'Convencional' },
+      { label: 'ACC (Crucero Adaptativo)',               valor: 'No incluido' },
+      { label: 'FCW (Alerta colisión frontal)',         valor: 'No incluida' },
+      { label: 'LDW (Alerta salida de carril)',         valor: 'No incluida' },
+      { label: 'LKA (Mantenimiento de carril)',         valor: 'No incluida' },
+      { label: 'ICA (Crucero Integrado)',               valor: 'No incluido' },
+      { label: 'TJA (Asistente de atasco)',             valor: 'No incluido' },
+      { label: 'HMA (Luces altas inteligentes)',        valor: 'No incluido' },
+      { label: 'BSD (Detector de punto ciego)',         valor: 'No incluido' },
+      { label: 'Cámara de reversa',                    valor: 'Sí' },
+      { label: 'Sensores de estacionamiento',          valor: 'Solo traseros' },
+      { label: 'Bolsas de aire',                       valor: 'Frontales + cortina + laterales delanteras' },
+      { label: 'ISOFIX',                               valor: 'Sí' },
+      { label: 'TPMS (presión de llantas)',            valor: 'Sí' },
+      { label: 'Alarma antirrobo',                     valor: 'Sí' },
+    ],
+  },
+]
+
+const ATTITUDE_SPORT: Categoria[] = merge(ATTITUDE_SXT, {
+  desempeno: {
+    'Rines':              'Aluminio bitono cara pulida 18"',
+    'Neumáticos':         '225/45 R18',
+    'Consumo carretera':  '21.52 km/l',
+    'Consumo ciudad':     '15.03 km/l',
+    'Consumo combinado':  '17.39 km/l',
+  },
+  exterior: {
+    'Espejos laterales':      'Con ajuste eléctrico + abatibles + calefactables + señal de giro',
+    'Espejos abatibles':      'Sí',
+    'Espejos calefactables':  'Sí',
+    'Espejos con señal de giro': 'Sí',
+    'Colores disponibles':    'Blanco brillante, Granito, Plata estelar, Negro brillante',
+  },
+  interior: {
+    'Tapicería':                   'Piel sintética',
+    'A/C':                          'Automático doble zona',
+    'Asiento conductor':           'Eléctrico 6 vías',
+    'Asiento pasajero':            'Manual',
+    'Asientos ventilados':         'Sí',
+    'Keyless Entry & Go®':          'Sí',
+    'Espejo retrovisor':           'Día/noche manual + interfaz USB',
+    'Iluminación ambiental':       'Inteligente multicolor',
+    'Paletas de cambio al volante':'Sí',
+    'Quemacocos eléctrico':        'Sí (antipellizco)',
+    'Apoyabrazos 2ª fila':         'Sí',
+    'Salida de aire trasera':      'Sí',
+    'Ventanas un solo toque':      'Sí (antipellizco)',
+    'Volante':                     'Forrado en piel',
+  },
+  tecnologia: {
+    'Panel de instrumentos':      'LCD 10.25" configurable',
+    'Pantalla infotainment':      '10.25" LCD a color',
+    'Audio':                      'DTS 8 bocinas',
+    'Apple CarPlay / MirrorLink': 'Sí (alámbrico)',
+    'Puerto USB 2ª fila':         '1',
+    'Sonido de escape':           'Sí',
+  },
+  seguridad: {
+    'AEB (Frenado Autónomo de Emergencia)': 'Sí',
+    'Control de crucero':                   'ACC (Adaptativo)',
+    'ACC (Crucero Adaptativo)':             'Sí',
+    'FCW (Alerta colisión frontal)':        'Sí',
+    'LDW (Alerta salida de carril)':        'Sí',
+    'LKA (Mantenimiento de carril)':        'Sí',
+    'ICA (Crucero Integrado)':              'Sí',
+    'TJA (Asistente de atasco)':            'Sí',
+    'HMA (Luces altas inteligentes)':       'Sí',
+    'Sensores de estacionamiento':          'Delanteros y traseros',
+  },
+})
+
+const ATTITUDE_GT: Categoria[] = merge(ATTITUDE_SPORT, {
+  desempeno: {
+    'Rines':             'Aluminio negro satinado 18" (Performance)',
+    'Neumáticos':        '225/45Z R18 alta velocidad',
+    'Consumo carretera': '20.92 km/l',
+    'Consumo ciudad':    '14.56 km/l',
+    'Consumo combinado': '16.87 km/l',
+  },
+  exterior: {
+    'Alerón trasero': 'Sí',
+  },
+  interior: {
+    'Asiento pasajero':   'Eléctrico 4 vías',
+    'Espejo retrovisor':  'Día/noche automático + interfaz USB',
+    'Apoyo lumbar conductor': 'Sí (4 direcciones)',
+  },
+  tecnologia: {
+    'Cargador inalámbrico': 'Sí',
+  },
+  seguridad: {
+    'BSD (Detector de punto ciego)': 'Sí',
+  },
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
 // EXPORT
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -474,6 +656,17 @@ export const MODELOS: ModeloFicha[] = [
     ],
   },
   // ── Dodge ─────────────────────────────────────────────────────────────────
+  {
+    id: 'attitude-2026',
+    marca: 'Dodge',
+    modelo: 'Attitude',
+    año: 2026,
+    versiones: [
+      { id: 'sxt',   nombre: 'SXT',   categorias: ATTITUDE_SXT },
+      { id: 'sport', nombre: 'Sport', categorias: ATTITUDE_SPORT },
+      { id: 'gt',    nombre: 'GT',    categorias: ATTITUDE_GT },
+    ],
+  },
   {
     id: 'journey-2026',
     marca: 'Dodge',
