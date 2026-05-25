@@ -928,6 +928,108 @@ const RIFTER_HDI: Categoria[] = merge(RIFTER_PURETECH, {
   ],
 })
 
+// ─────────────────────────────────────────────────────────────────────────────
+// PEUGEOT PARTNER RAPID 2026
+// ─────────────────────────────────────────────────────────────────────────────
+
+;(MODELOS as ModeloFicha[]).push({
+  id: 'partner-rapid-2026',
+  marca: 'Peugeot',
+  modelo: 'Partner Rapid',
+  año: 2026,
+  versiones: [
+    {
+      id: 'partner-rapid',
+      nombre: 'Partner Rapid',
+      categorias: [
+        {
+          id: 'desempeno', nombre: 'Desempeño', specs: [
+            { label: 'Motor',                  valor: 'FireFly 1.3L Gasolina (1,332 cc)' },
+            { label: 'Potencia',               valor: '97 hp @ 6,000 rpm' },
+            { label: 'Torque neto',            valor: '129 Nm @ 4,250 rpm' },
+            { label: 'Transmisión',            valor: 'Manual 5 velocidades' },
+            { label: 'Dirección',              valor: 'Hidráulica' },
+            { label: 'Suspensión delantera',   valor: 'McPherson' },
+            { label: 'Suspensión trasera',     valor: 'Eje rígido' },
+            { label: 'Frenos delanteros',      valor: 'Disco ventilado' },
+            { label: 'Frenos traseros',        valor: 'Tambor' },
+            { label: 'Velocidad máxima',       valor: '163 km/h' },
+            { label: 'Tanque de combustible',  valor: '55 litros' },
+            { label: 'Consumo ciudad',         valor: '15.12 km/l' },
+            { label: 'Consumo carretera',      valor: '21.13 km/l' },
+            { label: 'Consumo combinado',      valor: '17.34 km/l' },
+            { label: 'Emisiones CO₂',          valor: '135.4 g/km' },
+          ],
+        },
+        {
+          id: 'carga', nombre: 'Área de Carga', specs: [
+            { label: 'Volumen de carga',       valor: '3.3 m³' },
+            { label: 'Capacidad de carga',     valor: '650 kg' },
+            { label: 'Capacidad de arrastre',  valor: '400 kg' },
+            { label: 'Largo área de carga',    valor: '1,868 mm' },
+            { label: 'Ancho área de carga',    valor: '1,324 mm' },
+            { label: 'Alto área de carga',     valor: '1,368 mm' },
+            { label: 'Ganchos de sujeción',    valor: '4 en área de carga' },
+            { label: 'Pared divisoria',        valor: 'Fija entre cabina y área de carga' },
+            { label: 'Iluminación de carga',   valor: 'Sí' },
+            { label: 'Acceso trasero',         valor: 'Puertas 60/40 con apertura 180° y cerradura' },
+            { label: 'Peso vehicular',         valor: '1,151 kg' },
+            { label: 'Peso bruto vehicular',   valor: '1,801 kg' },
+          ],
+        },
+        {
+          id: 'dimensiones', nombre: 'Dimensiones', specs: [
+            { label: 'Largo total',            valor: '4,407 mm' },
+            { label: 'Ancho con retrovisores', valor: '1,885 mm' },
+            { label: 'Alto',                   valor: '1,900 mm' },
+            { label: 'Pasajeros',              valor: '2 (conductor + 1)' },
+            { label: 'Puertas',                valor: '4' },
+            { label: 'Neumáticos',             valor: '175/70/R14' },
+            { label: 'Rines',                  valor: 'Acero 14" con embellecedores' },
+            { label: 'Color disponible',       valor: 'Blanco Banquise' },
+          ],
+        },
+        {
+          id: 'interior', nombre: 'Interior', specs: [
+            { label: 'Tapicería',              valor: 'Tela' },
+            { label: 'A/C',                    valor: 'Manual' },
+            { label: 'Asiento conductor',      valor: 'Ajuste de altura, inclinación y profundidad' },
+            { label: 'Asiento pasajero',       valor: 'Ajuste de inclinación y profundidad' },
+            { label: 'Cristales delanteros',   valor: 'Eléctricos (one touch para conductor)' },
+            { label: 'Freno de estacionamiento', valor: 'Mecánico' },
+            { label: 'Almacenamiento',         valor: 'Consola central + guantera superior abierta + guantera inferior cerrada' },
+            { label: 'Audio',                  valor: 'Pre-acondicionamiento radio, 4 bocinas y antena' },
+            { label: 'Toma de 12V',            valor: 'Sí (cabina)' },
+            { label: 'Volante',                valor: 'Con ajuste de altura' },
+          ],
+        },
+        {
+          id: 'exterior', nombre: 'Exterior', specs: [
+            { label: 'Faros',                  valor: 'Halógeno con función "follow me home"' },
+            { label: 'Faros antiniebla',       valor: 'Sí' },
+            { label: 'Espejos laterales',      valor: 'Con ajuste eléctrico' },
+            { label: 'Tercera luz de freno',   valor: 'Sí' },
+          ],
+        },
+        {
+          id: 'seguridad', nombre: 'Seguridad', specs: [
+            { label: 'ABS',                    valor: 'Sí' },
+            { label: 'ESP + ASR',              valor: 'Sí' },
+            { label: 'Bolsas de aire',         valor: 'Frontales conductor y pasajero' },
+            { label: 'Arranque en pendiente',  valor: 'Hill Assist Control' },
+            { label: 'ESS (freno emergencia)', valor: 'Señal de luces de frenado de emergencia' },
+            { label: 'Sensores estacionamiento', valor: 'Traseros' },
+            { label: 'Monitor presión llantas', valor: 'Sí' },
+            { label: 'Alarma antirrobo',       valor: 'Perimétrica' },
+            { label: 'Placa protección motor', valor: 'Sí' },
+            { label: 'Llanta de refacción',    valor: 'Sí' },
+          ],
+        },
+      ],
+    },
+  ],
+})
+
 export function modeloLabel(m: ModeloFicha): string {
   return `${m.modelo} ${m.año}`
 }
