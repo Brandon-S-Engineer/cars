@@ -1136,6 +1136,121 @@ const MANAGER_FL_L4H2: Categoria[] = merge(MANAGER_FL_L2H2, {
 })
 
 // ─────────────────────────────────────────────────────────────────────────────
+// PEUGEOT PARTNER PURETECH FL 2026
+// ─────────────────────────────────────────────────────────────────────────────
+
+;(MODELOS as ModeloFicha[]).push({
+  id: 'partner-puretech-fl-2026',
+  marca: 'Peugeot',
+  modelo: 'Partner PureTech FL',
+  año: 2026,
+  versiones: [
+    {
+      id: 'maxi-pack',
+      nombre: 'Maxi Pack',
+      categorias: [
+        {
+          id: 'desempeno', nombre: 'Desempeño', specs: [
+            { label: 'Motor',                  valor: 'PureTech 1.2L Turbo Gasolina (1,199 cc)' },
+            { label: 'Potencia',               valor: '110 hp @ 5,500 rpm' },
+            { label: 'Torque neto',            valor: '205 Nm @ 1,750 rpm' },
+            { label: 'Combustible',            valor: 'Gasolina' },
+            { label: 'Transmisión',            valor: 'Manual 6 velocidades' },
+            { label: 'Dirección',              valor: 'Asistencia Eléctrica' },
+            { label: 'Suspensión delantera',   valor: 'Pseudo MacPherson' },
+            { label: 'Suspensión trasera',     valor: 'Barra de torsión' },
+            { label: 'Frenos delanteros',      valor: 'Discos ventilados' },
+            { label: 'Frenos traseros',        valor: 'Discos sólidos' },
+            { label: 'Velocidad máxima',       valor: '171 km/h' },
+            { label: 'Aceleración 0-100 km/h', valor: '11.6 s' },
+            { label: 'Tanque de combustible',  valor: '60 litros' },
+            { label: 'Consumo ciudad',         valor: '15.0 km/l' },
+            { label: 'Consumo carretera',      valor: '19.1 km/l' },
+            { label: 'Consumo combinado',      valor: '17.4 km/l' },
+            { label: 'Emisiones CO₂',          valor: '131.4 g/km' },
+          ],
+        },
+        {
+          id: 'carga', nombre: 'Área de Carga', specs: [
+            { label: 'Volumen de carga',       valor: '3.9 – 4.4 m³' },
+            { label: 'Capacidad de carga',     valor: '950 kg' },
+            { label: 'Capacidad de arrastre',  valor: '850 kg' },
+            { label: 'Largo área de carga',    valor: '2,167 – 3,440 mm' },
+            { label: 'Ancho área de carga',    valor: '1,630 mm' },
+            { label: 'Alto área de carga',     valor: '1,270 mm' },
+            { label: 'Ganchos de sujeción',    valor: '6 en piso de área de carga' },
+            { label: 'Piso área de carga',     valor: 'Cubierta plástica' },
+            { label: 'Pared divisoria',        valor: 'Fija con escotilla de conexión cabina–carga' },
+            { label: 'Iluminación de carga',   valor: 'Sí' },
+            { label: 'Acceso lateral',         valor: 'Puerta corrediza' },
+            { label: 'Acceso trasero',         valor: 'Puertas 60/40 apertura 180°, bisagras antirrobo' },
+            { label: 'Peso vehicular',         valor: '1,389 kg' },
+            { label: 'Peso bruto vehicular',   valor: '2,290 kg' },
+          ],
+        },
+        {
+          id: 'dimensiones', nombre: 'Dimensiones', specs: [
+            { label: 'Largo total',            valor: '4,751 mm' },
+            { label: 'Ancho con retrovisores', valor: '2,107 mm' },
+            { label: 'Alto',                   valor: '1,860 mm' },
+            { label: 'Pasajeros',              valor: '3' },
+            { label: 'Puertas',                valor: '5' },
+            { label: 'Neumáticos',             valor: '215/65/R16' },
+            { label: 'Rines',                  valor: 'Acero 16" con tapón central' },
+          ],
+        },
+        {
+          id: 'interior', nombre: 'Interior', specs: [
+            { label: 'Tapicería',              valor: 'Tela' },
+            { label: 'A/C',                    valor: 'Manual' },
+            { label: 'Asiento conductor',      valor: 'Ajuste inclinación, altura y profundidad' },
+            { label: 'Asiento central',        valor: 'Con almacenamiento inferior y cerradura; tableta de escritura giratoria en respaldo' },
+            { label: 'Asiento pasajero',       valor: 'Modulable — permite conexión con área de carga' },
+            { label: 'Pantalla principal',     valor: '10" — Apple CarPlay® y Android Auto®' },
+            { label: 'Clúster',                valor: 'Panel de instrumentos elevado (i-Cockpit®)' },
+            { label: 'Volante',                valor: 'Diámetro reducido con ajuste de altura y profundidad' },
+            { label: 'Audio',                  valor: 'Radio AM/FM + USB + conectividad inalámbrica' },
+            { label: 'Cristales delanteros',   valor: 'Eléctricos One Touch Up' },
+            { label: 'Freno de estacionamiento', valor: 'Eléctrico' },
+            { label: 'Consola superior',       valor: 'Portadocumentos' },
+            { label: 'Toma de 12V',            valor: 'Sí (cabina)' },
+          ],
+        },
+        {
+          id: 'exterior', nombre: 'Exterior', specs: [
+            { label: 'Faros',                  valor: 'Halógeno' },
+            { label: 'Faros antiniebla',       valor: 'Sí' },
+            { label: 'Sensor de luz y lluvia', valor: 'Sí (Pack Visibilidad)' },
+            { label: 'Espejos laterales',      valor: 'Calefactables, ajuste y plegado eléctrico' },
+            { label: 'Realce de carrocería',   valor: '+30 mm (Pack Robustez)' },
+            { label: 'Placa protección motor', valor: 'Sí (Pack Robustez)' },
+            { label: 'Grip Control',           valor: 'Con Hill Assist Descent Control (Pack Robustez)' },
+            { label: 'Colores disponibles',    valor: 'Blanco Icy, Gris Artense' },
+          ],
+        },
+        {
+          id: 'seguridad', nombre: 'Seguridad', specs: [
+            { label: 'ABS',                    valor: 'Sí' },
+            { label: 'ESP + ASR',              valor: 'Sí' },
+            { label: 'AFU (frenado urgencia)', valor: 'Sí' },
+            { label: 'Stop & Start',           valor: 'Sí' },
+            { label: 'Hill Assist Control',    valor: 'Sí' },
+            { label: 'Control crucero',        valor: 'Sí + limitador de velocidad' },
+            { label: 'Bolsas de aire',         valor: 'Frontales y laterales conductor y pasajero (4)' },
+            { label: 'Cámara de reversa',      valor: 'Sí' },
+            { label: 'Sensores estacionamiento', valor: 'Traseros' },
+            { label: 'Monitor presión llantas', valor: 'Sí' },
+            { label: 'Alerta atención conductor', valor: 'Sí' },
+            { label: 'Placa protección motor', valor: 'Sí' },
+            { label: 'Llanta de refacción',    valor: 'Homogénea' },
+          ],
+        },
+      ],
+    },
+  ],
+})
+
+// ─────────────────────────────────────────────────────────────────────────────
 // DODGE DURANGO HELLCAT ROAD PREDATOR EDITION 2026
 // ─────────────────────────────────────────────────────────────────────────────
 
