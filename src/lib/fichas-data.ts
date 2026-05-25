@@ -2678,6 +2678,8 @@ const COMPASS_2026_LIMITED_PREMIUM: Categoria[] = [
       { label: 'Arranque remoto',       valor: 'Sí' },
       { label: 'Transmisión',           valor: 'Automática 6 velocidades' },
       { label: 'Tracción',              valor: 'Delantera FWD' },
+      { label: 'Caja de transferencia', valor: 'No aplica (FWD)' },
+      { label: 'Sistema Selec Terrain', valor: 'No incluido' },
       { label: 'Paletas al volante',    valor: 'Sí' },
       { label: 'Columna de dirección',  valor: 'Ajustable' },
       { label: 'Dirección',             valor: 'Eléctrica' },
@@ -2694,6 +2696,7 @@ const COMPASS_2026_LIMITED_PREMIUM: Categoria[] = [
     id: 'interior', nombre: 'Interior', specs: [
       { label: 'Tapicería',              valor: 'Piel Black' },
       { label: 'Asiento conductor',      valor: 'Manual 6 vías' },
+      { label: 'Ajuste lumbar conductor',valor: '—' },
       { label: 'Asiento pasajero',       valor: 'Manual 4 vías' },
       { label: 'Cristales',              valor: 'Eléctricos' },
       { label: 'Desempañante trasero',   valor: 'Sí' },
@@ -2708,6 +2711,8 @@ const COMPASS_2026_LIMITED_PREMIUM: Categoria[] = [
       { label: 'Descansabrazos trasero', valor: 'Sí' },
       { label: 'Volante',                valor: 'Forrado en piel' },
       { label: 'A/C',                    valor: 'Sí' },
+      { label: 'Sistema purificación aire', valor: '—' },
+      { label: 'Ventilas 2ª fila',       valor: '—' },
       { label: 'Cubierta maletero',      valor: 'Desmontable' },
       { label: 'Ganchos maletero',       valor: 'Sí' },
       { label: '2ª fila',                valor: '60/40 plegable' },
@@ -2723,6 +2728,7 @@ const COMPASS_2026_LIMITED_PREMIUM: Categoria[] = [
   {
     id: 'exterior', nombre: 'Exterior', specs: [
       { label: 'Iluminación frontal',         valor: 'LED automática' },
+      { label: 'Iluminación diurna LED',      valor: '—' },
       { label: 'Faros de niebla',             valor: 'LED' },
       { label: 'Entrada con cortesía',        valor: 'Sí' },
       { label: 'Espejos laterales',           valor: 'Abatibles manualmente, negro' },
@@ -2733,6 +2739,9 @@ const COMPASS_2026_LIMITED_PREMIUM: Categoria[] = [
       { label: 'Rines',                       valor: 'Aluminio 18"' },
       { label: 'Neumáticos',                  valor: '225/55R18' },
       { label: 'Techo',                       valor: 'Al color de la carrocería' },
+      { label: 'Cristales con tinte profundo',valor: '—' },
+      { label: 'Puerta de maletero',          valor: '—' },
+      { label: 'Open & Go',                   valor: '—' },
       { label: 'Peso vehicular',              valor: '1,557 kg' },
       { label: 'Peso bruto',                  valor: '1,957 kg' },
       { label: 'Longitud',                    valor: '4,404 mm' },
@@ -2763,10 +2772,12 @@ const COMPASS_2026_LIMITED_PREMIUM: Categoria[] = [
       { label: 'Bolsas de aire frontal',        valor: 'Conductor/pasajero' },
       { label: 'Bolsas de aire laterales',      valor: 'Asiento' },
       { label: 'Bolsa de aire cortina',         valor: 'Sí' },
+      { label: 'Bolsa rodillas conductor',      valor: '—' },
       { label: 'Asistencia estacionamiento',    valor: 'Paralelo y perpendicular' },
       { label: 'Sensores estacionamiento',      valor: 'Sí' },
       { label: 'TPMS',                          valor: 'Sí' },
       { label: 'Smart Key',                     valor: 'Sí' },
+      { label: 'Acceso pasivo',                 valor: '—' },
       { label: 'Clasificación de ocupantes',    valor: 'Sí' },
       { label: 'ISOFIX',                        valor: 'Sí' },
       { label: 'Alerta cinturones',             valor: 'Delanteros/traseros' },
@@ -2811,11 +2822,58 @@ const COMPASS_2026_ALTITUDE: Categoria[] = merge(COMPASS_2026_LIMITED_PREMIUM, {
   },
 })
 
+const COMPASS_2026_HIGH_ALTITUDE: Categoria[] = merge(COMPASS_2026_ALTITUDE, {
+  desempeno: {
+    'Motor':                  '2.0L I4 DOHC DI Turbo',
+    'Potencia':                '200 hp @ 5,000 rpm',
+    'Torque':                  '221 lb-pie @ 1,750 rpm',
+    'Transmisión':             'Automática 8 velocidades 8F30',
+    'Tracción':                'AWD',
+    'Diámetro de giro':        '15.7 m',
+    'Suspensión':              'Delantera McPherson; trasera Chapman con eslabones de acero, resortes helicoidales + barra estabilizadora',
+    'Ángulos off-road':        'Entrada 16.1° | ventral 22.6° | salida 31.4°',
+    'Capacidad de carga':      '466 kg',
+    'Capacidad de arrastre':   '908 kg',
+    'Caja de transferencia':   'Active Drive Full Time 4x4',
+    'Sistema Selec Terrain':   'Sí',
+  },
+  interior: {
+    'Tapicería':                  'Piel',
+    'Asiento pasajero':           'Manual 6 vías',
+    'Pantalla táctil':            '10.1" Uconnect 5 con GPS',
+    'A/C':                        'Automático doble zona',
+    'Audio':                      'Premium Alpine',
+    'Consola frontal':            'Deslizable con descansabrazos',
+    'Descansabrazos trasero':     'Con porta vasos',
+    'Quemacocos':                 'Techo panorámico',
+    'Ajuste lumbar conductor':    'Eléctrico 2 vías',
+    'Sistema purificación aire':  'Sí (Jeep®)',
+    'Ventilas 2ª fila':           'Sí',
+  },
+  exterior: {
+    'Espejos laterales':            'Plegables manualmente, ajuste eléctrico, calefactables, con indicadores',
+    'Peso vehicular':               '1,711 kg',
+    'Peso bruto':                   '2,177 kg',
+    'Ancho':                        '1,874 mm',
+    'Altura':                       '1,647 mm',
+    'Colores disponibles':          'Plata Metálico, Negro Diamante, Blanco Brillante',
+    'Iluminación diurna LED':       'Sí',
+    'Cristales con tinte profundo': 'Sí',
+    'Puerta de maletero':           'Eléctrica con activación con pie',
+    'Open & Go':                    'Sí',
+  },
+  seguridad: {
+    'Bolsa rodillas conductor': 'Sí',
+    'Acceso pasivo':            'Puertas frontales',
+  },
+})
+
 ;(MODELOS as ModeloFicha[]).push({
   id: 'jeep-compass-2026', marca: 'Jeep', modelo: 'Compass', año: 2026,
   versiones: [
     { id: 'limited-premium', nombre: 'Limited Premium', categorias: COMPASS_2026_LIMITED_PREMIUM },
     { id: 'altitude',        nombre: 'Altitude',        categorias: COMPASS_2026_ALTITUDE        },
+    { id: 'high-altitude',   nombre: 'High Altitude',   categorias: COMPASS_2026_HIGH_ALTITUDE   },
   ],
 })
 
