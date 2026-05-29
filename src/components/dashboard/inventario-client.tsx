@@ -317,18 +317,6 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
         >
           {tab.rows.length} unidades
         </button>
-        {counts.normal > 0 && (
-          <button
-            onClick={() => toggleFilter('normal')}
-            className={cn(
-              'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors',
-              filterKind === 'normal' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground',
-            )}
-          >
-            <span className="inline-block w-3 h-3 rounded-sm bg-gray-400 shrink-0" />
-            {counts.normal} disponible
-          </button>
-        )}
         {counts.demo > 0 && (
           <button
             onClick={() => toggleFilter('demo')}
@@ -351,6 +339,18 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
           >
             <span className="inline-block w-3 h-3 rounded-sm bg-violet-400 shrink-0" />
             {counts['demo-reservado']} demo apartado
+          </button>
+        )}
+        {counts.normal > 0 && (
+          <button
+            onClick={() => toggleFilter('normal')}
+            className={cn(
+              'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors',
+              filterKind === 'normal' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground',
+            )}
+          >
+            <span className="inline-block w-3 h-3 rounded-sm bg-gray-400 shrink-0" />
+            {counts.normal} disponible
           </button>
         )}
         {counts.reservado > 0 && (
