@@ -475,9 +475,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                           formatPrice(val)
                         ) : priceMatch ? (
                           <>
-                            <span className="text-muted-foreground">
-                              {val.slice(0, priceMatch.index)}
-                            </span>
+                            {val.slice(0, priceMatch.index)}
                             <span className="text-amber-600 dark:text-amber-400 font-semibold tabular-nums">
                               {priceMatch[0]}
                             </span>
