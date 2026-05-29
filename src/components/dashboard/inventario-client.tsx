@@ -270,6 +270,10 @@ function NoDataState() {
 
 function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; search: string; highlightRow: number | null; onRowClick: (car: CarAnuncio) => void }) {
   const isTransito = tab.name === 'TRANSITO IMA/ AMSA'
+  const [filterKind, setFilterKind] = useState<RowKind | null>(null)
+
+  useEffect(() => { setFilterKind(null) }, [tab.name])
+
   const cols = useMemo(
     () => isTransito ? buildTransitoColumns(tab.headers) : buildStandardColumns(tab.headers, tab.rows),
     [tab, isTransito]
@@ -285,10 +289,12 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
   )
 
   const filtered = useMemo(() => {
-    if (!search.trim()) return sortedNumbered
-    const q = search.toLowerCase()
-    return sortedNumbered.filter(({ row }) => row.some((c) => c?.toLowerCase().includes(q)))
-  }, [sortedNumbered, search])
+    const bySearch = !search.trim()
+      ? sortedNumbered
+      : sortedNumbered.filter(({ row }) => row.some((c) => c?.toLowerCase().includes(search.toLowerCase())))
+    if (!filterKind) return bySearch
+    return bySearch.filter(({ kind }) => kind === filterKind)
+  }, [sortedNumbered, search, filterKind])
 
   const counts = useMemo(() => {
     const c = { demo: 0, 'demo-reservado': 0, normal: 0, reservado: 0 }
@@ -296,28 +302,53 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
     return c
   }, [tab.rows])
 
+  const toggleFilter = (kind: RowKind) => setFilterKind((prev) => (prev === kind ? null : kind))
+
   return (
     <div className="space-y-3">
-      {/* Legend */}
-      <div className="flex items-center gap-5 text-xs text-muted-foreground flex-wrap">
-        <span className="font-medium text-foreground">{tab.rows.length} unidades</span>
+      {/* Filter pills */}
+      <div className="flex items-center gap-2 flex-wrap">
+        <button
+          onClick={() => setFilterKind(null)}
+          className={cn(
+            'px-3 py-1.5 rounded-lg text-xs font-medium transition-colors',
+            !filterKind ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground',
+          )}
+        >
+          {tab.rows.length} unidades
+        </button>
         {counts.demo > 0 && (
-          <span className="flex items-center gap-1.5">
-            <span className="inline-block w-3 h-3 rounded-sm bg-blue-400" />
+          <button
+            onClick={() => toggleFilter('demo')}
+            className={cn(
+              'px-3 py-1.5 rounded-lg text-xs font-medium transition-colors',
+              filterKind === 'demo' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground',
+            )}
+          >
             {counts.demo} demo disponible
-          </span>
+          </button>
         )}
         {counts['demo-reservado'] > 0 && (
-          <span className="flex items-center gap-1.5">
-            <span className="inline-block w-3 h-3 rounded-sm bg-violet-400" />
+          <button
+            onClick={() => toggleFilter('demo-reservado')}
+            className={cn(
+              'px-3 py-1.5 rounded-lg text-xs font-medium transition-colors',
+              filterKind === 'demo-reservado' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground',
+            )}
+          >
             {counts['demo-reservado']} demo apartado
-          </span>
+          </button>
         )}
         {counts.reservado > 0 && (
-          <span className="flex items-center gap-1.5">
-            <span className="inline-block w-3 h-3 rounded-sm bg-amber-400" />
+          <button
+            onClick={() => toggleFilter('reservado')}
+            className={cn(
+              'px-3 py-1.5 rounded-lg text-xs font-medium transition-colors',
+              filterKind === 'reservado' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground',
+            )}
+          >
             {counts.reservado} apartado
-          </span>
+          </button>
         )}
       </div>
 
