@@ -457,6 +457,8 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                     }
 
                     const esComentarioConPrecio = col.label.toLowerCase() === 'comentario' && !empty && !!extractPrecioEspecial(val)
+                    const priceMatch = esComentarioConPrecio ? val.match(/\$\s*[\d,]+(?:\.\d+)?/) : null
+
                     return (
                       <td
                         key={col.idx}
@@ -464,13 +466,22 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                           'px-4 py-2.5 whitespace-nowrap text-sm',
                           col.role === 'price' && 'text-right font-medium tabular-nums',
                           (col.role === 'vin' || col.role === 'eco') && 'font-mono text-xs text-muted-foreground',
-                          esComentarioConPrecio && 'text-amber-500 dark:text-amber-400 font-medium',
                         )}
                       >
                         {empty ? (
                           <span className="text-muted-foreground/30">—</span>
                         ) : col.role === 'price' ? (
                           formatPrice(val)
+                        ) : priceMatch ? (
+                          <>
+                            <span className="text-amber-400/75 dark:text-amber-500/60">
+                              {val.slice(0, priceMatch.index)}
+                            </span>
+                            <span className="text-amber-600 dark:text-amber-400 font-semibold tabular-nums">
+                              {priceMatch[0]}
+                            </span>
+                            {val.slice(priceMatch.index! + priceMatch[0].length)}
+                          </>
                         ) : (
                           val
                         )}
