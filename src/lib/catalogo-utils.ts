@@ -96,7 +96,7 @@ export function parseInventarioForCatalog(
         unitCount++
         if (priceIdx >= 0) {
           const price = Number((row[priceIdx] ?? '').replace(/[^0-9.]/g, ''))
-          if (price > 100_000 && price < minPrice) minPrice = price
+          if (price > 100_000 && price < 10_000_000 && price < minPrice) minPrice = price
         }
       }
     }

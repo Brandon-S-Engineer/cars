@@ -14,8 +14,9 @@ export async function generateStaticParams() {
   return MODELOS.map((m) => ({ slug: m.id }))
 }
 
-export default async function ModeloDetailPage({ params }: { params: { slug: string } }) {
-  const model = MODELOS.find((m) => m.id === params.slug)
+export default async function ModeloDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const model = MODELOS.find((m) => m.id === slug)
   if (!model) notFound()
 
   const catalog = await getCatalogData()
