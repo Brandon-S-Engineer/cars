@@ -466,6 +466,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                           'px-4 py-2.5 whitespace-nowrap text-sm',
                           col.role === 'price' && 'text-right font-medium tabular-nums',
                           (col.role === 'vin' || col.role === 'eco') && 'font-mono text-xs text-muted-foreground',
+                          priceMatch && 'bg-amber-50 dark:bg-amber-950/30',
                         )}
                       >
                         {empty ? (
@@ -474,7 +475,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                           formatPrice(val)
                         ) : priceMatch ? (
                           <>
-                            <span className="text-amber-400/75 dark:text-amber-500/60">
+                            <span className="text-muted-foreground">
                               {val.slice(0, priceMatch.index)}
                             </span>
                             <span className="text-amber-600 dark:text-amber-400 font-semibold tabular-nums">
