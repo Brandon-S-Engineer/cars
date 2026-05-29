@@ -94,6 +94,13 @@ function classifyRow(row: string[]): RowKind {
   return 'normal'
 }
 
+function extractPrecioEspecial(val: string): string | null {
+  const match = val.match(/\$\s*[\d,]+(?:\.\d+)?/)
+  if (!match) return null
+  const num = Number(match[0].replace(/[^0-9.]/g, ''))
+  return num > 100_000 ? match[0] : null
+}
+
 function formatPrice(val: string): string {
   const num = Number(val.replace(/[^0-9.]/g, ''))
   if (!num) return val
@@ -409,6 +416,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                     const listaNum = Number(listaRaw.replace(/[^0-9.]/g, ''))
                     const ofertaNum = Number(ofertaRaw.replace(/[^0-9.]/g, ''))
                     const añoCol = cols.find((c) => c.label === 'Modelo')
+                    const comentarioRaw = getByLabel('comentario')
                     onRowClick({
                       tab: tab.name,
                       num,
@@ -416,6 +424,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                       año: añoCol ? (row[añoCol.idx]?.trim() || null) : null,
                       precio: listaNum > 0 ? listaRaw : null,
                       oferta: ofertaNum > 0 && ofertaNum !== listaNum ? ofertaRaw : null,
+                      precioEspecial: comentarioRaw ? extractPrecioEspecial(comentarioRaw) : null,
                       colorExt: getByLabel('color ext'),
                       colorInt: getByLabel('color int'),
                       sucursal: getByLabel('sucursal') ?? getByLabel('ubicac'),
@@ -447,13 +456,15 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                       )
                     }
 
+                    const esComentarioConPrecio = col.label.toLowerCase() === 'comentario' && !empty && !!extractPrecioEspecial(val)
                     return (
                       <td
                         key={col.idx}
                         className={cn(
                           'px-4 py-2.5 whitespace-nowrap text-sm',
                           col.role === 'price' && 'text-right font-medium tabular-nums',
-                          (col.role === 'vin' || col.role === 'eco') && 'font-mono text-xs text-muted-foreground'
+                          (col.role === 'vin' || col.role === 'eco') && 'font-mono text-xs text-muted-foreground',
+                          esComentarioConPrecio && 'text-amber-500 dark:text-amber-400 font-medium',
                         )}
                       >
                         {empty ? (

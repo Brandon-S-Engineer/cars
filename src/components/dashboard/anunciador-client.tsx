@@ -25,9 +25,10 @@ function generatePost(car: CarAnuncio): string {
   const listaNum = car.precio ? Number(car.precio.replace(/[^0-9.]/g, '')) : 0
   const ofertaNum = car.oferta ? Number(car.oferta.replace(/[^0-9.]/g, '')) : 0
   const tieneOferta = ofertaNum > 0 && ofertaNum !== listaNum
+  const especialRaw = car.precioEspecial ?? (tieneOferta ? car.oferta : null)
 
-  if (tieneOferta && car.precio) {
-    lines.push(`Precio especial: ${fmt(car.oferta!)}`)
+  if (especialRaw && car.precio) {
+    lines.push(`Precio especial: ${fmt(especialRaw)}`)
     lines.push(`Precio lista: ${fmt(car.precio)}`)
   } else if (car.precio) {
     lines.push(`Precio: ${fmt(car.precio)}`)
@@ -71,11 +72,15 @@ const STATUS_CLASS: Record<string, string> = {
 
 // ── Sub-components ────────────────────────────────────────────────────────────
 
-function DetailRow({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
+function DetailRow({ label, value, highlight }: { label: string; value: string; highlight?: 'green' | 'gold' }) {
   return (
     <div className="flex items-start justify-between gap-4 py-1.5 border-b border-border/50 last:border-0">
       <span className="text-xs text-muted-foreground shrink-0 pt-0.5">{label}</span>
-      <span className={cn('text-sm font-medium text-right', highlight && 'text-green-600 dark:text-green-400')}>{value}</span>
+      <span className={cn(
+        'text-sm font-medium text-right',
+        highlight === 'green' && 'text-green-600 dark:text-green-400',
+        highlight === 'gold'  && 'text-amber-500 dark:text-amber-400',
+      )}>{value}</span>
     </div>
   )
 }
@@ -126,6 +131,7 @@ export default function AnunciadorClient() {
   const listaNum = car.precio ? Number(car.precio.replace(/[^0-9.]/g, '')) : 0
   const ofertaNum = car.oferta ? Number(car.oferta.replace(/[^0-9.]/g, '')) : 0
   const tieneOferta = ofertaNum > 0 && ofertaNum !== listaNum
+  const precioMostrar = car.precioEspecial ?? (tieneOferta ? car.oferta : null)
 
   return (
     <div className="space-y-6">
@@ -152,7 +158,12 @@ export default function AnunciadorClient() {
           <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider pb-2">Detalles</p>
           {car.año && <DetailRow label="Año" value={car.año} />}
           {car.precio && <DetailRow label="Precio lista" value={fmt(car.precio)} />}
-          {tieneOferta && car.oferta && <DetailRow label="Precio oferta" value={fmt(car.oferta)} highlight />}
+          {car.precioEspecial
+            ? <DetailRow label="Precio Especial" value={fmt(car.precioEspecial)} highlight="gold" />
+            : tieneOferta && car.oferta
+              ? <DetailRow label="Precio oferta" value={fmt(car.oferta)} highlight="green" />
+              : null
+          }
           {car.colorExt && <DetailRow label="Color exterior" value={car.colorExt} />}
           {car.colorInt && <DetailRow label="Color interior" value={car.colorInt} />}
           {car.sucursal && <DetailRow label="Sucursal" value={car.sucursal} />}

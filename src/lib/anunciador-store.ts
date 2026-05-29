@@ -9,6 +9,7 @@ export type CarAnuncio = {
   año: string | null
   precio: string | null
   oferta: string | null
+  precioEspecial: string | null
   colorExt: string | null
   colorInt: string | null
   sucursal: string | null
