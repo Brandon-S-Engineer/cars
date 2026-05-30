@@ -165,12 +165,7 @@
 
 /* ── Image placeholder (replaces img until real photos are added) ──────────── */
 .ph {
-  background-color: #ECE3D3;
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(27,26,23,.05) 0 11px,
-    rgba(27,26,23,0)   11px 22px
-  );
+  background-color: #E8E8E8;
   position: relative;
   overflow: hidden;
 }
