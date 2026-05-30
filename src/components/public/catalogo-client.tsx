@@ -12,7 +12,11 @@ export default function CatalogoClient({
   modelos: ModeloCatalogo[]
   initialMarca?: string
 }) {
-  const [brandFilter, setBrandFilter] = useState(initialMarca)
+  const [brandFilter, setBrandFilter] = useState(() => {
+    if (initialMarca === 'todas') return 'todas'
+    const match = modelos.find((m) => m.ficha.marca.toLowerCase() === initialMarca.toLowerCase())
+    return match ? match.ficha.marca : 'todas'
+  })
   const [priceMax, setPriceMax] = useState(0)
   const [demoOnly, setDemoOnly] = useState(false)
   const [search, setSearch] = useState('')
