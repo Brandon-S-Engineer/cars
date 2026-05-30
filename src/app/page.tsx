@@ -1,176 +1,422 @@
 import Link from 'next/link'
-import { ChevronRight, MessageCircle, Car } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { getCatalogData } from '@/lib/catalogo-db'
-import { formatMXN, waUrl, getBrandStyle } from '@/lib/catalogo-utils'
+import WaIcon from '@/components/public/wa-icon'
+import UtilityBar from '@/components/public/utility-bar'
 import PublicNav from '@/components/public/public-nav'
+import PublicFooter from '@/components/public/public-footer'
 import FloatingWhatsApp from '@/components/public/floating-whatsapp'
+import { getCatalogData } from '@/lib/catalogo-db'
+import { formatMXN, waUrl } from '@/lib/catalogo-utils'
 
 export const dynamic = 'force-dynamic'
 
+const WA_GENERAL = 'Hola Edith, vi tu sitio y quiero que me asesores para escoger mi próximo auto.'
+
 export default async function LandingPage() {
   const modelos = await getCatalogData()
-  const conUnidades = modelos.filter((m) => m.units > 0)
+  const disponibles = modelos.filter((m) => m.units > 0)
   const totalUnidades = modelos.reduce((s, m) => s + m.units, 0)
-  const marcas = [...new Set(conUnidades.map((m) => m.ficha.marca))]
-  const destacados = conUnidades.slice(0, 4)
+  const destacados = disponibles.slice(0, 6)
 
   return (
-    <>
+    <div className="font-hanken bg-paper text-ink">
+      <UtilityBar />
       <PublicNav />
 
-      {/* ── Hero ────────────────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-green-950 py-24 md:py-36 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-white/10 text-white/70 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse inline-block" />
-            {totalUnidades > 0 ? `${totalUnidades} autos disponibles hoy` : 'Catálogo actualizado'}
-          </div>
+      <main>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-5">
-            Encuentra tu próximo auto sin complicaciones
-          </h1>
-          <p className="text-lg md:text-xl text-white/60 max-w-xl mb-10 leading-relaxed">
-            Catálogo actualizado con los mejores modelos Jeep, RAM, Fiat y más.
-            Asesoría personalizada directo por WhatsApp.
-          </p>
+        {/* ── HERO ──────────────────────────────────────────────────────────── */}
+        <section className="relative overflow-hidden">
+          <div className="max-w-[1200px] mx-auto px-5 pt-12 pb-14 lg:pt-16 lg:pb-20 grid lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-6">
+              <span className="inline-flex items-center gap-2 bg-azul-50 text-azul-800 border border-azul-100 rounded-full px-3 py-1.5 text-[13px] font-semibold">
+                <span className="live-dot" />
+                Jeep · RAM · Fiat · Peugeot · Dodge
+              </span>
 
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/catalogo"
-              className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3.5 rounded-full text-base font-semibold hover:bg-gray-100 transition-colors"
-            >
-              Ver catálogo completo
-              <ChevronRight className="h-4 w-4" />
-            </Link>
-            <a
-              href={waUrl('Hola Edith, me gustaría información sobre sus autos disponibles')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3.5 rounded-full text-base font-semibold hover:bg-[#1ebe5d] transition-colors"
-            >
-              <MessageCircle className="h-5 w-5" />
-              Escríbeme por WhatsApp
-            </a>
-          </div>
+              <h1 className="mt-5 font-display font-extrabold text-[40px] sm:text-[52px] leading-[0.98] tracking-tight">
+                Tu próximo auto,<br />
+                con alguien que <span className="text-azul-700">sí te contesta</span>.
+              </h1>
 
-          {marcas.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-10">
-              {marcas.map((m) => (
-                <span key={m} className="bg-white/10 text-white/60 text-xs px-3 py-1 rounded-full">
-                  {m}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
+              <p className="mt-5 text-[18px] text-muted-warm max-w-[34rem]">
+                Soy Edith Soria. Te muestro modelos, versiones, precios y disponibilidad real
+                de cinco marcas, y te acompaño paso a paso por WhatsApp — sin bots, sin vueltas.
+              </p>
 
-      {/* ── Modelos destacados ───────────────────────────────────────────────── */}
-      {destacados.length > 0 && (
-        <section className="py-20 bg-gray-50 px-6 md:px-12">
-          <div className="max-w-5xl mx-auto">
-            <div className="flex items-end justify-between mb-8">
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold">Disponibles ahora</h2>
-                <p className="text-muted-foreground text-sm mt-1">
-                  Listos para entrega inmediata.
-                </p>
+              <div className="mt-7 flex flex-wrap items-center gap-3">
+                <a
+                  href={waUrl(WA_GENERAL)}
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 bg-wa hover:bg-wa-dark text-white font-semibold text-[17px] px-6 h-14 rounded-full transition-colors shadow-lg"
+                >
+                  <WaIcon size={24} />
+                  Escríbeme por WhatsApp
+                </a>
+                <Link
+                  href="/catalogo"
+                  className="inline-flex items-center gap-2 border border-ink/15 hover:border-ink/40 text-ink font-semibold text-[17px] px-6 h-14 rounded-full transition-colors"
+                >
+                  Explorar catálogo
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </Link>
               </div>
-              <Link
-                href="/catalogo"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground flex items-center gap-1 transition-colors"
-              >
-                Ver todos <ChevronRight className="h-3.5 w-3.5" />
-              </Link>
+
+              {/* Stats */}
+              <div className="mt-9 grid grid-cols-3 gap-5 max-w-md">
+                <div>
+                  <div className="font-display font-extrabold text-[28px] text-azul-800 leading-none">5</div>
+                  <div className="text-[13px] text-muted-warm mt-1.5">marcas en un<br />solo lugar</div>
+                </div>
+                <div>
+                  <div className="font-display font-extrabold text-[28px] text-azul-800 leading-none">40+</div>
+                  <div className="text-[13px] text-muted-warm mt-1.5">versiones con<br />specs completas</div>
+                </div>
+                <div>
+                  <div className="font-display font-extrabold text-[28px] text-azul-800 leading-none">&lt;5 min</div>
+                  <div className="text-[13px] text-muted-warm mt-1.5">tiempo en que<br />te respondo</div>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {destacados.map(({ ficha, units, precioDesde }) => {
-                const style = getBrandStyle(ficha.marca)
-                return (
-                  <Link
-                    key={ficha.id}
-                    href={`/catalogo/${ficha.id}`}
-                    className="group rounded-2xl overflow-hidden border bg-white hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5"
-                  >
-                    <div
-                      className={cn(
-                        'h-44 bg-gradient-to-br flex flex-col items-center justify-center gap-1.5',
-                        style.gradient,
+            {/* Visual */}
+            <div className="lg:col-span-6">
+              <div className="relative">
+                <div className="ph rounded-3xl aspect-[4/3] flex items-center justify-center border border-line">
+                  <span className="ph-tag">foto · auto destacado del mes</span>
+                </div>
+
+                {/* Floating card — availability */}
+                <div className="absolute -left-3 sm:-left-5 bottom-6 bg-white rounded-2xl border border-line shadow-xl p-4 w-[230px]">
+                  <div className="flex items-center gap-2 text-[12px] font-semibold text-emerald-700">
+                    <span className="live-dot" />
+                    DISPONIBLE AHORA
+                  </div>
+                  {disponibles[0] && (
+                    <>
+                      <div className="mt-1.5 font-display font-bold text-[16px] leading-tight text-ink">
+                        {disponibles[0].ficha.marca} {disponibles[0].ficha.modelo} {disponibles[0].ficha.año}
+                      </div>
+                      <div className="text-[13px] text-muted-warm">{disponibles[0].units} unidades disponibles</div>
+                      {disponibles[0].precioDesde && (
+                        <div className="mt-2 font-display font-extrabold text-azul-800 text-[18px]">
+                          desde {formatMXN(disponibles[0].precioDesde)}
+                        </div>
                       )}
-                    >
-                      <Car className={cn('h-10 w-10 opacity-20', style.text)} />
-                      <span className={cn('text-[10px] font-semibold uppercase tracking-widest opacity-30', style.text)}>
-                        {ficha.marca}
-                      </span>
-                    </div>
-                    <div className="p-4">
-                      <p className="text-xs text-muted-foreground">{ficha.marca} · {ficha.año}</p>
-                      <h3 className="font-semibold text-base mt-0.5 group-hover:underline decoration-1 underline-offset-2">
-                        {ficha.modelo}
-                      </h3>
-                      {precioDesde && (
-                        <p className="text-amber-600 font-bold text-sm mt-1.5">
-                          Desde {formatMXN(precioDesde)}
-                        </p>
-                      )}
-                      <p className="text-xs text-green-600 font-medium mt-0.5">
-                        {units} {units === 1 ? 'unidad disponible' : 'unidades disponibles'}
-                      </p>
-                    </div>
-                  </Link>
-                )
-              })}
+                    </>
+                  )}
+                </div>
+
+                {/* Floating card — Edith */}
+                <div className="absolute -right-2 sm:-right-4 -top-4 bg-white rounded-2xl border border-line shadow-xl p-3 flex items-center gap-3 w-[210px]">
+                  <div className="ph rounded-full w-12 h-12 shrink-0 grid place-items-center">
+                    <span className="ph-tag" style={{ fontSize: 8, padding: '4px 6px' }}>Edith</span>
+                  </div>
+                  <div className="leading-tight">
+                    <div className="font-semibold text-[14px] text-ink">Te atiende Edith</div>
+                    <div className="text-[12px] text-muted-warm">en persona, no un bot</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
-      )}
 
-      {/* ── Por qué Edith ───────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white px-6 md:px-12">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          {[
-            { icon: '🚗', titulo: 'Marcas premium', texto: 'Jeep, RAM, Fiat y más. Siempre los mejores modelos del año.' },
-            { icon: '💬', titulo: 'Asesoría directa', texto: 'Sin intermediarios. Hablas directo con quien te puede ayudar.' },
-            { icon: '✅', titulo: 'Inventario en tiempo real', texto: 'El catálogo se actualiza solo. Lo que ves está disponible.' },
-          ].map((item) => (
-            <div key={item.titulo} className="space-y-3">
-              <div className="text-4xl">{item.icon}</div>
-              <h3 className="font-semibold text-lg">{item.titulo}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{item.texto}</p>
+        {/* ── MARCAS ─────────────────────────────────────────────────────────── */}
+        <section className="border-y border-line bg-sand/60">
+          <div className="max-w-[1200px] mx-auto px-5 py-7">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <span className="text-[13px] uppercase tracking-[0.18em] text-muted-warm font-semibold">Trabajo estas 5 marcas</span>
+              <div className="grid grid-cols-5 gap-3 sm:gap-6 flex-1 max-w-[640px]">
+                {['JEEP', 'RAM', 'FIAT', 'PEUGEOT', 'DODGE'].map((marca) => (
+                  <Link key={marca} href={`/catalogo?marca=${marca.toLowerCase()}`} className="group text-center">
+                    <span className="block font-display font-extrabold text-[18px] sm:text-[22px] tracking-tight text-ink/75 group-hover:text-azul-700 transition-colors">
+                      {marca}
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* ── CTA final ───────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-gray-900 px-6 text-center">
-        <div className="max-w-xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-            ¿Listo para encontrar tu auto?
-          </h2>
-          <p className="text-white/50 mb-8 text-base">
-            Escríbeme por WhatsApp y te ayudo sin compromisos.
-          </p>
-          <a
-            href={waUrl('Hola Edith, me gustaría información sobre sus autos disponibles')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#1ebe5d] transition-colors"
-          >
-            <MessageCircle className="h-6 w-6" />
-            Contactar a Edith
-          </a>
-        </div>
-      </section>
+        {/* ── MODELOS DESTACADOS ─────────────────────────────────────────────── */}
+        {destacados.length > 0 && (
+          <section className="max-w-[1200px] mx-auto px-5 py-16">
+            <div className="flex items-end justify-between gap-4 mb-8">
+              <div>
+                <h2 className="font-display font-extrabold text-[30px] sm:text-[36px] leading-tight">Modelos destacados</h2>
+                <p className="text-muted-warm mt-2 text-[17px]">Lo más buscado, con unidades disponibles ahora mismo.</p>
+              </div>
+              <Link href="/catalogo" className="hidden sm:inline-flex items-center gap-2 font-semibold text-azul-700 hover:text-azul-900 shrink-0 transition-colors">
+                Ver todo el catálogo
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </Link>
+            </div>
 
-      {/* ── Footer ──────────────────────────────────────────────────────────── */}
-      <footer className="py-6 bg-gray-950 text-white/30 text-xs text-center">
-        © {new Date().getFullYear()} Edith Soria · Todos los derechos reservados
-      </footer>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {destacados.map(({ ficha, units, precioDesde }) => {
+                const waMsg = `Hola Edith, me interesa el ${ficha.marca} ${ficha.modelo} ${ficha.año}. ¿Qué versiones tienes disponibles?`
+                return (
+                  <article key={ficha.id} className="group bg-white rounded-2xl border border-line overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
+                    <Link href={`/catalogo/${ficha.id}`} className="block ph aspect-[16/10] flex items-center justify-center relative">
+                      <span className="ph-tag">foto · {ficha.marca} {ficha.modelo}</span>
+                      <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-emerald-100">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                        Disponible
+                      </span>
+                    </Link>
+                    <div className="p-5">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[12px] uppercase tracking-[0.14em] text-muted-warm font-semibold">{ficha.marca} · {ficha.año}</span>
+                        <span className="text-[12px] text-muted-warm">{ficha.versiones.length} {ficha.versiones.length === 1 ? 'versión' : 'versiones'}</span>
+                      </div>
+                      <h3 className="font-display font-bold text-[20px] mt-1.5 text-ink">{ficha.modelo}</h3>
+                      <div className="flex items-end justify-between mt-4">
+                        <div>
+                          <div className="text-[12px] text-muted-warm">Precio desde</div>
+                          <div className="font-display font-extrabold text-azul-800 text-[22px] leading-none">
+                            {precioDesde ? formatMXN(precioDesde) : 'Consultar'}
+                          </div>
+                        </div>
+                        <Link href={`/catalogo/${ficha.id}`} className="inline-flex items-center gap-1.5 font-semibold text-azul-700 hover:text-azul-900 text-[15px] transition-colors">
+                          Ver versiones
+                          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                        </Link>
+                      </div>
+                      <a
+                        href={waUrl(waMsg)}
+                        target="_blank" rel="noopener noreferrer"
+                        className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-wa hover:bg-wa-dark text-white font-semibold h-11 rounded-full transition-colors"
+                      >
+                        <WaIcon size={18} />
+                        Preguntar por este
+                      </a>
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
 
+            <Link href="/catalogo" className="sm:hidden mt-7 w-full inline-flex items-center justify-center gap-2 border border-ink/15 font-semibold h-12 rounded-full text-ink">
+              Ver todo el catálogo
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </Link>
+          </section>
+        )}
+
+        {/* ── POR QUÉ CONMIGO ────────────────────────────────────────────────── */}
+        <section id="porque" className="bg-azul-900 text-white">
+          <div className="max-w-[1200px] mx-auto px-5 py-16">
+            <div className="max-w-2xl">
+              <span className="text-[13px] uppercase tracking-[0.18em] text-azul-200 font-semibold">Por qué comprarme a mí</span>
+              <h2 className="font-display font-extrabold text-[30px] sm:text-[36px] leading-tight mt-3">
+                Una persona real, no una agencia que te marea
+              </h2>
+              <p className="text-azul-100/85 mt-3 text-[17px]">
+                Mismo auto, mismo precio de lista — pero con alguien que te responde, te explica sin
+                tecnicismos y te acompaña hasta que tienes las llaves en la mano.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+              {[
+                { icon: <WaIcon size={22} />, title: 'Te respondo yo', desc: 'Sin chatbots ni call center. Escribes y te contesta Edith, normalmente en minutos.', bg: 'bg-wa' },
+                { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 13h2l2-7 4 14 3-9 2 4h5" /></svg>, title: 'Inventario real', desc: 'Lo que ves está disponible. La base se actualiza sola; no te ofrezco lo que ya se vendió.', bg: 'bg-white/10' },
+                { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 1v22M5 5h9a3 3 0 010 6H7a3 3 0 000 6h10" /></svg>, title: 'Financiamiento', desc: 'Planes a tu medida, enganche y plazo que te acomoden. Te ayudo a armar tu mensualidad.', bg: 'bg-white/10' },
+                { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>, title: 'Te acompaño', desc: 'De la primera duda a la entrega y trámites. Una sola persona de principio a fin.', bg: 'bg-white/10' },
+              ].map((item) => (
+                <div key={item.title} className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                  <div className={`w-11 h-11 rounded-full ${item.bg} grid place-items-center`}>
+                    {item.icon}
+                  </div>
+                  <h3 className="font-display font-bold text-[18px] mt-4">{item.title}</h3>
+                  <p className="text-azul-100/80 text-[15px] mt-1.5">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── DISPONIBILIDAD EN VIVO ─────────────────────────────────────────── */}
+        <section className="max-w-[1200px] mx-auto px-5 py-16">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1.5 rounded-full">
+                <span className="live-dot" />
+                Conectado a la base en tiempo real
+              </span>
+              <h2 className="font-display font-extrabold text-[30px] sm:text-[36px] leading-tight mt-4">
+                Solo te muestro lo que de verdad puedes comprar hoy
+              </h2>
+              <p className="text-muted-warm mt-3 text-[17px]">
+                El catálogo refleja el estatus de cada unidad automáticamente. Si aparece, está disponible.
+              </p>
+              <div className="mt-6 grid sm:grid-cols-2 gap-3">
+                {[
+                  { color: 'bg-emerald-500', label: 'Disponible', desc: 'Unidad nueva lista para entrega o pedido.' },
+                  { color: 'bg-amber-500', label: 'Demo disponible', desc: 'Unidad de exhibición que puedes ver y manejar.' },
+                  { color: 'bg-ink/25', label: 'Demo apartado', desc: 'Se oculta del sitio automáticamente.', faded: true },
+                  { color: 'bg-ink/25', label: 'Apartado', desc: 'Se oculta del sitio automáticamente.', faded: true },
+                ].map((s) => (
+                  <div key={s.label} className={`flex items-start gap-3 ${s.faded ? 'bg-sand' : 'bg-white'} border border-line rounded-xl p-4 ${s.faded ? 'opacity-70' : ''}`}>
+                    <span className={`mt-1 w-2.5 h-2.5 rounded-full ${s.color} shrink-0`} />
+                    <div>
+                      <div className="font-semibold text-ink">{s.label}</div>
+                      <div className="text-[14px] text-muted-warm">{s.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Live panel */}
+            <div className="bg-white border border-line rounded-3xl p-6 shadow-sm">
+              <div className="flex items-center justify-between pb-4 border-b border-line">
+                <div className="flex items-center gap-2 font-semibold text-ink">
+                  <span className="live-dot" />
+                  Inventario en vivo
+                </div>
+                <span className="text-[13px] text-muted-warm">
+                  {totalUnidades} unidades disponibles
+                </span>
+              </div>
+              <ul className="divide-y divide-line">
+                {modelos.filter((m) => m.units > 0).slice(0, 4).map(({ ficha, units }) => (
+                  <li key={ficha.id} className="flex items-center justify-between py-3.5">
+                    <div>
+                      <div className="font-semibold text-ink">{ficha.marca} {ficha.modelo}</div>
+                      <div className="text-[13px] text-muted-warm">{ficha.año} · {units} {units === 1 ? 'unidad' : 'unidades'}</div>
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-emerald-700">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      Disponible
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/catalogo" className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-azul-700 hover:bg-azul-800 text-white font-semibold h-12 rounded-full transition-colors">
+                Ver disponibles ahora
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ── FINANCIAMIENTO ─────────────────────────────────────────────────── */}
+        <section id="financiamiento" className="bg-sand/70 border-y border-line">
+          <div className="max-w-[1200px] mx-auto px-5 py-16 grid lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-5">
+              <span className="text-[13px] uppercase tracking-[0.18em] text-muted-warm font-semibold">Financiamiento</span>
+              <h2 className="font-display font-extrabold text-[30px] sm:text-[36px] leading-tight mt-3">
+                Llévatelo a meses, sin complicarte
+              </h2>
+              <p className="text-muted-warm mt-3 text-[17px]">
+                Manejo planes de financiamiento de marca y bancarios. Tú me dices cuánto quieres dar
+                de enganche y a cuántos meses; yo te armo la mensualidad.
+              </p>
+              <ul className="mt-5 space-y-2.5 text-[16px] text-ink">
+                {['Enganche desde el 10%', 'Plazos de 12 a 60 meses', 'Aceptamos tu auto a cuenta', 'Te ayudo con la pre-aprobación'].map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <span className="w-5 h-5 rounded-full bg-azul-700 text-white grid place-items-center text-[12px] shrink-0">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={waUrl('Hola Edith, quiero información de financiamiento. ¿Me ayudas a calcular mi mensualidad?')}
+                target="_blank" rel="noopener noreferrer"
+                className="mt-7 inline-flex items-center gap-2.5 bg-wa hover:bg-wa-dark text-white font-semibold text-[16px] px-6 py-3.5 rounded-full transition-colors shadow-lg"
+              >
+                <WaIcon size={20} />
+                Calcular mi plan por WhatsApp
+              </a>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="grid sm:grid-cols-3 gap-4">
+                {[
+                  { model: 'Fiat Pulse · desde', monthly: '$7,490', note: 'enganche 20% · 60 meses*' },
+                  { model: 'Peugeot 2008 · desde', monthly: '$9,540', note: 'enganche 20% · 60 meses*' },
+                  { model: 'Jeep Compass · desde', monthly: '$12,290', note: 'enganche 20% · 60 meses*' },
+                ].map((f) => (
+                  <div key={f.model} className="bg-white border border-line rounded-2xl p-5">
+                    <div className="text-[13px] text-muted-warm">{f.model}</div>
+                    <div className="font-display font-extrabold text-[26px] text-azul-800 mt-1">
+                      {f.monthly}<span className="text-[14px] text-muted-warm font-sans font-medium">/mes</span>
+                    </div>
+                    <div className="text-[13px] text-muted-warm mt-1">{f.note}</div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[12px] text-muted-warm mt-4 leading-relaxed">
+                *Cifras ilustrativas calculadas con tasa anual aproximada. La mensualidad final depende de tu perfil y el plan elegido.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SOBRE MÍ ───────────────────────────────────────────────────────── */}
+        <section id="sobre-mi" className="max-w-[1200px] mx-auto px-5 py-16">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-5">
+              <div className="ph rounded-3xl aspect-[4/5] flex items-center justify-center border border-line">
+                <span className="ph-tag">foto · Edith Soria</span>
+              </div>
+            </div>
+            <div className="lg:col-span-7">
+              <span className="text-[13px] uppercase tracking-[0.18em] text-muted-warm font-semibold">Sobre mí</span>
+              <h2 className="font-display font-extrabold text-[30px] sm:text-[38px] leading-tight mt-3">Hola, soy Edith Soria 👋</h2>
+              <p className="text-[18px] text-ink/85 mt-4 max-w-2xl">
+                Llevo años ayudando a familias y empresas a encontrar el auto correcto, sin presión y sin letras chiquitas.
+                Mi forma de trabajar es simple: te escucho, te muestro opciones reales y te acompaño hasta la entrega.
+                Si algo no te conviene, te lo digo.
+              </p>
+              <p className="text-[18px] text-ink/85 mt-4 max-w-2xl">
+                Atiendo a particulares y a empresas con flotillas. Manejo Jeep, RAM, Fiat, Peugeot y Dodge, así que
+                puedo compararte modelos entre marcas y recomendarte el que de verdad te conviene.
+              </p>
+              <div className="mt-6 signature text-azul-800 text-[42px] leading-none">Edith Soria</div>
+              <div className="mt-7 flex flex-wrap items-center gap-3">
+                <a
+                  href={waUrl('Hola Edith, me gustaría que me asesores para encontrar mi próximo auto.')}
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 bg-wa hover:bg-wa-dark text-white font-semibold text-[16px] px-6 py-3.5 rounded-full transition-colors shadow-lg"
+                >
+                  <WaIcon size={20} />
+                  Hablemos por WhatsApp
+                </a>
+                <span className="text-[15px] text-muted-warm">
+                  o llámame al <a href="tel:+525581631195" className="font-semibold text-azul-700 hover:text-azul-900 transition-colors">55 8163 1195</a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTA FINAL ──────────────────────────────────────────────────────── */}
+        <section className="bg-wa-deep text-white">
+          <div className="max-w-[1200px] mx-auto px-5 py-16 text-center">
+            <h2 className="font-display font-extrabold text-[32px] sm:text-[44px] leading-tight max-w-3xl mx-auto">
+              ¿Listo para estrenar? Escríbeme y empezamos hoy mismo.
+            </h2>
+            <p className="text-white/85 text-[18px] mt-4 max-w-xl mx-auto">
+              Cuéntame qué buscas y tu presupuesto. Te mando opciones reales con precio y disponibilidad en minutos.
+            </p>
+            <a
+              href={waUrl('Hola Edith, estoy listo para estrenar auto. ¿Me ayudas a encontrar el mío?')}
+              target="_blank" rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2.5 bg-white text-wa-deep hover:bg-paper font-bold text-[18px] px-8 h-16 rounded-full transition-colors shadow-2xl"
+            >
+              <WaIcon size={26} />
+              Escríbeme a WhatsApp · 55 8163 1195
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <PublicFooter />
       <FloatingWhatsApp />
-    </>
+    </div>
   )
 }

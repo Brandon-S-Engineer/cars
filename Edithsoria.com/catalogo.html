@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo · Edith Soria — Jeep, RAM, Fiat, Peugeot y Dodge</title>
+<meta name="description" content="Catálogo completo de autos disponibles. Filtra por marca, precio y disponibilidad. Contacto directo por WhatsApp con Edith Soria.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Schibsted+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        paper:"#FAF6EF", sand:"#F2EADC", card:"#FFFFFF", ink:"#1B1A17", muted:"#6E6557", line:"#E7DDCB",
+        azul:{50:"#EEF3FF",100:"#DBE6FF",200:"#BBCFFF",500:"#2A60E0",600:"#1E4FD0",700:"#173FB0",800:"#12348F",900:"#0C2670"},
+        wa:{DEFAULT:"#25D366",dark:"#1DA851",deep:"#0B5D43"}
+      },
+      fontFamily:{ display:['"Schibsted Grotesk"',"system-ui","sans-serif"], sans:['"Hanken Grotesk"',"system-ui","sans-serif"] },
+      maxWidth:{ content:"1200px" }
+    } }
+  };
+</script>
+</head>
+<body class="bg-paper text-ink">
+
+<!-- ===== Barra utilitaria ===== -->
+<div class="bg-azul-900 text-azul-100 text-[13px]">
+  <div class="max-w-content mx-auto px-5 h-9 flex items-center justify-between">
+    <span class="hidden sm:flex items-center gap-2"><span class="live-dot"></span> Inventario actualizado en tiempo real · <span data-live-stamp class="text-white font-medium">Hoy</span></span>
+    <span class="flex items-center gap-4">
+      <span class="hidden md:inline">Atención personal de lunes a sábado, 9:00–19:00</span>
+      <a href="tel:+525581631195" class="text-white font-semibold hover:text-wa">55 8163 1195</a>
+    </span>
+  </div>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="sticky top-0 z-40 bg-paper/85 backdrop-blur border-b border-line">
+  <div class="max-w-content mx-auto px-5 h-[68px] flex items-center justify-between gap-4">
+    <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="Edith Soria — inicio">
+      <span class="grid place-items-center w-10 h-10 rounded-full bg-azul-700 text-white font-display font-extrabold text-lg leading-none">ES</span>
+      <span class="leading-none">
+        <span class="block font-display font-extrabold text-[19px] tracking-tight">Edith Soria</span>
+        <span class="block text-[11px] uppercase tracking-[0.22em] text-muted mt-0.5">Autos · Asesoría directa</span>
+      </span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-[15px] font-medium text-ink/80">
+      <a href="catalogo.html" class="text-azul-700 font-semibold">Catálogo</a>
+      <a href="index.html#financiamiento" class="hover:text-azul-700">Financiamiento</a>
+      <a href="index.html#porque" class="hover:text-azul-700">Por qué conmigo</a>
+      <a href="index.html#sobre-mi" class="hover:text-azul-700">Sobre mí</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a class="js-wa hidden sm:inline-flex items-center gap-2 bg-wa hover:bg-wa-dark text-white font-semibold px-4 h-11 rounded-full transition shadow-sm"
+         data-msg="Hola Edith, estoy viendo tu catálogo y quiero más información.">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.711z"/></svg>
+        WhatsApp
+      </a>
+      <button data-menu-toggle class="lg:hidden grid place-items-center w-11 h-11 rounded-full border border-line" aria-label="Menú" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div data-menu data-open="false" class="hidden lg:hidden border-t border-line bg-paper">
+    <nav class="max-w-content mx-auto px-5 py-3 flex flex-col text-[16px] font-medium">
+      <a href="catalogo.html" class="py-3 border-b border-line">Catálogo</a>
+      <a href="index.html#financiamiento" class="py-3 border-b border-line">Financiamiento</a>
+      <a href="index.html#porque" class="py-3 border-b border-line">Por qué conmigo</a>
+      <a href="index.html#sobre-mi" class="py-3">Sobre mí</a>
+    </nav>
+  </div>
+</header>
+
+<main data-screen-label="Catálogo">
+
+  <!-- Encabezado del catálogo -->
+  <section class="max-w-content mx-auto px-5 pt-10 pb-6">
+    <nav class="text-[13px] text-muted mb-3"><a href="index.html" class="hover:text-azul-700">Inicio</a> <span class="mx-1.5">/</span> <span class="text-ink">Catálogo</span></nav>
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <h1 class="font-display font-extrabold text-[34px] sm:text-[42px] leading-tight">Catálogo</h1>
+        <p class="text-muted mt-2 text-[17px]">
+          <span data-result-count class="font-semibold text-ink">0</span> modelos disponibles ahora ·
+          <span class="inline-flex items-center gap-1.5"><span class="live-dot"></span> en tiempo real</span>
+        </p>
+      </div>
+      <p class="text-[14px] text-muted max-w-sm">Lo apartado se oculta automáticamente. Si aparece aquí, puedes comprarlo o apartarlo hoy.</p>
+    </div>
+  </section>
+
+  <!-- Filtros -->
+  <section class="sticky top-[68px] z-30 bg-paper/90 backdrop-blur border-y border-line">
+    <div class="max-w-content mx-auto px-5 py-4 flex flex-col gap-4">
+      <!-- Marcas -->
+      <div class="flex items-center gap-2 overflow-x-auto scroll-x -mx-1 px-1">
+        <button data-filter-brand="todas" data-active="true" class="shrink-0 px-4 h-10 rounded-full border border-line bg-card text-[14px] font-semibold data-[active=true]:bg-azul-700 data-[active=true]:text-white data-[active=true]:border-azul-700 transition">Todas</button>
+        <button data-filter-brand="jeep" data-active="false" class="shrink-0 px-4 h-10 rounded-full border border-line bg-card text-[14px] font-semibold data-[active=true]:bg-azul-700 data-[active=true]:text-white data-[active=true]:border-azul-700 transition">Jeep</button>
+        <button data-filter-brand="ram" data-active="false" class="shrink-0 px-4 h-10 rounded-full border border-line bg-card text-[14px] font-semibold data-[active=true]:bg-azul-700 data-[active=true]:text-white data-[active=true]:border-azul-700 transition">RAM</button>
+        <button data-filter-brand="fiat" data-active="false" class="shrink-0 px-4 h-10 rounded-full border border-line bg-card text-[14px] font-semibold data-[active=true]:bg-azul-700 data-[active=true]:text-white data-[active=true]:border-azul-700 transition">Fiat</button>
+        <button data-filter-brand="peugeot" data-active="false" class="shrink-0 px-4 h-10 rounded-full border border-line bg-card text-[14px] font-semibold data-[active=true]:bg-azul-700 data-[active=true]:text-white data-[active=true]:border-azul-700 transition">Peugeot</button>
+        <button data-filter-brand="dodge" data-active="false" class="shrink-0 px-4 h-10 rounded-full border border-line bg-card text-[14px] font-semibold data-[active=true]:bg-azul-700 data-[active=true]:text-white data-[active=true]:border-azul-700 transition">Dodge</button>
+      </div>
+      <!-- Precio / disponibilidad / búsqueda -->
+      <div class="flex flex-wrap items-center gap-3">
+        <label class="relative flex-1 min-w-[200px]">
+          <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input data-filter-search type="search" placeholder="Buscar modelo (ej. Compass, 1500…)" class="w-full h-11 pl-10 pr-4 rounded-full border border-line bg-card text-[15px] placeholder:text-muted/70 focus:border-azul-500 outline-none">
+        </label>
+        <select data-filter-price class="h-11 px-4 rounded-full border border-line bg-card text-[15px] font-medium">
+          <option value="0">Cualquier precio</option>
+          <option value="400000">Hasta $400,000</option>
+          <option value="600000">Hasta $600,000</option>
+          <option value="800000">Hasta $800,000</option>
+          <option value="1200000">Hasta $1,200,000</option>
+        </select>
+        <label class="inline-flex items-center gap-2.5 h-11 px-4 rounded-full border border-line bg-card text-[15px] font-medium cursor-pointer select-none">
+          <input data-filter-avail type="checkbox" class="w-4 h-4 accent-amber-500">
+          Solo demos disponibles
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <section class="max-w-content mx-auto px-5 py-10">
+    <div data-catalog-grid class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+
+    <!-- Estado vacío -->
+    <div data-empty class="hidden text-center py-20">
+      <div class="font-display font-bold text-[22px]">No hay modelos con esos filtros</div>
+      <p class="text-muted mt-2">Ajusta los filtros o escríbeme y te consigo lo que buscas.</p>
+      <a class="js-wa mt-5 inline-flex items-center gap-2 bg-wa hover:bg-wa-dark text-white font-semibold px-6 h-12 rounded-full transition"
+         data-msg="Hola Edith, busco un modelo que no veo en el catálogo. ¿Me ayudas?">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+        Pídemelo por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Banda de ayuda -->
+  <section class="max-w-content mx-auto px-5 pb-16">
+    <div class="bg-azul-900 text-white rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <h2 class="font-display font-extrabold text-[24px] sm:text-[30px] leading-tight">¿No sabes cuál elegir?</h2>
+        <p class="text-azul-100/85 mt-2 text-[16px] max-w-lg">Dime para qué lo necesitas y tu presupuesto. Te recomiendo entre las 5 marcas el que más te conviene.</p>
+      </div>
+      <a class="js-wa shrink-0 inline-flex items-center gap-2.5 bg-wa hover:bg-wa-dark text-white font-semibold text-[16px] px-6 h-14 rounded-full transition shadow-lg shadow-wa-deep/30"
+         data-msg="Hola Edith, no sé cuál auto elegir. Te cuento qué necesito y mi presupuesto para que me recomiendes.">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+        Pídeme una recomendación
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="bg-azul-900 text-azul-100/80">
+  <div class="max-w-content mx-auto px-5 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <span class="grid place-items-center w-10 h-10 rounded-full bg-white text-azul-900 font-display font-extrabold">ES</span>
+      <span class="font-display font-extrabold text-white text-[18px]">Edith Soria</span>
+    </div>
+    <p class="text-[13px]">© 2026 · Precios y disponibilidad sujetos a cambio · Imágenes ilustrativas</p>
+    <a href="tel:+525581631195" class="text-white font-semibold">55 8163 1195</a>
+  </div>
+</footer>
+
+<!-- Botón flotante -->
+<a class="js-wa wa-fab fixed bottom-5 right-5 z-50 inline-flex items-center gap-2.5 bg-wa hover:bg-wa-dark text-white font-semibold pl-4 pr-5 h-14 rounded-full transition"
+   data-msg="Hola Edith, estoy viendo tu catálogo y quiero más información.">
+  <span class="relative grid place-items-center w-8 h-8">
+    <span class="wa-ping"></span>
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" class="relative"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892z"/></svg>
+  </span>
+  <span class="hidden sm:inline">Escríbeme</span>
+</a>
+
+<!-- ===== Datos del catálogo + render (patrón .map() para Next.js) ===== -->
+<script>
+  // En producción esto viene de la base en tiempo real. Estatus permitidos en sitio: "disponible" | "demo".
+  // Las unidades "apartado" / "demo apartado" no llegan a esta lista (se filtran en el backend).
+  window.MODELOS = [
+    { brand:"Jeep",    name:"Compass",        year:2026, seg:"SUV",            desc:"4 cil. turbo · desde 1.3T",     price:689900,  versions:5, status:"disponible" },
+    { brand:"Jeep",    name:"Renegade",       year:2026, seg:"SUV",            desc:"1.3 turbo · 4x2 / 4x4",         price:599900,  versions:4, status:"disponible" },
+    { brand:"Jeep",    name:"Wrangler",       year:2026, seg:"4x4",            desc:"2.0 turbo / 4xe híbrido",       price:1149900, versions:4, status:"disponible" },
+    { brand:"Jeep",    name:"Grand Cherokee", year:2026, seg:"SUV premium",    desc:"V6 / 4xe · 5 plazas",           price:1399900, versions:5, status:"demo" },
+    { brand:"Jeep",    name:"Gladiator",      year:2026, seg:"Pickup 4x4",     desc:"3.6 V6 · doble cabina",         price:1279900, versions:2, status:"disponible" },
+    { brand:"RAM",     name:"1500",           year:2026, seg:"Pickup",         desc:"V8 HEMI / 3.0 Hurricane",       price:1089900, versions:6, status:"disponible" },
+    { brand:"RAM",     name:"2500",           year:2026, seg:"Pickup pesada",  desc:"6.7 Cummins diésel",            price:1329900, versions:3, status:"disponible" },
+    { brand:"RAM",     name:"700",            year:2026, seg:"Pickup compacta",desc:"1.3 · ideal trabajo / ciudad",  price:369900,  versions:4, status:"disponible" },
+    { brand:"RAM",     name:"1200",           year:2026, seg:"Pickup media",   desc:"2.0 turbodiésel · 4x4",         price:629900,  versions:5, status:"demo" },
+    { brand:"Fiat",    name:"Pulse",          year:2026, seg:"SUV compacto",   desc:"1.0 / 1.3 turbo · CVT",         price:419900,  versions:4, status:"demo" },
+    { brand:"Fiat",    name:"Fastback",       year:2026, seg:"SUV coupé",      desc:"1.3 turbo · deportivo",         price:519900,  versions:3, status:"disponible" },
+    { brand:"Fiat",    name:"Mobi",           year:2026, seg:"Hatchback",      desc:"1.0 · rendidor en ciudad",      price:259900,  versions:2, status:"disponible" },
+    { brand:"Peugeot", name:"2008",           year:2026, seg:"SUV",            desc:"1.6 / turbo · i-Cockpit 3D",    price:534900,  versions:3, status:"disponible" },
+    { brand:"Peugeot", name:"3008",           year:2026, seg:"SUV",            desc:"1.6 turbo · híbrido disp.",     price:749900,  versions:4, status:"disponible" },
+    { brand:"Peugeot", name:"208",            year:2026, seg:"Hatchback",      desc:"1.6 · i-Cockpit",               price:414900,  versions:3, status:"demo" },
+    { brand:"Dodge",   name:"Durango",        year:2026, seg:"SUV 7 plazas",   desc:"V6 / V8 R/T",                   price:1019900, versions:3, status:"disponible" },
+    { brand:"Dodge",   name:"Charger",        year:2026, seg:"Sedán deportivo",desc:"V6 / V8 · tracción trasera",    price:1259900, versions:2, status:"demo" }
+  ];
+
+  (function () {
+    var grid = document.querySelector("[data-catalog-grid]");
+    var WA_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.711z"/></svg>';
+    var ARROW = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+    function money(n){ return "$" + n.toLocaleString("es-MX"); }
+    function badge(status){
+      if (status === "demo") return '<span class="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-amber-100"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Demo disponible</span>';
+      return '<span class="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-emerald-100"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Disponible</span>';
+    }
+
+    grid.innerHTML = window.MODELOS.map(function (m) {
+      var msg = "Hola Edith, me interesa el " + m.brand + " " + m.name + " " + m.year + ". ¿Qué versiones tienes disponibles?";
+      return '' +
+      '<article data-card data-brand="'+m.brand.toLowerCase()+'" data-price="'+m.price+'" data-status="'+m.status+'" data-name="'+(m.brand+" "+m.name).toLowerCase()+'" class="group bg-card rounded-2xl border border-line overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition">' +
+        '<a href="modelo.html" class="block ph aspect-[16/10] flex items-center justify-center relative">' +
+          '<span class="ph-tag">foto · '+m.brand+' '+m.name+'</span>' + badge(m.status) +
+        '</a>' +
+        '<div class="p-5">' +
+          '<div class="flex items-center justify-between">' +
+            '<span class="text-[12px] uppercase tracking-[0.14em] text-muted font-semibold">'+m.brand+' · '+m.year+'</span>' +
+            '<span class="text-[12px] text-muted">'+m.versions+' versiones</span>' +
+          '</div>' +
+          '<h3 class="font-display font-bold text-[20px] mt-1.5">'+m.name+'</h3>' +
+          '<p class="text-[14px] text-muted mt-1">'+m.seg+' · '+m.desc+'</p>' +
+          '<div class="flex items-end justify-between mt-4">' +
+            '<div><div class="text-[12px] text-muted">Precio desde</div>' +
+            '<div class="font-display font-extrabold text-azul-800 text-[22px] leading-none">'+money(m.price)+'</div></div>' +
+            '<a href="modelo.html" class="inline-flex items-center gap-1.5 font-semibold text-azul-700 hover:text-azul-900 text-[15px]">Ver versiones '+ARROW+'</a>' +
+          '</div>' +
+          '<a class="js-wa mt-4 w-full inline-flex items-center justify-center gap-2 bg-wa hover:bg-wa-dark text-white font-semibold h-11 rounded-full transition" data-msg="'+msg.replace(/"/g,"&quot;")+'">'+WA_ICON+' Preguntar por este</a>' +
+        '</div>' +
+      '</article>';
+    }).join("");
+  })();
+</script>
+<script src="assets/app.js"></script>
+</body>
+</html>

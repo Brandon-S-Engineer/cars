@@ -1,12 +1,13 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { Car, ChevronLeft, MessageCircle } from 'lucide-react'
+import WaIcon from '@/components/public/wa-icon'
+import UtilityBar from '@/components/public/utility-bar'
+import PublicNav from '@/components/public/public-nav'
+import PublicFooter from '@/components/public/public-footer'
+import FloatingWhatsApp from '@/components/public/floating-whatsapp'
 import { MODELOS } from '@/lib/fichas-data'
 import { getCatalogData } from '@/lib/catalogo-db'
-import { formatMXN, waUrl, getBrandStyle } from '@/lib/catalogo-utils'
-import PublicNav from '@/components/public/public-nav'
-import FloatingWhatsApp from '@/components/public/floating-whatsapp'
-import { cn } from '@/lib/utils'
+import { formatMXN, waUrl } from '@/lib/catalogo-utils'
 
 export const dynamic = 'force-dynamic'
 
@@ -24,163 +25,299 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
   const units = entry?.units ?? 0
   const precioDesde = entry?.precioDesde ?? null
 
-  const style = getBrandStyle(model.marca)
-  const waMsgGeneral = `Hola Edith, me interesa el ${model.marca} ${model.modelo} ${model.año}, ¿podrías darme más información?`
+  const waMsgGeneral = `Hola Edith, me interesa el ${model.marca} ${model.modelo} ${model.año}. ¿Qué versiones tienes disponibles y a qué precio?`
+
+  // Related models (same brand or first 3 others)
+  const otros = MODELOS.filter((m) => m.id !== model.id && m.marca === model.marca).slice(0, 3)
 
   return (
-    <>
+    <div className="font-hanken bg-paper text-ink">
+      <UtilityBar />
       <PublicNav />
 
-      <div className="min-h-screen bg-gray-50">
-        {/* Breadcrumb */}
-        <div className="max-w-5xl mx-auto px-6 md:px-12 pt-5">
-          <Link
-            href="/catalogo"
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ChevronLeft className="h-3.5 w-3.5" />
-            Catálogo
-          </Link>
-        </div>
+      <main>
 
-        {/* Hero imagen placeholder */}
-        <div className={cn('w-full h-60 md:h-80 bg-gradient-to-br flex flex-col items-center justify-center gap-3 mt-4', style.gradient)}>
-          <Car className={cn('h-20 w-20 opacity-15', style.text)} />
-          <span className={cn('text-xs font-semibold uppercase tracking-widest opacity-25', style.text)}>
-            Fotos próximamente
-          </span>
-        </div>
+        {/* ── Hero ──────────────────────────────────────────────────────────── */}
+        <section className="max-w-[1200px] mx-auto px-5 pt-8 pb-12">
+          <nav className="text-[13px] text-muted-warm mb-4">
+            <Link href="/" className="hover:text-azul-700 transition-colors">Inicio</Link>
+            <span className="mx-1.5">/</span>
+            <Link href="/catalogo" className="hover:text-azul-700 transition-colors">Catálogo</Link>
+            <span className="mx-1.5">/</span>
+            <span className="text-ink">{model.marca} {model.modelo}</span>
+          </nav>
 
-        <div className="max-w-5xl mx-auto px-6 md:px-12 py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10">
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            {/* Gallery */}
+            <div className="lg:col-span-7">
+              <div className="ph rounded-3xl aspect-[16/10] flex items-center justify-center border border-line">
+                <span className="ph-tag">foto · {model.marca} {model.modelo} {model.año}</span>
+              </div>
+              <div className="grid grid-cols-4 gap-3 mt-3">
+                {['exterior', 'interior', 'tablero', 'cajuela'].map((view) => (
+                  <div key={view} className="ph rounded-xl aspect-[4/3] flex items-center justify-center border border-line">
+                    <span className="ph-tag" style={{ fontSize: 9 }}>{view}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-            {/* ── Columna izquierda ──────────────────────────────────────────── */}
-            <div>
-              <p className="text-sm text-muted-foreground">{model.marca} · {model.año}</p>
-              <h1 className="text-3xl md:text-4xl font-bold mt-0.5">{model.modelo}</h1>
-
-              {/* Badges */}
-              <div className="flex flex-wrap gap-3 mt-4">
+            {/* Summary + CTA */}
+            <div className="lg:col-span-5 lg:sticky lg:top-[84px]">
+              <div className="flex items-center gap-3">
+                <span className="text-[13px] uppercase tracking-[0.16em] text-muted-warm font-semibold">
+                  {model.marca} · {model.año}
+                </span>
                 {units > 0 ? (
-                  <div className="inline-flex items-center gap-1.5 bg-green-50 text-green-700 border border-green-200 px-3.5 py-1.5 rounded-full text-sm font-medium">
-                    <span className="h-2 w-2 rounded-full bg-green-500 inline-block animate-pulse" />
-                    {units} {units === 1 ? 'unidad disponible' : 'unidades disponibles'}
-                  </div>
+                  <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-emerald-100">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Disponible
+                  </span>
                 ) : (
-                  <div className="inline-flex items-center gap-1.5 bg-gray-100 text-gray-500 px-3.5 py-1.5 rounded-full text-sm">
-                    Sin unidades en este momento
-                  </div>
-                )}
-                {precioDesde && (
-                  <div className="bg-amber-50 border border-amber-200 text-amber-700 px-3.5 py-1.5 rounded-full text-sm font-bold">
-                    Desde {formatMXN(precioDesde)}
-                  </div>
+                  <span className="inline-flex items-center gap-1.5 bg-gray-100 text-gray-500 text-[12px] font-semibold px-2.5 py-1 rounded-full">
+                    Sin unidades
+                  </span>
                 )}
               </div>
 
-              {/* Versiones */}
-              <h2 className="text-xl font-semibold mt-10 mb-4">Versiones disponibles</h2>
-              <div className="space-y-3">
-                {model.versiones.map((version) => {
-                  const waMsg = `Hola Edith, me interesa el ${model.marca} ${model.modelo} ${model.año} versión ${version.nombre}`
-                  // Show first 3 specs from first category as highlights
-                  const highlights = version.categorias[0]?.specs
-                    .filter((s) => s.valor && s.valor !== '—')
-                    .slice(0, 3) ?? []
+              <h1 className="font-display font-extrabold text-[38px] sm:text-[44px] leading-[1.02] mt-2">
+                {model.modelo}
+              </h1>
 
-                  return (
-                    <div key={version.id} className="bg-white rounded-xl border p-5 hover:shadow-sm transition-shadow">
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold text-base">{version.nombre}</h3>
-                          {highlights.length > 0 && (
-                            <div className="flex flex-wrap gap-x-5 gap-y-1 mt-2">
-                              {highlights.map((spec) => (
-                                <span key={spec.label} className="text-xs text-muted-foreground">
-                                  <span className="font-medium text-foreground/70">{spec.label}:</span>{' '}
-                                  {spec.valor}
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                        <a
-                          href={waUrl(waMsg)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="shrink-0 inline-flex items-center gap-1.5 bg-[#25D366] text-white px-3.5 py-1.5 rounded-full text-xs font-semibold hover:bg-[#1ebe5d] transition-colors"
-                        >
-                          <MessageCircle className="h-3.5 w-3.5" />
-                          Consultar
-                        </a>
+              <div className="mt-5 flex items-end gap-3">
+                <div>
+                  <div className="text-[13px] text-muted-warm">Precio desde</div>
+                  <div className="font-display font-extrabold text-azul-800 text-[34px] leading-none">
+                    {precioDesde ? formatMXN(precioDesde) : 'Consultar'}
+                  </div>
+                </div>
+                <span className="text-[13px] text-muted-warm pb-1">
+                  · {model.versiones.length} {model.versiones.length === 1 ? 'versión' : 'versiones'}
+                </span>
+              </div>
+
+              {/* Quick spec chips from first version */}
+              {model.versiones[0] && (() => {
+                const desempeno = model.versiones[0].categorias.find((c) => c.id === 'desempeno')
+                const chips = desempeno?.specs
+                  .filter((s) => ['Motor', 'Transmisión', 'Tracción'].includes(s.label) && s.valor !== '—')
+                  .slice(0, 4) ?? []
+                return chips.length > 0 ? (
+                  <div className="grid grid-cols-2 gap-2.5 mt-5">
+                    {chips.map((spec) => (
+                      <div key={spec.label} className="bg-white border border-line rounded-xl px-3.5 py-3">
+                        <div className="text-[12px] text-muted-warm">{spec.label}</div>
+                        <div className="font-semibold text-ink text-[14px] leading-snug">{spec.valor}</div>
                       </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* ── Columna derecha — CTA sticky ─────────────────────────────── */}
-            <div className="lg:sticky lg:top-24 self-start space-y-4">
-              <div className="bg-white rounded-2xl border p-6 shadow-sm">
-                <p className="text-xs text-muted-foreground">{model.marca} · {model.año}</p>
-                <h3 className="font-bold text-xl mt-0.5">{model.modelo}</h3>
-
-                {precioDesde ? (
-                  <>
-                    <p className="text-3xl font-bold text-amber-600 mt-3">
-                      {formatMXN(precioDesde)}
-                    </p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Precio desde. Puede variar según versión y disponibilidad.
-                    </p>
-                  </>
-                ) : (
-                  <p className="text-muted-foreground text-sm mt-3">Consultar precio disponible</p>
-                )}
-
-                <a
-                  href={waUrl(waMsgGeneral)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white py-4 rounded-xl font-bold text-base hover:bg-[#1ebe5d] transition-colors mt-5"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  Quiero este auto
-                </a>
-
-                <p className="text-xs text-center text-muted-foreground mt-3">
-                  Te respondo en minutos
-                </p>
-
-                {units > 0 && (
-                  <div className="mt-4 p-3 bg-green-50 rounded-lg text-center border border-green-100">
-                    <p className="text-sm text-green-700 font-semibold">
-                      {units} {units === 1 ? 'unidad en stock' : 'unidades en stock'}
-                    </p>
-                    <p className="text-xs text-green-600 mt-0.5">Entrega inmediata disponible</p>
+                    ))}
                   </div>
-                )}
-              </div>
+                ) : null
+              })()}
 
-              <div className="bg-gray-50 rounded-xl border p-4 text-center">
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  ¿Quieres ver más opciones?
+              <a
+                href={waUrl(waMsgGeneral)}
+                target="_blank" rel="noopener noreferrer"
+                className="mt-5 w-full inline-flex items-center justify-center gap-2.5 bg-wa hover:bg-wa-dark text-white font-bold text-[17px] h-14 rounded-full transition-colors shadow-lg"
+              >
+                <WaIcon size={24} />
+                Preguntar por el {model.modelo}
+              </a>
+              <p className="text-center text-[13px] text-muted-warm mt-2.5">
+                Te respondo personalmente · normalmente en minutos
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Versiones ─────────────────────────────────────────────────────── */}
+        <section className="bg-sand/60 border-y border-line">
+          <div className="max-w-[1200px] mx-auto px-5 py-14">
+            <div className="flex items-end justify-between gap-4 mb-7">
+              <div>
+                <h2 className="font-display font-extrabold text-[28px] sm:text-[34px] leading-tight">
+                  Versiones disponibles
+                </h2>
+                <p className="text-muted-warm mt-2 text-[16px]">
+                  Elige la versión que va contigo. Toca cualquiera para ver su ficha completa.
                 </p>
-                <Link
-                  href="/catalogo"
-                  className="text-sm font-medium text-foreground hover:underline mt-1 inline-block"
-                >
-                  Ver catálogo completo →
-                </Link>
               </div>
             </div>
 
-          </div>
-        </div>
-      </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {model.versiones.map((version, idx) => {
+                const waMsg = `Hola Edith, me interesa el ${model.marca} ${model.modelo} ${model.año} versión ${version.nombre}. ¿Está disponible?`
+                const desempeno = version.categorias.find((c) => c.id === 'desempeno')
+                const specs = desempeno?.specs
+                  .filter((s) => s.valor !== '—')
+                  .slice(0, 4) ?? []
 
+                return (
+                  <article
+                    key={version.id}
+                    className={`bg-white rounded-2xl border ${idx === 0 ? 'border-azul-500 ring-1 ring-azul-500' : 'border-line'} p-5 flex flex-col`}
+                  >
+                    {idx === 0 && (
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-azul-700 mb-2">
+                        ★ Versión base
+                      </div>
+                    )}
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="font-display font-bold text-[22px] leading-none text-ink">
+                        {version.nombre}
+                      </h3>
+                      {units > 0 && (
+                        <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-emerald-100 shrink-0">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                          Disponible
+                        </span>
+                      )}
+                    </div>
+
+                    {precioDesde && idx === 0 && (
+                      <div className="mt-3">
+                        <span className="text-[12px] text-muted-warm">desde</span>
+                        <div className="font-display font-extrabold text-azul-800 text-[26px] leading-none">
+                          {formatMXN(precioDesde)}
+                        </div>
+                      </div>
+                    )}
+
+                    {specs.length > 0 && (
+                      <ul className="mt-4 space-y-2 text-[14px] text-ink/80 flex-1">
+                        {specs.map((spec) => (
+                          <li key={spec.label} className="flex justify-between border-b border-line pb-2 last:border-0">
+                            <span className="text-muted-warm">{spec.label}</span>
+                            <span className="font-medium text-right max-w-[60%]">{spec.valor}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    <div className="mt-5 flex flex-col gap-2">
+                      <a
+                        href={waUrl(waMsg)}
+                        target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 bg-wa hover:bg-wa-dark text-white font-semibold h-11 rounded-full transition-colors"
+                      >
+                        <WaIcon size={18} />
+                        Preguntar por esta
+                      </a>
+                      <Link
+                        href={`/catalogo/${model.id}/${version.id}`}
+                        className="inline-flex items-center justify-center gap-1.5 border border-line hover:border-ink/30 font-semibold h-11 rounded-full transition-colors text-[15px] text-ink"
+                      >
+                        Ver ficha completa
+                      </Link>
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Comparador de versiones ────────────────────────────────────────── */}
+        <section className="max-w-[1200px] mx-auto px-5 py-14">
+          <h2 className="font-display font-extrabold text-[28px] sm:text-[34px] leading-tight mb-2">
+            Compara las versiones
+          </h2>
+          <p className="text-muted-warm text-[16px] mb-6">Lado a lado, lo que cambia entre cada versión.</p>
+
+          <div className="overflow-x-auto scroll-x -mx-5 px-5">
+            <table className="w-full min-w-[600px] border-separate border-spacing-0 text-[14px]">
+              <thead>
+                <tr>
+                  <th className="text-left text-[13px] uppercase tracking-wider text-muted-warm font-semibold p-3 align-bottom sticky left-0 bg-paper z-10 w-32" />
+                  {model.versiones.map((v, i) => (
+                    <th key={v.id} className={`p-3 text-left align-bottom ${i === 0 ? 'bg-azul-50 rounded-t-xl' : ''}`}>
+                      <Link href={`/catalogo/${model.id}/${v.id}`} className="font-display font-bold text-[16px] text-ink hover:text-azul-700 transition-colors">
+                        {v.nombre}
+                      </Link>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {(() => {
+                  const refCat = model.versiones[0].categorias.find((c) => c.id === 'desempeno')
+                  const rows = refCat?.specs.slice(0, 6) ?? []
+                  return rows.map((spec, i) => (
+                    <tr key={spec.label} className={i % 2 === 0 ? 'bg-white' : ''}>
+                      <td className={`p-3 font-semibold text-muted-warm sticky left-0 z-10 ${i % 2 === 0 ? 'bg-white' : 'bg-paper'}`}>
+                        {spec.label}
+                      </td>
+                      {model.versiones.map((v, vi) => {
+                        const cat = v.categorias.find((c) => c.id === 'desempeno')
+                        const val = cat?.specs.find((s) => s.label === spec.label)?.valor ?? '—'
+                        return (
+                          <td key={v.id} className={`p-3 border-t border-line text-ink ${vi === 0 ? 'bg-azul-50/60' : ''}`}>
+                            {val}
+                          </td>
+                        )
+                      })}
+                    </tr>
+                  ))
+                })()}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* ── Financiamiento mini ────────────────────────────────────────────── */}
+        <section className="max-w-[1200px] mx-auto px-5 pb-14">
+          <div className="bg-white border border-line rounded-3xl p-8 sm:p-10 grid lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="text-[13px] uppercase tracking-[0.16em] text-muted-warm font-semibold">Financiamiento</span>
+              <h2 className="font-display font-extrabold text-[26px] sm:text-[32px] leading-tight mt-2">
+                {precioDesde ? `El ${model.modelo} desde ${formatMXN(Math.round(precioDesde * 0.8 * 0.139 / 12 / (1 - Math.pow(1 + 0.139 / 12, -60))))} al mes` : `Financia tu ${model.modelo}`}
+              </h2>
+              <p className="text-muted-warm mt-3 text-[16px]">
+                Con enganche del 20% a 60 meses*. En cada versión tienes un estimador para armar tu plan.
+              </p>
+              <p className="text-[12px] text-muted-warm mt-3">*Cifra ilustrativa. La mensualidad final depende de tu perfil y el plan elegido.</p>
+            </div>
+            <a
+              href={waUrl(`Hola Edith, quiero financiar un ${model.marca} ${model.modelo} ${model.año}. ¿Me ayudas a calcular mi mensualidad?`)}
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 bg-wa hover:bg-wa-dark text-white font-bold text-[17px] h-14 rounded-full transition-colors shadow-lg"
+            >
+              <WaIcon size={22} />
+              Calcular mi mensualidad
+            </a>
+          </div>
+        </section>
+
+        {/* ── Relacionados ──────────────────────────────────────────────────── */}
+        {otros.length > 0 && (
+          <section className="max-w-[1200px] mx-auto px-5 pb-16">
+            <h2 className="font-display font-extrabold text-[24px] sm:text-[28px] mb-6 text-ink">
+              También te puede gustar
+            </h2>
+            <div className="grid sm:grid-cols-3 gap-5">
+              {otros.map((m) => (
+                <Link key={m.id} href={`/catalogo/${m.id}`} className="group bg-white border border-line rounded-2xl overflow-hidden hover:shadow-lg transition-all">
+                  <div className="ph aspect-[16/10] flex items-center justify-center">
+                    <span className="ph-tag">foto · {m.marca} {m.modelo}</span>
+                  </div>
+                  <div className="p-4">
+                    <div className="text-[12px] uppercase tracking-[0.14em] text-muted-warm font-semibold">{m.marca}</div>
+                    <div className="font-display font-bold text-[18px] text-ink">{m.modelo}</div>
+                    <div className="font-display font-extrabold text-azul-800 mt-1">
+                      {catalog.find((c) => c.ficha.id === m.id)?.precioDesde
+                        ? `desde ${formatMXN(catalog.find((c) => c.ficha.id === m.id)!.precioDesde!)}`
+                        : 'Consultar'}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+      </main>
+
+      <PublicFooter />
       <FloatingWhatsApp msg={waMsgGeneral} />
-    </>
+    </div>
   )
 }

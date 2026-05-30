@@ -438,7 +438,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                         key={col.idx}
                         className={cn(
                           'px-4 py-2.5 text-sm',
-                          esComentario ? 'w-[450px] min-w-[450px] whitespace-normal break-words align-top' : 'whitespace-nowrap',
+                          esComentario ? 'w-[300px] min-w-[300px] whitespace-normal break-words align-top' : 'whitespace-nowrap',
                           col.role === 'price' && 'text-right font-medium tabular-nums',
                           (col.role === 'vin' || col.role === 'eco') && 'font-mono text-xs text-muted-foreground',
                           priceMatch && 'bg-amber-50 dark:bg-amber-950/30',

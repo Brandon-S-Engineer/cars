@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Geist_Mono } from 'next/font/google'
+import { Inter, Geist_Mono, Schibsted_Grotesk, Hanken_Grotesk, Caveat } from 'next/font/google'
 import './globals.css'
 import Providers from '@/components/providers'
 import { Toaster } from 'sonner'
@@ -14,6 +14,24 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
+const schibstedGrotesk = Schibsted_Grotesk({
+  variable: '--font-schibsted',
+  subsets: ['latin'],
+  weight: ['500', '600', '700', '800', '900'],
+})
+
+const hankenGrotesk = Hanken_Grotesk({
+  variable: '--font-hanken-grotesk',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+})
+
+const caveat = Caveat({
+  variable: '--font-caveat-var',
+  subsets: ['latin'],
+  weight: ['600'],
+})
+
 export const metadata: Metadata = {
   title: 'Dashboard',
   description: 'Internal Tool Dashboard',
@@ -24,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang='en'
       suppressHydrationWarning>
-      <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${inter.variable} ${geistMono.variable} ${schibstedGrotesk.variable} ${hankenGrotesk.variable} ${caveat.variable} antialiased`}>
         <Providers>
           {children}
           <Toaster

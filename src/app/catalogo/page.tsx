@@ -1,6 +1,8 @@
 import { getCatalogData } from '@/lib/catalogo-db'
 import CatalogoClient from '@/components/public/catalogo-client'
+import UtilityBar from '@/components/public/utility-bar'
 import PublicNav from '@/components/public/public-nav'
+import PublicFooter from '@/components/public/public-footer'
 import FloatingWhatsApp from '@/components/public/floating-whatsapp'
 
 export const dynamic = 'force-dynamic'
@@ -9,8 +11,10 @@ export default async function CatalogoPage() {
   const modelos = await getCatalogData()
   return (
     <>
+      <UtilityBar />
       <PublicNav />
       <CatalogoClient modelos={modelos} />
+      <PublicFooter />
       <FloatingWhatsApp />
     </>
   )

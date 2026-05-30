@@ -139,3 +139,90 @@
     font-feature-settings: 'cv11', 'ss01', 'ss03';
   }
 }
+
+/* ── Catalog / public site design tokens ──────────────────────────────────── */
+@theme {
+  --color-paper: #FAF6EF;
+  --color-sand: #F2EADC;
+  --color-ink: #1B1A17;
+  --color-muted-warm: #6E6557;
+  --color-line: #E7DDCB;
+  --color-azul-50: #EEF3FF;
+  --color-azul-100: #DBE6FF;
+  --color-azul-200: #BBCFFF;
+  --color-azul-500: #2A60E0;
+  --color-azul-600: #1E4FD0;
+  --color-azul-700: #173FB0;
+  --color-azul-800: #12348F;
+  --color-azul-900: #0C2670;
+  --color-wa: #25D366;
+  --color-wa-dark: #1DA851;
+  --color-wa-deep: #0B5D43;
+  --font-display: var(--font-schibsted), system-ui, sans-serif;
+  --font-hanken: var(--font-hanken-grotesk), system-ui, sans-serif;
+  --font-caveat: var(--font-caveat-var), cursive;
+}
+
+/* ── Image placeholder (replaces img until real photos are added) ──────────── */
+.ph {
+  background-color: #ECE3D3;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(27,26,23,.05) 0 11px,
+    rgba(27,26,23,0)   11px 22px
+  );
+  position: relative;
+  overflow: hidden;
+}
+.ph-tag {
+  font-family: ui-monospace, "SF Mono", "Roboto Mono", monospace;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #8a7d66;
+  background: rgba(250,246,239,.85);
+  border: 1px solid rgba(27,26,23,.08);
+  padding: 5px 9px;
+  border-radius: 7px;
+  white-space: nowrap;
+}
+
+/* ── Signature font for Edith's name ─────────────────────────────────────── */
+.signature {
+  font-family: var(--font-caveat-var), cursive;
+  letter-spacing: 0;
+}
+
+/* ── Pulsing "live" dot for real-time inventory ───────────────────────────── */
+.live-dot {
+  width: 8px; height: 8px; border-radius: 9999px;
+  background: #16A34A;
+  box-shadow: 0 0 0 0 rgba(22,163,74,.5);
+  animation: livePulse 2s infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+@keyframes livePulse {
+  0%   { box-shadow: 0 0 0 0   rgba(22,163,74,.5); }
+  70%  { box-shadow: 0 0 0 7px rgba(22,163,74,0);  }
+  100% { box-shadow: 0 0 0 0   rgba(22,163,74,0);  }
+}
+
+/* ── WhatsApp floating button ─────────────────────────────────────────────── */
+.wa-fab { box-shadow: 0 12px 30px -8px rgba(11,93,67,.55); }
+.wa-ping {
+  position: absolute; inset: 0; border-radius: 9999px;
+  background: #25D366; opacity: .55;
+  animation: waPing 2.4s cubic-bezier(0,0,.2,1) infinite;
+}
+@keyframes waPing {
+  0%   { transform: scale(1);   opacity: .5; }
+  70%  { transform: scale(1.7); opacity: 0;  }
+  100% { transform: scale(1.7); opacity: 0;  }
+}
+
+/* ── Discrete scrollbar for horizontal scroll containers ─────────────────── */
+.scroll-x { scrollbar-width: thin; scrollbar-color: #d8cdb8 transparent; }
+.scroll-x::-webkit-scrollbar { height: 8px; }
+.scroll-x::-webkit-scrollbar-thumb { background: #d8cdb8; border-radius: 9999px; }
