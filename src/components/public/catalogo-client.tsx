@@ -5,8 +5,14 @@ import Link from 'next/link'
 import WaIcon from './wa-icon'
 import { type ModeloCatalogo, formatMXN, waUrl } from '@/lib/catalogo-utils'
 
-export default function CatalogoClient({ modelos }: { modelos: ModeloCatalogo[] }) {
-  const [brandFilter, setBrandFilter] = useState('todas')
+export default function CatalogoClient({
+  modelos,
+  initialMarca = 'todas',
+}: {
+  modelos: ModeloCatalogo[]
+  initialMarca?: string
+}) {
+  const [brandFilter, setBrandFilter] = useState(initialMarca)
   const [priceMax, setPriceMax] = useState(0)
   const [demoOnly, setDemoOnly] = useState(false)
   const [search, setSearch] = useState('')
