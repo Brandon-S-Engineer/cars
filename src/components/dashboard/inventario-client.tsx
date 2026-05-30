@@ -456,14 +456,16 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                       )
                     }
 
-                    const esComentarioConPrecio = col.label.toLowerCase() === 'comentario' && !empty && !!extractPrecioEspecial(val)
+                    const esComentario = col.label.toLowerCase() === 'comentario'
+                    const esComentarioConPrecio = esComentario && !empty && !!extractPrecioEspecial(val)
                     const priceMatch = esComentarioConPrecio ? val.match(/\$\s*[\d,]+(?:\.\d+)?/) : null
 
                     return (
                       <td
                         key={col.idx}
                         className={cn(
-                          'px-4 py-2.5 whitespace-nowrap text-sm',
+                          'px-4 py-2.5 text-sm',
+                          esComentario ? 'w-48 max-w-[12rem] whitespace-normal break-words align-top' : 'whitespace-nowrap',
                           col.role === 'price' && 'text-right font-medium tabular-nums',
                           (col.role === 'vin' || col.role === 'eco') && 'font-mono text-xs text-muted-foreground',
                           priceMatch && 'bg-amber-50 dark:bg-amber-950/30',
