@@ -38,9 +38,7 @@ const SORT_ORDER: Record<RowKind, number> = {
 }
 
 // Columns to always skip — row numbers and brand duplicates
-const SKIP_COLS = new Set([
-  'no', 'no.', 'n°', 'no..', 'marca', 'marca temporal',
-])
+const SKIP_COLS = new Set(['no', 'no.', 'n°', 'no..', 'marca', 'marca temporal'])
 
 // Columns that go at the tail (after all others)
 const TAIL_COL_NAMES = new Set(['vin', 'eco'])
@@ -51,19 +49,19 @@ const STANDARD_ORDER: Record<string, number> = {
   'precio de lista': 1,
   'precio oferta principal': 2,
   'precio contado': 3,
-  'modelo': 4,
-  'comentario': 5,
+  modelo: 4,
+  comentario: 5,
   'descripción....': 6,
   'color exterior': 7,
   'color interior': 8,
-  'días': 9,
-  'ubicación': 10,
-  'status': 11,
+  días: 9,
+  ubicación: 10,
+  status: 11,
   'fecha asignación': 12,
   'modelo y cepos': 13,
-  'sucursal': 14,
-  'vin': 90,
-  'eco': 91,
+  sucursal: 14,
+  vin: 90,
+  eco: 91,
 }
 
 // Transito columns to skip
@@ -133,8 +131,14 @@ function buildStandardColumns(headers: string[], rows: string[][]): Col[] {
       if (SKIP_COLS.has(key)) return
       if (key.includes('precio')) {
         if (key.includes('alterna') || key.includes('msi')) return
-        if (!listaCol) { listaCol = { idx: i }; return }
-        if (!ofertaCol) { ofertaCol = { idx: i }; return }
+        if (!listaCol) {
+          listaCol = { idx: i }
+          return
+        }
+        if (!ofertaCol) {
+          ofertaCol = { idx: i }
+          return
+        }
         return
       }
       const role: ColRole = key === 'vin' ? 'vin' : key === 'eco' ? 'eco' : 'other'
@@ -143,7 +147,10 @@ function buildStandardColumns(headers: string[], rows: string[][]): Col[] {
     }
 
     // ── Empty header — detect from values (gviz omits headers for numeric cols) ─
-    const sample = rows.slice(0, 10).map((r) => r[i]?.trim()).filter(Boolean)
+    const sample = rows
+      .slice(0, 10)
+      .map((r) => r[i]?.trim())
+      .filter(Boolean)
     if (!sample.length) return
 
     // 1. Year: 4 digits, 1990–2040
@@ -159,8 +166,14 @@ function buildStandardColumns(headers: string[], rows: string[][]): Col[] {
     // 3. Price: values > 100k MXN
     const nums = sample.map((v) => Number(v.replace(/[^0-9.]/g, ''))).filter((n) => n > 100_000)
     if (nums.length > 0) {
-      if (!listaCol) { listaCol = { idx: i }; return }
-      if (!ofertaCol) { ofertaCol = { idx: i }; return }
+      if (!listaCol) {
+        listaCol = { idx: i }
+        return
+      }
+      if (!ofertaCol) {
+        ofertaCol = { idx: i }
+        return
+      }
       return
     }
     // 4. Eco: 4–6 digit internal code
@@ -186,7 +199,10 @@ function buildStandardColumns(headers: string[], rows: string[][]): Col[] {
   if (displayPrice.length === 0) {
     headers.forEach((h, i) => {
       if (displayPrice.length >= 2) return
-      const sample = rows.slice(0, 5).map((r) => r[i]?.trim()).filter(Boolean)
+      const sample = rows
+        .slice(0, 5)
+        .map((r) => r[i]?.trim())
+        .filter(Boolean)
       const nums = sample.map((v) => Number(v.replace(/[^0-9.]/g, ''))).filter((n) => n > 100_000)
       if (nums.length > 0) {
         if (displayPrice.length === 0) displayPrice.push({ label: 'Precio', idx: i, role: 'price' })
@@ -195,9 +211,7 @@ function buildStandardColumns(headers: string[], rows: string[][]): Col[] {
     })
   }
 
-  rest.sort((a, b) =>
-    (STANDARD_ORDER[a.label.toLowerCase()] ?? 50) - (STANDARD_ORDER[b.label.toLowerCase()] ?? 50)
-  )
+  rest.sort((a, b) => (STANDARD_ORDER[a.label.toLowerCase()] ?? 50) - (STANDARD_ORDER[b.label.toLowerCase()] ?? 50))
 
   return [...displayPrice, ...rest]
 }
@@ -224,49 +238,44 @@ function buildTransitoColumns(headers: string[]): Col[] {
 
 function rowStyle(kind: RowKind, even: boolean): string {
   if (kind === 'normal') {
-    return even
-      ? 'bg-gray-100 dark:bg-white/[0.07] hover:bg-gray-200/70 dark:hover:bg-white/[0.11]'
-      : 'bg-white dark:bg-transparent hover:bg-gray-100/80 dark:hover:bg-white/[0.05]'
+    return even ? 'bg-gray-100 dark:bg-white/[0.07] hover:bg-gray-200/70 dark:hover:bg-white/[0.11]' : 'bg-white dark:bg-transparent hover:bg-gray-100/80 dark:hover:bg-white/[0.05]'
   }
   if (kind === 'demo') {
-    return even
-      ? 'border-l-4 border-l-blue-400 bg-blue-100/60 dark:bg-blue-950/35 hover:bg-blue-100/70'
-      : 'border-l-4 border-l-blue-400 bg-blue-50/40 dark:bg-blue-950/20 hover:bg-blue-50/60'
+    return even ? 'border-l-4 border-l-blue-400 bg-blue-100/60 dark:bg-blue-950/35 hover:bg-blue-100/70' : 'border-l-4 border-l-blue-400 bg-blue-50/40 dark:bg-blue-950/20 hover:bg-blue-50/60'
   }
   if (kind === 'demo-reservado') {
-    return even
-      ? 'border-l-4 border-l-violet-400 bg-violet-100/60 dark:bg-violet-950/35 hover:bg-violet-100/70'
-      : 'border-l-4 border-l-violet-400 bg-violet-50/40 dark:bg-violet-950/20 hover:bg-violet-50/60'
+    return even ? 'border-l-4 border-l-violet-400 bg-violet-100/60 dark:bg-violet-950/35 hover:bg-violet-100/70' : 'border-l-4 border-l-violet-400 bg-violet-50/40 dark:bg-violet-950/20 hover:bg-violet-50/60'
   }
   // reservado
-  return even
-    ? 'border-l-4 border-l-amber-400 bg-amber-100/60 dark:bg-amber-950/35 hover:bg-amber-100/70'
-    : 'border-l-4 border-l-amber-400 bg-amber-50/40 dark:bg-amber-950/20 hover:bg-amber-50/60'
+  return even ? 'border-l-4 border-l-amber-400 bg-amber-100/60 dark:bg-amber-950/35 hover:bg-amber-100/70' : 'border-l-4 border-l-amber-400 bg-amber-50/40 dark:bg-amber-950/20 hover:bg-amber-50/60'
 }
 
 // ── No data state ─────────────────────────────────────────────────────────────
 
 function NoDataState() {
   return (
-    <div className="flex flex-col items-center justify-center gap-5 py-24">
-      <div className="h-16 w-16 rounded-2xl bg-muted flex items-center justify-center">
-        <Car className="h-8 w-8 text-muted-foreground" />
+    <div className='flex flex-col items-center justify-center gap-5 py-24'>
+      <div className='h-16 w-16 rounded-2xl bg-muted flex items-center justify-center'>
+        <Car className='h-8 w-8 text-muted-foreground' />
       </div>
-      <div className="text-center max-w-sm">
-        <h2 className="text-lg font-semibold">Sin datos de inventario</h2>
-        <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
-          Abre el Google Sheet del inventario en Chrome. La extensión sincronizará
-          los datos automáticamente en unos segundos.
-        </p>
+      <div className='text-center max-w-sm'>
+        <h2 className='text-lg font-semibold'>Sin datos de inventario</h2>
+        <p className='text-sm text-muted-foreground mt-2 leading-relaxed'>Abre el Google Sheet del inventario en Chrome. La extensión sincronizará los datos automáticamente en unos segundos.</p>
       </div>
-      <div className="rounded-lg border bg-muted/40 px-5 py-4 text-sm space-y-1.5 max-w-sm w-full">
-        <p className="font-medium text-xs text-muted-foreground uppercase tracking-wider mb-2">
-          Cómo instalar la extensión
+      <div className='rounded-lg border bg-muted/40 px-5 py-4 text-sm space-y-1.5 max-w-sm w-full'>
+        <p className='font-medium text-xs text-muted-foreground uppercase tracking-wider mb-2'>Cómo instalar la extensión</p>
+        <p>
+          1. Abre <span className='font-mono text-xs bg-muted px-1.5 py-0.5 rounded'>chrome://extensions</span>
         </p>
-        <p>1. Abre <span className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">chrome://extensions</span></p>
-        <p>2. Activa <span className="font-medium">Modo desarrollador</span> (arriba a la derecha)</p>
-        <p>3. Clic en <span className="font-medium">Cargar sin empaquetar</span></p>
-        <p>4. Selecciona la carpeta <span className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">extension/</span></p>
+        <p>
+          2. Activa <span className='font-medium'>Modo desarrollador</span> (arriba a la derecha)
+        </p>
+        <p>
+          3. Clic en <span className='font-medium'>Cargar sin empaquetar</span>
+        </p>
+        <p>
+          4. Selecciona la carpeta <span className='font-mono text-xs bg-muted px-1.5 py-0.5 rounded'>extension/</span>
+        </p>
         <p>5. Abre el sheet — sincroniza solo.</p>
       </div>
     </div>
@@ -279,26 +288,17 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
   const isTransito = tab.name === 'TRANSITO IMA/ AMSA'
   const [filterKind, setFilterKind] = useState<RowKind | null>(null)
 
-  useEffect(() => { setFilterKind(null) }, [tab.name])
+  useEffect(() => {
+    setFilterKind(null)
+  }, [tab.name])
 
-  const cols = useMemo(
-    () => isTransito ? buildTransitoColumns(tab.headers) : buildStandardColumns(tab.headers, tab.rows),
-    [tab, isTransito]
-  )
+  const cols = useMemo(() => (isTransito ? buildTransitoColumns(tab.headers) : buildStandardColumns(tab.headers, tab.rows)), [tab, isTransito])
 
   // Assign stable # per row based on sorted order
-  const sortedNumbered = useMemo(
-    () =>
-      [...tab.rows]
-        .sort((a, b) => SORT_ORDER[classifyRow(a)] - SORT_ORDER[classifyRow(b)])
-        .map((row, i) => ({ row, num: i + 1, kind: classifyRow(row) })),
-    [tab.rows]
-  )
+  const sortedNumbered = useMemo(() => [...tab.rows].sort((a, b) => SORT_ORDER[classifyRow(a)] - SORT_ORDER[classifyRow(b)]).map((row, i) => ({ row, num: i + 1, kind: classifyRow(row) })), [tab.rows])
 
   const filtered = useMemo(() => {
-    const bySearch = !search.trim()
-      ? sortedNumbered
-      : sortedNumbered.filter(({ row }) => row.some((c) => c?.toLowerCase().includes(search.toLowerCase())))
+    const bySearch = !search.trim() ? sortedNumbered : sortedNumbered.filter(({ row }) => row.some((c) => c?.toLowerCase().includes(search.toLowerCase())))
     if (!filterKind) return bySearch
     return bySearch.filter(({ kind }) => kind === filterKind)
   }, [sortedNumbered, search, filterKind])
@@ -312,81 +312,57 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
   const toggleFilter = (kind: RowKind) => setFilterKind((prev) => (prev === kind ? null : kind))
 
   return (
-    <div className="space-y-3">
+    <div className='space-y-3'>
       {/* Filter pills */}
-      <div className="flex items-center gap-2 flex-wrap">
+      <div className='flex items-center gap-2 flex-wrap'>
         <button
           onClick={() => setFilterKind(null)}
-          className={cn(
-            'px-3 py-1.5 rounded-lg text-xs font-medium transition-colors',
-            !filterKind ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground',
-          )}
-        >
+          className={cn('px-3 py-1.5 rounded-lg text-xs font-medium transition-colors', !filterKind ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground')}>
           {tab.rows.length} unidades
         </button>
         {counts.demo > 0 && (
           <button
             onClick={() => toggleFilter('demo')}
-            className={cn(
-              'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors',
-              filterKind === 'demo' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground',
-            )}
-          >
-            <span className="inline-block w-3 h-3 rounded-sm bg-blue-400 shrink-0" />
+            className={cn('flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors', filterKind === 'demo' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground')}>
+            <span className='inline-block w-3 h-3 rounded-sm bg-blue-400 shrink-0' />
             {counts.demo} demo disponible
           </button>
         )}
         {counts['demo-reservado'] > 0 && (
           <button
             onClick={() => toggleFilter('demo-reservado')}
-            className={cn(
-              'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors',
-              filterKind === 'demo-reservado' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground',
-            )}
-          >
-            <span className="inline-block w-3 h-3 rounded-sm bg-violet-400 shrink-0" />
+            className={cn('flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors', filterKind === 'demo-reservado' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground')}>
+            <span className='inline-block w-3 h-3 rounded-sm bg-violet-400 shrink-0' />
             {counts['demo-reservado']} demo apartado
           </button>
         )}
         {counts.normal > 0 && (
           <button
             onClick={() => toggleFilter('normal')}
-            className={cn(
-              'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors',
-              filterKind === 'normal' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground',
-            )}
-          >
-            <span className="inline-block w-3 h-3 rounded-sm bg-gray-400 shrink-0" />
+            className={cn('flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors', filterKind === 'normal' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground')}>
+            <span className='inline-block w-3 h-3 rounded-sm bg-gray-400 shrink-0' />
             {counts.normal} disponible
           </button>
         )}
         {counts.reservado > 0 && (
           <button
             onClick={() => toggleFilter('reservado')}
-            className={cn(
-              'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors',
-              filterKind === 'reservado' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground',
-            )}
-          >
-            <span className="inline-block w-3 h-3 rounded-sm bg-amber-400 shrink-0" />
+            className={cn('flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors', filterKind === 'reservado' ? 'bg-foreground text-background' : 'bg-muted text-muted-foreground hover:text-foreground')}>
+            <span className='inline-block w-3 h-3 rounded-sm bg-amber-400 shrink-0' />
             {counts.reservado} apartado
           </button>
         )}
       </div>
 
-      <div className="rounded-md border overflow-x-auto">
-        <table className="w-full text-sm">
+      <div className='rounded-md border overflow-x-auto'>
+        <table className='w-full text-sm'>
           <thead>
-            <tr className="border-b bg-muted/50">
-              <th className="px-3 py-3 text-left font-medium text-muted-foreground w-10">#</th>
+            <tr className='border-b bg-muted/50'>
+              <th className='px-3 py-3 text-left font-medium text-muted-foreground w-10'>#</th>
               {cols.map((col) => (
                 <th
                   key={col.idx}
-                  className={cn(
-                    'px-4 py-3 text-left font-medium text-muted-foreground whitespace-nowrap',
-                    col.role === 'price' && 'text-right'
-                  )}
-                >
+                  className={cn('px-4 py-3 text-left font-medium text-muted-foreground whitespace-nowrap', col.role === 'price' && 'text-right')}>
                   {col.label}
                 </th>
               ))}
@@ -395,7 +371,9 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
           <tbody>
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={cols.length + 1} className="px-4 py-8 text-center text-muted-foreground">
+                <td
+                  colSpan={cols.length + 1}
+                  className='px-4 py-8 text-center text-muted-foreground'>
                   No se encontraron unidades.
                 </td>
               </tr>
@@ -407,7 +385,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                   onClick={() => {
                     const getByLabel = (kw: string) => {
                       const col = cols.find((c) => c.label.toLowerCase().includes(kw))
-                      return col ? (row[col.idx]?.trim() || null) : null
+                      return col ? row[col.idx]?.trim() || null : null
                     }
                     const precioCol = cols.find((c) => c.role === 'price' && c.listaIdx === undefined)
                     const ofertaCol = cols.find((c) => c.listaIdx !== undefined)
@@ -421,7 +399,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                       tab: tab.name,
                       num,
                       descripcion: getByLabel('descrip') ?? getByLabel('modelo y'),
-                      año: añoCol ? (row[añoCol.idx]?.trim() || null) : null,
+                      año: añoCol ? row[añoCol.idx]?.trim() || null : null,
                       precio: listaNum > 0 ? listaRaw : null,
                       oferta: ofertaNum > 0 && ofertaNum !== listaNum ? ofertaRaw : null,
                       precioEspecial: comentarioRaw ? extractPrecioEspecial(comentarioRaw) : null,
@@ -431,12 +409,8 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                       status: kind,
                     })
                   }}
-                  className={cn(
-                    'border-b last:border-0 transition-colors cursor-pointer',
-                    num === highlightRow ? 'row-flash' : rowStyle(kind, num % 2 === 0),
-                  )}
-                >
-                  <td className="px-3 py-2.5 text-xs text-muted-foreground font-mono">{num}</td>
+                  className={cn('border-b last:border-0 transition-colors cursor-pointer', num === highlightRow ? 'row-flash' : rowStyle(kind, num % 2 === 0))}>
+                  <td className='px-3 py-2.5 text-xs text-muted-foreground font-mono'>{num}</td>
                   {cols.map((col) => {
                     const val = row[col.idx] ?? ''
                     const empty = val === '' || val === '-'
@@ -447,11 +421,10 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                       const ofertaNum = Number(val.replace(/[^0-9.]/g, ''))
                       const same = !ofertaNum || listaNum === ofertaNum
                       return (
-                        <td key={col.idx} className="px-4 py-2.5 whitespace-nowrap text-sm text-right tabular-nums">
-                          {same
-                            ? <span className="text-muted-foreground/30">—</span>
-                            : <span className="text-green-600 font-semibold">{formatPrice(val)}</span>
-                          }
+                        <td
+                          key={col.idx}
+                          className='px-4 py-2.5 whitespace-nowrap text-sm text-right tabular-nums'>
+                          {same ? <span className='text-muted-foreground/30'>—</span> : <span className='text-green-600 font-semibold'>{formatPrice(val)}</span>}
                         </td>
                       )
                     }
@@ -465,22 +438,19 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                         key={col.idx}
                         className={cn(
                           'px-4 py-2.5 text-sm',
-                          esComentario ? 'w-48 max-w-[12rem] whitespace-normal break-words align-top' : 'whitespace-nowrap',
+                          esComentario ? 'w-[450px] min-w-[450px] whitespace-normal break-words align-top' : 'whitespace-nowrap',
                           col.role === 'price' && 'text-right font-medium tabular-nums',
                           (col.role === 'vin' || col.role === 'eco') && 'font-mono text-xs text-muted-foreground',
                           priceMatch && 'bg-amber-50 dark:bg-amber-950/30',
-                        )}
-                      >
+                        )}>
                         {empty ? (
-                          <span className="text-muted-foreground/30">—</span>
+                          <span className='text-muted-foreground/30'>—</span>
                         ) : col.role === 'price' ? (
                           formatPrice(val)
                         ) : priceMatch ? (
                           <>
                             {val.slice(0, priceMatch.index)}
-                            <span className="text-amber-600 dark:text-amber-400 font-semibold tabular-nums">
-                              {priceMatch[0]}
-                            </span>
+                            <span className='text-amber-600 dark:text-amber-400 font-semibold tabular-nums'>{priceMatch[0]}</span>
                             {val.slice(priceMatch.index! + priceMatch[0].length)}
                           </>
                         ) : (
@@ -520,13 +490,15 @@ export default function InventarioClient() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-
   const fetchInventario = useCallback(async (silent = false) => {
     if (!silent) setLoading(true)
     setError(false)
     try {
       const res = await fetch('/api/inventario')
-      if (res.status === 404) { setData(null); return }
+      if (res.status === 404) {
+        setData(null)
+        return
+      }
       if (!res.ok) throw new Error()
       setData(await res.json())
     } catch {
@@ -562,7 +534,9 @@ export default function InventarioClient() {
     }, 3000)
   }, [data])
 
-  useEffect(() => { fetchInventario() }, [fetchInventario])
+  useEffect(() => {
+    fetchInventario()
+  }, [fetchInventario])
 
   const orderedTabs = useMemo(() => {
     if (!data?.tabs) return []
@@ -593,27 +567,33 @@ export default function InventarioClient() {
       document.querySelector(`[data-row-num="${highlightRow}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }, 80)
     const clear = setTimeout(() => setHighlightRow(null), 2500)
-    return () => { clearTimeout(scroll); clearTimeout(clear) }
+    return () => {
+      clearTimeout(scroll)
+      clearTimeout(clear)
+    }
   }, [highlightRow])
 
   const totalUnits = useMemo(() => orderedTabs.reduce((s, t) => s + t.rows.length, 0), [orderedTabs])
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center gap-3 py-24 text-muted-foreground">
-        <Loader2 className="h-5 w-5 animate-spin" />
-        <span className="text-sm">Cargando inventario...</span>
+      <div className='flex items-center justify-center gap-3 py-24 text-muted-foreground'>
+        <Loader2 className='h-5 w-5 animate-spin' />
+        <span className='text-sm'>Cargando inventario...</span>
       </div>
     )
   }
 
   if (error) {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 py-20">
-        <AlertCircle className="h-8 w-8 text-destructive" />
-        <p className="text-sm text-muted-foreground">Error al cargar. ¿Está corriendo el servidor?</p>
-        <Button onClick={() => fetchInventario()} variant="outline" size="sm">
-          <RefreshCw className="h-4 w-4 mr-1" /> Reintentar
+      <div className='flex flex-col items-center justify-center gap-4 py-20'>
+        <AlertCircle className='h-8 w-8 text-destructive' />
+        <p className='text-sm text-muted-foreground'>Error al cargar. ¿Está corriendo el servidor?</p>
+        <Button
+          onClick={() => fetchInventario()}
+          variant='outline'
+          size='sm'>
+          <RefreshCw className='h-4 w-4 mr-1' /> Reintentar
         </Button>
       </div>
     )
@@ -624,56 +604,48 @@ export default function InventarioClient() {
   const currentTab = orderedTabs[Math.min(activeTab, orderedTabs.length - 1)]
 
   return (
-    <div className="space-y-5">
+    <div className='space-y-5'>
       {/* Sticky header + tabs */}
-      <div className="sticky top-14 z-20 bg-sidebar -mx-6 md:-mx-8 px-6 md:px-8 pt-5 pb-0">
-        <div className="flex items-start justify-between flex-wrap gap-3">
+      <div className='sticky top-14 z-20 bg-sidebar -mx-6 md:-mx-8 px-6 md:px-8 pt-5 pb-0'>
+        <div className='flex items-start justify-between flex-wrap gap-3'>
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight">Inventario</h1>
-            <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1.5">
+            <h1 className='text-2xl font-semibold tracking-tight'>Inventario</h1>
+            <p className='text-sm text-muted-foreground mt-1 flex items-center gap-1.5'>
               {totalUnits} unidades totales
-              {data.lastSyncAt && (
-                <span className="text-xs">· sincronizado {timeAgo(data.lastSyncAt)}</span>
-              )}
+              {data.lastSyncAt && <span className='text-xs'>· sincronizado {timeAgo(data.lastSyncAt)}</span>}
               {data.sheetUrl && (
                 <button
                   title={syncing ? 'Esperando sincronización...' : 'Abrir Google Sheet y sincronizar'}
                   onClick={handleSheetSync}
                   disabled={syncing}
-                  className="inline-flex items-center justify-center h-5 w-5 rounded hover:bg-muted-foreground/20 transition-colors text-muted-foreground hover:text-foreground disabled:opacity-50"
-                >
-                  {syncing
-                    ? <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                    : <ExternalLink className="h-3.5 w-3.5" />}
+                  className='inline-flex items-center justify-center h-5 w-5 rounded hover:bg-muted-foreground/20 transition-colors text-muted-foreground hover:text-foreground disabled:opacity-50'>
+                  {syncing ? <Loader2 className='h-3.5 w-3.5 animate-spin' /> : <ExternalLink className='h-3.5 w-3.5' />}
                 </button>
               )}
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className='flex items-center gap-2'>
             <Input
-              placeholder="Buscar VIN, modelo, color..."
+              placeholder='Buscar VIN, modelo, color...'
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-64"
+              className='w-64'
             />
           </div>
         </div>
 
         {/* Brand tabs */}
-        <div className="border-b flex gap-0 overflow-x-auto mt-4">
+        <div className='border-b flex gap-0 overflow-x-auto mt-4'>
           {orderedTabs.map((tab, i) => (
             <button
               key={tab.name}
-              onClick={() => { setActiveTab(i); setSearch('') }}
-              className={cn(
-                'px-5 py-2.5 text-sm font-medium whitespace-nowrap border-b-2 transition-colors',
-                i === activeTab
-                  ? 'border-foreground text-foreground'
-                  : 'border-transparent text-muted-foreground hover:text-foreground'
-              )}
-            >
+              onClick={() => {
+                setActiveTab(i)
+                setSearch('')
+              }}
+              className={cn('px-5 py-2.5 text-sm font-medium whitespace-nowrap border-b-2 transition-colors', i === activeTab ? 'border-foreground text-foreground' : 'border-transparent text-muted-foreground hover:text-foreground')}>
               {tab.name}
-              <span className="ml-2 text-xs text-muted-foreground">{tab.rows.length}</span>
+              <span className='ml-2 text-xs text-muted-foreground'>{tab.rows.length}</span>
             </button>
           ))}
         </div>
@@ -683,16 +655,18 @@ export default function InventarioClient() {
         tab={currentTab}
         search={search}
         highlightRow={highlightRow}
-        onRowClick={(car) => { setCar(car); router.push('/dashboard/anunciador') }}
+        onRowClick={(car) => {
+          setCar(car)
+          router.push('/dashboard/anunciador')
+        }}
       />
 
       {/* Scroll to top */}
       {scrolled && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-20 z-50 h-12 w-12 rounded-full bg-foreground text-background shadow-lg flex items-center justify-center hover:opacity-75 transition-opacity"
-        >
-          <ChevronUp className="h-5 w-5" />
+          className='fixed bottom-6 right-20 z-50 h-12 w-12 rounded-full bg-foreground text-background shadow-lg flex items-center justify-center hover:opacity-75 transition-opacity'>
+          <ChevronUp className='h-5 w-5' />
         </button>
       )}
     </div>
