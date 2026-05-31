@@ -29,7 +29,6 @@ export default async function LandingPage() {
           <div className="max-w-[1200px] mx-auto px-5 pt-12 pb-14 lg:pt-16 lg:pb-20 grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-6">
               <span className="inline-flex items-center gap-2 bg-azul-50 text-azul-800 border border-azul-100 rounded-full px-3 py-1.5 text-[13px] font-semibold">
-                <span className="live-dot" />
                 Jeep · RAM · Fiat · Peugeot · Dodge
               </span>
 
@@ -39,8 +38,8 @@ export default async function LandingPage() {
               </h1>
 
               <p className="mt-5 text-[18px] text-muted-warm max-w-[34rem]">
-                Soy Edith Soria. Te muestro modelos, versiones, precios y disponibilidad real
-                de cinco marcas, y te acompaño paso a paso por WhatsApp — sin bots, sin vueltas.
+                Soy Edith Soria. Te muestro modelos, versiones y precios de cinco marcas,
+                y te acompaño paso a paso por WhatsApp — sin bots, sin vueltas.
               </p>
 
               <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -85,25 +84,12 @@ export default async function LandingPage() {
                   <span className="ph-tag">foto · auto destacado del mes</span>
                 </div>
 
-                {/* Floating card — availability */}
+                {/* Floating card — featured model */}
                 <div className="absolute -left-3 sm:-left-5 bottom-6 bg-white rounded-2xl border border-line shadow-xl p-4 w-[230px]">
-                  <div className="flex items-center gap-2 text-[12px] font-semibold text-emerald-700">
-                    <span className="live-dot" />
-                    DISPONIBLE AHORA
-                  </div>
-                  {disponibles[0] && (
-                    <>
-                      <div className="mt-1.5 font-display font-bold text-[16px] leading-tight text-ink">
-                        {disponibles[0].ficha.marca} {disponibles[0].ficha.modelo} {disponibles[0].ficha.año}
-                      </div>
-                      <div className="text-[13px] text-muted-warm">{disponibles[0].units} unidades disponibles</div>
-                      {disponibles[0].precioDesde && (
-                        <div className="mt-2 font-display font-extrabold text-azul-800 text-[18px]">
-                          desde {formatMXN(disponibles[0].precioDesde)}
-                        </div>
-                      )}
-                    </>
-                  )}
+                  <div className="text-[12px] font-semibold text-azul-700">★ Lo más pedido</div>
+                  <div className="mt-1.5 font-display font-bold text-[16px] leading-tight text-ink">Jeep Compass Limited 2026</div>
+                  <div className="text-[13px] text-muted-warm">Versión tope de gama · 3 colores</div>
+                  <div className="mt-2 font-display font-extrabold text-azul-800 text-[18px]">desde $689,900</div>
                 </div>
 
                 {/* Floating card — Edith */}
@@ -145,7 +131,7 @@ export default async function LandingPage() {
             <div className="flex items-end justify-between gap-4 mb-8">
               <div>
                 <h2 className="font-display font-extrabold text-[30px] sm:text-[36px] leading-tight">Modelos destacados</h2>
-                <p className="text-muted-warm mt-2 text-[17px]">Lo más buscado, con unidades disponibles ahora mismo.</p>
+                <p className="text-muted-warm mt-2 text-[17px]">Lo más buscado esta semana.</p>
               </div>
               <Link href="/catalogo" className="hidden sm:inline-flex items-center gap-2 font-semibold text-azul-700 hover:text-azul-900 shrink-0 transition-colors">
                 Ver todo el catálogo
@@ -237,70 +223,6 @@ export default async function LandingPage() {
           </div>
         </section>
 
-        {/* ── DISPONIBILIDAD EN VIVO ─────────────────────────────────────────── */}
-        <section className="max-w-[1200px] mx-auto px-5 py-16">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1.5 rounded-full">
-                <span className="live-dot" />
-                Conectado a la base en tiempo real
-              </span>
-              <h2 className="font-display font-extrabold text-[30px] sm:text-[36px] leading-tight mt-4">
-                Solo te muestro lo que de verdad puedes comprar hoy
-              </h2>
-              <p className="text-muted-warm mt-3 text-[17px]">
-                El catálogo refleja el estatus de cada unidad automáticamente. Si aparece, está disponible.
-              </p>
-              <div className="mt-6 grid sm:grid-cols-2 gap-3">
-                {[
-                  { color: 'bg-emerald-500', label: 'Disponible', desc: 'Unidad nueva lista para entrega o pedido.' },
-                  { color: 'bg-amber-500', label: 'Demo disponible', desc: 'Unidad de exhibición que puedes ver y manejar.' },
-                  { color: 'bg-ink/25', label: 'Demo apartado', desc: 'Se oculta del sitio automáticamente.', faded: true },
-                  { color: 'bg-ink/25', label: 'Apartado', desc: 'Se oculta del sitio automáticamente.', faded: true },
-                ].map((s) => (
-                  <div key={s.label} className={`flex items-start gap-3 ${s.faded ? 'bg-sand' : 'bg-white'} border border-line rounded-xl p-4 ${s.faded ? 'opacity-70' : ''}`}>
-                    <span className={`mt-1 w-2.5 h-2.5 rounded-full ${s.color} shrink-0`} />
-                    <div>
-                      <div className="font-semibold text-ink">{s.label}</div>
-                      <div className="text-[14px] text-muted-warm">{s.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Live panel */}
-            <div className="bg-white border border-line rounded-3xl p-6 shadow-sm">
-              <div className="flex items-center justify-between pb-4 border-b border-line">
-                <div className="flex items-center gap-2 font-semibold text-ink">
-                  <span className="live-dot" />
-                  Inventario en vivo
-                </div>
-                <span className="text-[13px] text-muted-warm">
-                  {totalUnidades} unidades disponibles
-                </span>
-              </div>
-              <ul className="divide-y divide-line">
-                {modelos.filter((m) => m.units > 0).slice(0, 4).map(({ ficha, units }) => (
-                  <li key={ficha.id} className="flex items-center justify-between py-3.5">
-                    <div>
-                      <div className="font-semibold text-ink">{ficha.marca} {ficha.modelo}</div>
-                      <div className="text-[13px] text-muted-warm">{ficha.año} · {units} {units === 1 ? 'unidad' : 'unidades'}</div>
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-emerald-700">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      Disponible
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/catalogo" className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-azul-700 hover:bg-azul-800 text-white font-semibold h-12 rounded-full transition-colors">
-                Ver disponibles ahora
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </Link>
-            </div>
-          </div>
-        </section>
 
         {/* ── FINANCIAMIENTO ─────────────────────────────────────────────────── */}
         <section id="financiamiento" className="bg-sand/70 border-y border-line">

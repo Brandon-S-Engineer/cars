@@ -53,10 +53,7 @@ export default function CatalogoClient({
           <div>
             <h1 className="font-display font-extrabold text-[34px] sm:text-[42px] leading-tight">Catálogo</h1>
             <p className="text-muted-warm mt-2 text-[17px]">
-              <span className="font-semibold text-ink">{totalUnidades}</span> unidades disponibles ahora ·{' '}
-              <span className="inline-flex items-center gap-1.5">
-                <span className="live-dot" /> en tiempo real
-              </span>
+              <span className="font-semibold text-ink">{filtered.length}</span> modelos · Jeep, RAM, Fiat, Peugeot y Dodge
             </p>
           </div>
           <p className="text-[14px] text-muted-warm max-w-sm">
