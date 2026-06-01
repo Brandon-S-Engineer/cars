@@ -16,6 +16,7 @@ export type ModeloCatalogo = {
   ficha: ModeloFicha
   units: number
   precioDesde: number | null
+  precioEspecial: number | null
 }
 
 // ── Brand visuals ─────────────────────────────────────────────────────────────
@@ -74,6 +75,17 @@ function detectDescIdx(headers: string[]): number {
   return -1
 }
 
+function detectComentarioIdx(headers: string[]): number {
+  return headers.findIndex((h) => h.toLowerCase().includes('comentario'))
+}
+
+function extractPrecioFromComentario(val: string): number | null {
+  const match = val.match(/\$\s*[\d,]+(?:\.\d+)?/)
+  if (!match) return null
+  const num = Number(match[0].replace(/[^0-9.]/g, ''))
+  return num > 100_000 && num < 10_000_000 ? num : null
+}
+
 export function parseInventarioForCatalog(
   tabs: TabData[],
   models: ModeloFicha[],
@@ -83,10 +95,13 @@ export function parseInventarioForCatalog(
     let minPrice = Infinity
     let unitCount = 0
 
+    let minEspecial = Infinity
+
     for (const tab of tabs) {
       if (tab.name === 'TRANSITO IMA/ AMSA') continue
       const descIdx = detectDescIdx(tab.headers)
       const priceIdx = detectPriceColIdx(tab.headers, tab.rows)
+      const comentIdx = detectComentarioIdx(tab.headers)
       if (descIdx < 0) continue
 
       for (const row of tab.rows) {
@@ -98,6 +113,10 @@ export function parseInventarioForCatalog(
           const price = Number((row[priceIdx] ?? '').replace(/[^0-9.]/g, ''))
           if (price > 100_000 && price < 10_000_000 && price < minPrice) minPrice = price
         }
+        if (comentIdx >= 0) {
+          const especial = extractPrecioFromComentario(row[comentIdx] ?? '')
+          if (especial && especial < minEspecial) minEspecial = especial
+        }
       }
     }
 
@@ -105,6 +124,7 @@ export function parseInventarioForCatalog(
       ficha: model,
       units: unitCount,
       precioDesde: minPrice === Infinity ? null : minPrice,
+      precioEspecial: minEspecial === Infinity ? null : minEspecial,
     }
   })
 }

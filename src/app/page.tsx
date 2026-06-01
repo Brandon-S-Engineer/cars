@@ -13,9 +13,7 @@ const WA_GENERAL = 'Hola Edith, vi tu sitio y quiero que me asesores para escoge
 
 export default async function LandingPage() {
   const modelos = await getCatalogData()
-  const disponibles = modelos.filter((m) => m.units > 0)
-  const totalUnidades = modelos.reduce((s, m) => s + m.units, 0)
-  const destacados = disponibles.slice(0, 6)
+  const promociones = modelos.filter((m) => m.units > 0 && m.precioEspecial !== null)
 
   return (
     <div className="font-hanken bg-paper text-ink">
@@ -125,13 +123,13 @@ export default async function LandingPage() {
           </div>
         </section>
 
-        {/* ── MODELOS DESTACADOS ─────────────────────────────────────────────── */}
-        {destacados.length > 0 && (
+        {/* ── PROMOCIONES DEL MES ────────────────────────────────────────────── */}
+        {promociones.length > 0 && (
           <section className="max-w-[1200px] mx-auto px-5 py-16">
             <div className="flex items-end justify-between gap-4 mb-8">
               <div>
-                <h2 className="font-display font-extrabold text-[30px] sm:text-[36px] leading-tight">Modelos destacados</h2>
-                <p className="text-muted-warm mt-2 text-[17px]">Lo más buscado esta semana.</p>
+                <h2 className="font-display font-extrabold text-[30px] sm:text-[36px] leading-tight">Promociones del mes</h2>
+                <p className="text-muted-warm mt-2 text-[17px]">Precios especiales disponibles ahora.</p>
               </div>
               <Link href="/catalogo" className="hidden sm:inline-flex items-center gap-2 font-semibold text-azul-700 hover:text-azul-900 shrink-0 transition-colors">
                 Ver todo el catálogo
@@ -140,8 +138,8 @@ export default async function LandingPage() {
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {destacados.map(({ ficha, units, precioDesde }) => {
-                const waMsg = `Hola Edith, me interesa el ${ficha.marca} ${ficha.modelo} ${ficha.año}. ¿Qué versiones tienes disponibles?`
+              {promociones.map(({ ficha, precioDesde, precioEspecial }) => {
+                const waMsg = `Hola Edith, vi la promoción del ${ficha.marca} ${ficha.modelo} ${ficha.año}. ¿Me das más información?`
                 return (
                   <article key={ficha.id} className="group bg-white rounded-2xl border border-line overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
                     <Link href={`/catalogo/${ficha.id}`} className="block ph aspect-[16/10] flex items-center justify-center relative">
@@ -159,9 +157,11 @@ export default async function LandingPage() {
                       <h3 className="font-display font-bold text-[20px] mt-1.5 text-ink">{ficha.modelo}</h3>
                       <div className="flex items-end justify-between mt-4">
                         <div>
-                          <div className="text-[12px] text-muted-warm">Precio desde</div>
-                          <div className="font-display font-extrabold text-azul-800 text-[22px] leading-none">
-                            {precioDesde ? formatMXN(precioDesde) : 'Consultar'}
+                          {precioDesde && (
+                            <div className="text-[12px] text-muted-warm line-through">{formatMXN(precioDesde)}</div>
+                          )}
+                          <div className="font-display font-extrabold text-amber-600 text-[22px] leading-none">
+                            {precioEspecial ? formatMXN(precioEspecial) : formatMXN(precioDesde ?? 0)}
                           </div>
                         </div>
                         <Link href={`/catalogo/${ficha.id}`} className="inline-flex items-center gap-1.5 font-semibold text-azul-700 hover:text-azul-900 text-[15px] transition-colors">
