@@ -128,8 +128,8 @@ export default function CatalogoClient({
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filtered.map(({ ficha, units, precioDesde, precioEspecial }) => {
-              const pct = precioDesde && precioEspecial ? Math.round((1 - precioEspecial / precioDesde) * 100) : null
+            {filtered.map(({ ficha, units, precioDesde, precioEspecial, listaDelEspecial }) => {
+              const pct = listaDelEspecial && precioEspecial ? Math.round((1 - precioEspecial / listaDelEspecial) * 100) : null
               const descuento = pct !== null && pct > 0 ? pct : null
               const waMsg = `Hola Edith, me interesa el ${ficha.marca} ${ficha.modelo} ${ficha.año}. ¿Qué versiones tienes disponibles?`
               return (
@@ -165,7 +165,7 @@ export default function CatalogoClient({
                       <div>
                         {descuento !== null ? (
                           <>
-                            {precioDesde && <div className="text-[14px] text-muted-warm line-through">{formatMXN(precioDesde)}</div>}
+                            {listaDelEspecial && <div className="text-[14px] text-muted-warm line-through">{formatMXN(listaDelEspecial)}</div>}
                             <div className="font-display font-extrabold text-azul-700 text-[22px] leading-none">{formatMXN(precioEspecial!)}</div>
                           </>
                         ) : (

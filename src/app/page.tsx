@@ -145,8 +145,8 @@ export default async function LandingPage() {
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {promociones.map(({ ficha, precioDesde, precioEspecial }) => {
-                const pct = precioDesde && precioEspecial ? Math.round((1 - precioEspecial / precioDesde) * 100) : null
+              {promociones.map(({ ficha, precioDesde, precioEspecial, listaDelEspecial }) => {
+                const pct = listaDelEspecial && precioEspecial ? Math.round((1 - precioEspecial / listaDelEspecial) * 100) : null
                 const descuento = pct !== null && pct > 0 ? pct : null
                 const waMsg = `Hola Edith, vi la promoción del ${ficha.marca} ${ficha.modelo} ${ficha.año}. ¿Me das más información?`
                 return (
@@ -169,8 +169,8 @@ export default async function LandingPage() {
                       <h3 className="font-display font-bold text-[20px] mt-1.5 text-ink">{ficha.modelo}</h3>
                       <div className="flex items-end justify-between mt-4">
                         <div>
-                          {descuento !== null && precioDesde && (
-                            <div className="text-[14px] text-muted-warm line-through">{formatMXN(precioDesde)}</div>
+                          {descuento !== null && listaDelEspecial && (
+                            <div className="text-[14px] text-muted-warm line-through">{formatMXN(listaDelEspecial)}</div>
                           )}
                           <div className="font-display font-extrabold text-azul-700 text-[22px] leading-none">
                             {formatMXN(precioEspecial ?? precioDesde ?? 0)}

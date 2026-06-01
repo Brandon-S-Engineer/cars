@@ -28,8 +28,9 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
   const units = entry?.units ?? 0
   const precioDesde = entry?.precioDesde ?? null
   const precioEspecial = entry?.precioEspecial ?? null
+  const listaDelEspecial = entry?.listaDelEspecial ?? null
   const preciosPorVersion = entry?.preciosPorVersion ?? {}
-  const pct = precioDesde && precioEspecial ? Math.round((1 - precioEspecial / precioDesde) * 100) : null
+  const pct = listaDelEspecial && precioEspecial ? Math.round((1 - precioEspecial / listaDelEspecial) * 100) : null
   const descuento = pct !== null && pct > 0 ? pct : null
 
   const waMsgGeneral = `Hola Edith, me interesa el ${model.marca} ${model.modelo} ${model.año}. ¿Qué versiones tienes disponibles y a qué precio?`

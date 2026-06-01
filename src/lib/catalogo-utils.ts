@@ -17,6 +17,7 @@ export type ModeloCatalogo = {
   units: number
   precioDesde: number | null
   precioEspecial: number | null
+  listaDelEspecial: number | null  // list price of the row that has precioEspecial
   preciosPorVersion: Record<string, number | null>
 }
 
@@ -128,6 +129,7 @@ export function parseInventarioForCatalog(
     let minPrice = Infinity
     let unitCount = 0
     let minEspecial = Infinity
+    let listaDelEspecial = 0
 
     // Per-version min prices
     const versionMatches = model.versiones.map(v => ({ id: v.id, match: getVersionMatch(v.nombre) }))
@@ -152,7 +154,11 @@ export function parseInventarioForCatalog(
 
         if (comentIdx >= 0) {
           const especial = extractPrecioFromComentario(row[comentIdx] ?? '')
-          if (especial && especial < minEspecial) minEspecial = especial
+          // Only a real discount if especial < same row's list price
+          if (especial && validPrice && especial < price && especial < minEspecial) {
+            minEspecial = especial
+            listaDelEspecial = price
+          }
         }
 
         if (validPrice) {
@@ -175,6 +181,7 @@ export function parseInventarioForCatalog(
       units: unitCount,
       precioDesde: minPrice === Infinity ? null : minPrice,
       precioEspecial: minEspecial === Infinity ? null : minEspecial,
+      listaDelEspecial: listaDelEspecial > 0 ? listaDelEspecial : null,
       preciosPorVersion,
     }
   })
