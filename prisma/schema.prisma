@@ -95,3 +95,14 @@ model SpecOverride {
   @@unique([modeloId, versionId, categoriaId, label])
   @@index([modeloId])
 }
+
+model CatalogPhoto {
+  id        String   @id @default(cuid())
+  modelId   String
+  versionId String?
+  url       String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([modelId])
+}

@@ -1,4 +1,4 @@
-import { getCatalogData } from '@/lib/catalogo-db'
+import { getCatalogData, getCoverPhotos } from '@/lib/catalogo-db'
 import CatalogoClient from '@/components/public/catalogo-client'
 import UtilityBar from '@/components/public/utility-bar'
 import PublicNav from '@/components/public/public-nav'
@@ -12,12 +12,12 @@ export default async function CatalogoPage({
 }: {
   searchParams: Promise<{ marca?: string }>
 }) {
-  const [modelos, { marca }] = await Promise.all([getCatalogData(), searchParams])
+  const [modelos, covers, { marca }] = await Promise.all([getCatalogData(), getCoverPhotos(), searchParams])
   return (
     <>
       <UtilityBar />
       <PublicNav />
-      <CatalogoClient modelos={modelos} initialMarca={marca ?? 'todas'} />
+      <CatalogoClient modelos={modelos} initialMarca={marca ?? 'todas'} covers={covers} />
       <PublicFooter />
       <FloatingWhatsApp />
     </>

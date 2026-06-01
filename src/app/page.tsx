@@ -4,15 +4,16 @@ import UtilityBar from '@/components/public/utility-bar'
 import PublicNav from '@/components/public/public-nav'
 import PublicFooter from '@/components/public/public-footer'
 import FloatingWhatsApp from '@/components/public/floating-whatsapp'
-import { getCatalogData } from '@/lib/catalogo-db'
+import { getCatalogData, getCoverPhotos } from '@/lib/catalogo-db'
 import { formatMXN, waUrl } from '@/lib/catalogo-utils'
+import ModelImage from '@/components/public/model-image'
 
 export const dynamic = 'force-dynamic'
 
 const WA_GENERAL = 'Hola Edith, vi tu sitio y quiero que me asesores para escoger mi próximo auto.'
 
 export default async function LandingPage() {
-  const modelos = await getCatalogData()
+  const [modelos, covers] = await Promise.all([getCatalogData(), getCoverPhotos()])
   const promociones = modelos.filter((m) => m.units > 0 && m.precioEspecial !== null)
 
   return (
@@ -142,11 +143,14 @@ export default async function LandingPage() {
                 const waMsg = `Hola Edith, vi la promoción del ${ficha.marca} ${ficha.modelo} ${ficha.año}. ¿Me das más información?`
                 return (
                   <article key={ficha.id} className="group bg-white rounded-2xl border border-line overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
-                    <Link href={`/catalogo/${ficha.id}`} className="block ph aspect-[16/10] flex items-center justify-center relative">
-                      <span className="ph-tag">foto · {ficha.marca} {ficha.modelo}</span>
-                      <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-emerald-100">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                        Disponible
+                    <Link href={`/catalogo/${ficha.id}`} className="block aspect-[16/10] relative overflow-hidden">
+                      <ModelImage
+                        src={covers[ficha.id] ?? null}
+                        alt={`${ficha.marca} ${ficha.modelo}`}
+                        phLabel={`foto · ${ficha.marca} ${ficha.modelo}`}
+                      />
+                      <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-amber-100">
+                        Precio especial
                       </span>
                     </Link>
                     <div className="p-5">

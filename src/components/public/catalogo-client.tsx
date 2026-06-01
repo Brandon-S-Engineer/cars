@@ -3,14 +3,17 @@
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import WaIcon from './wa-icon'
+import ModelImage from './model-image'
 import { type ModeloCatalogo, formatMXN, waUrl } from '@/lib/catalogo-utils'
 
 export default function CatalogoClient({
   modelos,
   initialMarca = 'todas',
+  covers = {},
 }: {
   modelos: ModeloCatalogo[]
   initialMarca?: string
+  covers?: Record<string, string>
 }) {
   const [brandFilter, setBrandFilter] = useState(() => {
     if (initialMarca === 'todas') return 'todas'
@@ -129,8 +132,12 @@ export default function CatalogoClient({
               const waMsg = `Hola Edith, me interesa el ${ficha.marca} ${ficha.modelo} ${ficha.año}. ¿Qué versiones tienes disponibles?`
               return (
                 <article key={ficha.id} className="group bg-white rounded-2xl border border-line overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
-                  <Link href={`/catalogo/${ficha.id}`} className="block ph aspect-[16/10] flex items-center justify-center relative">
-                    <span className="ph-tag">foto · {ficha.marca} {ficha.modelo}</span>
+                  <Link href={`/catalogo/${ficha.id}`} className="block aspect-[16/10] relative overflow-hidden">
+                    <ModelImage
+                      src={covers[ficha.id] ?? null}
+                      alt={`${ficha.marca} ${ficha.modelo}`}
+                      phLabel={`foto · ${ficha.marca} ${ficha.modelo}`}
+                    />
                     <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-emerald-100">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                       {units === 1 ? '1 disponible' : `${units} disponibles`}

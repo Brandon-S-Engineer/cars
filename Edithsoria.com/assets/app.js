@@ -4,7 +4,6 @@
    - Menú móvil
    - Filtros de catálogo (marca / precio / disponibilidad / búsqueda)
    - Estimador de financiamiento
-   - "Última actualización" para la base en tiempo real
    ========================================================================== */
 (function () {
   "use strict";
@@ -134,7 +133,7 @@
       if (waBtn) {
         var msg = "Hola Edith, me interesa esta cotización: enganche de " + money(down) +
           " (" + pct + "%) a " + n + " meses, mensualidad aprox. " + money(pmt) +
-          ". ¿Me confirmas disponibilidad?";
+          ". ¿Me confirmas los siguientes pasos?";
         waBtn.setAttribute("data-msg", msg);
         waBtn.setAttribute("href", WA_BASE + "?text=" + encodeURIComponent(msg));
       }
@@ -158,22 +157,11 @@
     });
   }
 
-  // --- Marca de tiempo "en vivo" -------------------------------------------
-  function wireLiveStamp() {
-    document.querySelectorAll("[data-live-stamp]").forEach(function (el) {
-      var d = new Date();
-      var hh = String(d.getHours()).padStart(2, "0");
-      var mm = String(d.getMinutes()).padStart(2, "0");
-      el.textContent = "Hoy " + hh + ":" + mm;
-    });
-  }
-
   document.addEventListener("DOMContentLoaded", function () {
     wireWhatsApp();
     wireMenu();
     wireCatalog();
     wireFinance();
     wireGallery();
-    wireLiveStamp();
   });
 })();

@@ -62,7 +62,7 @@ h1, h2, h3 { text-wrap: balance; }
   letter-spacing: 0;
 }
 
-/* Punto de "en vivo" para disponibilidad en tiempo real */
+/* Punto verde de "disponible" — indicador de unidad lista para entrega */
 .live-dot {
   width: 8px; height: 8px; border-radius: 9999px;
   background: #16A34A;

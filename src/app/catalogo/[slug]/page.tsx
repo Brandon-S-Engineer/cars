@@ -7,6 +7,8 @@ import PublicFooter from '@/components/public/public-footer'
 import FloatingWhatsApp from '@/components/public/floating-whatsapp'
 import { MODELOS } from '@/lib/fichas-data'
 import { getCatalogData } from '@/lib/catalogo-db'
+import { getModelPhotos } from '@/lib/catalog-photos'
+import ModelImage from '@/components/public/model-image'
 import { formatMXN, waUrl } from '@/lib/catalogo-utils'
 
 export const dynamic = 'force-dynamic'
@@ -20,8 +22,9 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
   const model = MODELOS.find((m) => m.id === slug)
   if (!model) notFound()
 
-  const catalog = await getCatalogData()
+  const [catalog, allPhotos] = await Promise.all([getCatalogData(), getModelPhotos(model.id)])
   const entry = catalog.find((m) => m.ficha.id === model.id)
+  const coverPhoto = allPhotos.find((p) => p.versionId === null)?.url ?? null
   const units = entry?.units ?? 0
   const precioDesde = entry?.precioDesde ?? null
 
@@ -50,15 +53,26 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             {/* Gallery */}
             <div className="lg:col-span-7">
-              <div className="ph rounded-3xl aspect-[16/10] flex items-center justify-center border border-line">
-                <span className="ph-tag">foto · {model.marca} {model.modelo} {model.año}</span>
+              <div className="rounded-3xl aspect-[16/10] overflow-hidden border border-line">
+                <ModelImage
+                  src={coverPhoto}
+                  alt={`${model.marca} ${model.modelo} ${model.año}`}
+                  phLabel={`foto · ${model.marca} ${model.modelo} ${model.año}`}
+                />
               </div>
               <div className="grid grid-cols-4 gap-3 mt-3">
-                {['exterior', 'interior', 'tablero', 'cajuela'].map((view) => (
-                  <div key={view} className="ph rounded-xl aspect-[4/3] flex items-center justify-center border border-line">
-                    <span className="ph-tag" style={{ fontSize: 9 }}>{view}</span>
+                {allPhotos.filter((p) => p.versionId === null).slice(1, 5).map((p, i) => (
+                  <div key={p.id} className="rounded-xl aspect-[4/3] overflow-hidden border border-line">
+                    <ModelImage src={p.url} alt={`Vista ${i + 2}`} />
                   </div>
                 ))}
+                {allPhotos.filter((p) => p.versionId === null).length <= 1 &&
+                  ['exterior', 'interior', 'tablero', 'cajuela'].map((view) => (
+                    <div key={view} className="ph rounded-xl aspect-[4/3] flex items-center justify-center border border-line">
+                      <span className="ph-tag" style={{ fontSize: 9 }}>{view}</span>
+                    </div>
+                  ))
+                }
               </div>
             </div>
 

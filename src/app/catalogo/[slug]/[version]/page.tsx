@@ -8,6 +8,8 @@ import FloatingWhatsApp from '@/components/public/floating-whatsapp'
 import FinanceCalculator from '@/components/public/finance-calculator'
 import { MODELOS } from '@/lib/fichas-data'
 import { getCatalogData } from '@/lib/catalogo-db'
+import { getModelPhotos } from '@/lib/catalog-photos'
+import ModelImage from '@/components/public/model-image'
 import { formatMXN, waUrl } from '@/lib/catalogo-utils'
 
 export const dynamic = 'force-dynamic'
@@ -31,8 +33,10 @@ export default async function VersionDetailPage({
   const version = model.versiones.find((v) => v.id === versionId)
   if (!version) notFound()
 
-  const catalog = await getCatalogData()
+  const [catalog, allPhotos] = await Promise.all([getCatalogData(), getModelPhotos(model.id)])
   const entry = catalog.find((m) => m.ficha.id === model.id)
+  const versionPhotos = allPhotos.filter((p) => p.versionId === version.id)
+  const coverPhoto = versionPhotos[0]?.url ?? allPhotos.find((p) => p.versionId === null)?.url ?? null
   const units = entry?.units ?? 0
   const precioDesde = entry?.precioDesde ?? null
 
@@ -62,15 +66,22 @@ export default async function VersionDetailPage({
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             {/* Gallery */}
             <div className="lg:col-span-7">
-              <div className="ph rounded-3xl aspect-[16/10] flex items-center justify-center border border-line">
-                <span className="ph-tag">exterior</span>
+              <div className="rounded-3xl aspect-[16/10] overflow-hidden border border-line">
+                <ModelImage src={coverPhoto} alt={`${model.marca} ${model.modelo} ${version.nombre}`} phLabel="exterior" />
               </div>
               <div className="grid grid-cols-5 gap-3 mt-3">
-                {['exterior', 'interior', 'tablero', 'cajuela', 'ruedas'].map((view) => (
-                  <div key={view} className="ph rounded-xl aspect-[4/3] flex items-center justify-center border-2 border-line">
-                    <span className="ph-tag" style={{ fontSize: 9 }}>{view}</span>
+                {versionPhotos.slice(1, 6).map((p, i) => (
+                  <div key={p.id} className="rounded-xl aspect-[4/3] overflow-hidden border-2 border-line">
+                    <ModelImage src={p.url} alt={`Vista ${i + 2}`} />
                   </div>
                 ))}
+                {versionPhotos.length <= 1 &&
+                  ['exterior', 'interior', 'tablero', 'cajuela', 'ruedas'].map((view) => (
+                    <div key={view} className="ph rounded-xl aspect-[4/3] flex items-center justify-center border-2 border-line">
+                      <span className="ph-tag" style={{ fontSize: 9 }}>{view}</span>
+                    </div>
+                  ))
+                }
               </div>
             </div>
 

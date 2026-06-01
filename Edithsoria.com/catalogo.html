@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catálogo · Edith Soria — Jeep, RAM, Fiat, Peugeot y Dodge</title>
-<meta name="description" content="Catálogo completo de autos disponibles. Filtra por marca, precio y disponibilidad. Contacto directo por WhatsApp con Edith Soria.">
+<meta name="description" content="Catálogo de autos Jeep, RAM, Fiat, Peugeot y Dodge. Filtra por marca y precio. Contacto directo por WhatsApp con Edith Soria.">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
 <!-- ===== Barra utilitaria ===== -->
 <div class="bg-azul-900 text-azul-100 text-[13px]">
   <div class="max-w-content mx-auto px-5 h-9 flex items-center justify-between">
-    <span class="hidden sm:flex items-center gap-2"><span class="live-dot"></span> Inventario actualizado en tiempo real · <span data-live-stamp class="text-white font-medium">Hoy</span></span>
+    <span class="hidden sm:flex items-center gap-2">Te atiendo en persona · sin bots, sin intermediarios</span>
     <span class="flex items-center gap-4">
       <span class="hidden md:inline">Atención personal de lunes a sábado, 9:00–19:00</span>
       <a href="tel:+525581631195" class="text-white font-semibold hover:text-wa">55 8163 1195</a>
@@ -83,11 +83,10 @@
       <div>
         <h1 class="font-display font-extrabold text-[34px] sm:text-[42px] leading-tight">Catálogo</h1>
         <p class="text-muted mt-2 text-[17px]">
-          <span data-result-count class="font-semibold text-ink">0</span> modelos disponibles ahora ·
-          <span class="inline-flex items-center gap-1.5"><span class="live-dot"></span> en tiempo real</span>
+          <span data-result-count class="font-semibold text-ink">0</span> modelos · Jeep, RAM, Fiat, Peugeot y Dodge
         </p>
       </div>
-      <p class="text-[14px] text-muted max-w-sm">Lo apartado se oculta automáticamente. Si aparece aquí, puedes comprarlo o apartarlo hoy.</p>
+      <p class="text-[14px] text-muted max-w-sm">Cada modelo con sus versiones, precios y fotos. ¿Te late alguno? Escríbeme y lo vemos.</p>
     </div>
   </section>
 
@@ -116,10 +115,6 @@
           <option value="800000">Hasta $800,000</option>
           <option value="1200000">Hasta $1,200,000</option>
         </select>
-        <label class="inline-flex items-center gap-2.5 h-11 px-4 rounded-full border border-line bg-card text-[15px] font-medium cursor-pointer select-none">
-          <input data-filter-avail type="checkbox" class="w-4 h-4 accent-amber-500">
-          Solo demos disponibles
-        </label>
       </div>
     </div>
   </section>
@@ -163,7 +158,7 @@
       <span class="grid place-items-center w-10 h-10 rounded-full bg-white text-azul-900 font-display font-extrabold">ES</span>
       <span class="font-display font-extrabold text-white text-[18px]">Edith Soria</span>
     </div>
-    <p class="text-[13px]">© 2026 · Precios y disponibilidad sujetos a cambio · Imágenes ilustrativas</p>
+    <p class="text-[13px]">© 2026 · Precios sujetos a cambio · Imágenes ilustrativas</p>
     <a href="tel:+525581631195" class="text-white font-semibold">55 8163 1195</a>
   </div>
 </footer>
@@ -180,8 +175,8 @@
 
 <!-- ===== Datos del catálogo + render (patrón .map() para Next.js) ===== -->
 <script>
-  // En producción esto viene de la base en tiempo real. Estatus permitidos en sitio: "disponible" | "demo".
-  // Las unidades "apartado" / "demo apartado" no llegan a esta lista (se filtran en el backend).
+  // Datos de ejemplo del catálogo (placeholders con buen contexto).
+  // Claude Code los conecta a la fuente real. Solo se listan autos que el cliente puede estrenar: "disponible" | "demo".
   window.MODELOS = [
     { brand:"Jeep",    name:"Compass",        year:2026, seg:"SUV",            desc:"4 cil. turbo · desde 1.3T",     price:689900,  versions:5, status:"disponible" },
     { brand:"Jeep",    name:"Renegade",       year:2026, seg:"SUV",            desc:"1.3 turbo · 4x2 / 4x4",         price:599900,  versions:4, status:"disponible" },
@@ -208,17 +203,13 @@
     var ARROW = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 
     function money(n){ return "$" + n.toLocaleString("es-MX"); }
-    function badge(status){
-      if (status === "demo") return '<span class="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-amber-100"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Demo disponible</span>';
-      return '<span class="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-emerald-100"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Disponible</span>';
-    }
 
     grid.innerHTML = window.MODELOS.map(function (m) {
-      var msg = "Hola Edith, me interesa el " + m.brand + " " + m.name + " " + m.year + ". ¿Qué versiones tienes disponibles?";
+      var msg = "Hola Edith, me interesa el " + m.brand + " " + m.name + " " + m.year + ". ¿Qué versiones manejas?";
       return '' +
       '<article data-card data-brand="'+m.brand.toLowerCase()+'" data-price="'+m.price+'" data-status="'+m.status+'" data-name="'+(m.brand+" "+m.name).toLowerCase()+'" class="group bg-card rounded-2xl border border-line overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition">' +
         '<a href="modelo.html" class="block ph aspect-[16/10] flex items-center justify-center relative">' +
-          '<span class="ph-tag">foto · '+m.brand+' '+m.name+'</span>' + badge(m.status) +
+          '<span class="ph-tag">foto · '+m.brand+' '+m.name+'</span>' +
         '</a>' +
         '<div class="p-5">' +
           '<div class="flex items-center justify-between">' +

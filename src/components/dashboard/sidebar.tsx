@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Settings, Car, LogOut, Megaphone, BookOpen, GitCompareArrows } from 'lucide-react'
+import { Settings, Car, LogOut, Megaphone, BookOpen, GitCompareArrows, Images } from 'lucide-react'
 import { signOut } from 'next-auth/react'
 import { cn } from '@/lib/utils'
 
@@ -10,6 +10,7 @@ const NAV = [
   { href: '/dashboard/inventario', label: 'Inventario', icon: Car },
   { href: '/dashboard/anunciador', label: 'Anunciador', icon: Megaphone },
   { href: '/dashboard/comparador', label: 'Comparador', icon: GitCompareArrows },
+  { href: '/dashboard/catalogo', label: 'Catálogo', icon: Images },
   { href: '/dashboard/plantillas', label: 'Plantillas', icon: BookOpen },
   { href: '/dashboard/profile', label: 'Perfil', icon: Settings },
 ]
