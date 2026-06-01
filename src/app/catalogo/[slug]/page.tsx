@@ -113,10 +113,10 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
 
               <div className="mt-5 flex items-end gap-3 flex-wrap">
                 <div>
-                  {precioEspecial ? (
+                  {descuento !== null ? (
                     <>
                       {precioDesde && <div className="text-[15px] text-muted-warm line-through">{formatMXN(precioDesde)}</div>}
-                      <div className="font-display font-extrabold text-azul-700 text-[34px] leading-none">{formatMXN(precioEspecial)}</div>
+                      <div className="font-display font-extrabold text-azul-700 text-[34px] leading-none">{formatMXN(precioEspecial!)}</div>
                     </>
                   ) : (
                     <>
@@ -225,10 +225,10 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
                     {(precioDesde || precioEspecial) && (
                       <div className="mt-3 flex items-end gap-2 flex-wrap">
                         <div>
-                          {precioEspecial ? (
+                          {descuento !== null ? (
                             <>
                               {precioDesde && <div className="text-[13px] text-muted-warm line-through">{formatMXN(precioDesde)}</div>}
-                              <div className="font-display font-extrabold text-azul-700 text-[24px] leading-none">{formatMXN(precioEspecial)}</div>
+                              <div className="font-display font-extrabold text-azul-700 text-[24px] leading-none">{formatMXN(precioEspecial!)}</div>
                             </>
                           ) : (
                             <>

@@ -163,10 +163,10 @@ export default function CatalogoClient({
                     <h3 className="font-display font-bold text-[20px] mt-1.5 text-ink">{ficha.modelo}</h3>
                     <div className="flex items-end justify-between mt-4">
                       <div>
-                        {precioEspecial ? (
+                        {descuento !== null ? (
                           <>
                             {precioDesde && <div className="text-[14px] text-muted-warm line-through">{formatMXN(precioDesde)}</div>}
-                            <div className="font-display font-extrabold text-azul-700 text-[22px] leading-none">{formatMXN(precioEspecial)}</div>
+                            <div className="font-display font-extrabold text-azul-700 text-[22px] leading-none">{formatMXN(precioEspecial!)}</div>
                           </>
                         ) : (
                           <>
