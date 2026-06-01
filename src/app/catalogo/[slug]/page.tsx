@@ -28,6 +28,7 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
   const units = entry?.units ?? 0
   const precioDesde = entry?.precioDesde ?? null
   const precioEspecial = entry?.precioEspecial ?? null
+  const preciosPorVersion = entry?.preciosPorVersion ?? {}
   const pct = precioDesde && precioEspecial ? Math.round((1 - precioEspecial / precioDesde) * 100) : null
   const descuento = pct !== null && pct > 0 ? pct : null
 
@@ -222,28 +223,18 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
                       ) : null}
                     </div>
 
-                    {(precioDesde || precioEspecial) && (
-                      <div className="mt-3 flex items-end gap-2 flex-wrap">
-                        <div>
-                          {descuento !== null ? (
-                            <>
-                              {precioDesde && <div className="text-[13px] text-muted-warm line-through">{formatMXN(precioDesde)}</div>}
-                              <div className="font-display font-extrabold text-azul-700 text-[24px] leading-none">{formatMXN(precioEspecial!)}</div>
-                            </>
-                          ) : (
-                            <>
-                              <span className="text-[12px] text-muted-warm">desde </span>
-                              <div className="font-display font-extrabold text-azul-800 text-[24px] leading-none">{formatMXN(precioDesde!)}</div>
-                            </>
-                          )}
+                    {(() => {
+                      const vPrecio = preciosPorVersion[version.id] ?? precioDesde
+                      if (!vPrecio) return null
+                      return (
+                        <div className="mt-3 flex items-end gap-2 flex-wrap">
+                          <div>
+                            <span className="text-[12px] text-muted-warm">desde </span>
+                            <div className="font-display font-extrabold text-azul-800 text-[24px] leading-none">{formatMXN(vPrecio)}</div>
+                          </div>
                         </div>
-                        {descuento !== null && (
-                          <span className="mb-0.5 inline-flex items-center bg-red-500 text-white text-[13px] font-extrabold px-2.5 py-1 rounded-full">
-                            {descuento}% dto
-                          </span>
-                        )}
-                      </div>
-                    )}
+                      )
+                    })()}
 
                     {specs.length > 0 && (
                       <ul className="mt-4 space-y-2 text-[14px] text-ink/80 flex-1">

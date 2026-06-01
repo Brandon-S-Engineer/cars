@@ -17,6 +17,7 @@ export type ModeloCatalogo = {
   units: number
   precioDesde: number | null
   precioEspecial: number | null
+  preciosPorVersion: Record<string, number | null>
 }
 
 // ── Brand visuals ─────────────────────────────────────────────────────────────
@@ -48,6 +49,30 @@ export function formatMXN(num: number): string {
 const SEARCH_OVERRIDES: Record<string, string[]> = {
   'jt':           ['gladiator', 'jt'],
   'pulse abarth': ['pulse'],
+}
+
+// Per-version keyword matching — include: all must match, exclude: none may match
+type VersionMatch = { include: string[]; exclude?: string[] }
+
+const VERSION_OVERRIDES: Record<string, VersionMatch> = {
+  'rubicon 4 puertas': { include: ['rubicon', 'unlimited'] },
+  'rubicon 2 puertas': { include: ['rubicon'], exclude: ['unlimited'] },
+  'limited l 4x4':     { include: ['limited l'] },
+  'limited "s"':       { include: ['limited'] },
+}
+
+const VERSION_IGNORE = new Set(['4x2','4x4','fwd','awd','4p','2p'])
+
+function getVersionMatch(nombre: string): VersionMatch {
+  const key = nombre.toLowerCase()
+  if (VERSION_OVERRIDES[key]) return VERSION_OVERRIDES[key]
+  const words = key.split(/\s+/).filter(w => w.length > 1 && !VERSION_IGNORE.has(w) && !/^\d/.test(w))
+  return { include: words }
+}
+
+function matchesVersion(desc: string, match: VersionMatch): boolean {
+  const d = desc.toLowerCase()
+  return match.include.every(w => d.includes(w)) && !(match.exclude?.some(w => d.includes(w)) ?? false)
 }
 
 function getKeywords(model: ModeloFicha): string[] {
@@ -102,8 +127,11 @@ export function parseInventarioForCatalog(
     const keywords = getKeywords(model)
     let minPrice = Infinity
     let unitCount = 0
-
     let minEspecial = Infinity
+
+    // Per-version min prices
+    const versionMatches = model.versiones.map(v => ({ id: v.id, match: getVersionMatch(v.nombre) }))
+    const versionMins: Record<string, number> = {}
 
     for (const tab of tabs) {
       if (tab.name === 'TRANSITO IMA/ AMSA') continue
@@ -117,15 +145,29 @@ export function parseInventarioForCatalog(
         if (!keywords.some((kw) => desc.includes(kw))) continue
 
         unitCount++
-        if (priceIdx >= 0) {
-          const price = Number((row[priceIdx] ?? '').replace(/[^0-9.]/g, ''))
-          if (price > 100_000 && price < 10_000_000 && price < minPrice) minPrice = price
-        }
+        const price = priceIdx >= 0 ? Number((row[priceIdx] ?? '').replace(/[^0-9.]/g, '')) : 0
+        const validPrice = price > 100_000 && price < 10_000_000
+
+        if (validPrice && price < minPrice) minPrice = price
+
         if (comentIdx >= 0) {
           const especial = extractPrecioFromComentario(row[comentIdx] ?? '')
           if (especial && especial < minEspecial) minEspecial = especial
         }
+
+        if (validPrice) {
+          for (const { id, match } of versionMatches) {
+            if (matchesVersion(desc, match)) {
+              if (!versionMins[id] || price < versionMins[id]) versionMins[id] = price
+            }
+          }
+        }
       }
+    }
+
+    const preciosPorVersion: Record<string, number | null> = {}
+    for (const v of model.versiones) {
+      preciosPorVersion[v.id] = versionMins[v.id] ?? null
     }
 
     return {
@@ -133,6 +175,7 @@ export function parseInventarioForCatalog(
       units: unitCount,
       precioDesde: minPrice === Infinity ? null : minPrice,
       precioEspecial: minEspecial === Infinity ? null : minEspecial,
+      preciosPorVersion,
     }
   })
 }
