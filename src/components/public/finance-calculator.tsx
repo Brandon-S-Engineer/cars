@@ -22,7 +22,7 @@ export default function FinanceCalculator({
   price: number
   modelName: string
 }) {
-  const [downPct, setDownPct] = useState(20)
+  const [downPct, setDownPct] = useState(25)
   const [term, setTerm] = useState(60)
 
   const down = price * (downPct / 100)
@@ -57,13 +57,13 @@ export default function FinanceCalculator({
         </div>
         <input
           type="range"
-          min="10" max="60" step="5"
+          min="20" max="40" step="5"
           value={downPct}
           onChange={(e) => setDownPct(Number(e.target.value))}
           className="w-full accent-wa h-2"
         />
         <div className="flex justify-between text-[12px] text-azul-200 mt-1">
-          <span>10%</span><span>60%</span>
+          <span>20%</span><span>40%</span>
         </div>
       </div>
 

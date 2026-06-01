@@ -12,9 +12,13 @@ export const dynamic = 'force-dynamic'
 
 const WA_GENERAL = 'Hola Edith, vi tu sitio y quiero que me asesores para escoger mi próximo auto.'
 
+const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
+
 export default async function LandingPage() {
   const [modelos, covers] = await Promise.all([getCatalogData(), getCoverPhotos()])
   const promociones = modelos.filter((m) => m.units > 0 && m.precioEspecial !== null)
+  const now = new Date()
+  const mesAnio = `${MESES[now.getMonth()]} ${now.getFullYear()}`
 
   return (
     <div className="font-hanken bg-paper text-ink">
@@ -32,13 +36,13 @@ export default async function LandingPage() {
               </span>
 
               <h1 className="mt-5 font-display font-extrabold text-[40px] sm:text-[52px] leading-[0.98] tracking-tight">
-                Tu próximo auto,<br />
-                con alguien que <span className="text-azul-700">sí te contesta</span>.
+                Tu próximo auto —<br />
+                <span className="text-azul-700">acompañado en cada paso</span>.
               </h1>
 
               <p className="mt-5 text-[18px] text-muted-warm max-w-[34rem]">
                 Soy Edith Soria. Te muestro modelos, versiones y precios de cinco marcas,
-                y te acompaño paso a paso por WhatsApp — sin bots, sin vueltas.
+                y te acompaño de principio a fin. Como debe ser.
               </p>
 
               <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -129,8 +133,10 @@ export default async function LandingPage() {
           <section className="max-w-[1200px] mx-auto px-5 py-16">
             <div className="flex items-end justify-between gap-4 mb-8">
               <div>
-                <h2 className="font-display font-extrabold text-[30px] sm:text-[36px] leading-tight">Promociones del mes</h2>
-                <p className="text-muted-warm mt-2 text-[17px]">Precios especiales disponibles ahora.</p>
+                <div>
+                  <div className="text-[13px] uppercase tracking-[0.16em] text-muted-warm font-semibold mb-1">{mesAnio}</div>
+                  <h2 className="font-display font-extrabold text-[30px] sm:text-[36px] leading-tight">Promociones del mes</h2>
+                </div>
               </div>
               <Link href="/catalogo" className="hidden sm:inline-flex items-center gap-2 font-semibold text-azul-700 hover:text-azul-900 shrink-0 transition-colors">
                 Ver todo el catálogo
@@ -140,6 +146,8 @@ export default async function LandingPage() {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {promociones.map(({ ficha, precioDesde, precioEspecial }) => {
+                const pct = precioDesde && precioEspecial ? Math.round((1 - precioEspecial / precioDesde) * 100) : null
+                const descuento = pct !== null && pct > 0 ? pct : null
                 const waMsg = `Hola Edith, vi la promoción del ${ficha.marca} ${ficha.modelo} ${ficha.año}. ¿Me das más información?`
                 return (
                   <article key={ficha.id} className="group bg-white rounded-2xl border border-line overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
@@ -149,8 +157,8 @@ export default async function LandingPage() {
                         alt={`${ficha.marca} ${ficha.modelo}`}
                         phLabel={`foto · ${ficha.marca} ${ficha.modelo}`}
                       />
-                      <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-amber-100">
-                        Precio especial
+                      <span className="absolute top-3 left-3 inline-flex items-center bg-red-500 text-white text-[14px] font-extrabold px-3 py-1 rounded-full shadow-sm">
+                        {descuento !== null ? `${descuento}% de descuento` : 'Precio especial'}
                       </span>
                     </Link>
                     <div className="p-5">
@@ -161,11 +169,11 @@ export default async function LandingPage() {
                       <h3 className="font-display font-bold text-[20px] mt-1.5 text-ink">{ficha.modelo}</h3>
                       <div className="flex items-end justify-between mt-4">
                         <div>
-                          {precioDesde && (
-                            <div className="text-[12px] text-muted-warm line-through">{formatMXN(precioDesde)}</div>
+                          {precioDesde && precioEspecial && (
+                            <div className="text-[14px] text-muted-warm line-through">{formatMXN(precioDesde)}</div>
                           )}
-                          <div className="font-display font-extrabold text-amber-600 text-[22px] leading-none">
-                            {precioEspecial ? formatMXN(precioEspecial) : formatMXN(precioDesde ?? 0)}
+                          <div className="font-display font-extrabold text-azul-700 text-[22px] leading-none">
+                            {formatMXN(precioEspecial ?? precioDesde ?? 0)}
                           </div>
                         </div>
                         <Link href={`/catalogo/${ficha.id}`} className="inline-flex items-center gap-1.5 font-semibold text-azul-700 hover:text-azul-900 text-[15px] transition-colors">
@@ -198,20 +206,19 @@ export default async function LandingPage() {
         <section id="porque" className="bg-azul-900 text-white">
           <div className="max-w-[1200px] mx-auto px-5 py-16">
             <div className="max-w-2xl">
-              <span className="text-[13px] uppercase tracking-[0.18em] text-azul-200 font-semibold">Por qué comprarme a mí</span>
+              <span className="text-[13px] uppercase tracking-[0.18em] text-azul-200 font-semibold">Por qué conmigo</span>
               <h2 className="font-display font-extrabold text-[30px] sm:text-[36px] leading-tight mt-3">
-                Una persona real, no una agencia que te marea
+                Tu asesora personal en cinco marcas, de principio a fin
               </h2>
               <p className="text-azul-100/85 mt-3 text-[17px]">
-                Mismo auto, mismo precio de lista — pero con alguien que te responde, te explica sin
-                tecnicismos y te acompaña hasta que tienes las llaves en la mano.
+                Te ayudo a encontrar el auto que de verdad te conviene y te acompaño hasta que tienes las llaves.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
               {[
-                { icon: <WaIcon size={22} />, title: 'Te respondo yo', desc: 'Sin chatbots ni call center. Escribes y te contesta Edith, normalmente en minutos.', bg: 'bg-wa' },
-                { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 13h2l2-7 4 14 3-9 2 4h5" /></svg>, title: 'Inventario real', desc: 'Lo que ves está disponible. La base se actualiza sola; no te ofrezco lo que ya se vendió.', bg: 'bg-white/10' },
+                { icon: <WaIcon size={22} />, title: 'Respuesta en minutos', desc: 'Manda un mensaje y empezamos hoy.', bg: 'bg-wa' },
+                { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 13h2l2-7 4 14 3-9 2 4h5" /></svg>, title: 'El que es para ti', desc: 'No todos necesitan lo mismo. Te escucho, comparamos opciones y encontramos juntos el modelo y versión que de verdad encaja con tu vida.', bg: 'bg-white/10' },
                 { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 1v22M5 5h9a3 3 0 010 6H7a3 3 0 000 6h10" /></svg>, title: 'Financiamiento', desc: 'Planes a tu medida, enganche y plazo que te acomoden. Te ayudo a armar tu mensualidad.', bg: 'bg-white/10' },
                 { icon: <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>, title: 'Te acompaño', desc: 'De la primera duda a la entrega y trámites. Una sola persona de principio a fin.', bg: 'bg-white/10' },
               ].map((item) => (
@@ -241,7 +248,7 @@ export default async function LandingPage() {
                 de enganche y a cuántos meses; yo te armo la mensualidad.
               </p>
               <ul className="mt-5 space-y-2.5 text-[16px] text-ink">
-                {['Enganche desde el 10%', 'Plazos de 12 a 60 meses', 'Aceptamos tu auto a cuenta', 'Te ayudo con la pre-aprobación'].map((item) => (
+                {['Enganche desde el 20%', 'Plazos de 12 a 60 meses', 'Aceptamos tu auto a cuenta', 'Te ayudo con la pre-aprobación'].map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <span className="w-5 h-5 rounded-full bg-azul-700 text-white grid place-items-center text-[12px] shrink-0">✓</span>
                     {item}
@@ -293,13 +300,11 @@ export default async function LandingPage() {
               <span className="text-[13px] uppercase tracking-[0.18em] text-muted-warm font-semibold">Sobre mí</span>
               <h2 className="font-display font-extrabold text-[30px] sm:text-[38px] leading-tight mt-3">Hola, soy Edith Soria 👋</h2>
               <p className="text-[18px] text-ink/85 mt-4 max-w-2xl">
-                Llevo años ayudando a familias y empresas a encontrar el auto correcto, sin presión y sin letras chiquitas.
-                Mi forma de trabajar es simple: te escucho, te muestro opciones reales y te acompaño hasta la entrega.
-                Si algo no te conviene, te lo digo.
+                Llevo años ayudando a familias y empresas a encontrar su auto ideal. Te escucho, te muestro las opciones disponibles y te acompaño hasta que tienes las llaves. Simple y directo.
               </p>
               <p className="text-[18px] text-ink/85 mt-4 max-w-2xl">
                 Atiendo a particulares y a empresas con flotillas. Manejo Jeep, RAM, Fiat, Peugeot y Dodge, así que
-                puedo compararte modelos entre marcas y recomendarte el que de verdad te conviene.
+                comparamos modelos entre marcas y te llevas el que de verdad es para ti.
               </p>
               <div className="mt-6 signature text-azul-800 text-[42px] leading-none">Edith Soria</div>
               <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -326,7 +331,7 @@ export default async function LandingPage() {
               ¿Listo para estrenar? Escríbeme y empezamos hoy mismo.
             </h2>
             <p className="text-white/85 text-[18px] mt-4 max-w-xl mx-auto">
-              Cuéntame qué buscas y tu presupuesto. Te mando opciones reales con precio y disponibilidad en minutos.
+              Cuéntame qué buscas y tu presupuesto. En minutos te mando opciones con precio y disponibilidad.
             </p>
             <a
               href={waUrl('Hola Edith, estoy listo para estrenar auto. ¿Me ayudas a encontrar el mío?')}

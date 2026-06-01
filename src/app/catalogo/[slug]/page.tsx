@@ -27,6 +27,9 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
   const coverPhoto = allPhotos.find((p) => p.versionId === null)?.url ?? null
   const units = entry?.units ?? 0
   const precioDesde = entry?.precioDesde ?? null
+  const precioEspecial = entry?.precioEspecial ?? null
+  const pct = precioDesde && precioEspecial ? Math.round((1 - precioEspecial / precioDesde) * 100) : null
+  const descuento = pct !== null && pct > 0 ? pct : null
 
   const waMsgGeneral = `Hola Edith, me interesa el ${model.marca} ${model.modelo} ${model.año}. ¿Qué versiones tienes disponibles y a qué precio?`
 
@@ -82,14 +85,24 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
                 <span className="text-[13px] uppercase tracking-[0.16em] text-muted-warm font-semibold">
                   {model.marca} · {model.año}
                 </span>
-                {units > 0 ? (
+                {units === 0 ? (
+                  <span className="inline-flex items-center gap-1.5 bg-gray-100 text-gray-500 text-[12px] font-semibold px-2.5 py-1 rounded-full">
+                    Sin unidades
+                  </span>
+                ) : units === 1 ? (
+                  <span className="inline-flex items-center gap-1.5 bg-amber-400 text-amber-900 text-[12px] font-semibold px-2.5 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-700" />
+                    ¡Última unidad!
+                  </span>
+                ) : units === 2 ? (
+                  <span className="inline-flex items-center gap-1.5 bg-amber-400 text-amber-900 text-[12px] font-semibold px-2.5 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-700" />
+                    ¡Solo 2 disponibles!
+                  </span>
+                ) : (
                   <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-emerald-100">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                     Disponible
-                  </span>
-                ) : (
-                  <span className="inline-flex items-center gap-1.5 bg-gray-100 text-gray-500 text-[12px] font-semibold px-2.5 py-1 rounded-full">
-                    Sin unidades
                   </span>
                 )}
               </div>
@@ -98,13 +111,27 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
                 {model.modelo}
               </h1>
 
-              <div className="mt-5 flex items-end gap-3">
+              <div className="mt-5 flex items-end gap-3 flex-wrap">
                 <div>
-                  <div className="text-[13px] text-muted-warm">Precio desde</div>
-                  <div className="font-display font-extrabold text-azul-800 text-[34px] leading-none">
-                    {precioDesde ? formatMXN(precioDesde) : 'Consultar'}
-                  </div>
+                  {precioEspecial ? (
+                    <>
+                      {precioDesde && <div className="text-[15px] text-muted-warm line-through">{formatMXN(precioDesde)}</div>}
+                      <div className="font-display font-extrabold text-azul-700 text-[34px] leading-none">{formatMXN(precioEspecial)}</div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-[13px] text-muted-warm">Precio desde</div>
+                      <div className="font-display font-extrabold text-azul-800 text-[34px] leading-none">
+                        {precioDesde ? formatMXN(precioDesde) : 'Consultar'}
+                      </div>
+                    </>
+                  )}
                 </div>
+                {descuento !== null && (
+                  <span className="mb-1 inline-flex items-center bg-red-500 text-white text-[13px] font-bold px-2.5 py-1 rounded-full">
+                    {descuento}% de descuento
+                  </span>
+                )}
                 <span className="text-[13px] text-muted-warm pb-1">
                   · {model.versiones.length} {model.versiones.length === 1 ? 'versión' : 'versiones'}
                 </span>
@@ -144,7 +171,7 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
         </section>
 
         {/* ── Versiones ─────────────────────────────────────────────────────── */}
-        <section className="bg-sand/60 border-y border-line">
+        <section id="versiones" className="bg-sand/60 border-y border-line">
           <div className="max-w-[1200px] mx-auto px-5 py-14">
             <div className="flex items-end justify-between gap-4 mb-7">
               <div>
@@ -179,20 +206,42 @@ export default async function ModeloDetailPage({ params }: { params: Promise<{ s
                       <h3 className="font-display font-bold text-[22px] leading-none text-ink">
                         {version.nombre}
                       </h3>
-                      {units > 0 && (
+                      {units === 1 ? (
+                        <span className="inline-flex items-center gap-1.5 bg-amber-400 text-amber-900 text-[12px] font-semibold px-2.5 py-1 rounded-full shrink-0">
+                          ¡Última unidad!
+                        </span>
+                      ) : units === 2 ? (
+                        <span className="inline-flex items-center gap-1.5 bg-amber-400 text-amber-900 text-[12px] font-semibold px-2.5 py-1 rounded-full shrink-0">
+                          ¡Solo 2!
+                        </span>
+                      ) : units > 0 ? (
                         <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-emerald-100 shrink-0">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                           Disponible
                         </span>
-                      )}
+                      ) : null}
                     </div>
 
-                    {precioDesde && idx === 0 && (
-                      <div className="mt-3">
-                        <span className="text-[12px] text-muted-warm">desde</span>
-                        <div className="font-display font-extrabold text-azul-800 text-[26px] leading-none">
-                          {formatMXN(precioDesde)}
+                    {(precioDesde || precioEspecial) && (
+                      <div className="mt-3 flex items-end gap-2 flex-wrap">
+                        <div>
+                          {precioEspecial ? (
+                            <>
+                              {precioDesde && <div className="text-[13px] text-muted-warm line-through">{formatMXN(precioDesde)}</div>}
+                              <div className="font-display font-extrabold text-azul-700 text-[24px] leading-none">{formatMXN(precioEspecial)}</div>
+                            </>
+                          ) : (
+                            <>
+                              <span className="text-[12px] text-muted-warm">desde </span>
+                              <div className="font-display font-extrabold text-azul-800 text-[24px] leading-none">{formatMXN(precioDesde!)}</div>
+                            </>
+                          )}
                         </div>
+                        {descuento !== null && (
+                          <span className="mb-0.5 inline-flex items-center bg-red-500 text-white text-[13px] font-extrabold px-2.5 py-1 rounded-full">
+                            {descuento}% dto
+                          </span>
+                        )}
                       </div>
                     )}
 

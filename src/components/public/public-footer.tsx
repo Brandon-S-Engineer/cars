@@ -12,7 +12,7 @@ export default function PublicFooter() {
             <span className="font-display font-extrabold text-white text-[18px]">Edith Soria</span>
           </div>
           <p className="mt-4 text-[14px] max-w-xs">
-            Asesoría directa en autos Jeep, RAM, Fiat, Peugeot y Dodge. Atención personal por WhatsApp.
+            Asesoría directa en autos Jeep, RAM, Fiat, Peugeot y Dodge. Escríbeme por WhatsApp.
           </p>
         </div>
 

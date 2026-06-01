@@ -91,14 +91,24 @@ export default async function VersionDetailPage({
                 <span className="text-[13px] uppercase tracking-[0.16em] text-muted-warm font-semibold">
                   {model.marca} {model.modelo} · {model.año}
                 </span>
-                {units > 0 ? (
+                {units === 0 ? (
+                  <span className="inline-flex items-center gap-1.5 bg-gray-100 text-gray-500 text-[12px] font-semibold px-2.5 py-1 rounded-full">
+                    Consultar disponibilidad
+                  </span>
+                ) : units === 1 ? (
+                  <span className="inline-flex items-center gap-1.5 bg-amber-400 text-amber-900 text-[12px] font-semibold px-2.5 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-700" />
+                    ¡Última unidad!
+                  </span>
+                ) : units === 2 ? (
+                  <span className="inline-flex items-center gap-1.5 bg-amber-400 text-amber-900 text-[12px] font-semibold px-2.5 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-700" />
+                    ¡Solo 2 disponibles!
+                  </span>
+                ) : (
                   <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-emerald-100">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                     Disponible
-                  </span>
-                ) : (
-                  <span className="inline-flex items-center gap-1.5 bg-gray-100 text-gray-500 text-[12px] font-semibold px-2.5 py-1 rounded-full">
-                    Consultar disponibilidad
                   </span>
                 )}
               </div>

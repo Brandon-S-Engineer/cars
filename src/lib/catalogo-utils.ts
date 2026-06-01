@@ -56,13 +56,21 @@ function getKeywords(model: ModeloFicha): string[] {
 }
 
 function detectPriceColIdx(headers: string[], rows: string[][]): number {
+  // Pass 1: named "precio" columns (mirrors buildStandardColumns in inventario-client)
   for (let i = 0; i < headers.length; i++) {
-    if (headers[i].toLowerCase().includes('precio de lista')) return i
+    const h = headers[i].toLowerCase()
+    if (h.includes('precio') && !h.includes('alterna') && !h.includes('msi')) return i
   }
+  // Pass 2: empty-header columns (gviz strips headers for numeric/currency cols)
   for (let i = 0; i < headers.length; i++) {
-    const sample = rows.slice(0, 8).map((r) => r[i]?.trim()).filter(Boolean)
-    const hits = sample.filter((v) => Number(v.replace(/[^0-9.]/g, '')) > 100_000)
-    if (hits.length >= 2) return i
+    if (headers[i].trim()) continue
+    const sample = rows.slice(0, 10).map((r) => r[i]?.trim()).filter(Boolean)
+    if (!sample.length) continue
+    if (sample.every((v) => /^\d{4}$/.test(v))) continue               // year col
+    if (sample.some((v) => /^\d{1,2}\/\d{1,2}\/\d{4}$/.test(v))) continue // date col
+    if (sample.every((v) => /^\d{4,6}$/.test(v))) continue              // eco/code col
+    const nums = sample.map((v) => Number(v.replace(/[^0-9.]/g, ''))).filter((n) => n > 100_000 && n < 10_000_000)
+    if (nums.length > 0) return i
   }
   return -1
 }

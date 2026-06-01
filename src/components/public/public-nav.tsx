@@ -21,7 +21,7 @@ export default function PublicNav() {
           </span>
           <span className="leading-none">
             <span className="block font-display font-extrabold text-[19px] tracking-tight text-ink">Edith Soria</span>
-            <span className="block text-[11px] uppercase tracking-[0.22em] text-muted-warm mt-0.5">Autos · Asesoría directa</span>
+            <span className="block text-[11px] uppercase tracking-[0.22em] text-muted-warm mt-0.5">Asesora de autos</span>
           </span>
         </Link>
 

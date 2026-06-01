@@ -128,21 +128,33 @@ export default function CatalogoClient({
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filtered.map(({ ficha, units, precioDesde }) => {
+            {filtered.map(({ ficha, units, precioDesde, precioEspecial }) => {
+              const pct = precioDesde && precioEspecial ? Math.round((1 - precioEspecial / precioDesde) * 100) : null
+              const descuento = pct !== null && pct > 0 ? pct : null
               const waMsg = `Hola Edith, me interesa el ${ficha.marca} ${ficha.modelo} ${ficha.año}. ¿Qué versiones tienes disponibles?`
               return (
-                <article key={ficha.id} className="group bg-white rounded-2xl border border-line overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
-                  <Link href={`/catalogo/${ficha.id}`} className="block aspect-[16/10] relative overflow-hidden">
+                <article key={ficha.id} className="relative group bg-white rounded-2xl border border-line overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
+                  <Link href={`/catalogo/${ficha.id}`} className="absolute inset-0 z-[1]" aria-label={`Ver ${ficha.marca} ${ficha.modelo}`} />
+                  <div className="block aspect-[16/10] relative overflow-hidden">
                     <ModelImage
                       src={covers[ficha.id] ?? null}
                       alt={`${ficha.marca} ${ficha.modelo}`}
                       phLabel={`foto · ${ficha.marca} ${ficha.modelo}`}
                     />
-                    <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[12px] font-semibold px-2.5 py-1 rounded-full border border-emerald-100">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      {units === 1 ? '1 disponible' : `${units} disponibles`}
-                    </span>
-                  </Link>
+                    <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+                      {units <= 2 && (
+                        <span className="inline-flex items-center gap-1.5 bg-amber-400 text-amber-900 text-[12px] font-semibold px-2.5 py-1 rounded-full">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-700" />
+                          {units === 1 ? '¡Última unidad!' : '2 disponibles'}
+                        </span>
+                      )}
+                      {descuento !== null && descuento > 0 && (
+                        <span className="inline-flex items-center bg-red-500 text-white text-[14px] font-extrabold px-3 py-1 rounded-full shadow-sm">
+                          {descuento}% de descuento
+                        </span>
+                      )}
+                    </div>
+                  </div>
                   <div className="p-5">
                     <div className="flex items-center justify-between">
                       <span className="text-[12px] uppercase tracking-[0.14em] text-muted-warm font-semibold">{ficha.marca} · {ficha.año}</span>
@@ -151,12 +163,21 @@ export default function CatalogoClient({
                     <h3 className="font-display font-bold text-[20px] mt-1.5 text-ink">{ficha.modelo}</h3>
                     <div className="flex items-end justify-between mt-4">
                       <div>
-                        <div className="text-[12px] text-muted-warm">Precio desde</div>
-                        <div className="font-display font-extrabold text-azul-800 text-[22px] leading-none">
-                          {precioDesde ? formatMXN(precioDesde) : 'Consultar'}
-                        </div>
+                        {precioEspecial ? (
+                          <>
+                            {precioDesde && <div className="text-[14px] text-muted-warm line-through">{formatMXN(precioDesde)}</div>}
+                            <div className="font-display font-extrabold text-azul-700 text-[22px] leading-none">{formatMXN(precioEspecial)}</div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="text-[12px] text-muted-warm">Precio desde</div>
+                            <div className="font-display font-extrabold text-azul-800 text-[22px] leading-none">
+                              {precioDesde ? formatMXN(precioDesde) : 'Consultar'}
+                            </div>
+                          </>
+                        )}
                       </div>
-                      <Link href={`/catalogo/${ficha.id}`} className="inline-flex items-center gap-1.5 font-semibold text-azul-700 hover:text-azul-900 text-[15px] transition-colors">
+                      <Link href={`/catalogo/${ficha.id}#versiones`} className="relative z-2 inline-flex items-center gap-1.5 font-semibold text-azul-700 text-[15px] px-3 py-1.5 rounded-full transition-colors hover:bg-azul-700 hover:text-white">
                         Ver versiones
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                       </Link>
@@ -164,7 +185,7 @@ export default function CatalogoClient({
                     <a
                       href={waUrl(waMsg)}
                       target="_blank" rel="noopener noreferrer"
-                      className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-wa hover:bg-wa-dark text-white font-semibold h-11 rounded-full transition-colors"
+                      className="relative z-2 mt-4 w-full inline-flex items-center justify-center gap-2 bg-wa hover:bg-wa-dark text-white font-semibold h-11 rounded-full transition-colors"
                     >
                       <WaIcon size={18} />
                       Preguntar por este
