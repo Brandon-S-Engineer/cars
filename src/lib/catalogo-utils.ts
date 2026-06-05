@@ -50,6 +50,7 @@ export function formatMXN(num: number): string {
 const SEARCH_OVERRIDES: Record<string, string[]> = {
   'jt':           ['gladiator', 'jt'],
   'pulse abarth': ['pulse'],
+  'ram 1200':     ['1200'], // inventory describes these as "1200 BIGHORN…" (no "RAM" prefix)
 }
 
 // Per-version keyword matching — include: all must match, exclude: none may match
@@ -66,6 +67,9 @@ const VERSION_OVERRIDES: Record<string, VersionMatch> = {
 
 const VERSION_IGNORE = new Set(['4x2','4x4','fwd','awd','4p','2p'])
 
+// Discounts deeper than this are treated as spreadsheet data-entry errors and hidden.
+const MAX_DESCUENTO = 0.30
+
 function getVersionMatch(nombre: string): VersionMatch {
   const key = nombre.toLowerCase()
   if (VERSION_OVERRIDES[key]) return VERSION_OVERRIDES[key]
@@ -75,6 +79,8 @@ function getVersionMatch(nombre: string): VersionMatch {
 
 function matchesVersion(desc: string, match: VersionMatch): boolean {
   const d = desc.toLowerCase()
+    .replace(/\bcc\b/g, 'crew cab')      // inventory abbreviates Crew Cab as "CC"
+    .replace(/\breg cab\b/g, 'regular cab')
   return match.include.every(w => d.includes(w)) && !(match.exclude?.some(w => d.includes(w)) ?? false)
 }
 
@@ -156,8 +162,11 @@ export function parseInventarioForCatalog(
 
         if (comentIdx >= 0) {
           const especial = extractPrecioFromComentario(row[comentIdx] ?? '')
-          // Only a real discount if especial < same row's list price
-          if (especial && validPrice && especial < price && especial < minEspecial) {
+          // Only a real discount if especial < same row's list price, AND the
+          // discount is ≤30%. Anything deeper is almost always a data-entry error
+          // in the company's spreadsheet (e.g. an extra digit in the list price),
+          // so we suppress it rather than show a bogus "91% de descuento".
+          if (especial && validPrice && especial < price && especial >= price * (1 - MAX_DESCUENTO) && especial < minEspecial) {
             minEspecial = especial
             listaDelEspecial = price
           }
