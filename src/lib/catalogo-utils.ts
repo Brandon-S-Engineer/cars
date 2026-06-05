@@ -60,6 +60,8 @@ const VERSION_OVERRIDES: Record<string, VersionMatch> = {
   'rubicon 2 puertas': { include: ['rubicon'], exclude: ['unlimited'] },
   'limited l 4x4':     { include: ['limited l'] },
   'limited "s"':       { include: ['limited'] },
+  'bighorn crew cab':     { include: ['bighorn'], exclude: ['4x4'] },
+  'bighorn crew cab 4x4': { include: ['bighorn', '4x4'] },
 }
 
 const VERSION_IGNORE = new Set(['4x2','4x4','fwd','awd','4p','2p'])

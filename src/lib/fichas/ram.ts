@@ -933,6 +933,214 @@ const RAM_700_LARAMIE: Categoria[] = merge(RAM_700_BIGHORN_CVT, {
   },
 })
 
+// ─────────────────────────────────────────────────────────────────────────────
+// RAM 1200 2026  —  Tradesman (Chassis / Regular / Crew) / Bighorn / Laramie
+// ─────────────────────────────────────────────────────────────────────────────
+
+const RAM_1200_TRADESMAN_CHASSIS: Categoria[] = [
+  {
+    id: 'desempeno', nombre: 'Desempeño', specs: [
+      { label: 'Motor',                 valor: '2.0L Turbo I4' },
+      { label: 'Potencia',              valor: '217 HP @ 5,500 rpm' },
+      { label: 'Torque',                valor: '288 lb-pie @ 1,900–3,300 rpm' },
+      { label: 'Transmisión',           valor: 'Manual 6 velocidades' },
+      { label: 'Tracción',              valor: '4X2 (2WD)' },
+      { label: 'Selector de tracción',  valor: 'No incluido' },
+      { label: 'Bloqueo diferencial trasero', valor: 'No incluido' },
+      { label: 'Modos de manejo',       valor: 'No incluido' },
+      { label: 'Dirección',             valor: 'Eléctrica' },
+      { label: 'Diámetro de giro',      valor: '12.98 m' },
+      { label: 'Suspensión delantera',  valor: 'Independiente, doble brazo de control' },
+      { label: 'Suspensión trasera',    valor: 'Eje rígido con 5 ballestas longitudinales' },
+      { label: 'Frenos',                valor: 'Discos delanteros ventilados / tambor trasero' },
+      { label: 'Tanque de combustible', valor: '70 L (gasolina)' },
+      { label: 'Rendimiento combinado', valor: '8.10 km/l' },
+    ],
+  },
+  {
+    id: 'dimensiones', nombre: 'Dimensiones y Capacidades', specs: [
+      { label: 'Largo',                 valor: '5,330 mm' },
+      { label: 'Ancho',                 valor: '1,963 mm' },
+      { label: 'Alto',                  valor: '1,858 mm' },
+      { label: 'Distancia entre ejes',  valor: '3,180 mm' },
+      { label: 'Capacidad de carga',    valor: '1,315 kg' },
+      { label: 'Capacidad de arrastre', valor: '3,000 kg' },
+      { label: 'Volumen de carga',      valor: '—' },
+      { label: 'Longitud de carga máxima', valor: '—' },
+      { label: 'Capacidad de pasajeros', valor: '3' },
+      { label: 'Rines',                 valor: 'Acero 16"' },
+      { label: 'Neumáticos',           valor: '245/70 R16' },
+      { label: 'Llanta de refacción',   valor: 'Tamaño completo con rin de acero' },
+    ],
+  },
+  {
+    id: 'exterior', nombre: 'Exterior', specs: [
+      { label: 'Faros',                 valor: 'Halógeno' },
+      { label: 'Luces diurnas (DRL)',   valor: 'Sí' },
+      { label: 'Faros de niebla',       valor: 'No incluido' },
+      { label: 'Espejos laterales',     valor: 'Eléctricos con direccional, color negro' },
+      { label: 'Manijas exteriores',    valor: 'Color negro' },
+      { label: 'Parrilla',              valor: 'Color negro' },
+      { label: 'Fascias',               valor: 'Delantera y trasera en negro' },
+      { label: 'Estribos laterales',    valor: 'No incluido' },
+      { label: 'Placa protectora de motor', valor: 'Sí' },
+      { label: 'Loderas',               valor: 'Delanteras' },
+    ],
+  },
+  {
+    id: 'interior', nombre: 'Interior', specs: [
+      { label: 'Aire acondicionado',    valor: 'Manual' },
+      { label: 'Asientos',              valor: 'Tela, banca corrida sin consola central' },
+      { label: 'Asiento conductor',     valor: 'Ajuste manual' },
+      { label: 'Asientos traseros 60/40', valor: 'No incluido' },
+      { label: 'Clúster',               valor: '3.5" monocromático' },
+      { label: 'Pantalla / Audio',      valor: 'Radio AM/FM, conexión inalámbrica, MP3' },
+      { label: 'Altavoces',             valor: '2' },
+      { label: 'Puertos USB',           valor: '2 delanteros' },
+      { label: 'Cristales eléctricos',  valor: 'Bajada de un toque (conductor)' },
+      { label: 'Volante',               valor: 'Ajuste de altura, controles de audio' },
+      { label: 'Volante en piel',       valor: 'No incluido' },
+      { label: 'Computadora de viaje',  valor: 'Sí' },
+      { label: 'Guantera con iluminación LED', valor: 'Sí' },
+    ],
+  },
+  {
+    id: 'seguridad', nombre: 'Seguridad', specs: [
+      { label: 'Bolsas de aire frontales', valor: 'Conductor y pasajero' },
+      { label: 'Bolsas laterales delanteras', valor: 'No incluido' },
+      { label: 'Bolsas tipo cortina',   valor: 'No incluido' },
+      { label: 'Frenos ABS',            valor: 'Sí' },
+      { label: 'Control de estabilidad (ESP)', valor: 'Sí' },
+      { label: 'Control de tracción',   valor: 'Sí' },
+      { label: 'Control descenso pendientes (HDC)', valor: 'No incluido' },
+      { label: 'Asistencia arranque en pendiente (HSA)', valor: 'Sí' },
+      { label: 'Monitoreo presión neumáticos (TPM)', valor: 'Sí' },
+      { label: 'Cámara de estacionamiento', valor: 'No incluido' },
+      { label: 'Sensores de estacionamiento', valor: 'No incluido' },
+      { label: 'Visión 360°',           valor: 'No incluido' },
+      { label: 'Keyless Entry & Go',    valor: 'No incluido' },
+      { label: 'Anclaje ISOFIX',        valor: 'No incluido' },
+      { label: 'Inmovilizador de motor', valor: 'Sí' },
+      { label: 'Alarma antirrobo perimetral', valor: 'Sí' },
+    ],
+  },
+]
+
+const RAM_1200_TRADESMAN_REG_CAB: Categoria[] = merge(RAM_1200_TRADESMAN_CHASSIS, {
+  desempeno: {
+    'Rendimiento combinado': '9.9 km/l',
+  },
+  dimensiones: {
+    'Capacidad de carga':       '1,210 kg',
+    'Volumen de carga':         '1,914 L',
+    'Longitud de carga máxima': '2,400 mm',
+  },
+  exterior: {
+    'Loderas': 'Delanteras y traseras',
+  },
+})
+
+const RAM_1200_TRADESMAN_CREW_CAB: Categoria[] = merge(RAM_1200_TRADESMAN_CHASSIS, {
+  desempeno: {
+    'Frenos':                'Discos delanteros ventilados y disco trasero',
+    'Rendimiento combinado': '10.2 km/l',
+  },
+  dimensiones: {
+    'Capacidad de carga':       '1,115 kg',
+    'Volumen de carga':         '1,276 L',
+    'Longitud de carga máxima': '1,600 mm',
+    'Capacidad de pasajeros':   '5',
+    'Rines':                    'Acero 17"',
+    'Neumáticos':               '265/65 R17',
+  },
+  exterior: {
+    'Loderas': 'Delanteras y traseras',
+  },
+  interior: {
+    'Asientos':             'Tela tacto piel',
+    'Asientos traseros 60/40': 'Sí',
+    'Altavoces':            '4',
+  },
+  seguridad: {
+    'Bolsas laterales delanteras': 'Sí',
+    'Bolsas tipo cortina':         'Sí',
+    'Anclaje ISOFIX':              'Sí',
+  },
+})
+
+const RAM_1200_BIGHORN: Categoria[] = merge(RAM_1200_TRADESMAN_CREW_CAB, {
+  desempeno: {
+    'Transmisión':           'Automática 8 velocidades',
+    'Modos de manejo':       'Normal / Sport',
+    'Rendimiento combinado': '10.1 km/l',
+  },
+  dimensiones: {
+    'Alto':                  '1,897 mm',
+    'Capacidad de carga':    '1,090 kg',
+    'Capacidad de arrastre': '2,500 kg',
+    'Rines':                 'Aluminio 17", cara pulida y pockets negros',
+    'Neumáticos':            '265/65 R17',
+  },
+  exterior: {
+    'Faros de niebla':     'LED con función cornering',
+    'Espejos laterales':   'Calefactables y abatibles, color carrocería',
+    'Manijas exteriores':  'Color carrocería',
+    'Parrilla':            'Con detalles en cromo',
+    'Fascias':             'Delantera al color, trasera metálica',
+    'Estribos laterales':  'Sí',
+  },
+  interior: {
+    'Pantalla / Audio':  'Táctil 10", Apple CarPlay y Android Auto, disco duro 10 GB',
+    'Puertos USB':       '2 delanteros y 1 trasero',
+    'Volante en piel':   'Sí',
+  },
+  seguridad: {
+    'Cámara de estacionamiento':   'Sí',
+    'Sensores de estacionamiento': 'Traseros',
+    'Keyless Entry & Go':          'Sí',
+  },
+})
+
+const RAM_1200_BIGHORN_4X4: Categoria[] = merge(RAM_1200_BIGHORN, {
+  desempeno: {
+    'Tracción':                    '4X4 (4WD)',
+    'Selector de tracción':        'Sí (2H / 4Auto / 4L)',
+    'Bloqueo diferencial trasero': 'Sí',
+    'Modos de manejo':             'Normal / Sport / Snow / Sand',
+  },
+  seguridad: {
+    'Control descenso pendientes (HDC)': 'Sí',
+  },
+})
+
+const RAM_1200_LARAMIE: Categoria[] = merge(RAM_1200_BIGHORN_4X4, {
+  desempeno: {
+    'Rendimiento combinado': '9.7 km/l',
+  },
+  dimensiones: {
+    'Capacidad de carga': '1,075 kg',
+    'Rines':              'Aluminio 18", cara pulida y pockets negros',
+    'Neumáticos':         '265/60 R18',
+  },
+  exterior: {
+    'Faros':              'Halógeno + LED automático',
+    'Luces diurnas (DRL)': 'LED',
+    'Espejos laterales':  'Cromados, calefactables y abatibles',
+    'Manijas exteriores': 'Cromadas',
+  },
+  interior: {
+    'Aire acondicionado': 'Automático de doble zona',
+    'Asientos':           'Piel con ajuste eléctrico',
+    'Clúster':            '4.2" TFT a color',
+    'Altavoces':          '4 + 2 tweeters',
+    'Asiento conductor':  'Ajuste eléctrico',
+  },
+  seguridad: {
+    'Visión 360°':                  'Sí',
+    'Sensores de estacionamiento':  'Delanteros y traseros',
+  },
+})
+
 export const MODELOS_RAM: ModeloFicha[] = [
   {
     id: 'ram-4000-2026',
@@ -959,6 +1167,20 @@ export const MODELOS_RAM: ModeloFicha[] = [
       { id: 'tradesman-v6-4x2',  nombre: 'Tradesman V6 4x2',    categorias: RAM_1500_TRADESMAN_V6_4X2  },
       { id: 'tradesman-v6-4x4',  nombre: 'Tradesman V6 4x4',    categorias: RAM_1500_TRADESMAN_V6_4X4  },
       { id: 'tradesman-i6-4x4',  nombre: 'Tradesman I6 4x4',    categorias: RAM_1500_TRADESMAN         },
+    ],
+  },
+  {
+    id: 'ram-1200-2026',
+    marca: 'RAM',
+    modelo: 'RAM 1200',
+    año: 2026,
+    versiones: [
+      { id: 'tradesman-chassis-cab', nombre: 'Tradesman Chassis Cab', categorias: RAM_1200_TRADESMAN_CHASSIS },
+      { id: 'tradesman-regular-cab', nombre: 'Tradesman Regular Cab', categorias: RAM_1200_TRADESMAN_REG_CAB  },
+      { id: 'tradesman-crew-cab',    nombre: 'Tradesman Crew Cab',    categorias: RAM_1200_TRADESMAN_CREW_CAB },
+      { id: 'bighorn-crew-cab',      nombre: 'Bighorn Crew Cab',      categorias: RAM_1200_BIGHORN            },
+      { id: 'bighorn-crew-cab-4x4',  nombre: 'Bighorn Crew Cab 4X4',  categorias: RAM_1200_BIGHORN_4X4        },
+      { id: 'laramie-crew-cab-4x4',  nombre: 'Laramie Crew Cab 4X4',  categorias: RAM_1200_LARAMIE            },
     ],
   },
   {
