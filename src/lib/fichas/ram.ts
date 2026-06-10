@@ -10,7 +10,7 @@ const RAM_4000_REG_CAB_P: Categoria[] = [
       { label: 'Motor',                valor: '6.4L V8 HEMI Upgrade HD' },
       { label: 'Potencia',             valor: '405 HP @ 5,500 rpm' },
       { label: 'Torque',               valor: '429 lb-ft @ 4,000 rpm' },
-      { label: 'Transmisión',          valor: 'Automática 8 velocidades' },
+      { label: 'Transmisión',          valor: 'Automática 8 velocidades LCV' },
       { label: 'Tracción',             valor: 'Trasera' },
       { label: 'Selector tracción',    valor: 'No incluido' },
       { label: 'Dirección',            valor: 'Asistida' },
@@ -26,7 +26,7 @@ const RAM_4000_REG_CAB_P: Categoria[] = [
       { label: 'Alto',                    valor: '2,055 mm' },
       { label: 'Distancia entre ejes',    valor: '3,647 mm' },
       { label: 'Peso vehicular',          valor: '2,817 kg' },
-      { label: 'Peso bruto vehicular',    valor: '—' },
+      { label: 'Peso bruto vehicular',    valor: '6,122 kg' },
       { label: 'Capacidad de carga',      valor: '3,305 kg' },
       { label: 'Capacidad de arrastre',   valor: '7,094 kg' },
       { label: 'Carga por ejes del/tra',  valor: '2,494 / 4,467 kg' },
@@ -59,6 +59,7 @@ const RAM_4000_REG_CAB_P: Categoria[] = [
       { label: 'Seguros de puertas',      valor: 'Manuales' },
       { label: 'Ventanas delanteras',     valor: 'Manuales' },
       { label: 'Ventanilla trasera',      valor: 'Fija' },
+      { label: 'Visor solar pasajero',    valor: 'Con espejo' },
       { label: 'Pantalla',                valor: 'Táctil 8.4"' },
       { label: 'Clúster',                 valor: 'TFT color 3.5"' },
       { label: 'Apple CarPlay / Android Auto', valor: 'Sí' },
@@ -107,16 +108,12 @@ const RAM_4000_REG_CAB_P: Categoria[] = [
 ]
 
 const RAM_4000_REG_CAB_PL: Categoria[] = merge(RAM_4000_REG_CAB_P, {
-  desempeno: {
-    'Transmisión': 'Automática 8 velocidades LCV',
-  },
   dimensiones: {
     'Largo':                 '6,586 mm',
     'Ancho sin espejos':     '2,334 mm',
     'Alto':                  '2,029 mm',
     'Distancia entre ejes':  '4,249 mm',
     'Peso vehicular':        '2,843 kg',
-    'Peso bruto vehicular':  '6,122 kg',
     'Capacidad de carga':    '3,279 kg',
     'Capacidad de arrastre': '7,067 kg',
   },
@@ -124,7 +121,6 @@ const RAM_4000_REG_CAB_PL: Categoria[] = merge(RAM_4000_REG_CAB_P, {
 
 const RAM_4000_CREW_CAB: Categoria[] = merge(RAM_4000_REG_CAB_P, {
   desempeno: {
-    'Transmisión':        'Automática 8 velocidades LCV',
     'Tracción':           '4x4',
     'Selector tracción':  'Electrónico en movimiento',
   },
@@ -138,7 +134,6 @@ const RAM_4000_CREW_CAB: Categoria[] = merge(RAM_4000_REG_CAB_P, {
   },
   interior: {
     'Almacenamiento trasero':   'Compartimento debajo del asiento trasero',
-    'Reposabrazos delantero':   'No incluido',
     'Cabeceras traseras':       'Ajuste 2 posiciones',
     'Asiento trasero':          'Plegable',
     'Bandeja de almacenamiento':'Sí',
@@ -147,7 +142,7 @@ const RAM_4000_CREW_CAB: Categoria[] = merge(RAM_4000_REG_CAB_P, {
     'Consola superior':         'Sí',
     'Seguros de puertas':       'Eléctricos',
     'Ventanas delanteras':      'Eléctricas un toque arriba y abajo',
-    'Ventanilla trasera':       'Manual (trasera)',
+    'Ventanas traseras':        'Manuales (en puertas traseras)',
     'Audio':                    '6 altavoces',
   },
 })
@@ -226,6 +221,7 @@ const RAM_1500_TUNGSTEN: Categoria[] = [
       { label: 'Keyless Entry & Go',     valor: 'Sí' },
       { label: 'Cristales delanteros',   valor: 'Eléctricos 1 toque arriba y abajo' },
       { label: 'Ventana trasera',        valor: 'Corrediza eléctrica' },
+      { label: 'Desempañador ventana trasera', valor: 'Sí' },
       { label: 'Vidrios',                valor: 'Tintados con protección solar' },
       { label: 'Iluminación ambiental',  valor: 'LED' },
       { label: 'Control activo ruido',   valor: 'Sí (cabina)' },
@@ -253,9 +249,11 @@ const RAM_1500_TUNGSTEN: Categoria[] = [
       { label: 'Manijas exteriores',     valor: 'Al color de la carrocería' },
       { label: 'Fascia delantera',       valor: 'Insertos en cromo; defensa trasera al color' },
       { label: 'Limpiaparabrisas',       valor: 'Sensibles a la lluvia' },
-      { label: 'Portón trasero',         valor: 'Amortiguado con apertura remota + luz LED en manija' },
+      { label: 'Portón trasero',         valor: 'Amortiguado con apertura remota + luz LED en manija + luz de advertencia de portón abierto' },
       { label: 'RAMBOX®',                valor: 'Sistema gestión de carga' },
       { label: 'Batea',                  valor: 'Protección aspersión + puerta multifunción + escalón desplegable + iluminación LED + 4 ganchos' },
+      { label: 'Cubierta Tonneau',       valor: 'Tres pliegues' },
+      { label: 'Alarma de seguridad',    valor: 'Sí' },
       { label: 'Colores disponibles',    valor: 'Granite, Forger Blue, Molten Red, Bright White, Ivory White, Diamond Black' },
     ],
   },
@@ -279,7 +277,7 @@ const RAM_1500_TUNGSTEN: Categoria[] = [
     id: 'seguridad', nombre: 'Seguridad', specs: [
       { label: 'Frenos ABS',             valor: 'Disco en 4 ruedas' },
       { label: 'ESP + TCS',              valor: 'Sí' },
-      { label: 'Control antivuelco',     valor: 'Sí' },
+      { label: 'Control antivuelco',     valor: '—' },
       { label: 'Bolsas de aire',         valor: 'Delanteras multietapas avanzadas + laterales delanteras + cortina trasera' },
       { label: 'ISOFIX',                 valor: 'Sí' },
       { label: 'Cámara',                 valor: 'Visión envolvente 360°' },
@@ -316,10 +314,11 @@ const RAM_1500_TRADESMAN: Categoria[] = merge(RAM_1500_TUNGSTEN, {
     'Sistema motor':       'Stop-Start con batería auxiliar',
     'Alternador':          '230A',
     'Relación eje trasero':'3.92',
+    'Eje delantero':       '215 mm',
     'Consumo ciudad':      '8.0 km/L',
     'Consumo carretera':   '12.0 km/L',
     'Consumo combinado':   '9.4 km/L',
-    'Batería':             '700 amp, libre de mantenimiento',
+    'Batería':             '730 amp, libre de mantenimiento',
     'Inversor':            '400W',
     'Tanque de combustible':'98 L',
   },
@@ -340,7 +339,7 @@ const RAM_1500_TRADESMAN: Categoria[] = merge(RAM_1500_TUNGSTEN, {
     'Control balanceo':          '—',
   },
   interior: {
-    'Tapicería':              'Tela',
+    'Tapicería':              'Tela 40/20/40',
     'A/C':                    'Manual, filtro N95+BIO',
     'Asiento conductor':      'Manual 4 posiciones',
     'Asiento pasajero':       'Manual 4 posiciones',
@@ -357,6 +356,8 @@ const RAM_1500_TRADESMAN: Categoria[] = merge(RAM_1500_TUNGSTEN, {
     'Control activo ruido':   '—',
     'Control garaje universal':'—',
     'Tapetes':                'Delanteros y traseros',
+    'Desempañador ventana trasera': '—',
+    'Visera parasol pasajero': 'Con espejo',
   },
   exterior: {
     'Faros':               'LED reflector automático luces altas y bajas',
@@ -370,9 +371,11 @@ const RAM_1500_TRADESMAN: Categoria[] = merge(RAM_1500_TUNGSTEN, {
     'Manijas exteriores':  'Negro',
     'Fascia delantera':    'Negra (parrilla y manijas negras)',
     'Limpiaparabrisas':    '—',
-    'Portón trasero':      'Con amortiguación',
+    'Portón trasero':      'Con amortiguación + luz de advertencia de portón abierto',
     'RAMBOX®':             '—',
     'Batea':               'Recubrimiento aspersión + iluminación + 4 ganchos ajustables + toma 115V exterior',
+    'Cubierta Tonneau':    '—',
+    'Alarma de seguridad': '—',
     'Colores disponibles': 'Silver Zynith, Diamond Black, Bright White',
   },
   tecnologia: {
@@ -390,8 +393,8 @@ const RAM_1500_TRADESMAN: Categoria[] = merge(RAM_1500_TUNGSTEN, {
   seguridad: {
     'Bolsas de aire':          '6 (frontales + laterales + cortina)',
     'Cámara':                  'Trasera',
+    'Control antivuelco':      'Sí',
     'Colisión intersecciones': '—',
-    'Frenado emergencia':      'Peatonal',
     'Dirección evasiva':       '—',
     'Señales de tráfico':      '—',
     'Conductor somnoliento':   '—',
@@ -457,6 +460,7 @@ const RAM_1500_TRADESMAN_V6_4X2: Categoria[] = merge(RAM_1500_TUNGSTEN, {
     'Control activo ruido':   '—',
     'Control garaje universal':'—',
     'Tapetes':                'Delanteros y traseros',
+    'Desempañador ventana trasera': '—',
   },
   exterior: {
     'Faros':               'LED reflector automático luces altas y bajas',
@@ -474,6 +478,8 @@ const RAM_1500_TRADESMAN_V6_4X2: Categoria[] = merge(RAM_1500_TUNGSTEN, {
     'Portón trasero':      'Con amortiguación',
     'RAMBOX®':             '—',
     'Batea':               '—',
+    'Cubierta Tonneau':    '—',
+    'Alarma de seguridad': '—',
     'Colores disponibles': '—',
   },
   tecnologia: {
@@ -534,11 +540,16 @@ const RAM_1500_RHO: Categoria[] = merge(RAM_1500_TUNGSTEN, {
     'Fascia delantera':   'Negra + guardafangos todoterreno + placa protectora caja transferencia',
     'RAMBOX®':            '—',
     'Batea':              'Protección aspersión + puerta eléctrica con apertura remota + escalón desplegable + iluminación LED + 4 ganchos',
+    'Cubierta Tonneau':   '—',
+    'Gráficos':           'Mopar® negros en cofre + gráficos exteriores RHO',
     'Colores disponibles':'Hydro Blue, Flame Red, Billet Silver, Bright White, Diamond Black Crystal',
   },
   tecnologia: {
     'Audio':        'Harman Kardon® Premium — 19 bocinas',
     'Manos libres': '—',
+  },
+  seguridad: {
+    'Frenos gran performance': 'Sí',
   },
 })
 
@@ -606,6 +617,7 @@ const RAM_1500_BIGHORN: Categoria[] = merge(RAM_1500_TUNGSTEN, {
     'Limpiaparabrisas':    '—',
     'RAMBOX®':             '—',
     'Batea':               'Protección aspersión + escalón desplegable + iluminación LED + 4 ganchos',
+    'Cubierta Tonneau':    '—',
     'Colores disponibles': 'Billet Silver, Bright White, Diamond Black, Granite Metallic, Delmonico Red',
   },
   tecnologia: {
@@ -618,7 +630,6 @@ const RAM_1500_BIGHORN: Categoria[] = merge(RAM_1500_TUNGSTEN, {
     'Carga inalámbrica':   '1 celular',
   },
   seguridad: {
-    'Control antivuelco':          '—',
     'Cámara':                      'Trasera',
     'Colisión intersecciones':     '—',
     'Dirección evasiva':           '—',
@@ -636,7 +647,7 @@ const RAM_1500_LARAMIE: Categoria[] = merge(RAM_1500_BIGHORN, {
     'Torque':              '469 lb-ft @ 3,500 rpm',
     'Sistema motor':       'Stop-Start con batería auxiliar',
     'Alternador':          '230A',
-    'Batería':             '700 amp, libre de mantenimiento',
+    'Batería':             '730 amp, libre de mantenimiento',
     'Inversor':            '400W',
     'Tanque de combustible':'98 L',
   },
@@ -669,6 +680,7 @@ const RAM_1500_LARAMIE: Categoria[] = merge(RAM_1500_BIGHORN, {
     'Manijas exteriores':    'Al color de la carrocería',
     'RAMBOX®':               'Opcional',
     'Techo':                 'Corredizo panorámico doble panel',
+    'Colores disponibles':   'Billet Silver, Bright White, Diamond Black, Granite Metallic',
   },
   tecnologia: {
     'Pantalla principal':  'Táctil 14.4" — Apple CarPlay® y Android Auto',
@@ -779,6 +791,8 @@ const RAM_700_TRADESMAN_REG_CAB: Categoria[] = [
       { label: 'Compuerta combustible', valor: 'Manual' },
       { label: 'Ganchos carga',         valor: '10' },
       { label: 'Batea',                 valor: 'Recubrimiento Bedliner + cubierta lona + iluminación' },
+      { label: 'Barras protección ventanilla trasera', valor: 'Sí' },
+      { label: 'Tercera luz de stop',   valor: 'LED, detrás de la cabina' },
       { label: 'Barras techo',          valor: '—' },
       { label: 'Roll Bar',              valor: '—' },
       { label: 'Colores disponibles',   valor: 'Blanco, Plata, Rojo Colorado' },
@@ -790,7 +804,7 @@ const RAM_700_TRADESMAN_REG_CAB: Categoria[] = [
       { label: 'A/C',                    valor: 'Manual' },
       { label: 'Asiento conductor',      valor: 'Manual 4 posiciones' },
       { label: 'Pasajeros 2ª fila',      valor: '—' },
-      { label: 'Volante',                valor: 'Con ajuste de altura' },
+      { label: 'Volante',                valor: 'Con ajuste de altura y controles de audio' },
       { label: 'Clúster',                valor: 'TFT 3.5"' },
       { label: 'Pantalla',               valor: '7" — Apple CarPlay® y Android Auto inalámbrico' },
       { label: 'Audio',                  valor: '2 bocinas + 2 tweeters' },
@@ -893,7 +907,7 @@ const RAM_700_BIGHORN_CVT: Categoria[] = merge(RAM_700_BIGHORN_MT, {
     'Capacidad de carga': '600 kg',
   },
   interior: {
-    'Volante':            'Forrado en piel',
+    'Volante':            'Forrado en piel, con ajuste de altura y controles de audio',
     'Cargador inalámbrico':'Sí',
     'Modo sport':         'Sí',
     'Paletas de cambios': 'Sí',
@@ -923,7 +937,8 @@ const RAM_700_LARAMIE: Categoria[] = merge(RAM_700_BIGHORN_CVT, {
     'Parrilla':        'Nueva fascia y parrilla R-A-M',
     'Fascia':          'Al color + bisel plateado inferior',
     'Barras techo':    'Longitudinales',
-    'Roll Bar':        'Sí',
+    'Roll Bar':        'Sí (barras de extensión de carga)',
+    'Emblemas':        'Turbo en los costados',
   },
   interior: {
     'Tapicería':      'Piel',
@@ -966,6 +981,8 @@ const RAM_1200_TRADESMAN_CHASSIS: Categoria[] = [
       { label: 'Capacidad de carga',    valor: '1,315 kg' },
       { label: 'Capacidad de arrastre', valor: '3,000 kg' },
       { label: 'Volumen de carga',      valor: '—' },
+      { label: 'Ancho de carga máximo', valor: '—' },
+      { label: 'Altura de carga',       valor: '—' },
       { label: 'Longitud de carga máxima', valor: '—' },
       { label: 'Capacidad de pasajeros', valor: '3' },
       { label: 'Rines',                 valor: 'Acero 16"' },
@@ -983,8 +1000,13 @@ const RAM_1200_TRADESMAN_CHASSIS: Categoria[] = [
       { label: 'Parrilla',              valor: 'Color negro' },
       { label: 'Fascias',               valor: 'Delantera y trasera en negro' },
       { label: 'Estribos laterales',    valor: 'No incluido' },
+      { label: 'Escalón lateral de acceso a batea', valor: 'No incluido' },
+      { label: 'Ganchos de sujeción en área de carga', valor: '—' },
+      { label: 'Conexión 12V en batea', valor: 'No incluida' },
+      { label: 'Limpiaparabrisas',      valor: 'Variable intermitente' },
       { label: 'Placa protectora de motor', valor: 'Sí' },
       { label: 'Loderas',               valor: 'Delanteras' },
+      { label: 'Colores disponibles',   valor: 'Gris, Blanco' },
     ],
   },
   {
@@ -1001,7 +1023,9 @@ const RAM_1200_TRADESMAN_CHASSIS: Categoria[] = [
       { label: 'Volante',               valor: 'Ajuste de altura, controles de audio' },
       { label: 'Volante en piel',       valor: 'No incluido' },
       { label: 'Computadora de viaje',  valor: 'Sí' },
-      { label: 'Guantera con iluminación LED', valor: 'Sí' },
+      { label: 'Desempañante trasero',  valor: 'No incluido' },
+      { label: 'Guantera con iluminación LED', valor: 'No incluida' },
+      { label: 'Guantera con refrigeración', valor: 'Sí' },
     ],
   },
   {
@@ -1012,8 +1036,13 @@ const RAM_1200_TRADESMAN_CHASSIS: Categoria[] = [
       { label: 'Frenos ABS',            valor: 'Sí' },
       { label: 'Control de estabilidad (ESP)', valor: 'Sí' },
       { label: 'Control de tracción',   valor: 'Sí' },
-      { label: 'Control descenso pendientes (HDC)', valor: 'No incluido' },
+      { label: 'Control descenso pendientes (HDC)', valor: 'Sí' },
+      { label: 'Control estabilidad de remolque (TSC)', valor: 'Sí' },
       { label: 'Asistencia arranque en pendiente (HSA)', valor: 'Sí' },
+      { label: 'Asistencia frenado de emergencia (EBA)', valor: 'Sí' },
+      { label: 'Señal de frenado de emergencia (ESS)', valor: 'Sí' },
+      { label: 'Control crucero con limitador de velocidad', valor: 'Sí' },
+      { label: 'Asistencia de desvío de carril', valor: 'No incluida' },
       { label: 'Monitoreo presión neumáticos (TPM)', valor: 'Sí' },
       { label: 'Cámara de estacionamiento', valor: 'No incluido' },
       { label: 'Sensores de estacionamiento', valor: 'No incluido' },
@@ -1033,9 +1062,13 @@ const RAM_1200_TRADESMAN_REG_CAB: Categoria[] = merge(RAM_1200_TRADESMAN_CHASSIS
   dimensiones: {
     'Capacidad de carga':       '1,210 kg',
     'Volumen de carga':         '1,914 L',
+    'Ancho de carga máximo':    '1,595 mm',
+    'Altura de carga':          '500 mm',
     'Longitud de carga máxima': '2,400 mm',
   },
   exterior: {
+    'Escalón lateral de acceso a batea': 'Sí',
+    'Ganchos de sujeción en área de carga': '6',
     'Loderas': 'Delanteras y traseras',
   },
 })
@@ -1048,18 +1081,24 @@ const RAM_1200_TRADESMAN_CREW_CAB: Categoria[] = merge(RAM_1200_TRADESMAN_CHASSI
   dimensiones: {
     'Capacidad de carga':       '1,115 kg',
     'Volumen de carga':         '1,276 L',
+    'Ancho de carga máximo':    '1,595 mm',
+    'Altura de carga':          '500 mm',
     'Longitud de carga máxima': '1,600 mm',
     'Capacidad de pasajeros':   '5',
     'Rines':                    'Acero 17"',
     'Neumáticos':               '265/65 R17',
   },
   exterior: {
+    'Ganchos de sujeción en área de carga': '4',
     'Loderas': 'Delanteras y traseras',
   },
   interior: {
     'Asientos':             'Tela tacto piel',
     'Asientos traseros 60/40': 'Sí',
     'Altavoces':            '4',
+    'Puertos USB':          '2 delanteros y 1 trasero',
+    'Desempañante trasero': 'Sí',
+    'Guantera con iluminación LED': 'Sí',
   },
   seguridad: {
     'Bolsas laterales delanteras': 'Sí',
@@ -1075,29 +1114,27 @@ const RAM_1200_BIGHORN: Categoria[] = merge(RAM_1200_TRADESMAN_CREW_CAB, {
     'Rendimiento combinado': '10.1 km/l',
   },
   dimensiones: {
-    'Alto':                  '1,897 mm',
     'Capacidad de carga':    '1,090 kg',
     'Capacidad de arrastre': '2,500 kg',
     'Rines':                 'Aluminio 17", cara pulida y pockets negros',
     'Neumáticos':            '265/65 R17',
   },
   exterior: {
-    'Faros de niebla':     'LED con función cornering',
-    'Espejos laterales':   'Calefactables y abatibles, color carrocería',
+    'Faros de niebla':     'Sí, con función cornering',
+    'Espejos laterales':   'Eléctricos con direccional, color carrocería',
     'Manijas exteriores':  'Color carrocería',
     'Parrilla':            'Con detalles en cromo',
     'Fascias':             'Delantera al color, trasera metálica',
     'Estribos laterales':  'Sí',
+    'Colores disponibles': 'Rojo metálico, Gris obscuro metálico, Gris, Blanco',
   },
   interior: {
     'Pantalla / Audio':  'Táctil 10", Apple CarPlay y Android Auto, disco duro 10 GB',
-    'Puertos USB':       '2 delanteros y 1 trasero',
     'Volante en piel':   'Sí',
   },
   seguridad: {
     'Cámara de estacionamiento':   'Sí',
     'Sensores de estacionamiento': 'Traseros',
-    'Keyless Entry & Go':          'Sí',
   },
 })
 
@@ -1108,8 +1145,8 @@ const RAM_1200_BIGHORN_4X4: Categoria[] = merge(RAM_1200_BIGHORN, {
     'Bloqueo diferencial trasero': 'Sí',
     'Modos de manejo':             'Normal / Sport / Snow / Sand',
   },
-  seguridad: {
-    'Control descenso pendientes (HDC)': 'Sí',
+  dimensiones: {
+    'Alto': '1,897 mm',
   },
 })
 
@@ -1121,23 +1158,30 @@ const RAM_1200_LARAMIE: Categoria[] = merge(RAM_1200_BIGHORN_4X4, {
     'Capacidad de carga': '1,075 kg',
     'Rines':              'Aluminio 18", cara pulida y pockets negros',
     'Neumáticos':         '265/60 R18',
+    'Llanta de refacción': 'Tamaño completo con rin de aluminio',
   },
   exterior: {
     'Faros':              'Halógeno + LED automático',
     'Luces diurnas (DRL)': 'LED',
     'Espejos laterales':  'Cromados, calefactables y abatibles',
     'Manijas exteriores': 'Cromadas',
+    'Conexión 12V en batea': 'Sí',
+    'Limpiaparabrisas':   'Automático',
   },
   interior: {
     'Aire acondicionado': 'Automático de doble zona',
-    'Asientos':           'Piel con ajuste eléctrico',
+    'Asientos':           'Piel con ajuste eléctrico (traseros en piel con descansabrazos)',
     'Clúster':            '4.2" TFT a color',
     'Altavoces':          '4 + 2 tweeters',
     'Asiento conductor':  'Ajuste eléctrico',
+    'Cristales eléctricos': 'Subida y bajada de un toque (conductor), con anti pellizco',
   },
   seguridad: {
     'Visión 360°':                  'Sí',
+    'Cámara de estacionamiento':    'Sustituida por visión 360°',
     'Sensores de estacionamiento':  'Delanteros y traseros',
+    'Keyless Entry & Go':           'Sí',
+    'Asistencia de desvío de carril': 'Sí',
   },
 })
 
