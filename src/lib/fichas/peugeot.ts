@@ -87,7 +87,7 @@ const EXPERT_SC_CATS: Categoria[] = [
       { label: 'Arranque en pendiente',     valor: 'Hill Assist Control' },
       { label: 'Control crucero',           valor: 'Sí + limitador de velocidad' },
       { label: 'Cámara de reversa',         valor: 'No incluida' },
-      { label: 'Cierre centralizado auto.', valor: 'No incluido' },
+      { label: 'Cierre centralizado auto.', valor: 'Con bloqueo automático durante la conducción' },
       { label: 'Sensores estacionamiento',  valor: 'Traseros' },
       { label: 'Monitor presión llantas',   valor: 'Sí' },
       { label: 'Alerta atención conductor', valor: 'Sí' },
@@ -105,8 +105,7 @@ const EXPERT_FL_CATS: Categoria[] = merge(EXPERT_SC_CATS, {
     'Audio':    'Radio AM/FM + USB + Conectividad inalámbrica',
   },
   seguridad: {
-    'Cámara de reversa':         '180°',
-    'Cierre centralizado auto.': 'Con bloqueo automático durante la conducción',
+    'Cámara de reversa': '180°',
   },
 })
 
@@ -187,7 +186,7 @@ const RIFTER_PURETECH: Categoria[] = [
       { label: 'Barras de techo',        valor: 'Sí' },
       { label: 'Cristales traseros',     valor: 'Tintados' },
       { label: 'Tercera luz de freno',   valor: 'Sí' },
-      { label: 'Colores disponibles',    valor: 'Blanco Icy, Gris Artense, Azul Libeccio, Taranaki' },
+      { label: 'Colores disponibles',    valor: 'Blanco Icy, Gris Artense, Azul Libeccio' },
     ],
   },
   {
@@ -250,17 +249,17 @@ const RIFTER_HDI: Categoria[] = merge(RIFTER_PURETECH, {
 const MANAGER_FL_L2H2: Categoria[] = [
   {
     id: 'desempeno', nombre: 'Desempeño', specs: [
-      { label: 'Motor',                  valor: '2.2L Turbo Diésel Euro VI' },
-      { label: 'Potencia',               valor: '138 hp' },
+      { label: 'Motor',                  valor: '2.2L Turbo Diésel Euro VI (2,184 cc)' },
+      { label: 'Potencia',               valor: '138 hp @ 3,500 rpm' },
       { label: 'Torque neto',            valor: '350 Nm @ 1,400 rpm' },
       { label: 'Combustible',            valor: 'Diésel' },
       { label: 'Transmisión',            valor: 'Manual 6 velocidades' },
       { label: 'Tracción',               valor: 'FWD' },
       { label: 'Dirección',              valor: 'Asistencia Eléctrica (EPS)' },
-      { label: 'Suspensión delantera',   valor: 'McPherson' },
-      { label: 'Suspensión trasera',     valor: 'Barra de torsión' },
-      { label: 'Frenos delanteros',      valor: 'Discos' },
-      { label: 'Frenos traseros',        valor: 'Discos' },
+      { label: 'Suspensión delantera',   valor: 'Independiente McPherson' },
+      { label: 'Suspensión trasera',     valor: 'Barra de torsión reforzada' },
+      { label: 'Frenos delanteros',      valor: 'Discos ventilados' },
+      { label: 'Frenos traseros',        valor: 'Discos sólidos' },
       { label: 'Velocidad máxima',       valor: '132 km/h' },
       { label: 'Tanque de combustible',  valor: '90 litros' },
       { label: 'Tanque AdBlue',          valor: '19 litros' },
@@ -270,8 +269,11 @@ const MANAGER_FL_L2H2: Categoria[] = [
     id: 'carga', nombre: 'Área de Carga', specs: [
       { label: 'Volumen de carga',       valor: '11.5 m³' },
       { label: 'Capacidad de carga',     valor: '1,850 kg' },
+      { label: 'Largo área de carga',    valor: '3,120 mm' },
       { label: 'Ancho área de carga',    valor: '1,870 mm' },
       { label: 'Alto área de carga',     valor: '1,932 mm' },
+      { label: 'Pared divisoria',        valor: 'Desmontable entre cabina y área de carga' },
+      { label: 'Toma de 12V',            valor: 'Sí (área de carga)' },
     ],
   },
   {
@@ -293,13 +295,21 @@ const MANAGER_FL_L2H2: Categoria[] = [
       { label: 'Asiento conductor',      valor: 'Individual con ajuste manual' },
       { label: 'Asiento(s) pasajero',    valor: 'Individual con ajuste manual' },
       { label: 'Almacenamiento bajo asiento conductor', valor: 'No incluido' },
+      { label: 'Pantalla',               valor: 'Táctil 7" — Apple CarPlay® y Android Auto®' },
+      { label: 'Clúster',                valor: 'LCD 3.5"' },
+      { label: 'Cristales delanteros',   valor: 'Eléctricos' },
+      { label: 'Consola superior',       valor: 'Portadocumentos' },
+      { label: 'Alerta de marcha trasera', valor: 'Sí' },
       { label: 'Freno de estacionamiento', valor: 'Mecánico' },
     ],
   },
   {
     id: 'exterior', nombre: 'Exterior', specs: [
-      { label: 'Faros',                  valor: 'Halógeno' },
-      { label: 'Espejos laterales',      valor: 'Con ajuste eléctrico' },
+      { label: 'Faros',                  valor: 'Halógeno con DRL' },
+      { label: 'Espejos laterales',      valor: 'Calefactables con ajuste eléctrico' },
+      { label: 'Puerta lateral',         valor: 'Corrediza' },
+      { label: 'Puertas traseras',       valor: 'Configuración 50/50, apertura 270°' },
+      { label: 'Tercera luz de freno',   valor: 'Sí' },
       { label: 'Señalizaciones laterales', valor: 'No incluidas' },
       { label: 'Color disponible',       valor: 'Blanco Icy' },
     ],
@@ -307,21 +317,26 @@ const MANAGER_FL_L2H2: Categoria[] = [
   {
     id: 'seguridad', nombre: 'Seguridad', specs: [
       { label: 'ABS',                    valor: 'Sí' },
-      { label: 'ESP + ASR',              valor: 'Sí' },
+      { label: 'ESP',                    valor: 'Sí' },
+      { label: 'AFU (frenado urgencia)', valor: 'Sí' },
+      { label: 'Asistente viento cruzado (CWA)', valor: 'Sí' },
       { label: 'Bolsas de aire',         valor: 'Frontales conductor y pasajero' },
       { label: 'Arranque en pendiente',  valor: 'Hill Assist Control' },
       { label: 'Control crucero',        valor: 'Sí + limitador de velocidad' },
+      { label: 'Cámara de reversa',      valor: 'Sí' },
+      { label: 'Cierre centralizado',    valor: 'Sí' },
       { label: 'Sensores estacionamiento', valor: 'Traseros' },
       { label: 'Monitor presión llantas', valor: 'Sí' },
-      { label: 'Alerta atención conductor', valor: 'Sí' },
-      { label: 'Placa protección motor', valor: 'Sí' },
+      { label: 'Llanta de refacción',    valor: 'Sí' },
+      { label: 'Suspensión reforzada',   valor: 'Sí' },
     ],
   },
 ]
 
 const MANAGER_FL_L4H2: Categoria[] = merge(MANAGER_FL_L2H2, {
   carga: {
-    'Volumen de carga': '15 m³',
+    'Volumen de carga':    '15 m³',
+    'Largo área de carga': '4,070 mm',
   },
   dimensiones: {
     'Largo total':    '6,363 mm',
@@ -469,7 +484,7 @@ const PARTNER_FL_HDI_MAXI: Categoria[] = [
       { label: 'Ancho área de carga',    valor: '1,630 mm' },
       { label: 'Alto área de carga',     valor: '1,200 – 1,270 mm' },
       { label: 'Ganchos de sujeción',    valor: '6 en piso de área de carga' },
-      { label: 'Piso área de carga',     valor: 'Cubierta plástica' },
+      { label: 'Piso área de carga',     valor: 'Sin cubierta plástica' },
       { label: 'Pared divisoria',        valor: 'Fija (sin escotilla)' },
       { label: 'Iluminación de carga',   valor: 'Sí' },
       { label: 'Acceso lateral',         valor: 'Puerta corrediza' },
@@ -542,7 +557,7 @@ const PARTNER_FL_HDI_MAXI_PACK: Categoria[] = merge(PARTNER_FL_HDI_MAXI, {
   carga: {
     'Volumen de carga':    '3.9 – 4.4 m³',
     'Largo área de carga': '2,167 – 3,440 mm',
-    'Alto área de carga':  '1,270 mm',
+    'Piso área de carga':  'Cubierta plástica',
     'Pared divisoria':     'Fija con escotilla de conexión cabina–carga',
     'Peso vehicular':      '1,400 kg',
     'Peso bruto vehicular':'2,340 kg',
@@ -579,7 +594,6 @@ const PARTNER_FL_2027_MAXI: Categoria[] = merge(PARTNER_FL_PURETECH, {
 })
 
 const PARTNER_FL_2027_HDI_MAXI_PACK: Categoria[] = merge(PARTNER_FL_HDI_MAXI_PACK, {
-  carga:    { 'Alto área de carga':  '1,200 – 1,270 mm' },
   exterior: { 'Colores disponibles': 'Blanco Icy' },
 })
 
@@ -672,11 +686,11 @@ const P2008_ALLURE: Categoria[] = [
       { label: 'ISOFIX',                         valor: '3 puntos de sujeción' },
       { label: 'Monitor presión neumáticos',     valor: 'Sí' },
       { label: 'Llanta de refacción',            valor: '16"' },
-      { label: 'ADAS — Atención conductor',      valor: 'Sí' },
+      { label: 'ADAS — Atención conductor',      valor: 'No incluida' },
       { label: 'ADAS — Colisión frontal',        valor: 'No incluida' },
-      { label: 'ADAS — Asistencia de carril',    valor: 'Sí' },
-      { label: 'ADAS — Reconocimiento señales',  valor: 'Sí' },
-      { label: 'ADAS — Luces automáticas',       valor: 'Sí' },
+      { label: 'ADAS — Asistencia de carril',    valor: 'No incluida' },
+      { label: 'ADAS — Reconocimiento señales',  valor: 'No incluido' },
+      { label: 'ADAS — Luces automáticas',       valor: 'No incluidas' },
     ],
   },
 ]
@@ -698,7 +712,11 @@ const P2008_GT: Categoria[] = merge(P2008_ALLURE, {
   seguridad: {
     'Cámara de reversa':        '360°',
     'Monitoreo ángulos muertos':'Sí',
-    'ADAS — Colisión frontal':  'Sí + frenado de emergencia',
+    'ADAS — Atención conductor':     'Sí',
+    'ADAS — Colisión frontal':       'Sí + frenado de emergencia',
+    'ADAS — Asistencia de carril':   'Sí',
+    'ADAS — Reconocimiento señales': 'Sí',
+    'ADAS — Luces automáticas':      'Sí',
   },
 })
 
@@ -809,6 +827,7 @@ export const MODELOS_PEUGEOT: ModeloFicha[] = [
             { label: 'Bolsas de aire',         valor: 'Frontales conductor y pasajero' },
             { label: 'Arranque en pendiente',  valor: 'Hill Assist Control' },
             { label: 'ESS (freno emergencia)', valor: 'Señal de luces de frenado de emergencia' },
+            { label: 'Cierre centralizado auto.', valor: 'Con bloqueo automático durante la conducción' },
             { label: 'Sensores estacionamiento', valor: 'Traseros' },
             { label: 'Monitor presión llantas', valor: 'Sí' },
             { label: 'Alarma antirrobo',       valor: 'Perimétrica' },

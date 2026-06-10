@@ -31,14 +31,14 @@
 
 ## Peugeot (`src/lib/fichas/peugeot.ts`)
 
-- ⬜ expert-2026 (2 vers.) — `PDF/ficha-tecnica-abr25-peugeot-expert-fl-2026-'web'.pdf` + `PDF/ficha-tecnica-may25-peugeot-expert-sc-2026-'web'.pdf`
-- ⬜ rifter-2026 (2 vers.) — `PDF/ficha-tecnica-feb25-peugeot-nueva-rifter-puretech-my26-feb25 (2).pdf` + `PDF/ficha-tecnica-feb25-peugeot-nueva-rifter-allure-pack-fl-hdi-my26-feb25 (2).pdf`
-- ⬜ partner-rapid-2026 (1 vers.) — `PDF/ficha-tecnica-enero26-peugeot-partner-firefly-my26-ene26.pdf`
-- ⬜ manager-fl-2026 (2 vers.) — `PDF/ficha-tecnica-ene26-peugeot-manager-fl-my26_nov25 (2).pdf`
-- ⬜ partner-fl-2026 (3 vers.) — `PDF/ficha-tecnica-abr25-peugeot-partner-hdi-fl-2026-'web'.pdf` + `PDF/ficha-tecnica-abr25-peugeot-partner-puretech-fl-2026-'web' (3).pdf`
-- ⬜ partner-fl-2027 (2 vers.) — `PDF/ficha-tecnica-21may26-partner-puretech-fl-2027-'impresion'.pdf` + `PDF/ficha-tecnica-21may26-partner-hdi-fl-2027-14may2026-v1-'digital'.pdf`
-- ⬜ rifter-2027 (2 vers.) — `PDF/ficha-tecnica-19may26-peugeot-rifter-puretech-allure-pack-azul-2027-'digital'.pdf` + `PDF/ficha-tecnica-19may26-peugeot-rifter-hdi-allure-pack-azul-2027-'impresion'.pdf`
-- ⬜ 2008-fl-2026 (2 vers.) — `PDF/ficha-tecnica-abr25-peugeot-2008-2026-impresion (1).pdf`
+- ✅ expert-2026 (2 vers.) — 1 corrección (cierre centralizado SC)
+- ✅ rifter-2026 (2 vers.) — 1 corrección (color "Taranaki" eliminado: es el diseño del rin)
+- ✅ partner-rapid-2026 (1 vers.) — 1 adición (cierre centralizado auto.)
+- ✅ manager-fl-2026 (2 vers.) — ~15 correcciones/adiciones (ficha estaba muy incompleta vs PDF)
+- ✅ partner-fl-2026 (3 vers.) — 2 correcciones (piso área de carga, alto área de carga)
+- ✅ partner-fl-2027 (2 vers.) — sin errores (override redundante de alto de carga eliminado)
+- ✅ rifter-2027 (2 vers.) — sin errores (los PDFs 2027 son idénticos a 2026; reusar arrays es correcto)
+- ✅ 2008-fl-2026 (2 vers.) — 1 corrección importante (paquete ADAS completo es exclusivo GT)
 
 ## RAM (`src/lib/fichas/ram.ts`)
 
@@ -69,6 +69,14 @@
 - **journey-2026 / Sport** · seguridad · Smartbeam: el Sport NO lo trae (solo GT Plus); override movido de Sport a GT Plus.
 - **journey-2026 / SXT (base)** · tecnología · Android Auto, Keyless Entry & GO, Cargador inalámbrico y Modo Sport: «No incluido» → «Sí» (de serie en las 3 versiones según PDF).
 - **journey-2026 / GT Plus** · interior · Tapicería: se agregó «(roja opcional)» (PDF: Leatherette rojo OPCIONAL solo GT Plus).
+
+- **expert-2026 / SC Furgón** · seguridad · Cierre centralizado auto.: «No incluido» → «Con bloqueo automático durante la conducción» (PDF lo lista en ambas versiones; override del FL reducido).
+- **rifter (2026/2027)** · exterior · Colores: se eliminó «Taranaki» de la lista (es el nombre del diseño del rin de aluminio 16", no un color).
+- **partner-rapid-2026** · seguridad · Se agregó «Cierre centralizado auto.: Con bloqueo automático durante la conducción» (estaba en el PDF, faltaba en el código).
+- **manager-fl-2026** · ficha enriquecida vs PDF: motor «2.2L Turbo Diésel Euro VI (2,184 cc)», potencia «138 hp @ 3,500 rpm», suspensiones (McPherson / barra torsión reforzada), frenos (discos vent./sólidos), largo área de carga 3,120 mm (L2H2) y 4,070 mm (L4H2), pared divisoria desmontable, toma 12V en carga, pantalla 7" CarPlay/AA, clúster LCD 3.5", faros halógeno c/DRL, espejos calefactables eléctricos, puerta lateral corrediza, puertas traseras 50/50 270°, AFU, asistente viento cruzado, cámara de reversa, suspensión reforzada. Se eliminaron «Alerta atención conductor» y «Placa protección motor» (no están en el PDF).
+- **partner-fl-2026 / HDI Maxi** · carga · Piso área de carga: la cubierta plástica es SOLO del Maxi Pack (PDF); base corregida a «Sin cubierta plástica» + override en Maxi Pack.
+- **partner-fl-2026 / HDI Maxi Pack** · carga · Alto área de carga: el PDF muestra «1,200 – 1,270» abarcando ambas versiones; se eliminó el override «1,270 mm» del Maxi Pack (y el override redundante del 2027).
+- **2008-fl-2026 / Allure Pack** · seguridad · ADAS: el paquete COMPLETO (atención conductor, colisión frontal, asistencia de carril, reconocimiento de señales, luces automáticas) es exclusivo del GT — la tabla del PDF marca ○ Allure / ● GT para todo el bloque. Allure corregido a «No incluido» en las 5; GT con override «Sí».
 
 ## Dudas (PDF no lo especifica o es ilegible; se dejó el valor del código)
 
