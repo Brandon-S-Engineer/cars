@@ -25,9 +25,9 @@
 
 ## Fiat (`src/lib/fichas/fiat.ts`)
 
-- ⬜ fiat-pulse-2026 (2 vers.) — `PDF/ficha-tecnica-12may26-fiat-pulse-2026-vertical-07may2026-v7.pdf`
-- ⬜ fiat-pulse-abarth-2026 (1 vers.) — `PDF/ficha-tecnica-12may26-fiat-abarth-vertical-26-07may2026-v6.pdf`
-- ⬜ fiat-fastback-2026 (1 vers.) — `PDF/ficha-tecnica-12may26-fiat-fastback-2026-vertical-07may2026-v8.pdf`
+- ✅ fiat-pulse-2026 (2 vers.) — sin errores
+- ✅ fiat-pulse-abarth-2026 (1 vers.) — sin errores
+- ✅ fiat-fastback-2026 (1 vers.) — sin errores
 
 ## Peugeot (`src/lib/fichas/peugeot.ts`)
 
