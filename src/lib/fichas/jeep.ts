@@ -133,7 +133,7 @@ const GC_LIMITED: Categoria[] = merge(GC_BASE, {
     'Control apertura de garage':    'Sí',
   },
   exterior: {
-    'Rines':                '20×8.5 negro (diseño Overland)',
+    'Rines':                '20×8.5 en color negro',
     'Techo panorámico':     'Doble panel panorámico',
     'Faros de niebla':      'LED frontales',
     'Espejos señalización': 'Sí',
@@ -221,7 +221,7 @@ const COMMANDER_BASE_CATS = (v: '2025' | '2026'): Categoria[] => [
     id: 'interior', nombre: 'Interior', specs: [
       { label: 'Tapicería',               valor: v === '2025' ? 'Piel Nappa Premium y gamuza café' : 'Piel Brown Commander' },
       { label: 'Pasajeros',               valor: '7' },
-      { label: 'Asientos delanteros',     valor: v === '2025' ? 'Eléctricos 8 vías' : 'Eléctricos 8 vías con memoria' },
+      { label: 'Asientos delanteros',     valor: v === '2025' ? 'Eléctricos 8 vías' : 'Eléctricos 8 vías (conductor con memoria)' },
       { label: 'Pantalla principal',      valor: v === '2025' ? 'Uconnect® 10.1" + Clúster 10.25"' : 'Infoentretenimiento 10.1"' },
       { label: 'Audio',                   valor: v === '2025' ? 'Harman Kardon® 9 bocinas + Subwoofer' : 'Sistema de audio premium' },
       { label: 'Carga inalámbrica',       valor: 'Sí' },
@@ -430,6 +430,7 @@ const COMPASS_2026_HIGH_ALTITUDE: Categoria[] = merge(COMPASS_2026_ALTITUDE, {
     'Torque':                  '221 lb-pie @ 1,750 rpm',
     'Transmisión':             'Automática 8 velocidades 8F30',
     'Tracción':                'AWD',
+    'Paletas al volante':      'No — cambios Autostick en palanca',
     'Diámetro de giro':        '15.7 m',
     'Suspensión':              'Delantera McPherson; trasera Chapman con eslabones de acero, resortes helicoidales + barra estabilizadora',
     'Ángulos off-road':        'Entrada 16.1° | ventral 22.6° | salida 31.4°',
@@ -447,12 +448,14 @@ const COMPASS_2026_HIGH_ALTITUDE: Categoria[] = merge(COMPASS_2026_ALTITUDE, {
     'Consola frontal':            'Deslizable con descansabrazos',
     'Descansabrazos trasero':     'Con porta vasos',
     'Quemacocos':                 'Techo panorámico',
-    'Ajuste lumbar conductor':    'Eléctrico 2 vías',
+    'Ajuste lumbar conductor':    '2 vías',
     'Sistema purificación aire':  'Sí (Jeep®)',
     'Ventilas 2ª fila':           'Sí',
   },
   exterior: {
     'Espejos laterales':            'Plegables manualmente, ajuste eléctrico, calefactables, con indicadores',
+    'Faros de niebla':              '—',
+    'Neumáticos':                   '235/45R19 BSW All Season',
     'Peso vehicular':               '1,711 kg',
     'Peso bruto':                   '2,177 kg',
     'Ancho':                        '1,874 mm',
@@ -464,8 +467,9 @@ const COMPASS_2026_HIGH_ALTITUDE: Categoria[] = merge(COMPASS_2026_ALTITUDE, {
     'Open & Go':                    'Sí',
   },
   seguridad: {
-    'Bolsa rodillas conductor': 'Sí',
-    'Acceso pasivo':            'Puertas frontales',
+    'Bolsa rodillas conductor':  'Sí',
+    'Acceso pasivo':             'Puertas frontales',
+    'Asistencia estacionamiento':'Trasera',
   },
 })
 
@@ -1086,7 +1090,7 @@ const WRANGLER_WILLYS: Categoria[] = [
   },
   {
     id: 'seguridad', nombre: 'Seguridad', specs: [
-      { label: 'Cámara Off-Road',                     valor: 'Sí' },
+      { label: 'Cámara Off-Road',                     valor: 'No incluida' },
       { label: 'Acceso pasivo',                       valor: 'Puertas delanteras' },
       { label: 'Sensores estacionamiento',            valor: 'Traseros' },
       { label: 'Monitor de punto ciego',              valor: 'Sí' },
@@ -1152,6 +1156,9 @@ const WRANGLER_SAHARA: Categoria[] = merge(WRANGLER_WILLYS, {
     'Protectores umbral':    'Acero inoxidable',
     'Peso bruto':            '2,540 kg',
     'Capacidad de arrastre': '1,588 kg',
+  },
+  seguridad: {
+    'Cámara Off-Road': 'Sí',
   },
 })
 
@@ -1228,7 +1235,7 @@ const JT_WILLYS: Categoria[] = [
       { label: 'Placa protección tanque',        valor: 'Sí' },
       { label: 'Placa protección transmisión',   valor: 'Sí' },
       { label: 'Placa protección caja transferencia',valor: 'Sí' },
-      { label: 'Placa protección bajo chasis',   valor: 'Sí' },
+      { label: 'Placa protección bajo chasis',   valor: 'No incluida' },
       { label: 'Transmisión',                    valor: 'Automática 8 velocidades 850RE' },
       { label: 'Tracción',                       valor: 'Command-Trac® 4WD tiempo parcial' },
       { label: 'Sistema Selec Speed Control',    valor: 'Sí' },
@@ -1245,10 +1252,10 @@ const JT_WILLYS: Categoria[] = [
       { label: 'Batería',                        valor: '700 A libre de mantenimiento' },
       { label: 'Batería auxiliar',               valor: 'Sí' },
       { label: 'Salida 12V auxiliar',            valor: 'Sí' },
-      { label: 'Salida 115V auxiliar',           valor: 'Sí + 115V AC exterior' },
+      { label: 'Salida 115V auxiliar',           valor: 'No incluida' },
       { label: 'Banco interruptores auxiliares', valor: 'Sí' },
       { label: 'Banco interruptores Off-Road',   valor: 'No incluido' },
-      { label: 'Inversor de potencia',           valor: '400 W' },
+      { label: 'Inversor de potencia',           valor: 'No incluido' },
       { label: 'Ángulos off-road',               valor: 'Entrada 40.8° | ventral 18.4° | salida 25°' },
     ],
   },
@@ -1368,7 +1375,10 @@ const JT_RUBICON: Categoria[] = merge(JT_WILLYS, {
     'Sistema E-locker':          'Eje trasero y frontal',
     'Relación eje trasero':      '4.10',
     'Diámetro de giro':          '13.7 m',
+    'Placa protección bajo chasis':'Sí',
+    'Salida 115V auxiliar':      'Sí + 115V AC exterior',
     'Banco interruptores Off-Road':'Sí',
+    'Inversor de potencia':      '400 W',
     'Ángulos off-road':          'Entrada 43.4° | ventral 20.3° | salida 26°',
   },
   interior: {
