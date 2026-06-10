@@ -4,20 +4,18 @@
 > Cada versión muestra su ficha COMPLETA y final, tal como aparece en el sitio.
 > NO editar este archivo a mano: es un volcado de los datos del código.
 
+
 ---
 
 # JEEP
 
 ## Jeep Grand Cherokee 2026
-
 `id: grand-cherokee-2026` · 4 versión(es)
 
 ### Versión: Altitude 4X2
-
 `versionId: altitude-4x2`
 
 #### Desempeño
-
 - **Motor:** Hurricane Turbo W/ESS
 - **Potencia:** 324 hp
 - **Torque:** 332 lb-pie
@@ -36,7 +34,6 @@
 - **Capacidad de carga:** 476 kg
 
 #### Interior
-
 - **Pasajeros:** 5
 - **Filas de asientos:** 2
 - **Tapicería:** Leatherette y gamuza
@@ -73,7 +70,6 @@
 - **Volante:** Tecnopiel
 
 #### Exterior
-
 - **Neumáticos:** 265/50R20 Performance A/S
 - **Rines:** Aluminio 20×8.5 negro brillante
 - **Quemacocos:** Eléctrico
@@ -92,7 +88,6 @@
 - **Distancia entre ejes:** 2,964 mm
 
 #### Seguridad
-
 - **Frenos ABS 4 ruedas:** Sí
 - **Control de estabilidad:** Sí
 - **Crucero adaptativo (ACC):** Con Stop & Go
@@ -118,11 +113,9 @@
 - **Alarma:** Sí
 
 ### Versión: Limited 4X4
-
 `versionId: limited-4x4`
 
 #### Desempeño
-
 - **Motor:** Hurricane Turbo W/ESS
 - **Potencia:** 324 hp
 - **Torque:** 332 lb-pie
@@ -141,7 +134,6 @@
 - **Capacidad de carga:** 476 kg
 
 #### Interior
-
 - **Pasajeros:** 5
 - **Filas de asientos:** 2
 - **Tapicería:** Piel Nappa
@@ -178,9 +170,8 @@
 - **Volante:** Tecnopiel
 
 #### Exterior
-
 - **Neumáticos:** 265/50R20 Performance A/S
-- **Rines:** 20×8.5 negro (diseño Overland)
+- **Rines:** 20×8.5 en color negro
 - **Quemacocos:** Eléctrico
 - **Techo panorámico:** Doble panel panorámico
 - **Exterior bitono:** No
@@ -197,7 +188,6 @@
 - **Distancia entre ejes:** 2,964 mm
 
 #### Seguridad
-
 - **Frenos ABS 4 ruedas:** Sí
 - **Control de estabilidad:** Sí
 - **Crucero adaptativo (ACC):** Con Stop & Go
@@ -223,11 +213,9 @@
 - **Alarma:** Sí
 
 ### Versión: Limited L 4X4
-
 `versionId: limited-l-4x4`
 
 #### Desempeño
-
 - **Motor:** Hurricane Turbo W/ESS
 - **Potencia:** 324 hp
 - **Torque:** 332 lb-pie
@@ -246,7 +234,6 @@
 - **Capacidad de carga:** 476 kg
 
 #### Interior
-
 - **Pasajeros:** 7
 - **Filas de asientos:** 3
 - **Tapicería:** Piel Nappa
@@ -283,9 +270,8 @@
 - **Volante:** Tecnopiel
 
 #### Exterior
-
 - **Neumáticos:** 265/50R20 Performance A/S
-- **Rines:** 20×8.5 negro (diseño Overland)
+- **Rines:** 20×8.5 en color negro
 - **Quemacocos:** Eléctrico
 - **Techo panorámico:** Doble panel panorámico
 - **Exterior bitono:** No
@@ -302,7 +288,6 @@
 - **Distancia entre ejes:** 2,964 mm
 
 #### Seguridad
-
 - **Frenos ABS 4 ruedas:** Sí
 - **Control de estabilidad:** Sí
 - **Crucero adaptativo (ACC):** Con Stop & Go
@@ -328,11 +313,9 @@
 - **Alarma:** Sí
 
 ### Versión: Summit 4X4
-
 `versionId: summit-4x4`
 
 #### Desempeño
-
 - **Motor:** Hurricane Turbo W/ESS
 - **Potencia:** 324 hp
 - **Torque:** 332 lb-pie
@@ -351,7 +334,6 @@
 - **Capacidad de carga:** 476 kg
 
 #### Interior
-
 - **Pasajeros:** 7
 - **Filas de asientos:** 3
 - **Tapicería:** Piel Palermo
@@ -388,7 +370,6 @@
 - **Volante:** Piel
 
 #### Exterior
-
 - **Neumáticos:** 275/45R21XL All Season
 - **Rines:** 21×9.0 maquinados
 - **Quemacocos:** Eléctrico
@@ -407,7 +388,6 @@
 - **Distancia entre ejes:** 2,964 mm
 
 #### Seguridad
-
 - **Frenos ABS 4 ruedas:** Sí
 - **Control de estabilidad:** Sí
 - **Crucero adaptativo (ACC):** Con Stop & Go
@@ -433,15 +413,12 @@
 - **Alarma:** Sí
 
 ## Jeep Commander 2026
-
 `id: commander-2026` · 1 versión(es)
 
 ### Versión: Overland
-
 `versionId: overland-2026`
 
 #### Desempeño
-
 - **Motor:** 1.3 L Turbo
 - **Potencia:** 173 hp @ 5,750 rpm
 - **Torque:** 199 lb-ft @ 1,850 rpm
@@ -453,10 +430,9 @@
 - **Peso bruto vehicular:** 2,255 kg
 
 #### Interior
-
 - **Tapicería:** Piel Brown Commander
 - **Pasajeros:** 7
-- **Asientos delanteros:** Eléctricos 8 vías con memoria
+- **Asientos delanteros:** Eléctricos 8 vías (conductor con memoria)
 - **Pantalla principal:** Infoentretenimiento 10.1"
 - **Audio:** Sistema de audio premium
 - **Carga inalámbrica:** Sí
@@ -466,7 +442,6 @@
 - **Cajuela:** 661 L
 
 #### Exterior
-
 - **Rines:** Overland 19" — 235/50 R19
 - **Techo:** Bitono negro
 - **Maletero:** Eléctrico con manos libres
@@ -480,7 +455,6 @@
 - **Colores exteriores:** Negro, Plata metálico, Granito cristal, Slash gold
 
 #### Seguridad
-
 - **Frenos ABS:** Sí
 - **Control de estabilidad:** VDC
 - **Crucero adaptativo (ACC):** Sí
@@ -497,15 +471,12 @@
 - **Monitor presión neumáticos:** Sí
 
 ## Jeep Compass 2026
-
 `id: jeep-compass-2026` · 3 versión(es)
 
 ### Versión: Limited Premium
-
 `versionId: limited-premium`
 
 #### Desempeño
-
 - **Motor:** 1.3 L Turbo
 - **Potencia:** 173 hp @5,750 rpm
 - **Torque:** 199 lb-pie @1,850 rpm
@@ -528,7 +499,6 @@
 - **Maletero:** 476 L | 1,180 L asiento abatido
 
 #### Interior
-
 - **Tapicería:** Piel Black
 - **Asiento conductor:** Manual 6 vías
 - **Ajuste lumbar conductor:** —
@@ -560,7 +530,6 @@
 - **Quemacocos:** Eléctrico
 
 #### Exterior
-
 - **Iluminación frontal:** LED automática
 - **Iluminación diurna LED:** —
 - **Faros de niebla:** LED
@@ -585,7 +554,6 @@
 - **Colores disponibles:** Negro Diamante, Blanco Polar, Gris Granito, Azul Jazz
 
 #### Seguridad
-
 - **Frenos ABS:** Disco frontal/trasero
 - **Freno de estacionamiento:** Eléctrico
 - **Arranque en pendientes (HSA):** Sí
@@ -624,11 +592,9 @@
 - **Monitor punto ciego:** —
 
 ### Versión: Altitude
-
 `versionId: altitude`
 
 #### Desempeño
-
 - **Motor:** 1.3 L Turbo
 - **Potencia:** 173 hp @5,750 rpm
 - **Torque:** 199 lb-pie @1,850 rpm
@@ -651,7 +617,6 @@
 - **Maletero:** 476 L | 1,180 L asiento abatido
 
 #### Interior
-
 - **Tapicería:** Piel Black
 - **Asiento conductor:** Eléctrico 8 vías
 - **Ajuste lumbar conductor:** —
@@ -683,7 +648,6 @@
 - **Quemacocos:** Eléctrico
 
 #### Exterior
-
 - **Iluminación frontal:** LED automática
 - **Iluminación diurna LED:** —
 - **Faros de niebla:** LED
@@ -708,7 +672,6 @@
 - **Colores disponibles:** Negro Diamante, Blanco Polar, Gris Granito, Azul Jazz
 
 #### Seguridad
-
 - **Frenos ABS:** Disco frontal/trasero
 - **Freno de estacionamiento:** Eléctrico
 - **Arranque en pendientes (HSA):** Sí
@@ -747,11 +710,9 @@
 - **Monitor punto ciego:** Sí
 
 ### Versión: High Altitude
-
 `versionId: high-altitude`
 
 #### Desempeño
-
 - **Motor:** 2.0L I4 DOHC DI Turbo
 - **Potencia:** 200 hp @ 5,000 rpm
 - **Torque:** 221 lb-pie @ 1,750 rpm
@@ -762,7 +723,7 @@
 - **Tracción:** AWD
 - **Caja de transferencia:** Active Drive Full Time 4x4
 - **Sistema Selec Terrain:** Sí
-- **Paletas al volante:** Sí
+- **Paletas al volante:** No — cambios Autostick en palanca
 - **Columna de dirección:** Ajustable
 - **Dirección:** Eléctrica
 - **Diámetro de giro:** 15.7 m
@@ -774,10 +735,9 @@
 - **Maletero:** 476 L | 1,180 L asiento abatido
 
 #### Interior
-
 - **Tapicería:** Piel
 - **Asiento conductor:** Eléctrico 8 vías
-- **Ajuste lumbar conductor:** Eléctrico 2 vías
+- **Ajuste lumbar conductor:** 2 vías
 - **Asiento pasajero:** Manual 6 vías
 - **Cristales:** Eléctricos
 - **Desempañante trasero:** Sí
@@ -806,10 +766,9 @@
 - **Quemacocos:** Techo panorámico
 
 #### Exterior
-
 - **Iluminación frontal:** LED automática
 - **Iluminación diurna LED:** Sí
-- **Faros de niebla:** LED
+- **Faros de niebla:** —
 - **Entrada con cortesía:** Sí
 - **Espejos laterales:** Plegables manualmente, ajuste eléctrico, calefactables, con indicadores
 - **Cambio de luces inteligente:** Sí
@@ -817,7 +776,7 @@
 - **Manijas:** Al color de la carrocería
 - **Barras de toldo:** Black
 - **Rines:** Aluminio 19"
-- **Neumáticos:** 235/45R19
+- **Neumáticos:** 235/45R19 BSW All Season
 - **Techo:** Negro – bitono
 - **Cristales con tinte profundo:** Sí
 - **Puerta de maletero:** Eléctrica con activación con pie
@@ -831,7 +790,6 @@
 - **Colores disponibles:** Plata Metálico, Negro Diamante, Blanco Brillante
 
 #### Seguridad
-
 - **Frenos ABS:** Disco frontal/trasero
 - **Freno de estacionamiento:** Eléctrico
 - **Arranque en pendientes (HSA):** Sí
@@ -852,7 +810,7 @@
 - **Bolsas de aire laterales:** Asiento
 - **Bolsa de aire cortina:** Sí
 - **Bolsa rodillas conductor:** Sí
-- **Asistencia estacionamiento:** Paralelo y perpendicular
+- **Asistencia estacionamiento:** Trasera
 - **Sensores estacionamiento:** Sí
 - **TPMS:** Sí
 - **Smart Key:** Sí
@@ -870,15 +828,12 @@
 - **Monitor punto ciego:** Sí
 
 ## Jeep Cherokee Híbrido 2026
-
 `id: cherokee-hibrido-2026` · 2 versión(es)
 
 ### Versión: Limited 4X4
-
 `versionId: limited-4x4`
 
 #### Desempeño
-
 - **Sistema híbrido:** 3 motores
 - **Potencia combinada:** 210 hp
 - **Torque combinado:** 230 lb-ft
@@ -901,7 +856,6 @@
 - **Rendimiento combinado:** 15.73 km/L
 
 #### Dimensiones y Capacidades
-
 - **Largo total:** 4,778 mm
 - **Ancho sin espejos:** 1,898 mm
 - **Ancho con espejos:** 2,123 mm
@@ -919,7 +873,6 @@
 - **Volumen carga (2ª abatida):** 1,934 L
 
 #### Exterior
-
 - **Rines:** Aluminio 18", maquinado/pintado
 - **Neumáticos:** 225/60R18 BSW A/S
 - **Llanta de refacción:** Compacta
@@ -954,7 +907,6 @@
 - **Emblema:** Limited
 
 #### Interior
-
 - **Pasajeros:** 5
 - **Clúster:** Pantalla a color 10.25"
 - **A/C:** Automático 2 zonas
@@ -1007,7 +959,6 @@
 - **Proyección mapas en clúster:** No incluida
 
 #### Seguridad
-
 - **Alarma de seguridad:** Sí
 - **Bolsas de aire frontales:** Avanzadas multietapas
 - **Clasificación de ocupante:** Sí
@@ -1052,11 +1003,9 @@
 - **ParkSense® estacionamiento automatiz.:** No incluido
 
 ### Versión: Overland 4X4
-
 `versionId: overland-4x4`
 
 #### Desempeño
-
 - **Sistema híbrido:** 3 motores
 - **Potencia combinada:** 210 hp
 - **Torque combinado:** 230 lb-ft
@@ -1079,7 +1028,6 @@
 - **Rendimiento combinado:** 15.73 km/L
 
 #### Dimensiones y Capacidades
-
 - **Largo total:** 4,778 mm
 - **Ancho sin espejos:** 1,898 mm
 - **Ancho con espejos:** 2,123 mm
@@ -1097,7 +1045,6 @@
 - **Volumen carga (2ª abatida):** 1,934 L
 
 #### Exterior
-
 - **Rines:** Aluminio 20", maquinado/pintado
 - **Neumáticos:** 235/50R20XL Pirelli A/S Performance
 - **Llanta de refacción:** Compacta
@@ -1132,7 +1079,6 @@
 - **Emblema:** Overland
 
 #### Interior
-
 - **Pasajeros:** 5
 - **Clúster:** Pantalla a color 10.25"
 - **A/C:** Automático 2 zonas
@@ -1185,7 +1131,6 @@
 - **Proyección mapas en clúster:** Sí
 
 #### Seguridad
-
 - **Alarma de seguridad:** Sí
 - **Bolsas de aire frontales:** Avanzadas multietapas
 - **Clasificación de ocupante:** Sí
@@ -1230,15 +1175,12 @@
 - **ParkSense® estacionamiento automatiz.:** Sí
 
 ## Jeep Grand Wagoneer L 2026
-
 `id: grand-wagoneer-l-2026` · 1 versión(es)
 
 ### Versión: Limited 4X4
-
 `versionId: limited-4x4`
 
 #### Desempeño
-
 - **Motor:** 3.0 L I6 Hurricane Twin Turbo ESS
 - **Potencia:** 420 hp @ 5,200 rpm
 - **Torque:** 469 lb-ft @ 3,500 rpm
@@ -1267,7 +1209,6 @@
 - **Volumen máximo de carga:** 3.2 m³
 
 #### Interior
-
 - **Tapicería:** Piel negra
 - **Pasajeros:** 7
 - **Asientos delanteros ventilados:** Sí
@@ -1309,7 +1250,6 @@
 - **Head-Up Display:** Sí (en parabrisas)
 
 #### Exterior
-
 - **Parrilla:** 7 barras con iluminación LED
 - **Parrilla frontal:** Negro brillante
 - **Iluminación frontal:** LED automática
@@ -1340,7 +1280,6 @@
 - **Colores disponibles:** Plata Zynith, Negro High Gloss, Blanco Brillante, Gris Báltico
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **Asistencia avanzada de frenos:** Sí
 - **Asistencia de frenos en lluvia:** Sí
@@ -1376,15 +1315,12 @@
 - **Freno de estacionamiento:** Eléctrico
 
 ## Jeep Renegade 2026
-
 `id: renegade-2026` · 2 versión(es)
 
 ### Versión: Latitude
-
 `versionId: latitude`
 
 #### Desempeño
-
 - **Motor:** 1.3 L Turbo
 - **Potencia:** 173 hp @ 5,750 rpm
 - **Torque:** 199 lb-pie @ 1,850 rpm
@@ -1406,7 +1342,6 @@
 - **Ángulos off-road:** Entrada 22° | ventral 31° | salida 22°
 
 #### Interior
-
 - **Tapicería:** Piel
 - **Asientos traseros:** 60/40
 - **Asiento conductor:** Manual 6 vías
@@ -1436,7 +1371,6 @@
 - **Parasol:** Con espejo de vanidad e iluminación
 
 #### Exterior
-
 - **Iluminación frontal:** LED
 - **Lámparas traseras:** LED
 - **Faros de niebla:** Sí
@@ -1455,7 +1389,6 @@
 - **Colores disponibles:** Negro Carbón, Gris Granito, Gris Mantarraya
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **Freno de estacionamiento:** Eléctrico
 - **Control de estabilidad (ESC):** Sí
@@ -1490,11 +1423,9 @@
 - **Sensor de lluvia:** No incluido
 
 ### Versión: Limited "S"
-
 `versionId: limited-s`
 
 #### Desempeño
-
 - **Motor:** 1.3 L Turbo
 - **Potencia:** 173 hp @ 5,750 rpm
 - **Torque:** 199 lb-pie @ 1,850 rpm
@@ -1516,7 +1447,6 @@
 - **Ángulos off-road:** Entrada 21° | ventral 30° | salida 21°
 
 #### Interior
-
 - **Tapicería:** Piel
 - **Asientos traseros:** 60/40
 - **Asiento conductor:** Manual 6 vías
@@ -1546,7 +1476,6 @@
 - **Parasol:** Con espejo de vanidad e iluminación
 
 #### Exterior
-
 - **Iluminación frontal:** LED automáticas
 - **Lámparas traseras:** LED
 - **Faros de niebla:** Sí
@@ -1565,7 +1494,6 @@
 - **Colores disponibles:** Gris Granito, Gris Mantarraya, Blanco Polar
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **Freno de estacionamiento:** Eléctrico
 - **Control de estabilidad (ESC):** Sí
@@ -1600,15 +1528,12 @@
 - **Sensor de lluvia:** Sí
 
 ## Jeep Wrangler 2026
-
 `id: wrangler-2026` · 4 versión(es)
 
 ### Versión: Willys
-
 `versionId: willys`
 
 #### Desempeño
-
 - **Motor:** 2.0 L I4 DOHC DI Turbo / ESS
 - **Potencia:** 270 hp @ 5,250 rpm
 - **Torque:** 295 lb-ft @ 3,000 rpm
@@ -1635,7 +1560,6 @@
 - **Ángulos off-road:** Entrada 41.4° | ventral 20.3° | salida 36.1°
 
 #### Interior
-
 - **Tapicería:** Tela Black
 - **Paneles de puertas premium:** No incluidos
 - **Asientos frontales calefactables:** No incluidos
@@ -1669,7 +1593,6 @@
 - **Volante:** Forrado en piel
 
 #### Exterior
-
 - **Iluminación frontal:** LED automática
 - **Control luces altas auto:** Sí
 - **Luces diurnas (DRL):** LED
@@ -1707,8 +1630,7 @@
 - **Colores disponibles:** Granito Cristal, Rojo Fire, Blanco Brillante, Anvil, Negro
 
 #### Seguridad
-
-- **Cámara Off-Road:** Sí
+- **Cámara Off-Road:** No incluida
 - **Acceso pasivo:** Puertas delanteras
 - **Sensores estacionamiento:** Traseros
 - **Monitor de punto ciego:** Sí
@@ -1739,11 +1661,9 @@
 - **Alarma:** Sí
 
 ### Versión: Sahara
-
 `versionId: sahara`
 
 #### Desempeño
-
 - **Motor:** 2.0 L I4 DOHC DI Turbo / ESS
 - **Potencia:** 270 hp @ 5,250 rpm
 - **Torque:** 295 lb-ft @ 3,000 rpm
@@ -1770,7 +1690,6 @@
 - **Ángulos off-road:** Entrada 41.8° | ventral 21° | salida 36.1°
 
 #### Interior
-
 - **Tapicería:** McKinley Black
 - **Paneles de puertas premium:** Sí
 - **Asientos frontales calefactables:** Sí
@@ -1804,7 +1723,6 @@
 - **Volante:** Forrado en piel premium
 
 #### Exterior
-
 - **Iluminación frontal:** LED automática
 - **Control luces altas auto:** Sí
 - **Luces diurnas (DRL):** LED
@@ -1842,7 +1760,6 @@
 - **Colores disponibles:** Granito Cristal, Rojo Fire, Blanco Brillante, Anvil, Negro
 
 #### Seguridad
-
 - **Cámara Off-Road:** Sí
 - **Acceso pasivo:** Puertas delanteras
 - **Sensores estacionamiento:** Traseros
@@ -1874,11 +1791,9 @@
 - **Alarma:** Sí
 
 ### Versión: Rubicon 4 Puertas
-
 `versionId: rubicon-4p`
 
 #### Desempeño
-
 - **Motor:** 2.0 L I4 DOHC DI Turbo / ESS
 - **Potencia:** 270 hp @ 5,250 rpm
 - **Torque:** 295 lb-ft @ 3,000 rpm
@@ -1905,7 +1820,6 @@
 - **Ángulos off-road:** Entrada 43.9° | ventral 22.6° | salida 37°
 
 #### Interior
-
 - **Tapicería:** Piel Napa Black
 - **Paneles de puertas premium:** Sí
 - **Asientos frontales calefactables:** Sí
@@ -1939,7 +1853,6 @@
 - **Volante:** Forrado en piel premium
 
 #### Exterior
-
 - **Iluminación frontal:** LED automática
 - **Control luces altas auto:** Sí
 - **Luces diurnas (DRL):** LED
@@ -1977,7 +1890,6 @@
 - **Colores disponibles:** Granito Cristal, Rojo Fire, Blanco Brillante, Anvil, Negro
 
 #### Seguridad
-
 - **Cámara Off-Road:** Sí
 - **Acceso pasivo:** Puertas delanteras
 - **Sensores estacionamiento:** Traseros
@@ -2009,11 +1921,9 @@
 - **Alarma:** Sí
 
 ### Versión: Rubicon 2 Puertas
-
 `versionId: rubicon-2p`
 
 #### Desempeño
-
 - **Motor:** 2.0 L I4 DOHC DI Turbo / ESS
 - **Potencia:** 270 hp @ 5,250 rpm
 - **Torque:** 295 lb-ft @ 3,000 rpm
@@ -2040,7 +1950,6 @@
 - **Ángulos off-road:** Entrada 44° | ventral 27.8° | salida 37°
 
 #### Interior
-
 - **Tapicería:** Piel Napa Black
 - **Paneles de puertas premium:** Sí
 - **Asientos frontales calefactables:** Sí
@@ -2074,7 +1983,6 @@
 - **Volante:** Forrado en piel premium
 
 #### Exterior
-
 - **Iluminación frontal:** LED automática
 - **Control luces altas auto:** Sí
 - **Luces diurnas (DRL):** LED
@@ -2112,7 +2020,6 @@
 - **Colores disponibles:** Granito Cristal, Rojo Fire, Blanco Brillante, Anvil, Negro
 
 #### Seguridad
-
 - **Cámara Off-Road:** Sí
 - **Acceso pasivo:** Puertas delanteras
 - **Sensores estacionamiento:** Traseros
@@ -2144,15 +2051,12 @@
 - **Alarma:** Sí
 
 ## Jeep JT (Gladiator) 2026
-
 `id: jt-2026` · 3 versión(es)
 
 ### Versión: Willys
-
 `versionId: willys`
 
 #### Desempeño
-
 - **Motor:** Pentastar 3.6 L V6 24V VVT
 - **Potencia:** 285 hp @ 6,400 rpm
 - **Torque:** 260 lb-pie @ 4,400 rpm
@@ -2160,7 +2064,7 @@
 - **Placa protección tanque:** Sí
 - **Placa protección transmisión:** Sí
 - **Placa protección caja transferencia:** Sí
-- **Placa protección bajo chasis:** Sí
+- **Placa protección bajo chasis:** No incluida
 - **Transmisión:** Automática 8 velocidades 850RE
 - **Tracción:** Command-Trac® 4WD tiempo parcial
 - **Sistema Selec Speed Control:** Sí
@@ -2177,14 +2081,13 @@
 - **Batería:** 700 A libre de mantenimiento
 - **Batería auxiliar:** Sí
 - **Salida 12V auxiliar:** Sí
-- **Salida 115V auxiliar:** Sí + 115V AC exterior
+- **Salida 115V auxiliar:** No incluida
 - **Banco interruptores auxiliares:** Sí
 - **Banco interruptores Off-Road:** No incluido
-- **Inversor de potencia:** 400 W
+- **Inversor de potencia:** No incluido
 - **Ángulos off-road:** Entrada 40.8° | ventral 18.4° | salida 25°
 
 #### Interior
-
 - **Tapicería:** Tela Black
 - **Asiento conductor:** Manual 6 vías con lumbar manual 2 vías + ajuste altura
 - **Asiento pasajero:** Manual 4 vías
@@ -2221,7 +2124,6 @@
 - **Espejo retrovisor:** Día/noche manual
 
 #### Exterior
-
 - **Iluminación frontal:** LED
 - **Luces altas automáticas:** Sí
 - **Luces diurnas (DRL):** Sí
@@ -2256,7 +2158,6 @@
 - **Colores disponibles:** Granito, Blanco, Negro
 
 #### Seguridad
-
 - **Frenos ABS:** Disco Heavy Duty 4 ruedas
 - **Asistencia hidráulica de frenos:** Sí
 - **Control de estabilidad (ESC):** Sí
@@ -2289,11 +2190,9 @@
 - **Kit herramientas TORX:** Sí
 
 ### Versión: Rubicon
-
 `versionId: rubicon`
 
 #### Desempeño
-
 - **Motor:** Pentastar 3.6 L V6 24V VVT
 - **Potencia:** 285 hp @ 6,400 rpm
 - **Torque:** 260 lb-pie @ 4,400 rpm
@@ -2325,7 +2224,6 @@
 - **Ángulos off-road:** Entrada 43.4° | ventral 20.3° | salida 26°
 
 #### Interior
-
 - **Tapicería:** Piel Nappa Black
 - **Asiento conductor:** Eléctrico 8 vías con lumbar eléctrico 4 vías
 - **Asiento pasajero:** Eléctrico 8 vías con lumbar eléctrico 4 vías
@@ -2362,7 +2260,6 @@
 - **Espejo retrovisor:** Electrocrómico
 
 #### Exterior
-
 - **Iluminación frontal:** LED
 - **Luces altas automáticas:** Sí
 - **Luces diurnas (DRL):** Sí
@@ -2397,7 +2294,6 @@
 - **Colores disponibles:** Granito, Blanco, Anvil, Negro
 
 #### Seguridad
-
 - **Frenos ABS:** Disco Heavy Duty 4 ruedas
 - **Asistencia hidráulica de frenos:** Sí
 - **Control de estabilidad (ESC):** Sí
@@ -2430,11 +2326,9 @@
 - **Kit herramientas TORX:** Sí
 
 ### Versión: Mojave
-
 `versionId: mojave`
 
 #### Desempeño
-
 - **Motor:** Pentastar 3.6 L V6 24V VVT
 - **Potencia:** 285 hp @ 6,400 rpm
 - **Torque:** 260 lb-pie @ 4,400 rpm
@@ -2466,7 +2360,6 @@
 - **Ángulos off-road:** Entrada 44.7° | ventral 20.9° | salida 25.5°
 
 #### Interior
-
 - **Tapicería:** Piel Mojave Black/Green
 - **Asiento conductor:** Eléctrico 8 vías con lumbar eléctrico 4 vías
 - **Asiento pasajero:** Eléctrico 8 vías con lumbar eléctrico 4 vías
@@ -2503,7 +2396,6 @@
 - **Espejo retrovisor:** Electrocrómico
 
 #### Exterior
-
 - **Iluminación frontal:** LED
 - **Luces altas automáticas:** Sí
 - **Luces diurnas (DRL):** Sí
@@ -2538,7 +2430,6 @@
 - **Colores disponibles:** Granito, Blanco, Anvil, Negro
 
 #### Seguridad
-
 - **Frenos ABS:** Disco Heavy Duty 4 ruedas
 - **Asistencia hidráulica de frenos:** Sí
 - **Control de estabilidad (ESC):** Sí
@@ -2575,15 +2466,12 @@
 # DODGE
 
 ## Dodge Attitude 2026
-
 `id: attitude-2026` · 3 versión(es)
 
 ### Versión: SXT
-
 `versionId: sxt`
 
 #### Desempeño
-
 - **Motor:** 1.5L Turbo GDI
 - **Potencia:** 168 HP
 - **Torque:** 184 lb-ft
@@ -2603,7 +2491,6 @@
 - **Altura:** 1,432 mm
 
 #### Exterior
-
 - **Faros delanteros:** LED (ajuste de altura / función "Sígueme a casa")
 - **DRL:** LED
 - **Luces de niebla traseras:** Sí
@@ -2618,7 +2505,6 @@
 - **Colores disponibles:** Blanco brillante, Granito
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual
 - **Asiento conductor:** Ajuste manual 6 vías
@@ -2638,7 +2524,6 @@
 - **Filtro de aire:** Sí
 
 #### Tecnología y Entretenimiento
-
 - **Panel de instrumentos:** LCD 7" configurable
 - **Pantalla infotainment:** No incluida
 - **Audio:** DTS 6 bocinas
@@ -2651,7 +2536,6 @@
 - **Sistema de manos libres:** Sí
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP (Estabilidad Electrónica):** Sí
 - **EBD (Distribución de frenado):** Sí
@@ -2676,11 +2560,9 @@
 - **Alarma antirrobo:** Sí
 
 ### Versión: Sport
-
 `versionId: sport`
 
 #### Desempeño
-
 - **Motor:** 1.5L Turbo GDI
 - **Potencia:** 168 HP
 - **Torque:** 184 lb-ft
@@ -2700,7 +2582,6 @@
 - **Altura:** 1,432 mm
 
 #### Exterior
-
 - **Faros delanteros:** LED (ajuste de altura / función "Sígueme a casa")
 - **DRL:** LED
 - **Luces de niebla traseras:** Sí
@@ -2715,7 +2596,6 @@
 - **Colores disponibles:** Blanco brillante, Granito, Plata estelar, Negro brillante
 
 #### Interior
-
 - **Tapicería:** Piel sintética
 - **A/C:** Automático doble zona
 - **Asiento conductor:** Eléctrico 6 vías
@@ -2735,7 +2615,6 @@
 - **Filtro de aire:** Sí
 
 #### Tecnología y Entretenimiento
-
 - **Panel de instrumentos:** LCD 10.25" configurable
 - **Pantalla infotainment:** 10.25" LCD a color
 - **Audio:** DTS 8 bocinas
@@ -2748,7 +2627,6 @@
 - **Sistema de manos libres:** Sí
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP (Estabilidad Electrónica):** Sí
 - **EBD (Distribución de frenado):** Sí
@@ -2773,11 +2651,9 @@
 - **Alarma antirrobo:** Sí
 
 ### Versión: GT
-
 `versionId: gt`
 
 #### Desempeño
-
 - **Motor:** 1.5L Turbo GDI
 - **Potencia:** 168 HP
 - **Torque:** 184 lb-ft
@@ -2797,7 +2673,6 @@
 - **Altura:** 1,432 mm
 
 #### Exterior
-
 - **Faros delanteros:** LED (ajuste de altura / función "Sígueme a casa")
 - **DRL:** LED
 - **Luces de niebla traseras:** Sí
@@ -2812,7 +2687,6 @@
 - **Colores disponibles:** Blanco brillante, Granito, Plata estelar, Negro brillante
 
 #### Interior
-
 - **Tapicería:** Piel sintética
 - **A/C:** Automático doble zona
 - **Asiento conductor:** Eléctrico 6 vías
@@ -2832,7 +2706,6 @@
 - **Filtro de aire:** Sí
 
 #### Tecnología y Entretenimiento
-
 - **Panel de instrumentos:** LCD 10.25" configurable
 - **Pantalla infotainment:** 10.25" LCD a color
 - **Audio:** DTS 8 bocinas
@@ -2845,7 +2718,6 @@
 - **Sistema de manos libres:** Sí
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP (Estabilidad Electrónica):** Sí
 - **EBD (Distribución de frenado):** Sí
@@ -2870,15 +2742,12 @@
 - **Alarma antirrobo:** Sí
 
 ## Dodge Journey 2026
-
 `id: journey-2026` · 3 versión(es)
 
 ### Versión: SXT
-
 `versionId: sxt`
 
 #### Desempeño
-
 - **Motor:** 1.5 L Turbo DCVVT 4I GDI
 - **Potencia:** 156 HP
 - **Torque:** 184 lb-pie
@@ -2898,23 +2767,21 @@
 - **Altura:** 1,700 mm
 
 #### Exterior
-
-- **Faros delanteros:** Halógenos
+- **Faros delanteros:** LED
 - **Faros de niebla:** LED
 - **DRL:** LED
 - **Luces traseras:** LED
 - **Alerón trasero con luz LED:** Sí
-- **Espejos laterales:** Eléctricos abatibles, calefactables, con luz direccional
+- **Espejos laterales:** Eléctricos ajustables con luz direccional
 - **Espejos con tilt down:** No incluido
 - **Quemacocos:** Estándar (protección contra atascos)
 - **Techo panorámico:** No incluido
 - **Cajuela eléctrica:** No incluida
 - **Estribos laterales:** No incluidos
 - **Rieles en techo:** Funcionales integrados
-- **Sensor de lluvia/luz:** Sí
+- **Sensor de lluvia/luz:** No incluido
 
 #### Interior
-
 - **Tapicería:** Tela con insertos en piel sintética
 - **Asiento conductor:** Eléctrico 8 vías
 - **Asiento pasajero:** Manual
@@ -2925,7 +2792,7 @@
 - **A/C:** Automático doble zona
 - **Espejo retrovisor interior:** Manual día/noche
 - **Iluminación ambiental:** No incluida
-- **Cargador inalámbrico:** No incluido
+- **Cargador inalámbrico:** Sí
 - **Purificador de aire:** No incluido
 - **Segunda fila:** Abatible 60/40 y respaldos reclinables
 - **Puertos USB delanteros:** 2
@@ -2933,21 +2800,19 @@
 - **Volante:** Multifuncional en piel, ajuste altura y profundidad
 
 #### Tecnología y Entretenimiento
-
 - **Apple CarPlay:** No incluido
-- **Android Auto:** No incluido
+- **Android Auto:** Sí
 - **MirrorLink®:** No incluido
-- **Keyless Entry & GO®:** No incluido
+- **Keyless Entry & GO®:** Sí
 - **Cámara de reversa:** Sí
 - **Visión 360°:** No incluida
 - **Audio:** 6 bocinas
-- **Cargador tel. inalámbrico:** No incluido
+- **Cargador tel. inalámbrico:** Sí
 - **Cierre express:** No incluido
-- **Modo Sport:** No incluido
+- **Modo Sport:** Sí
 - **Sistema Start & Stop:** Sí
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP (Estabilidad Electrónica):** Sí
 - **EBD (Distribución de frenado):** Sí
@@ -2955,22 +2820,20 @@
 - **Bolsas de aire:** Frontales + cortina + laterales delanteras
 - **Advertencia colisión frontal (FCW):** No incluida
 - **Advertencia salida de carril (LDW):** No incluida
-- **Descenso de pendientes (HDC):** No incluido
+- **Descenso de pendientes (HDC):** Sí
 - **Luces inteligentes Smartbeam:** No incluidas
 - **Arranque en pendiente (HSA):** Sí
 - **Frenado hidráulico (HBA):** Sí
 - **Sensores de estacionamiento:** Delanteros y traseros
-- **Cinturones 2ª fila con pretensores:** No incluidos
+- **Cinturones 2ª fila con pretensores:** Sí
 - **ISOFIX:** Sí
 - **TPMS (presión de llantas):** Sí
 - **Alarma antirrobo:** Sí
 
 ### Versión: Sport
-
 `versionId: sport`
 
 #### Desempeño
-
 - **Motor:** 1.5 L Turbo DCVVT 4I GDI
 - **Potencia:** 156 HP
 - **Torque:** 184 lb-pie
@@ -2990,7 +2853,6 @@
 - **Altura:** 1,700 mm
 
 #### Exterior
-
 - **Faros delanteros:** LED
 - **Faros de niebla:** LED
 - **DRL:** LED
@@ -2998,15 +2860,14 @@
 - **Alerón trasero con luz LED:** Sí
 - **Espejos laterales:** Eléctricos abatibles, calefactables, con luz direccional
 - **Espejos con tilt down:** Sí
-- **Quemacocos:** Estándar (protección contra atascos)
-- **Techo panorámico:** No incluido
+- **Quemacocos:** Techo panorámico
+- **Techo panorámico:** Sí
 - **Cajuela eléctrica:** No incluida
 - **Estribos laterales:** No incluidos
 - **Rieles en techo:** Funcionales integrados
 - **Sensor de lluvia/luz:** Sí
 
 #### Interior
-
 - **Tapicería:** Piel sintética Leatherette negra
 - **Asiento conductor:** Eléctrico 10 vías con 3 memorias y entrada de cortesía
 - **Asiento pasajero:** Eléctrico 4 vías
@@ -3025,7 +2886,6 @@
 - **Volante:** Multifuncional en piel, ajuste altura y profundidad
 
 #### Tecnología y Entretenimiento
-
 - **Apple CarPlay:** Sí
 - **Android Auto:** Sí
 - **MirrorLink®:** No incluido
@@ -3035,11 +2895,10 @@
 - **Audio:** 6 bocinas
 - **Cargador tel. inalámbrico:** Sí
 - **Cierre express:** Sí (cristales y quemacocos)
-- **Modo Sport:** No incluido
+- **Modo Sport:** Sí
 - **Sistema Start & Stop:** Sí
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP (Estabilidad Electrónica):** Sí
 - **EBD (Distribución de frenado):** Sí
@@ -3048,7 +2907,7 @@
 - **Advertencia colisión frontal (FCW):** Sí
 - **Advertencia salida de carril (LDW):** Sí
 - **Descenso de pendientes (HDC):** Sí
-- **Luces inteligentes Smartbeam:** Sí
+- **Luces inteligentes Smartbeam:** No incluidas
 - **Arranque en pendiente (HSA):** Sí
 - **Frenado hidráulico (HBA):** Sí
 - **Sensores de estacionamiento:** Delanteros y traseros
@@ -3058,11 +2917,9 @@
 - **Alarma antirrobo:** Sí
 
 ### Versión: GT Plus
-
 `versionId: gt-plus`
 
 #### Desempeño
-
 - **Motor:** 1.5 L Turbo DCVVT 4I GDI
 - **Potencia:** 156 HP
 - **Torque:** 184 lb-pie
@@ -3082,7 +2939,6 @@
 - **Altura:** 1,700 mm
 
 #### Exterior
-
 - **Faros delanteros:** LED
 - **Faros de niebla:** LED
 - **DRL:** LED
@@ -3091,15 +2947,14 @@
 - **Espejos laterales:** Eléctricos abatibles, calefactables, con luz direccional
 - **Espejos con tilt down:** Sí
 - **Quemacocos:** Techo panorámico
-- **Techo panorámico:** No incluido
+- **Techo panorámico:** Sí
 - **Cajuela eléctrica:** Eléctrica con apertura intermedia y anti atrapadura
 - **Estribos laterales:** Sí (con logotipo DODGE)
 - **Rieles en techo:** Funcionales integrados
 - **Sensor de lluvia/luz:** Sí
 
 #### Interior
-
-- **Tapicería:** Piel sintética Leatherette negra
+- **Tapicería:** Piel sintética Leatherette negra (roja opcional)
 - **Asiento conductor:** Eléctrico 10 vías con 3 memorias y entrada de cortesía
 - **Asiento pasajero:** Eléctrico 4 vías
 - **Memoria asiento conductor:** Sí (3 memorias)
@@ -3117,7 +2972,6 @@
 - **Volante:** Multifuncional en piel, ajuste altura y profundidad
 
 #### Tecnología y Entretenimiento
-
 - **Apple CarPlay:** Sí
 - **Android Auto:** Sí
 - **MirrorLink®:** Sí
@@ -3131,7 +2985,6 @@
 - **Sistema Start & Stop:** Sí
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP (Estabilidad Electrónica):** Sí
 - **EBD (Distribución de frenado):** Sí
@@ -3150,15 +3003,12 @@
 - **Alarma antirrobo:** Sí
 
 ## Dodge Durango Hellcat 2026
-
 `id: durango-hellcat-2026` · 2 versión(es)
 
 ### Versión: Road Predator Edition
-
 `versionId: road-predator`
 
 #### Desempeño
-
 - **Motor:** 6.2L supercargado HEMI V8 SRT
 - **Potencia:** 710 HP
 - **Torque:** 645 lb-ft
@@ -3177,7 +3027,6 @@
 - **Alimentación 12V:** Delantera y trasera
 
 #### Interior
-
 - **Pasajeros:** 6 (3 filas)
 - **Tapicería:** Piel laguna Demonic Red (alto desempeño)
 - **A/C:** Automático 3 zonas
@@ -3200,7 +3049,6 @@
 - **Cinturones:** Color Hammerhead Grey
 
 #### Exterior
-
 - **Rines:** 20" × 10" Forged Y-Spoke Lights Out
 - **Neumáticos:** 295/45ZR20 BSW All Season
 - **Frenos delanteros:** Brembo® con calipers rojos
@@ -3223,7 +3071,6 @@
 - **Llanta de refacción:** Incluida
 
 #### Seguridad
-
 - **Frenos ABS HD:** Disco
 - **Frenos Brembo®:** Delanteros
 - **Frenos asistencia lluvia:** Sí + Ready Alert
@@ -3241,11 +3088,9 @@
 - **Seguros de puertas:** Eléctricos
 
 ### Versión: Red Fury
-
 `versionId: red-fury`
 
 #### Desempeño
-
 - **Motor:** 6.2L supercargado HEMI V8 SRT
 - **Potencia:** 710 HP
 - **Torque:** 645 lb-ft
@@ -3264,7 +3109,6 @@
 - **Alimentación 12V:** Delantera y trasera
 
 #### Interior
-
 - **Pasajeros:** 5 (2 filas)
 - **Tapicería:** Piel negro (alto desempeño)
 - **A/C:** Automático 3 zonas
@@ -3287,7 +3131,6 @@
 - **Cinturones:** Color rojo
 
 #### Exterior
-
 - **Rines:** 20" × 10" Forged Y-Spoke Lights Out
 - **Neumáticos:** 295/45ZR20 BSW All Season
 - **Frenos delanteros:** Brembo® con calipers rojos
@@ -3310,7 +3153,6 @@
 - **Llanta de refacción:** No incluida
 
 #### Seguridad
-
 - **Frenos ABS HD:** Disco
 - **Frenos Brembo®:** Delanteros
 - **Frenos asistencia lluvia:** Sí + Ready Alert
@@ -3332,15 +3174,12 @@
 # FIAT
 
 ## Fiat Pulse 2026
-
 `id: fiat-pulse-2026` · 2 versión(es)
 
 ### Versión: Drive
-
 `versionId: drive`
 
 #### Desempeño
-
 - **Motor:** 1.3 L
 - **Potencia:** 97 hp @ 6,000 rpm
 - **Torque:** 94 lb-pie @ 4,000 rpm
@@ -3358,7 +3197,6 @@
 - **Consumo combinado:** 18.24 km/L
 
 #### Exterior
-
 - **Faros:** LED
 - **Luces diurnas (DRL):** LED
 - **Luces traseras:** LED
@@ -3380,7 +3218,6 @@
 - **Colores disponibles:** Blanco Banchisa, Plata Bari, Rojo Montecarlo, Gris Silverstone
 
 #### Interior
-
 - **Tapicería:** Tela Plus
 - **A/C:** Automático con filtro antipolen
 - **Ajuste longitudinal asientos:** Manual
@@ -3396,7 +3233,6 @@
 - **Volante:** Con ajuste de altura
 
 #### Tecnología y Entretenimiento
-
 - **Keyless Entry & Go®:** No incluido
 - **Cargador inalámbrico:** Sí
 - **Cargador USB trasero:** Tipo A + Tipo C
@@ -3409,7 +3245,6 @@
 - **Cámara de reversa:** HD con ParkView® líneas activas
 
 #### Seguridad
-
 - **Alarma:** Sí
 - **Arranque en pendiente (HSA):** Con freno automático
 - **Asistencia de frenado de emergencia:** Sí
@@ -3434,11 +3269,9 @@
 - **TPMS:** Sí
 
 ### Versión: Drive Plus
-
 `versionId: drive-plus`
 
 #### Desempeño
-
 - **Motor:** 1.3 L
 - **Potencia:** 97 hp @ 6,000 rpm
 - **Torque:** 94 lb-pie @ 4,000 rpm
@@ -3456,7 +3289,6 @@
 - **Consumo combinado:** 19.13 km/L
 
 #### Exterior
-
 - **Faros:** LED
 - **Luces diurnas (DRL):** LED
 - **Luces traseras:** LED
@@ -3478,7 +3310,6 @@
 - **Colores disponibles:** Blanco Banchisa, Plata Bari, Rojo Montecarlo, Gris Silverstone
 
 #### Interior
-
 - **Tapicería:** Tela Plus
 - **A/C:** Automático con filtro antipolen
 - **Ajuste longitudinal asientos:** Manual
@@ -3494,7 +3325,6 @@
 - **Volante:** Con ajuste de altura
 
 #### Tecnología y Entretenimiento
-
 - **Keyless Entry & Go®:** Sí
 - **Cargador inalámbrico:** Sí
 - **Cargador USB trasero:** Tipo A + Tipo C
@@ -3507,7 +3337,6 @@
 - **Cámara de reversa:** HD con ParkView® líneas activas
 
 #### Seguridad
-
 - **Alarma:** Sí
 - **Arranque en pendiente (HSA):** Con freno automático
 - **Asistencia de frenado de emergencia:** Sí
@@ -3532,15 +3361,12 @@
 - **TPMS:** Sí
 
 ## Fiat Pulse Abarth 2026
-
 `id: fiat-pulse-abarth-2026` · 1 versión(es)
 
 ### Versión: Abarth
-
 `versionId: abarth`
 
 #### Desempeño
-
 - **Motor:** 1.3 L Turbo
 - **Potencia:** 173 hp @ 5,750 rpm
 - **Torque:** 198 lb-pie @ 1,850 rpm
@@ -3561,7 +3387,6 @@
 - **Consumo combinado:** 16.29 km/L
 
 #### Exterior
-
 - **Faros:** LED
 - **Luces diurnas (DRL):** LED
 - **Luces traseras:** LED
@@ -3591,7 +3416,6 @@
 - **Colores disponibles:** Negro Vulcano; Rojo Montecarlo / Gris Strato / Blanco Banchisa (con techo negro)
 
 #### Interior
-
 - **A/C:** Automático con control eléctrico y filtro antipolen
 - **Tapicería:** Piel con diseño ABARTH
 - **Asientos deportivos:** Sí
@@ -3610,7 +3434,6 @@
 - **Volante:** Ajuste altura y profundidad, forrado en piel
 
 #### Tecnología y Entretenimiento
-
 - **Keyless Entry & Go®:** Sí
 - **Cargador inalámbrico:** Sí
 - **Cargador USB trasero:** Tipo A + Tipo C
@@ -3625,7 +3448,6 @@
 - **Tilt down retrovisores en reversa:** Sí
 
 #### Seguridad
-
 - **Alarma:** Sí
 - **Lane Assist:** Con corrección automática
 - **Alerta colisión frontal:** Con frenado automático
@@ -3653,15 +3475,12 @@
 - **TPMS:** Sí
 
 ## Fiat Fastback 2026
-
 `id: fiat-fastback-2026` · 1 versión(es)
 
 ### Versión: Impetus
-
 `versionId: impetus`
 
 #### Desempeño
-
 - **Motor:** 1.3 L Turbo
 - **Potencia:** 173 hp @ 5,750 rpm
 - **Torque:** 198 lb-pie @ 1,850 rpm
@@ -3681,7 +3500,6 @@
 - **Consumo combinado:** 17.07 km/L
 
 #### Exterior
-
 - **Faros:** LED
 - **Luces diurnas (DRL):** LED
 - **Luces traseras:** LED
@@ -3707,7 +3525,6 @@
 - **Colores disponibles:** Blanco Banchisa, Gris Strato, Gris Silverstone (todos con techo negro Vulcano)
 
 #### Interior
-
 - **A/C:** Digital automático con filtro antipolen
 - **Tapicería:** Piel
 - **Ajuste longitudinal asientos:** Conductor eléctrico 6 vías
@@ -3724,7 +3541,6 @@
 - **Volante:** Ajuste altura y profundidad, forrado en piel
 
 #### Tecnología y Entretenimiento
-
 - **Keyless Entry & Go®:** Sí
 - **Cargador inalámbrico:** Sí
 - **Cargador USB trasero:** Tipo A + Tipo C
@@ -3739,7 +3555,6 @@
 - **Sensor de lluvia:** Sí (limpiaparabrisas)
 
 #### Seguridad
-
 - **Alarma:** Sí
 - **Alerta de punto ciego:** Sí (NUEVO)
 - **Lane Assist:** Con corrección automática
@@ -3771,15 +3586,12 @@
 # PEUGEOT
 
 ## Peugeot Expert 2026
-
 `id: expert-2026` · 2 versión(es)
 
 ### Versión: SC Furgón
-
 `versionId: furgon-sc`
 
 #### Desempeño
-
 - **Motor:** Turbo Diésel directo 2.0L (1,997 cc)
 - **Potencia:** 150 hp @ 4,000 rpm
 - **Torque neto:** 370 Nm @ 2,000 rpm
@@ -3799,7 +3611,6 @@
 - **Emisiones CO₂:** 146 g/km
 
 #### Área de Carga
-
 - **Volumen de carga:** 6.1 m³
 - **Capacidad de carga:** 1,400 kg
 - **Largo área de carga:** 2,862 mm
@@ -3813,7 +3624,6 @@
 - **Peso bruto vehicular:** 3,060 kg
 
 #### Dimensiones
-
 - **Largo total:** 5,333 mm
 - **Ancho con retrovisores:** 2,204 mm
 - **Alto:** 1,935 – 1,940 mm
@@ -3823,7 +3633,6 @@
 - **Puertas:** 5
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual
 - **Asiento conductor:** Individual con reposacabezas, descansabrazos y ajuste de altura/profundidad/inclinación
@@ -3837,7 +3646,6 @@
 - **Volante:** Con control de audio, ajuste de altura y profundidad
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **Encendido automático:** Sí (Pack Visibilidad)
 - **Sensor de lluvia:** Sí (Pack Visibilidad)
@@ -3846,7 +3654,6 @@
 - **Color disponible:** Blanco Icy
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP (Estabilidad):** Sí
 - **ASR (Tracción):** Sí
@@ -3855,7 +3662,7 @@
 - **Arranque en pendiente:** Hill Assist Control
 - **Control crucero:** Sí + limitador de velocidad
 - **Cámara de reversa:** No incluida
-- **Cierre centralizado auto.:** No incluido
+- **Cierre centralizado auto.:** Con bloqueo automático durante la conducción
 - **Sensores estacionamiento:** Traseros
 - **Monitor presión llantas:** Sí
 - **Alerta atención conductor:** Sí
@@ -3864,11 +3671,9 @@
 - **Llanta de refacción:** Homogénea
 
 ### Versión: FL Furgón
-
 `versionId: furgon-fl`
 
 #### Desempeño
-
 - **Motor:** Turbo Diésel directo 2.0L (1,997 cc)
 - **Potencia:** 150 hp @ 4,000 rpm
 - **Torque neto:** 370 Nm @ 2,000 rpm
@@ -3888,7 +3693,6 @@
 - **Emisiones CO₂:** 146 g/km
 
 #### Área de Carga
-
 - **Volumen de carga:** 6.1 m³
 - **Capacidad de carga:** 1,400 kg
 - **Largo área de carga:** 2,862 mm
@@ -3902,7 +3706,6 @@
 - **Peso bruto vehicular:** 3,060 kg
 
 #### Dimensiones
-
 - **Largo total:** 5,333 mm
 - **Ancho con retrovisores:** 2,204 mm
 - **Alto:** 1,935 – 1,940 mm
@@ -3912,7 +3715,6 @@
 - **Puertas:** 5
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual
 - **Asiento conductor:** Individual con reposacabezas, descansabrazos y ajuste de altura/profundidad/inclinación
@@ -3926,7 +3728,6 @@
 - **Volante:** Con control de audio, ajuste de altura y profundidad
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **Encendido automático:** Sí (Pack Visibilidad)
 - **Sensor de lluvia:** Sí (Pack Visibilidad)
@@ -3935,7 +3736,6 @@
 - **Color disponible:** Blanco Icy
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP (Estabilidad):** Sí
 - **ASR (Tracción):** Sí
@@ -3953,15 +3753,12 @@
 - **Llanta de refacción:** Homogénea
 
 ## Peugeot Rifter 2026
-
 `id: rifter-2026` · 2 versión(es)
 
 ### Versión: PureTech (Gasolina)
-
 `versionId: puretech-gasolina`
 
 #### Desempeño
-
 - **Motor:** PureTech 1.2L Turbo Gasolina (1,199 cc)
 - **Potencia:** 130 hp @ 5,500 rpm
 - **Torque neto:** 230 Nm @ 1,750 rpm
@@ -3982,7 +3779,6 @@
 - **Capacidad de arrastre:** 950 kg
 
 #### Dimensiones y Capacidades
-
 - **Largo total:** 4,755 mm
 - **Ancho con retrovisores:** 2,107 mm
 - **Alto:** 1,837 mm
@@ -3995,7 +3791,6 @@
 - **Peso bruto vehicular:** 2,280 kg
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Automático Bi-Zona
 - **Asiento conductor:** Ajuste de altura, profundidad, inclinación y lumbar
@@ -4018,7 +3813,6 @@
 - **Ganchos cajuela:** 4
 
 #### Exterior
-
 - **Faros:** LED
 - **Faros antiniebla:** Sí
 - **Sensor de luz y lluvia:** Sí (Pack Visibilidad)
@@ -4029,10 +3823,9 @@
 - **Barras de techo:** Sí
 - **Cristales traseros:** Tintados
 - **Tercera luz de freno:** Sí
-- **Colores disponibles:** Blanco Icy, Gris Artense, Azul Libeccio, Taranaki
+- **Colores disponibles:** Blanco Icy, Gris Artense, Azul Libeccio
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP + ASR:** Sí
 - **Bolsas de aire:** 6 (frontales + laterales + cortina)
@@ -4050,11 +3843,9 @@
 - **Llanta de refacción:** Sí
 
 ### Versión: HDI (Diésel)
-
 `versionId: hdi-diesel`
 
 #### Desempeño
-
 - **Motor:** 1.6L Turbo HDI Diésel (1,560 cc)
 - **Potencia:** 90 hp @ 4,000 rpm
 - **Torque neto:** 230 Nm @ 1,500 rpm
@@ -4075,7 +3866,6 @@
 - **Capacidad de arrastre:** 850 kg
 
 #### Dimensiones y Capacidades
-
 - **Largo total:** 4,755 mm
 - **Ancho con retrovisores:** 2,107 mm
 - **Alto:** 1,837 mm
@@ -4088,7 +3878,6 @@
 - **Peso bruto vehicular:** 2,260 kg
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Automático Bi-Zona
 - **Asiento conductor:** Ajuste de altura, profundidad, inclinación y lumbar
@@ -4111,7 +3900,6 @@
 - **Ganchos cajuela:** 4
 
 #### Exterior
-
 - **Faros:** LED
 - **Faros antiniebla:** Sí
 - **Sensor de luz y lluvia:** Sí (Pack Visibilidad)
@@ -4122,10 +3910,9 @@
 - **Barras de techo:** Sí
 - **Cristales traseros:** Tintados
 - **Tercera luz de freno:** Sí
-- **Colores disponibles:** Blanco Icy, Gris Artense, Azul Libeccio, Taranaki
+- **Colores disponibles:** Blanco Icy, Gris Artense, Azul Libeccio
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP + ASR:** Sí
 - **Bolsas de aire:** 6 (frontales + laterales + cortina)
@@ -4143,15 +3930,12 @@
 - **Llanta de refacción:** Sí
 
 ## Peugeot Partner Rapid 2026
-
 `id: partner-rapid-2026` · 1 versión(es)
 
 ### Versión: Partner Rapid
-
 `versionId: partner-rapid`
 
 #### Desempeño
-
 - **Motor:** FireFly 1.3L Gasolina (1,332 cc)
 - **Potencia:** 97 hp @ 6,000 rpm
 - **Torque neto:** 129 Nm @ 4,250 rpm
@@ -4169,7 +3953,6 @@
 - **Emisiones CO₂:** 135.4 g/km
 
 #### Área de Carga
-
 - **Volumen de carga:** 3.3 m³
 - **Capacidad de carga:** 650 kg
 - **Capacidad de arrastre:** 400 kg
@@ -4184,7 +3967,6 @@
 - **Peso bruto vehicular:** 1,801 kg
 
 #### Dimensiones
-
 - **Largo total:** 4,407 mm
 - **Ancho con retrovisores:** 1,885 mm
 - **Alto:** 1,900 mm
@@ -4195,7 +3977,6 @@
 - **Color disponible:** Blanco Banquise
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual
 - **Asiento conductor:** Ajuste de altura, inclinación y profundidad
@@ -4208,19 +3989,18 @@
 - **Volante:** Con ajuste de altura
 
 #### Exterior
-
 - **Faros:** Halógeno con función "follow me home"
 - **Faros antiniebla:** Sí
 - **Espejos laterales:** Con ajuste eléctrico
 - **Tercera luz de freno:** Sí
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP + ASR:** Sí
 - **Bolsas de aire:** Frontales conductor y pasajero
 - **Arranque en pendiente:** Hill Assist Control
 - **ESS (freno emergencia):** Señal de luces de frenado de emergencia
+- **Cierre centralizado auto.:** Con bloqueo automático durante la conducción
 - **Sensores estacionamiento:** Traseros
 - **Monitor presión llantas:** Sí
 - **Alarma antirrobo:** Perimétrica
@@ -4228,39 +4008,37 @@
 - **Llanta de refacción:** Sí
 
 ## Peugeot Manager FL 2026
-
 `id: manager-fl-2026` · 2 versión(es)
 
 ### Versión: L2H2
-
 `versionId: l2h2`
 
 #### Desempeño
-
-- **Motor:** 2.2L Turbo Diésel Euro VI
-- **Potencia:** 138 hp
+- **Motor:** 2.2L Turbo Diésel Euro VI (2,184 cc)
+- **Potencia:** 138 hp @ 3,500 rpm
 - **Torque neto:** 350 Nm @ 1,400 rpm
 - **Combustible:** Diésel
 - **Transmisión:** Manual 6 velocidades
 - **Tracción:** FWD
 - **Dirección:** Asistencia Eléctrica (EPS)
-- **Suspensión delantera:** McPherson
-- **Suspensión trasera:** Barra de torsión
-- **Frenos delanteros:** Discos
-- **Frenos traseros:** Discos
+- **Suspensión delantera:** Independiente McPherson
+- **Suspensión trasera:** Barra de torsión reforzada
+- **Frenos delanteros:** Discos ventilados
+- **Frenos traseros:** Discos sólidos
 - **Velocidad máxima:** 132 km/h
 - **Tanque de combustible:** 90 litros
 - **Tanque AdBlue:** 19 litros
 
 #### Área de Carga
-
 - **Volumen de carga:** 11.5 m³
 - **Capacidad de carga:** 1,850 kg
+- **Largo área de carga:** 3,120 mm
 - **Ancho área de carga:** 1,870 mm
 - **Alto área de carga:** 1,932 mm
+- **Pared divisoria:** Desmontable entre cabina y área de carga
+- **Toma de 12V:** Sí (área de carga)
 
 #### Dimensiones
-
 - **Largo total:** 5,413 mm
 - **Ancho total:** 2,609 mm
 - **Alto total:** 2,524 mm
@@ -4271,63 +4049,71 @@
 - **Rines:** Acero 16"
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual
 - **Asiento conductor:** Individual con ajuste manual
 - **Asiento(s) pasajero:** Individual con ajuste manual
 - **Almacenamiento bajo asiento conductor:** No incluido
+- **Pantalla:** Táctil 7" — Apple CarPlay® y Android Auto®
+- **Clúster:** LCD 3.5"
+- **Cristales delanteros:** Eléctricos
+- **Consola superior:** Portadocumentos
+- **Alerta de marcha trasera:** Sí
 - **Freno de estacionamiento:** Mecánico
 
 #### Exterior
-
-- **Faros:** Halógeno
-- **Espejos laterales:** Con ajuste eléctrico
+- **Faros:** Halógeno con DRL
+- **Espejos laterales:** Calefactables con ajuste eléctrico
+- **Puerta lateral:** Corrediza
+- **Puertas traseras:** Configuración 50/50, apertura 270°
+- **Tercera luz de freno:** Sí
 - **Señalizaciones laterales:** No incluidas
 - **Color disponible:** Blanco Icy
 
 #### Seguridad
-
 - **ABS:** Sí
-- **ESP + ASR:** Sí
+- **ESP:** Sí
+- **AFU (frenado urgencia):** Sí
+- **Asistente viento cruzado (CWA):** Sí
 - **Bolsas de aire:** Frontales conductor y pasajero
 - **Arranque en pendiente:** Hill Assist Control
 - **Control crucero:** Sí + limitador de velocidad
+- **Cámara de reversa:** Sí
+- **Cierre centralizado:** Sí
 - **Sensores estacionamiento:** Traseros
 - **Monitor presión llantas:** Sí
-- **Alerta atención conductor:** Sí
-- **Placa protección motor:** Sí
+- **Llanta de refacción:** Sí
+- **Suspensión reforzada:** Sí
 
 ### Versión: L4H2
-
 `versionId: l4h2`
 
 #### Desempeño
-
-- **Motor:** 2.2L Turbo Diésel Euro VI
-- **Potencia:** 138 hp
+- **Motor:** 2.2L Turbo Diésel Euro VI (2,184 cc)
+- **Potencia:** 138 hp @ 3,500 rpm
 - **Torque neto:** 350 Nm @ 1,400 rpm
 - **Combustible:** Diésel
 - **Transmisión:** Manual 6 velocidades
 - **Tracción:** FWD
 - **Dirección:** Asistencia Eléctrica (EPS)
-- **Suspensión delantera:** McPherson
-- **Suspensión trasera:** Barra de torsión
-- **Frenos delanteros:** Discos
-- **Frenos traseros:** Discos
+- **Suspensión delantera:** Independiente McPherson
+- **Suspensión trasera:** Barra de torsión reforzada
+- **Frenos delanteros:** Discos ventilados
+- **Frenos traseros:** Discos sólidos
 - **Velocidad máxima:** 132 km/h
 - **Tanque de combustible:** 90 litros
 - **Tanque AdBlue:** 19 litros
 
 #### Área de Carga
-
 - **Volumen de carga:** 15 m³
 - **Capacidad de carga:** 1,850 kg
+- **Largo área de carga:** 4,070 mm
 - **Ancho área de carga:** 1,870 mm
 - **Alto área de carga:** 1,932 mm
+- **Pared divisoria:** Desmontable entre cabina y área de carga
+- **Toma de 12V:** Sí (área de carga)
 
 #### Dimensiones
-
 - **Largo total:** 6,363 mm
 - **Ancho total:** 2,609 mm
 - **Alto total:** 2,524 mm
@@ -4338,43 +4124,49 @@
 - **Rines:** Acero 16"
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual
 - **Asiento conductor:** Individual con ajuste manual
 - **Asiento(s) pasajero:** Banca "Eat&Work" para 2 pasajeros
 - **Almacenamiento bajo asiento conductor:** Sí
+- **Pantalla:** Táctil 7" — Apple CarPlay® y Android Auto®
+- **Clúster:** LCD 3.5"
+- **Cristales delanteros:** Eléctricos
+- **Consola superior:** Portadocumentos
+- **Alerta de marcha trasera:** Sí
 - **Freno de estacionamiento:** Mecánico
 
 #### Exterior
-
-- **Faros:** Halógeno
-- **Espejos laterales:** Con ajuste eléctrico
+- **Faros:** Halógeno con DRL
+- **Espejos laterales:** Calefactables con ajuste eléctrico
+- **Puerta lateral:** Corrediza
+- **Puertas traseras:** Configuración 50/50, apertura 270°
+- **Tercera luz de freno:** Sí
 - **Señalizaciones laterales:** Sí
 - **Color disponible:** Blanco Icy
 
 #### Seguridad
-
 - **ABS:** Sí
-- **ESP + ASR:** Sí
+- **ESP:** Sí
+- **AFU (frenado urgencia):** Sí
+- **Asistente viento cruzado (CWA):** Sí
 - **Bolsas de aire:** Frontales conductor y pasajero
 - **Arranque en pendiente:** Hill Assist Control
 - **Control crucero:** Sí + limitador de velocidad
+- **Cámara de reversa:** Sí
+- **Cierre centralizado:** Sí
 - **Sensores estacionamiento:** Traseros
 - **Monitor presión llantas:** Sí
-- **Alerta atención conductor:** Sí
-- **Placa protección motor:** Sí
+- **Llanta de refacción:** Sí
+- **Suspensión reforzada:** Sí
 
 ## Peugeot Partner FL 2026
-
 `id: partner-fl-2026` · 3 versión(es)
 
 ### Versión: PureTech Maxi Pack
-
 `versionId: puretech-maxi-pack`
 
 #### Desempeño
-
 - **Motor:** PureTech 1.2L Turbo Gasolina (1,199 cc)
 - **Potencia:** 110 hp @ 5,500 rpm
 - **Torque neto:** 205 Nm @ 1,750 rpm
@@ -4394,7 +4186,6 @@
 - **Emisiones CO₂:** 131.4 g/km
 
 #### Área de Carga
-
 - **Volumen de carga:** 3.9 – 4.4 m³
 - **Capacidad de carga:** 950 kg
 - **Capacidad de arrastre:** 850 kg
@@ -4411,7 +4202,6 @@
 - **Peso bruto vehicular:** 2,290 kg
 
 #### Dimensiones
-
 - **Largo total:** 4,751 mm
 - **Ancho con retrovisores:** 2,107 mm
 - **Alto:** 1,860 mm
@@ -4421,7 +4211,6 @@
 - **Rines:** Acero 16" con tapón central
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual
 - **Asiento conductor:** Ajuste inclinación, altura y profundidad
@@ -4437,7 +4226,6 @@
 - **Toma de 12V:** Sí (cabina)
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **Faros antiniebla:** Sí
 - **Sensor de luz y lluvia:** Sensor de luz y lluvia (Pack Visibilidad)
@@ -4446,7 +4234,6 @@
 - **Colores disponibles:** Blanco Icy, Gris Artense
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP + ASR:** Sí
 - **AFU (frenado urgencia):** Sí
@@ -4462,11 +4249,9 @@
 - **Llanta de refacción:** Homogénea
 
 ### Versión: HDI Maxi
-
 `versionId: hdi-maxi`
 
 #### Desempeño
-
 - **Motor:** 1.6L Turbo HDI Diésel (1,560 cc)
 - **Potencia:** 90 hp @ 4,000 rpm
 - **Torque neto:** 230 Nm @ 1,500 rpm
@@ -4486,7 +4271,6 @@
 - **Emisiones CO₂:** 130 g/km
 
 #### Área de Carga
-
 - **Volumen de carga:** 3.9 m³
 - **Capacidad de carga:** 950 kg
 - **Capacidad de arrastre:** 850 kg
@@ -4494,7 +4278,7 @@
 - **Ancho área de carga:** 1,630 mm
 - **Alto área de carga:** 1,200 – 1,270 mm
 - **Ganchos de sujeción:** 6 en piso de área de carga
-- **Piso área de carga:** Cubierta plástica
+- **Piso área de carga:** Sin cubierta plástica
 - **Pared divisoria:** Fija (sin escotilla)
 - **Iluminación de carga:** Sí
 - **Acceso lateral:** Puerta corrediza
@@ -4503,7 +4287,6 @@
 - **Peso bruto vehicular:** 2,320 kg
 
 #### Dimensiones
-
 - **Largo total:** 4,751 mm
 - **Ancho con retrovisores:** 2,107 mm
 - **Alto:** 1,820 mm
@@ -4513,7 +4296,6 @@
 - **Rines:** Acero 16" con tapón central
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual
 - **Asiento conductor:** Ajuste inclinación, altura y profundidad
@@ -4529,7 +4311,6 @@
 - **Toma de 12V:** Sí (cabina)
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **Faros antiniebla:** No incluidos
 - **Sensor de luz y lluvia:** Solo sensor de luz (Pack Visibilidad)
@@ -4538,7 +4319,6 @@
 - **Colores disponibles:** Blanco Icy
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP + ASR:** Sí
 - **AFU (frenado urgencia):** Sí
@@ -4554,11 +4334,9 @@
 - **Llanta de refacción:** Homogénea
 
 ### Versión: HDI Maxi Pack
-
 `versionId: hdi-maxi-pack`
 
 #### Desempeño
-
 - **Motor:** 1.6L Turbo HDI Diésel (1,560 cc)
 - **Potencia:** 90 hp @ 4,000 rpm
 - **Torque neto:** 230 Nm @ 1,500 rpm
@@ -4578,13 +4356,12 @@
 - **Emisiones CO₂:** 130 g/km
 
 #### Área de Carga
-
 - **Volumen de carga:** 3.9 – 4.4 m³
 - **Capacidad de carga:** 950 kg
 - **Capacidad de arrastre:** 850 kg
 - **Largo área de carga:** 2,167 – 3,440 mm
 - **Ancho área de carga:** 1,630 mm
-- **Alto área de carga:** 1,270 mm
+- **Alto área de carga:** 1,200 – 1,270 mm
 - **Ganchos de sujeción:** 6 en piso de área de carga
 - **Piso área de carga:** Cubierta plástica
 - **Pared divisoria:** Fija con escotilla de conexión cabina–carga
@@ -4595,7 +4372,6 @@
 - **Peso bruto vehicular:** 2,340 kg
 
 #### Dimensiones
-
 - **Largo total:** 4,751 mm
 - **Ancho con retrovisores:** 2,107 mm
 - **Alto:** 1,860 mm
@@ -4605,7 +4381,6 @@
 - **Rines:** Acero 16" con tapón central
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual
 - **Asiento conductor:** Ajuste inclinación, altura y profundidad
@@ -4621,7 +4396,6 @@
 - **Toma de 12V:** Sí (cabina)
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **Faros antiniebla:** Sí
 - **Sensor de luz y lluvia:** Sensor de luz y lluvia (Pack Visibilidad)
@@ -4630,7 +4404,6 @@
 - **Colores disponibles:** Blanco Icy, Gris Artense
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP + ASR:** Sí
 - **AFU (frenado urgencia):** Sí
@@ -4646,15 +4419,12 @@
 - **Llanta de refacción:** Homogénea
 
 ## Peugeot Partner FL 2027
-
 `id: partner-fl-2027` · 2 versión(es)
 
 ### Versión: Maxi Pack
-
 `versionId: maxi-pack`
 
 #### Desempeño
-
 - **Motor:** PureTech 1.2L Turbo Gasolina (1,199 cc)
 - **Potencia:** 110 hp @ 5,500 rpm
 - **Torque neto:** 205 Nm @ 1,750 rpm
@@ -4674,7 +4444,6 @@
 - **Emisiones CO₂:** 131.4 g/km
 
 #### Área de Carga
-
 - **Volumen de carga:** 3.9 – 4.4 m³
 - **Capacidad de carga:** 950 kg
 - **Capacidad de arrastre:** 850 kg
@@ -4691,7 +4460,6 @@
 - **Peso bruto vehicular:** 2,290 kg
 
 #### Dimensiones
-
 - **Largo total:** 4,751 mm
 - **Ancho con retrovisores:** 2,107 mm
 - **Alto:** 1,860 mm
@@ -4701,7 +4469,6 @@
 - **Rines:** Acero 16" con tapón central
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual
 - **Asiento conductor:** Ajuste inclinación, altura y profundidad
@@ -4717,7 +4484,6 @@
 - **Toma de 12V:** Sí (cabina)
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **Faros antiniebla:** Sí
 - **Sensor de luz y lluvia:** Sensor de luz y lluvia (Pack Visibilidad)
@@ -4726,7 +4492,6 @@
 - **Colores disponibles:** Blanco Icy
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP + ASR:** Sí
 - **AFU (frenado urgencia):** Sí
@@ -4742,11 +4507,9 @@
 - **Llanta de refacción:** Homogénea
 
 ### Versión: HDI Maxi Pack
-
 `versionId: hdi-maxi-pack`
 
 #### Desempeño
-
 - **Motor:** 1.6L Turbo HDI Diésel (1,560 cc)
 - **Potencia:** 90 hp @ 4,000 rpm
 - **Torque neto:** 230 Nm @ 1,500 rpm
@@ -4766,7 +4529,6 @@
 - **Emisiones CO₂:** 130 g/km
 
 #### Área de Carga
-
 - **Volumen de carga:** 3.9 – 4.4 m³
 - **Capacidad de carga:** 950 kg
 - **Capacidad de arrastre:** 850 kg
@@ -4783,7 +4545,6 @@
 - **Peso bruto vehicular:** 2,340 kg
 
 #### Dimensiones
-
 - **Largo total:** 4,751 mm
 - **Ancho con retrovisores:** 2,107 mm
 - **Alto:** 1,860 mm
@@ -4793,7 +4554,6 @@
 - **Rines:** Acero 16" con tapón central
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual
 - **Asiento conductor:** Ajuste inclinación, altura y profundidad
@@ -4809,7 +4569,6 @@
 - **Toma de 12V:** Sí (cabina)
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **Faros antiniebla:** Sí
 - **Sensor de luz y lluvia:** Sensor de luz y lluvia (Pack Visibilidad)
@@ -4818,7 +4577,6 @@
 - **Colores disponibles:** Blanco Icy
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP + ASR:** Sí
 - **AFU (frenado urgencia):** Sí
@@ -4834,15 +4592,12 @@
 - **Llanta de refacción:** Homogénea
 
 ## Peugeot Rifter 2027
-
 `id: rifter-2027` · 2 versión(es)
 
 ### Versión: PureTech (Gasolina)
-
 `versionId: puretech-gasolina`
 
 #### Desempeño
-
 - **Motor:** PureTech 1.2L Turbo Gasolina (1,199 cc)
 - **Potencia:** 130 hp @ 5,500 rpm
 - **Torque neto:** 230 Nm @ 1,750 rpm
@@ -4863,7 +4618,6 @@
 - **Capacidad de arrastre:** 950 kg
 
 #### Dimensiones y Capacidades
-
 - **Largo total:** 4,755 mm
 - **Ancho con retrovisores:** 2,107 mm
 - **Alto:** 1,837 mm
@@ -4876,7 +4630,6 @@
 - **Peso bruto vehicular:** 2,280 kg
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Automático Bi-Zona
 - **Asiento conductor:** Ajuste de altura, profundidad, inclinación y lumbar
@@ -4899,7 +4652,6 @@
 - **Ganchos cajuela:** 4
 
 #### Exterior
-
 - **Faros:** LED
 - **Faros antiniebla:** Sí
 - **Sensor de luz y lluvia:** Sí (Pack Visibilidad)
@@ -4910,10 +4662,9 @@
 - **Barras de techo:** Sí
 - **Cristales traseros:** Tintados
 - **Tercera luz de freno:** Sí
-- **Colores disponibles:** Blanco Icy, Gris Artense, Azul Libeccio, Taranaki
+- **Colores disponibles:** Blanco Icy, Gris Artense, Azul Libeccio
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP + ASR:** Sí
 - **Bolsas de aire:** 6 (frontales + laterales + cortina)
@@ -4931,11 +4682,9 @@
 - **Llanta de refacción:** Sí
 
 ### Versión: HDI (Diésel)
-
 `versionId: hdi-diesel`
 
 #### Desempeño
-
 - **Motor:** 1.6L Turbo HDI Diésel (1,560 cc)
 - **Potencia:** 90 hp @ 4,000 rpm
 - **Torque neto:** 230 Nm @ 1,500 rpm
@@ -4956,7 +4705,6 @@
 - **Capacidad de arrastre:** 850 kg
 
 #### Dimensiones y Capacidades
-
 - **Largo total:** 4,755 mm
 - **Ancho con retrovisores:** 2,107 mm
 - **Alto:** 1,837 mm
@@ -4969,7 +4717,6 @@
 - **Peso bruto vehicular:** 2,260 kg
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Automático Bi-Zona
 - **Asiento conductor:** Ajuste de altura, profundidad, inclinación y lumbar
@@ -4992,7 +4739,6 @@
 - **Ganchos cajuela:** 4
 
 #### Exterior
-
 - **Faros:** LED
 - **Faros antiniebla:** Sí
 - **Sensor de luz y lluvia:** Sí (Pack Visibilidad)
@@ -5003,10 +4749,9 @@
 - **Barras de techo:** Sí
 - **Cristales traseros:** Tintados
 - **Tercera luz de freno:** Sí
-- **Colores disponibles:** Blanco Icy, Gris Artense, Azul Libeccio, Taranaki
+- **Colores disponibles:** Blanco Icy, Gris Artense, Azul Libeccio
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP + ASR:** Sí
 - **Bolsas de aire:** 6 (frontales + laterales + cortina)
@@ -5024,15 +4769,12 @@
 - **Llanta de refacción:** Sí
 
 ## Peugeot 2008 FL 2026
-
 `id: 2008-fl-2026` · 2 versión(es)
 
 ### Versión: Allure Pack
-
 `versionId: allure-pack`
 
 #### Desempeño
-
 - **Motor:** PureTech 1.2L Turbo Gasolina (1,199 cc)
 - **Potencia:** 130 hp @ 5,500 rpm
 - **Torque neto:** 230 Nm @ 1,750 rpm
@@ -5053,7 +4795,6 @@
 - **Emisiones CO₂:** 130.4 g/km
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 4,304 mm
 - **Ancho con retrovisores:** 1,987 mm
 - **Alto:** 1,523 – 1,550 mm
@@ -5066,7 +4807,6 @@
 - **Peso bruto vehicular:** 1,730 kg
 
 #### Interior
-
 - **Tapicería:** Tela y piel
 - **A/C:** Automático
 - **Asiento conductor:** Confort — ajuste manual de altura y profundidad
@@ -5085,7 +4825,6 @@
 - **Toma de 12V:** Sí
 
 #### Exterior
-
 - **Faros:** LED con sensor de luz y lluvia
 - **Espejos laterales:** Ajuste y plegado eléctrico
 - **Acceso:** Manos libres con botón de encendido
@@ -5096,7 +4835,6 @@
 - **Colores disponibles:** Blanco Okénite, Gris Artense, Gris Selenium, Rojo Elixir
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP:** Desconectable
 - **AFU (frenado urgencia):** Sí
@@ -5111,18 +4849,16 @@
 - **ISOFIX:** 3 puntos de sujeción
 - **Monitor presión neumáticos:** Sí
 - **Llanta de refacción:** 16"
-- **ADAS — Atención conductor:** Sí
+- **ADAS — Atención conductor:** No incluida
 - **ADAS — Colisión frontal:** No incluida
-- **ADAS — Asistencia de carril:** Sí
-- **ADAS — Reconocimiento señales:** Sí
-- **ADAS — Luces automáticas:** Sí
+- **ADAS — Asistencia de carril:** No incluida
+- **ADAS — Reconocimiento señales:** No incluido
+- **ADAS — Luces automáticas:** No incluidas
 
 ### Versión: GT
-
 `versionId: gt`
 
 #### Desempeño
-
 - **Motor:** PureTech 1.2L Turbo Gasolina (1,199 cc)
 - **Potencia:** 130 hp @ 5,500 rpm
 - **Torque neto:** 230 Nm @ 1,750 rpm
@@ -5143,7 +4879,6 @@
 - **Emisiones CO₂:** 130.4 g/km
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 4,304 mm
 - **Ancho con retrovisores:** 1,987 mm
 - **Alto:** 1,523 – 1,550 mm
@@ -5156,7 +4891,6 @@
 - **Peso bruto vehicular:** 1,730 kg
 
 #### Interior
-
 - **Tapicería:** Alcántara
 - **A/C:** Automático
 - **Asiento conductor:** Dynamic alcántara calefactable con ajuste eléctrico
@@ -5175,7 +4909,6 @@
 - **Toma de 12V:** Sí
 
 #### Exterior
-
 - **Faros:** FULL LED con sensor de luz y lluvia
 - **Espejos laterales:** Ajuste y plegado eléctrico
 - **Acceso:** Manos libres con botón de encendido
@@ -5186,7 +4919,6 @@
 - **Colores disponibles:** Blanco Okénite, Gris Artense, Gris Selenium, Rojo Elixir
 
 #### Seguridad
-
 - **ABS:** Sí
 - **ESP:** Desconectable
 - **AFU (frenado urgencia):** Sí
@@ -5212,19 +4944,16 @@
 # RAM
 
 ## RAM RAM 4000 2026
-
 `id: ram-4000-2026` · 3 versión(es)
 
 ### Versión: Reg Cab Chassis P
-
 `versionId: reg-cab-p`
 
 #### Desempeño
-
 - **Motor:** 6.4L V8 HEMI Upgrade HD
 - **Potencia:** 405 HP @ 5,500 rpm
 - **Torque:** 429 lb-ft @ 4,000 rpm
-- **Transmisión:** Automática 8 velocidades
+- **Transmisión:** Automática 8 velocidades LCV
 - **Tracción:** Trasera
 - **Selector tracción:** No incluido
 - **Dirección:** Asistida
@@ -5233,13 +4962,12 @@
 - **Amortiguadores:** Trabajo pesado
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,977 mm
 - **Ancho sin espejos:** 2,118 mm
 - **Alto:** 2,055 mm
 - **Distancia entre ejes:** 3,647 mm
 - **Peso vehicular:** 2,817 kg
-- **Peso bruto vehicular:** —
+- **Peso bruto vehicular:** 6,122 kg
 - **Capacidad de carga:** 3,305 kg
 - **Capacidad de arrastre:** 7,094 kg
 - **Carga por ejes del/tra:** 2,494 / 4,467 kg
@@ -5248,7 +4976,6 @@
 - **Llanta de refacción:** Tamaño completo
 
 #### Interior
-
 - **A/C:** Sí, con filtro de cabina N95+BIO
 - **Asiento conductor:** Manual 4 posiciones
 - **Asiento pasajero:** Manual 4 posiciones
@@ -5271,6 +4998,7 @@
 - **Seguros de puertas:** Manuales
 - **Ventanas delanteras:** Manuales
 - **Ventanilla trasera:** Fija
+- **Visor solar pasajero:** Con espejo
 - **Pantalla:** Táctil 8.4"
 - **Clúster:** TFT color 3.5"
 - **Apple CarPlay / Android Auto:** Sí
@@ -5282,7 +5010,6 @@
 - **Toma 12V:** Sí
 
 #### Exterior
-
 - **Faros:** LED automáticos con conducción diurna
 - **Faros antiniebla:** LED
 - **Luces en toldo:** Navegación
@@ -5298,7 +5025,6 @@
 - **Color interior:** Negro
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **ESP (estabilidad):** Sí
 - **Bolsas de aire:** Delanteras multietapas
@@ -5314,11 +5040,9 @@
 - **Enfriamiento motor:** Para trabajo pesado
 
 ### Versión: Reg Cab Chassis PL
-
 `versionId: reg-cab-pl`
 
 #### Desempeño
-
 - **Motor:** 6.4L V8 HEMI Upgrade HD
 - **Potencia:** 405 HP @ 5,500 rpm
 - **Torque:** 429 lb-ft @ 4,000 rpm
@@ -5331,7 +5055,6 @@
 - **Amortiguadores:** Trabajo pesado
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 6,586 mm
 - **Ancho sin espejos:** 2,334 mm
 - **Alto:** 2,029 mm
@@ -5346,7 +5069,6 @@
 - **Llanta de refacción:** Tamaño completo
 
 #### Interior
-
 - **A/C:** Sí, con filtro de cabina N95+BIO
 - **Asiento conductor:** Manual 4 posiciones
 - **Asiento pasajero:** Manual 4 posiciones
@@ -5369,6 +5091,7 @@
 - **Seguros de puertas:** Manuales
 - **Ventanas delanteras:** Manuales
 - **Ventanilla trasera:** Fija
+- **Visor solar pasajero:** Con espejo
 - **Pantalla:** Táctil 8.4"
 - **Clúster:** TFT color 3.5"
 - **Apple CarPlay / Android Auto:** Sí
@@ -5380,7 +5103,6 @@
 - **Toma 12V:** Sí
 
 #### Exterior
-
 - **Faros:** LED automáticos con conducción diurna
 - **Faros antiniebla:** LED
 - **Luces en toldo:** Navegación
@@ -5396,7 +5118,6 @@
 - **Color interior:** Negro
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **ESP (estabilidad):** Sí
 - **Bolsas de aire:** Delanteras multietapas
@@ -5412,11 +5133,9 @@
 - **Enfriamiento motor:** Para trabajo pesado
 
 ### Versión: Crew Cab Chassis
-
 `versionId: crew-cab`
 
 #### Desempeño
-
 - **Motor:** 6.4L V8 HEMI Upgrade HD
 - **Potencia:** 405 HP @ 5,500 rpm
 - **Torque:** 429 lb-ft @ 4,000 rpm
@@ -5429,13 +5148,12 @@
 - **Amortiguadores:** Trabajo pesado
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 6,711 mm
 - **Ancho sin espejos:** 2,118 mm
 - **Alto:** 2,047 mm
 - **Distancia entre ejes:** 4,374 mm
 - **Peso vehicular:** 3,245 kg
-- **Peso bruto vehicular:** —
+- **Peso bruto vehicular:** 6,122 kg
 - **Capacidad de carga:** 2,877 kg
 - **Capacidad de arrastre:** 6,663 kg
 - **Carga por ejes del/tra:** 2,494 / 4,467 kg
@@ -5444,13 +5162,12 @@
 - **Llanta de refacción:** Tamaño completo
 
 #### Interior
-
 - **A/C:** Sí, con filtro de cabina N95+BIO
 - **Asiento conductor:** Manual 4 posiciones
 - **Asiento pasajero:** Manual 4 posiciones
 - **Asientos:** Banco 40/20/40 en tela
 - **Almacenamiento trasero:** Compartimento debajo del asiento trasero
-- **Reposabrazos delantero:** No incluido
+- **Reposabrazos delantero:** Con portavasos
 - **Cabeceras delanteras:** Ajuste 4 posiciones
 - **Cabeceras traseras:** Ajuste 2 posiciones
 - **Asiento trasero:** Plegable
@@ -5466,7 +5183,8 @@
 - **Sistema antirrobo:** Llave Sentry
 - **Seguros de puertas:** Eléctricos
 - **Ventanas delanteras:** Eléctricas un toque arriba y abajo
-- **Ventanilla trasera:** Manual (trasera)
+- **Ventanilla trasera:** Fija
+- **Visor solar pasajero:** Con espejo
 - **Pantalla:** Táctil 8.4"
 - **Clúster:** TFT color 3.5"
 - **Apple CarPlay / Android Auto:** Sí
@@ -5478,7 +5196,6 @@
 - **Toma 12V:** Sí
 
 #### Exterior
-
 - **Faros:** LED automáticos con conducción diurna
 - **Faros antiniebla:** LED
 - **Luces en toldo:** Navegación
@@ -5494,7 +5211,6 @@
 - **Color interior:** Negro
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **ESP (estabilidad):** Sí
 - **Bolsas de aire:** Delanteras multietapas
@@ -5510,15 +5226,12 @@
 - **Enfriamiento motor:** Para trabajo pesado
 
 ## RAM RAM 1500 2026
-
 `id: ram-1500-2026` · 8 versión(es)
 
 ### Versión: Tungsten
-
 `versionId: tungsten`
 
 #### Desempeño
-
 - **Motor:** 3.0L I6 Hurricane HO Twin Turbo ESS
 - **Potencia:** 540 HP @ 6,200 rpm
 - **Torque:** 521 lb-ft @ 3,500 rpm
@@ -5541,7 +5254,6 @@
 - **Tanque de combustible:** —
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,916 mm
 - **Ancho:** 2,084 mm
 - **Alto:** 1,971 mm
@@ -5554,7 +5266,6 @@
 - **Llanta de repuesto:** Tamaño completo
 
 #### Remolque
-
 - **Enganche:** Receptor clase IV
 - **Arnés:** 7 pines + conector 12 vías/1 vía
 - **Gancho del remolque:** Sí
@@ -5565,7 +5276,6 @@
 - **Control balanceo:** Sí
 
 #### Interior
-
 - **Tapicería:** Piel premium envolvente
 - **A/C:** Automático zona dual, filtro N95+BIO
 - **Asiento conductor:** Eléctrico 20 posiciones + lumbar 4 dirs + masaje + memoria
@@ -5583,6 +5293,7 @@
 - **Keyless Entry & Go:** Sí
 - **Cristales delanteros:** Eléctricos 1 toque arriba y abajo
 - **Ventana trasera:** Corrediza eléctrica
+- **Desempañador ventana trasera:** Sí
 - **Vidrios:** Tintados con protección solar
 - **Iluminación ambiental:** LED
 - **Control activo ruido:** Sí (cabina)
@@ -5593,7 +5304,6 @@
 - **Tapetes:** Sí
 
 #### Exterior
-
 - **Faros:** LED bifunción automáticos
 - **Luces antiniebla:** LED premium
 - **DRL:** LED
@@ -5609,13 +5319,14 @@
 - **Manijas exteriores:** Al color de la carrocería
 - **Fascia delantera:** Insertos en cromo; defensa trasera al color
 - **Limpiaparabrisas:** Sensibles a la lluvia
-- **Portón trasero:** Amortiguado con apertura remota + luz LED en manija
+- **Portón trasero:** Amortiguado con apertura remota + luz LED en manija + luz de advertencia de portón abierto
 - **RAMBOX®:** Sistema gestión de carga
 - **Batea:** Protección aspersión + puerta multifunción + escalón desplegable + iluminación LED + 4 ganchos
+- **Cubierta Tonneau:** Tres pliegues
+- **Alarma de seguridad:** Sí
 - **Colores disponibles:** Granite, Forger Blue, Molten Red, Bright White, Ivory White, Diamond Black
 
 #### Tecnología
-
 - **Pantalla principal:** Táctil 14.4" — Apple CarPlay® y Android Auto
 - **Clúster:** TFT color 12"
 - **Pantalla pasajero:** 10.25"
@@ -5630,10 +5341,9 @@
 - **Info todoterreno:** Páginas de información off-road
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **ESP + TCS:** Sí
-- **Control antivuelco:** Sí
+- **Control antivuelco:** —
 - **Bolsas de aire:** Delanteras multietapas avanzadas + laterales delanteras + cortina trasera
 - **ISOFIX:** Sí
 - **Cámara:** Visión envolvente 360°
@@ -5656,11 +5366,9 @@
 - **Barra estabilizadora:** Delantera y trasera
 
 ### Versión: Bighorn Off Road
-
 `versionId: bighorn-off-road`
 
 #### Desempeño
-
 - **Motor:** 3.6L V6 24V VVT eTorque Engine
 - **Potencia:** 305 HP @ 6,400 rpm
 - **Torque:** 269 lb-ft @ 4,800 rpm
@@ -5683,7 +5391,6 @@
 - **Tanque de combustible:** —
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,916 mm
 - **Ancho:** 2,084 mm
 - **Alto:** 1,971 mm
@@ -5696,7 +5403,6 @@
 - **Llanta de repuesto:** Tamaño completo
 
 #### Remolque
-
 - **Enganche:** Receptor clase IV
 - **Arnés:** 7 pines
 - **Gancho del remolque:** —
@@ -5707,7 +5413,6 @@
 - **Control balanceo:** Sí
 
 #### Interior
-
 - **Tapicería:** Tela premium
 - **A/C:** Automático zona dual, filtro N95+BIO
 - **Asiento conductor:** Eléctrico 8 posiciones + lumbar 2 dirs
@@ -5725,6 +5430,7 @@
 - **Keyless Entry & Go:** Sí
 - **Cristales delanteros:** Eléctricos 1 toque arriba y abajo
 - **Ventana trasera:** Corrediza eléctrica
+- **Desempañador ventana trasera:** Sí
 - **Vidrios:** Tintados con protección solar
 - **Iluminación ambiental:** —
 - **Control activo ruido:** —
@@ -5735,7 +5441,6 @@
 - **Tapetes:** —
 
 #### Exterior
-
 - **Faros:** LED reflector automático luces altas y bajas
 - **Luces antiniebla:** LED
 - **DRL:** LED
@@ -5751,13 +5456,14 @@
 - **Manijas exteriores:** Negro
 - **Fascia delantera:** Al color + placa protectora caja transferencia
 - **Limpiaparabrisas:** —
-- **Portón trasero:** Amortiguado con apertura remota + luz LED en manija
+- **Portón trasero:** Amortiguado con apertura remota + luz LED en manija + luz de advertencia de portón abierto
 - **RAMBOX®:** —
 - **Batea:** Protección aspersión + escalón desplegable + iluminación LED + 4 ganchos
+- **Cubierta Tonneau:** —
+- **Alarma de seguridad:** Sí
 - **Colores disponibles:** Billet Silver, Bright White, Diamond Black, Granite Metallic, Delmonico Red
 
 #### Tecnología
-
 - **Pantalla principal:** Táctil 12" — Apple CarPlay® y Android Auto
 - **Clúster:** TFT color 7"
 - **Pantalla pasajero:** —
@@ -5772,7 +5478,6 @@
 - **Info todoterreno:** Páginas de información off-road
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **ESP + TCS:** Sí
 - **Control antivuelco:** —
@@ -5798,11 +5503,9 @@
 - **Barra estabilizadora:** Delantera y trasera
 
 ### Versión: Laramie Night Edition
-
 `versionId: laramie-night`
 
 #### Desempeño
-
 - **Motor:** 3.0L I6 Hurricane SO Twin Turbo ESS
 - **Potencia:** 420 HP @ 5,200 rpm
 - **Torque:** 469 lb-ft @ 3,500 rpm
@@ -5820,12 +5523,11 @@
 - **Consumo ciudad:** —
 - **Consumo carretera:** —
 - **Consumo combinado:** —
-- **Batería:** 700 amp, libre de mantenimiento
+- **Batería:** 730 amp, libre de mantenimiento
 - **Inversor:** 400W
 - **Tanque de combustible:** 98 L
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,916 mm
 - **Ancho:** 2,084 mm
 - **Alto:** 1,971 mm
@@ -5838,7 +5540,6 @@
 - **Llanta de repuesto:** Tamaño completo
 
 #### Remolque
-
 - **Enganche:** Receptor clase IV
 - **Arnés:** 7 pines + conector 12 vías/1 vía
 - **Gancho del remolque:** —
@@ -5849,7 +5550,6 @@
 - **Control balanceo:** Sí
 
 #### Interior
-
 - **Tapicería:** Piel envolvente
 - **A/C:** Automático zona dual, filtro N95+BIO
 - **Asiento conductor:** Eléctrico 8 posiciones + lumbar 2 dirs
@@ -5867,6 +5567,7 @@
 - **Keyless Entry & Go:** Sí
 - **Cristales delanteros:** Eléctricos 1 toque arriba y abajo
 - **Ventana trasera:** Corrediza eléctrica
+- **Desempañador ventana trasera:** Sí
 - **Vidrios:** Tintados con protección solar
 - **Iluminación ambiental:** LED
 - **Control activo ruido:** —
@@ -5877,7 +5578,6 @@
 - **Tapetes:** —
 
 #### Exterior
-
 - **Faros:** LED reflector automático luces altas y bajas
 - **Luces antiniebla:** LED
 - **DRL:** LED
@@ -5893,13 +5593,14 @@
 - **Manijas exteriores:** Al color de la carrocería
 - **Fascia delantera:** Al color + placa protectora caja transferencia
 - **Limpiaparabrisas:** Sensibles a la lluvia
-- **Portón trasero:** Amortiguado con apertura remota + luz LED en manija
+- **Portón trasero:** Amortiguado con apertura remota + luz LED en manija + luz de advertencia de portón abierto
 - **RAMBOX®:** Opcional
 - **Batea:** Protección aspersión + escalón desplegable + iluminación LED + 4 ganchos
-- **Colores disponibles:** Billet Silver, Bright White, Diamond Black, Granite Metallic, Delmonico Red
+- **Cubierta Tonneau:** —
+- **Alarma de seguridad:** Sí
+- **Colores disponibles:** Billet Silver, Bright White, Diamond Black, Granite Metallic
 
 #### Tecnología
-
 - **Pantalla principal:** Táctil 14.4" — Apple CarPlay® y Android Auto
 - **Clúster:** TFT color 12"
 - **Pantalla pasajero:** 10.25"
@@ -5914,7 +5615,6 @@
 - **Info todoterreno:** Páginas de información off-road
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **ESP + TCS:** Sí
 - **Control antivuelco:** —
@@ -5940,11 +5640,9 @@
 - **Barra estabilizadora:** Delantera y trasera
 
 ### Versión: Limited
-
 `versionId: limited`
 
 #### Desempeño
-
 - **Motor:** 3.0L I6 Hurricane HO Twin Turbo ESS
 - **Potencia:** 540 HP @ 6,200 rpm
 - **Torque:** 521 lb-ft @ 3,500 rpm
@@ -5967,7 +5665,6 @@
 - **Tanque de combustible:** —
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,916 mm
 - **Ancho:** 2,084 mm
 - **Alto:** 1,971 mm
@@ -5980,7 +5677,6 @@
 - **Llanta de repuesto:** Tamaño completo
 
 #### Remolque
-
 - **Enganche:** Receptor clase IV
 - **Arnés:** 7 pines + conector 12 vías/1 vía
 - **Gancho del remolque:** —
@@ -5991,7 +5687,6 @@
 - **Control balanceo:** Sí
 
 #### Interior
-
 - **Tapicería:** Piel premium envolvente
 - **A/C:** Automático zona dual, filtro N95+BIO
 - **Asiento conductor:** Eléctrico 8 posiciones + lumbar 4 dirs + masaje + memoria
@@ -6009,6 +5704,7 @@
 - **Keyless Entry & Go:** Sí
 - **Cristales delanteros:** Eléctricos 1 toque arriba y abajo
 - **Ventana trasera:** Corrediza eléctrica
+- **Desempañador ventana trasera:** Sí
 - **Vidrios:** Tintados con protección solar
 - **Iluminación ambiental:** LED
 - **Control activo ruido:** —
@@ -6019,7 +5715,6 @@
 - **Tapetes:** —
 
 #### Exterior
-
 - **Faros:** LED bifunción automáticos
 - **Luces antiniebla:** LED
 - **DRL:** LED
@@ -6035,13 +5730,14 @@
 - **Manijas exteriores:** Al color de la carrocería
 - **Fascia delantera:** Cromada (delantera y trasera)
 - **Limpiaparabrisas:** Sensibles a la lluvia
-- **Portón trasero:** Amortiguado con apertura remota + luz LED en manija
+- **Portón trasero:** Amortiguado con apertura remota + luz LED en manija + luz de advertencia de portón abierto
 - **RAMBOX®:** Sistema gestión de carga
 - **Batea:** Protección aspersión + puerta multifunción opcional + escalón desplegable + iluminación LED + 4 ganchos
-- **Colores disponibles:** Billet Silver, Bright White, Diamond Black, Granite Metallic, Delmonico Red
+- **Cubierta Tonneau:** —
+- **Alarma de seguridad:** Sí
+- **Colores disponibles:** Billet Silver, Bright White, Diamond Black, Granite Metallic
 
 #### Tecnología
-
 - **Pantalla principal:** Táctil 14.4" — Apple CarPlay® y Android Auto
 - **Clúster:** TFT color 12"
 - **Pantalla pasajero:** 10.25"
@@ -6056,7 +5752,6 @@
 - **Info todoterreno:** Páginas de información off-road
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **ESP + TCS:** Sí
 - **Control antivuelco:** —
@@ -6082,11 +5777,9 @@
 - **Barra estabilizadora:** Delantera y trasera
 
 ### Versión: RHO
-
 `versionId: rho`
 
 #### Desempeño
-
 - **Motor:** 3.0L I6 Hurricane HO Twin Turbo ESS
 - **Potencia:** 540 HP @ 6,200 rpm
 - **Torque:** 521 lb-ft @ 3,500 rpm
@@ -6109,7 +5802,6 @@
 - **Tanque de combustible:** —
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,916 mm
 - **Ancho:** 2,084 mm
 - **Alto:** 1,971 mm
@@ -6122,7 +5814,6 @@
 - **Llanta de repuesto:** Tamaño completo
 
 #### Remolque
-
 - **Enganche:** Receptor clase IV
 - **Arnés:** 7 pines + conector 12 vías/1 vía
 - **Gancho del remolque:** Sí
@@ -6133,7 +5824,6 @@
 - **Control balanceo:** Sí
 
 #### Interior
-
 - **Tapicería:** Piel envolvente
 - **A/C:** Automático zona dual, filtro N95+BIO
 - **Asiento conductor:** Eléctrico 20 posiciones + lumbar 4 dirs + masaje + memoria
@@ -6151,6 +5841,7 @@
 - **Keyless Entry & Go:** Sí
 - **Cristales delanteros:** Eléctricos 1 toque arriba y abajo
 - **Ventana trasera:** Corrediza eléctrica
+- **Desempañador ventana trasera:** Sí
 - **Vidrios:** Tintados con protección solar
 - **Iluminación ambiental:** LED
 - **Control activo ruido:** —
@@ -6161,7 +5852,6 @@
 - **Tapetes:** Mopar® delanteros y traseros
 
 #### Exterior
-
 - **Faros:** Proyección LED con bifunción automática
 - **Luces antiniebla:** LED
 - **DRL:** LED
@@ -6177,13 +5867,14 @@
 - **Manijas exteriores:** Negro
 - **Fascia delantera:** Negra + guardafangos todoterreno + placa protectora caja transferencia
 - **Limpiaparabrisas:** Sensibles a la lluvia
-- **Portón trasero:** Amortiguado con apertura remota + luz LED en manija
+- **Portón trasero:** Amortiguado con apertura remota + luz LED en manija + luz de advertencia de portón abierto
 - **RAMBOX®:** —
 - **Batea:** Protección aspersión + puerta eléctrica con apertura remota + escalón desplegable + iluminación LED + 4 ganchos
+- **Cubierta Tonneau:** —
+- **Alarma de seguridad:** Sí
 - **Colores disponibles:** Hydro Blue, Flame Red, Billet Silver, Bright White, Diamond Black Crystal
 
 #### Tecnología
-
 - **Pantalla principal:** Táctil 14.4" — Apple CarPlay® y Android Auto
 - **Clúster:** TFT color 12"
 - **Pantalla pasajero:** 10.25"
@@ -6198,10 +5889,9 @@
 - **Info todoterreno:** Páginas de información off-road
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **ESP + TCS:** Sí
-- **Control antivuelco:** Sí
+- **Control antivuelco:** —
 - **Bolsas de aire:** Delanteras multietapas avanzadas + laterales delanteras + cortina trasera
 - **ISOFIX:** Sí
 - **Cámara:** Visión envolvente 360°
@@ -6224,11 +5914,9 @@
 - **Barra estabilizadora:** Delantera y trasera
 
 ### Versión: Tradesman V6 4x2
-
 `versionId: tradesman-v6-4x2`
 
 #### Desempeño
-
 - **Motor:** 3.6L V6 24V VVT eTorque Engine
 - **Potencia:** 305 HP @ 6,400 rpm
 - **Torque:** 269 lb-ft @ 4,800 rpm
@@ -6251,7 +5939,6 @@
 - **Tanque de combustible:** 98 L
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,916 mm
 - **Ancho:** 2,084 mm
 - **Alto:** 1,971 mm
@@ -6264,7 +5951,6 @@
 - **Llanta de repuesto:** Tamaño completo temporal
 
 #### Remolque
-
 - **Enganche:** Receptor clase IV
 - **Arnés:** 7 pines
 - **Gancho del remolque:** —
@@ -6275,7 +5961,6 @@
 - **Control balanceo:** Sí
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual, filtro N95+BIO
 - **Asiento conductor:** Manual 4 posiciones
@@ -6293,6 +5978,7 @@
 - **Keyless Entry & Go:** Sí
 - **Cristales delanteros:** Eléctricos 1 toque arriba y abajo
 - **Ventana trasera:** Corrediza eléctrica
+- **Desempañador ventana trasera:** —
 - **Vidrios:** —
 - **Iluminación ambiental:** —
 - **Control activo ruido:** —
@@ -6303,7 +5989,6 @@
 - **Tapetes:** Delanteros y traseros
 
 #### Exterior
-
 - **Faros:** LED reflector automático luces altas y bajas
 - **Luces antiniebla:** —
 - **DRL:** En faro de baja intensidad
@@ -6322,10 +6007,11 @@
 - **Portón trasero:** Con amortiguación
 - **RAMBOX®:** —
 - **Batea:** —
+- **Cubierta Tonneau:** —
+- **Alarma de seguridad:** —
 - **Colores disponibles:** —
 
 #### Tecnología
-
 - **Pantalla principal:** Táctil 8.4" — Apple CarPlay® y Android Auto
 - **Clúster:** TFT color 3.5"
 - **Pantalla pasajero:** —
@@ -6340,10 +6026,9 @@
 - **Info todoterreno:** —
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **ESP + TCS:** Sí
-- **Control antivuelco:** Sí
+- **Control antivuelco:** —
 - **Bolsas de aire:** 6 (frontales + laterales + cortina)
 - **ISOFIX:** Sí
 - **Cámara:** Trasera
@@ -6366,11 +6051,9 @@
 - **Barra estabilizadora:** —
 
 ### Versión: Tradesman V6 4x4
-
 `versionId: tradesman-v6-4x4`
 
 #### Desempeño
-
 - **Motor:** 3.6L V6 24V VVT eTorque Engine
 - **Potencia:** 305 HP @ 6,400 rpm
 - **Torque:** 269 lb-ft @ 4,800 rpm
@@ -6393,7 +6076,6 @@
 - **Tanque de combustible:** 98 L
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,916 mm
 - **Ancho:** 2,084 mm
 - **Alto:** 1,971 mm
@@ -6406,7 +6088,6 @@
 - **Llanta de repuesto:** Tamaño completo temporal
 
 #### Remolque
-
 - **Enganche:** Receptor clase IV
 - **Arnés:** 7 pines
 - **Gancho del remolque:** —
@@ -6417,7 +6098,6 @@
 - **Control balanceo:** Sí
 
 #### Interior
-
 - **Tapicería:** Tela
 - **A/C:** Manual, filtro N95+BIO
 - **Asiento conductor:** Manual 4 posiciones
@@ -6435,6 +6115,7 @@
 - **Keyless Entry & Go:** Sí
 - **Cristales delanteros:** Eléctricos 1 toque arriba y abajo
 - **Ventana trasera:** Corrediza eléctrica
+- **Desempañador ventana trasera:** —
 - **Vidrios:** —
 - **Iluminación ambiental:** —
 - **Control activo ruido:** —
@@ -6445,7 +6126,6 @@
 - **Tapetes:** Delanteros y traseros
 
 #### Exterior
-
 - **Faros:** LED reflector automático luces altas y bajas
 - **Luces antiniebla:** —
 - **DRL:** En faro de baja intensidad
@@ -6464,10 +6144,11 @@
 - **Portón trasero:** Con amortiguación
 - **RAMBOX®:** —
 - **Batea:** —
+- **Cubierta Tonneau:** —
+- **Alarma de seguridad:** —
 - **Colores disponibles:** —
 
 #### Tecnología
-
 - **Pantalla principal:** Táctil 8.4" — Apple CarPlay® y Android Auto
 - **Clúster:** TFT color 3.5"
 - **Pantalla pasajero:** —
@@ -6482,10 +6163,9 @@
 - **Info todoterreno:** —
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **ESP + TCS:** Sí
-- **Control antivuelco:** Sí
+- **Control antivuelco:** —
 - **Bolsas de aire:** 6 (frontales + laterales + cortina)
 - **ISOFIX:** Sí
 - **Cámara:** Trasera
@@ -6508,11 +6188,9 @@
 - **Barra estabilizadora:** —
 
 ### Versión: Tradesman I6 4x4
-
 `versionId: tradesman-i6-4x4`
 
 #### Desempeño
-
 - **Motor:** 3.0L I6 Hurricane SO Twin Turbo
 - **Potencia:** 420 HP @ 5,200 rpm
 - **Torque:** 469 lb-ft @ 3,500 rpm
@@ -6530,12 +6208,11 @@
 - **Consumo ciudad:** 8.0 km/L
 - **Consumo carretera:** 12.0 km/L
 - **Consumo combinado:** 9.4 km/L
-- **Batería:** 700 amp, libre de mantenimiento
+- **Batería:** 730 amp, libre de mantenimiento
 - **Inversor:** 400W
 - **Tanque de combustible:** 98 L
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,916 mm
 - **Ancho:** 2,084 mm
 - **Alto:** 1,971 mm
@@ -6548,7 +6225,6 @@
 - **Llanta de repuesto:** Tamaño completo
 
 #### Remolque
-
 - **Enganche:** Receptor clase IV
 - **Arnés:** 7 pines
 - **Gancho del remolque:** —
@@ -6559,8 +6235,7 @@
 - **Control balanceo:** —
 
 #### Interior
-
-- **Tapicería:** Tela
+- **Tapicería:** Tela 40/20/40
 - **A/C:** Manual, filtro N95+BIO
 - **Asiento conductor:** Manual 4 posiciones
 - **Asiento pasajero:** Manual 4 posiciones
@@ -6577,6 +6252,7 @@
 - **Keyless Entry & Go:** Sí
 - **Cristales delanteros:** Eléctricos 1 toque arriba y abajo
 - **Ventana trasera:** Corrediza eléctrica
+- **Desempañador ventana trasera:** —
 - **Vidrios:** —
 - **Iluminación ambiental:** —
 - **Control activo ruido:** —
@@ -6587,7 +6263,6 @@
 - **Tapetes:** Delanteros y traseros
 
 #### Exterior
-
 - **Faros:** LED reflector automático luces altas y bajas
 - **Luces antiniebla:** —
 - **DRL:** LED
@@ -6603,13 +6278,14 @@
 - **Manijas exteriores:** Negro
 - **Fascia delantera:** Negra (parrilla y manijas negras)
 - **Limpiaparabrisas:** —
-- **Portón trasero:** Con amortiguación
+- **Portón trasero:** Con amortiguación + luz de advertencia de portón abierto
 - **RAMBOX®:** —
 - **Batea:** Recubrimiento aspersión + iluminación + 4 ganchos ajustables + toma 115V exterior
+- **Cubierta Tonneau:** —
+- **Alarma de seguridad:** —
 - **Colores disponibles:** Silver Zynith, Diamond Black, Bright White
 
 #### Tecnología
-
 - **Pantalla principal:** Táctil 8.4" — Apple CarPlay® y Android Auto
 - **Clúster:** TFT color 3.5"
 - **Pantalla pasajero:** —
@@ -6624,7 +6300,6 @@
 - **Info todoterreno:** —
 
 #### Seguridad
-
 - **Frenos ABS:** Disco en 4 ruedas
 - **ESP + TCS:** Sí
 - **Control antivuelco:** Sí
@@ -6637,7 +6312,7 @@
 - **Control velocidad selectiva:** —
 - **Colisión frontal:** Asistencia plus
 - **Colisión intersecciones:** —
-- **Frenado emergencia:** Peatonal
+- **Frenado emergencia:** Peatonal + avanzada
 - **Asistencia carril:** Salida activa
 - **Dirección evasiva:** —
 - **Luz alta automática:** Sí
@@ -6650,15 +6325,12 @@
 - **Barra estabilizadora:** —
 
 ## RAM RAM 1200 2026
-
 `id: ram-1200-2026` · 6 versión(es)
 
 ### Versión: Tradesman Chassis Cab
-
 `versionId: tradesman-chassis-cab`
 
 #### Desempeño
-
 - **Motor:** 2.0L Turbo I4
 - **Potencia:** 217 HP @ 5,500 rpm
 - **Torque:** 288 lb-pie @ 1,900–3,300 rpm
@@ -6676,7 +6348,6 @@
 - **Rendimiento combinado:** 8.10 km/l
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,330 mm
 - **Ancho:** 1,963 mm
 - **Alto:** 1,858 mm
@@ -6684,6 +6355,8 @@
 - **Capacidad de carga:** 1,315 kg
 - **Capacidad de arrastre:** 3,000 kg
 - **Volumen de carga:** —
+- **Ancho de carga máximo:** —
+- **Altura de carga:** —
 - **Longitud de carga máxima:** —
 - **Capacidad de pasajeros:** 3
 - **Rines:** Acero 16"
@@ -6691,7 +6364,6 @@
 - **Llanta de refacción:** Tamaño completo con rin de acero
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **Luces diurnas (DRL):** Sí
 - **Faros de niebla:** No incluido
@@ -6700,11 +6372,15 @@
 - **Parrilla:** Color negro
 - **Fascias:** Delantera y trasera en negro
 - **Estribos laterales:** No incluido
+- **Escalón lateral de acceso a batea:** No incluido
+- **Ganchos de sujeción en área de carga:** —
+- **Conexión 12V en batea:** No incluida
+- **Limpiaparabrisas:** Variable intermitente
 - **Placa protectora de motor:** Sí
 - **Loderas:** Delanteras
+- **Colores disponibles:** Gris, Blanco
 
 #### Interior
-
 - **Aire acondicionado:** Manual
 - **Asientos:** Tela, banca corrida sin consola central
 - **Asiento conductor:** Ajuste manual
@@ -6717,18 +6393,24 @@
 - **Volante:** Ajuste de altura, controles de audio
 - **Volante en piel:** No incluido
 - **Computadora de viaje:** Sí
-- **Guantera con iluminación LED:** Sí
+- **Desempañante trasero:** No incluido
+- **Guantera con iluminación LED:** No incluida
+- **Guantera con refrigeración:** Sí
 
 #### Seguridad
-
 - **Bolsas de aire frontales:** Conductor y pasajero
 - **Bolsas laterales delanteras:** No incluido
 - **Bolsas tipo cortina:** No incluido
 - **Frenos ABS:** Sí
 - **Control de estabilidad (ESP):** Sí
 - **Control de tracción:** Sí
-- **Control descenso pendientes (HDC):** No incluido
+- **Control descenso pendientes (HDC):** Sí
+- **Control estabilidad de remolque (TSC):** Sí
 - **Asistencia arranque en pendiente (HSA):** Sí
+- **Asistencia frenado de emergencia (EBA):** Sí
+- **Señal de frenado de emergencia (ESS):** Sí
+- **Control crucero con limitador de velocidad:** Sí
+- **Asistencia de desvío de carril:** No incluida
 - **Monitoreo presión neumáticos (TPM):** Sí
 - **Cámara de estacionamiento:** No incluido
 - **Sensores de estacionamiento:** No incluido
@@ -6739,11 +6421,9 @@
 - **Alarma antirrobo perimetral:** Sí
 
 ### Versión: Tradesman Regular Cab
-
 `versionId: tradesman-regular-cab`
 
 #### Desempeño
-
 - **Motor:** 2.0L Turbo I4
 - **Potencia:** 217 HP @ 5,500 rpm
 - **Torque:** 288 lb-pie @ 1,900–3,300 rpm
@@ -6761,7 +6441,6 @@
 - **Rendimiento combinado:** 9.9 km/l
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,330 mm
 - **Ancho:** 1,963 mm
 - **Alto:** 1,858 mm
@@ -6769,6 +6448,8 @@
 - **Capacidad de carga:** 1,210 kg
 - **Capacidad de arrastre:** 3,000 kg
 - **Volumen de carga:** 1,914 L
+- **Ancho de carga máximo:** 1,595 mm
+- **Altura de carga:** 500 mm
 - **Longitud de carga máxima:** 2,400 mm
 - **Capacidad de pasajeros:** 3
 - **Rines:** Acero 16"
@@ -6776,7 +6457,6 @@
 - **Llanta de refacción:** Tamaño completo con rin de acero
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **Luces diurnas (DRL):** Sí
 - **Faros de niebla:** No incluido
@@ -6785,11 +6465,15 @@
 - **Parrilla:** Color negro
 - **Fascias:** Delantera y trasera en negro
 - **Estribos laterales:** No incluido
+- **Escalón lateral de acceso a batea:** Sí
+- **Ganchos de sujeción en área de carga:** 6
+- **Conexión 12V en batea:** No incluida
+- **Limpiaparabrisas:** Variable intermitente
 - **Placa protectora de motor:** Sí
 - **Loderas:** Delanteras y traseras
+- **Colores disponibles:** Gris, Blanco
 
 #### Interior
-
 - **Aire acondicionado:** Manual
 - **Asientos:** Tela, banca corrida sin consola central
 - **Asiento conductor:** Ajuste manual
@@ -6802,18 +6486,24 @@
 - **Volante:** Ajuste de altura, controles de audio
 - **Volante en piel:** No incluido
 - **Computadora de viaje:** Sí
-- **Guantera con iluminación LED:** Sí
+- **Desempañante trasero:** No incluido
+- **Guantera con iluminación LED:** No incluida
+- **Guantera con refrigeración:** Sí
 
 #### Seguridad
-
 - **Bolsas de aire frontales:** Conductor y pasajero
 - **Bolsas laterales delanteras:** No incluido
 - **Bolsas tipo cortina:** No incluido
 - **Frenos ABS:** Sí
 - **Control de estabilidad (ESP):** Sí
 - **Control de tracción:** Sí
-- **Control descenso pendientes (HDC):** No incluido
+- **Control descenso pendientes (HDC):** Sí
+- **Control estabilidad de remolque (TSC):** Sí
 - **Asistencia arranque en pendiente (HSA):** Sí
+- **Asistencia frenado de emergencia (EBA):** Sí
+- **Señal de frenado de emergencia (ESS):** Sí
+- **Control crucero con limitador de velocidad:** Sí
+- **Asistencia de desvío de carril:** No incluida
 - **Monitoreo presión neumáticos (TPM):** Sí
 - **Cámara de estacionamiento:** No incluido
 - **Sensores de estacionamiento:** No incluido
@@ -6824,11 +6514,9 @@
 - **Alarma antirrobo perimetral:** Sí
 
 ### Versión: Tradesman Crew Cab
-
 `versionId: tradesman-crew-cab`
 
 #### Desempeño
-
 - **Motor:** 2.0L Turbo I4
 - **Potencia:** 217 HP @ 5,500 rpm
 - **Torque:** 288 lb-pie @ 1,900–3,300 rpm
@@ -6846,7 +6534,6 @@
 - **Rendimiento combinado:** 10.2 km/l
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,330 mm
 - **Ancho:** 1,963 mm
 - **Alto:** 1,858 mm
@@ -6854,6 +6541,8 @@
 - **Capacidad de carga:** 1,115 kg
 - **Capacidad de arrastre:** 3,000 kg
 - **Volumen de carga:** 1,276 L
+- **Ancho de carga máximo:** 1,595 mm
+- **Altura de carga:** 500 mm
 - **Longitud de carga máxima:** 1,600 mm
 - **Capacidad de pasajeros:** 5
 - **Rines:** Acero 17"
@@ -6861,7 +6550,6 @@
 - **Llanta de refacción:** Tamaño completo con rin de acero
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **Luces diurnas (DRL):** Sí
 - **Faros de niebla:** No incluido
@@ -6870,11 +6558,15 @@
 - **Parrilla:** Color negro
 - **Fascias:** Delantera y trasera en negro
 - **Estribos laterales:** No incluido
+- **Escalón lateral de acceso a batea:** No incluido
+- **Ganchos de sujeción en área de carga:** 4
+- **Conexión 12V en batea:** No incluida
+- **Limpiaparabrisas:** Variable intermitente
 - **Placa protectora de motor:** Sí
 - **Loderas:** Delanteras y traseras
+- **Colores disponibles:** Gris, Blanco
 
 #### Interior
-
 - **Aire acondicionado:** Manual
 - **Asientos:** Tela tacto piel
 - **Asiento conductor:** Ajuste manual
@@ -6882,23 +6574,29 @@
 - **Clúster:** 3.5" monocromático
 - **Pantalla / Audio:** Radio AM/FM, conexión inalámbrica, MP3
 - **Altavoces:** 4
-- **Puertos USB:** 2 delanteros
+- **Puertos USB:** 2 delanteros y 1 trasero
 - **Cristales eléctricos:** Bajada de un toque (conductor)
 - **Volante:** Ajuste de altura, controles de audio
 - **Volante en piel:** No incluido
 - **Computadora de viaje:** Sí
+- **Desempañante trasero:** Sí
 - **Guantera con iluminación LED:** Sí
+- **Guantera con refrigeración:** Sí
 
 #### Seguridad
-
 - **Bolsas de aire frontales:** Conductor y pasajero
 - **Bolsas laterales delanteras:** Sí
 - **Bolsas tipo cortina:** Sí
 - **Frenos ABS:** Sí
 - **Control de estabilidad (ESP):** Sí
 - **Control de tracción:** Sí
-- **Control descenso pendientes (HDC):** No incluido
+- **Control descenso pendientes (HDC):** Sí
+- **Control estabilidad de remolque (TSC):** Sí
 - **Asistencia arranque en pendiente (HSA):** Sí
+- **Asistencia frenado de emergencia (EBA):** Sí
+- **Señal de frenado de emergencia (ESS):** Sí
+- **Control crucero con limitador de velocidad:** Sí
+- **Asistencia de desvío de carril:** No incluida
 - **Monitoreo presión neumáticos (TPM):** Sí
 - **Cámara de estacionamiento:** No incluido
 - **Sensores de estacionamiento:** No incluido
@@ -6909,11 +6607,9 @@
 - **Alarma antirrobo perimetral:** Sí
 
 ### Versión: Bighorn Crew Cab
-
 `versionId: bighorn-crew-cab`
 
 #### Desempeño
-
 - **Motor:** 2.0L Turbo I4
 - **Potencia:** 217 HP @ 5,500 rpm
 - **Torque:** 288 lb-pie @ 1,900–3,300 rpm
@@ -6931,14 +6627,15 @@
 - **Rendimiento combinado:** 10.1 km/l
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,330 mm
 - **Ancho:** 1,963 mm
-- **Alto:** 1,897 mm
+- **Alto:** 1,858 mm
 - **Distancia entre ejes:** 3,180 mm
 - **Capacidad de carga:** 1,090 kg
 - **Capacidad de arrastre:** 2,500 kg
 - **Volumen de carga:** 1,276 L
+- **Ancho de carga máximo:** 1,595 mm
+- **Altura de carga:** 500 mm
 - **Longitud de carga máxima:** 1,600 mm
 - **Capacidad de pasajeros:** 5
 - **Rines:** Aluminio 17", cara pulida y pockets negros
@@ -6946,20 +6643,23 @@
 - **Llanta de refacción:** Tamaño completo con rin de acero
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **Luces diurnas (DRL):** Sí
-- **Faros de niebla:** LED con función cornering
-- **Espejos laterales:** Calefactables y abatibles, color carrocería
+- **Faros de niebla:** Sí, con función cornering
+- **Espejos laterales:** Eléctricos con direccional, color carrocería
 - **Manijas exteriores:** Color carrocería
 - **Parrilla:** Con detalles en cromo
 - **Fascias:** Delantera al color, trasera metálica
 - **Estribos laterales:** Sí
+- **Escalón lateral de acceso a batea:** No incluido
+- **Ganchos de sujeción en área de carga:** 4
+- **Conexión 12V en batea:** No incluida
+- **Limpiaparabrisas:** Variable intermitente
 - **Placa protectora de motor:** Sí
 - **Loderas:** Delanteras y traseras
+- **Colores disponibles:** Rojo metálico, Gris obscuro metálico, Gris, Blanco
 
 #### Interior
-
 - **Aire acondicionado:** Manual
 - **Asientos:** Tela tacto piel
 - **Asiento conductor:** Ajuste manual
@@ -6972,33 +6672,37 @@
 - **Volante:** Ajuste de altura, controles de audio
 - **Volante en piel:** Sí
 - **Computadora de viaje:** Sí
+- **Desempañante trasero:** Sí
 - **Guantera con iluminación LED:** Sí
+- **Guantera con refrigeración:** Sí
 
 #### Seguridad
-
 - **Bolsas de aire frontales:** Conductor y pasajero
 - **Bolsas laterales delanteras:** Sí
 - **Bolsas tipo cortina:** Sí
 - **Frenos ABS:** Sí
 - **Control de estabilidad (ESP):** Sí
 - **Control de tracción:** Sí
-- **Control descenso pendientes (HDC):** No incluido
+- **Control descenso pendientes (HDC):** Sí
+- **Control estabilidad de remolque (TSC):** Sí
 - **Asistencia arranque en pendiente (HSA):** Sí
+- **Asistencia frenado de emergencia (EBA):** Sí
+- **Señal de frenado de emergencia (ESS):** Sí
+- **Control crucero con limitador de velocidad:** Sí
+- **Asistencia de desvío de carril:** No incluida
 - **Monitoreo presión neumáticos (TPM):** Sí
 - **Cámara de estacionamiento:** Sí
 - **Sensores de estacionamiento:** Traseros
 - **Visión 360°:** No incluido
-- **Keyless Entry & Go:** Sí
+- **Keyless Entry & Go:** No incluido
 - **Anclaje ISOFIX:** Sí
 - **Inmovilizador de motor:** Sí
 - **Alarma antirrobo perimetral:** Sí
 
 ### Versión: Bighorn Crew Cab 4X4
-
 `versionId: bighorn-crew-cab-4x4`
 
 #### Desempeño
-
 - **Motor:** 2.0L Turbo I4
 - **Potencia:** 217 HP @ 5,500 rpm
 - **Torque:** 288 lb-pie @ 1,900–3,300 rpm
@@ -7016,7 +6720,6 @@
 - **Rendimiento combinado:** 10.1 km/l
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,330 mm
 - **Ancho:** 1,963 mm
 - **Alto:** 1,897 mm
@@ -7024,6 +6727,8 @@
 - **Capacidad de carga:** 1,090 kg
 - **Capacidad de arrastre:** 2,500 kg
 - **Volumen de carga:** 1,276 L
+- **Ancho de carga máximo:** 1,595 mm
+- **Altura de carga:** 500 mm
 - **Longitud de carga máxima:** 1,600 mm
 - **Capacidad de pasajeros:** 5
 - **Rines:** Aluminio 17", cara pulida y pockets negros
@@ -7031,20 +6736,23 @@
 - **Llanta de refacción:** Tamaño completo con rin de acero
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **Luces diurnas (DRL):** Sí
-- **Faros de niebla:** LED con función cornering
-- **Espejos laterales:** Calefactables y abatibles, color carrocería
+- **Faros de niebla:** Sí, con función cornering
+- **Espejos laterales:** Eléctricos con direccional, color carrocería
 - **Manijas exteriores:** Color carrocería
 - **Parrilla:** Con detalles en cromo
 - **Fascias:** Delantera al color, trasera metálica
 - **Estribos laterales:** Sí
+- **Escalón lateral de acceso a batea:** No incluido
+- **Ganchos de sujeción en área de carga:** 4
+- **Conexión 12V en batea:** No incluida
+- **Limpiaparabrisas:** Variable intermitente
 - **Placa protectora de motor:** Sí
 - **Loderas:** Delanteras y traseras
+- **Colores disponibles:** Rojo metálico, Gris obscuro metálico, Gris, Blanco
 
 #### Interior
-
 - **Aire acondicionado:** Manual
 - **Asientos:** Tela tacto piel
 - **Asiento conductor:** Ajuste manual
@@ -7057,10 +6765,11 @@
 - **Volante:** Ajuste de altura, controles de audio
 - **Volante en piel:** Sí
 - **Computadora de viaje:** Sí
+- **Desempañante trasero:** Sí
 - **Guantera con iluminación LED:** Sí
+- **Guantera con refrigeración:** Sí
 
 #### Seguridad
-
 - **Bolsas de aire frontales:** Conductor y pasajero
 - **Bolsas laterales delanteras:** Sí
 - **Bolsas tipo cortina:** Sí
@@ -7068,22 +6777,25 @@
 - **Control de estabilidad (ESP):** Sí
 - **Control de tracción:** Sí
 - **Control descenso pendientes (HDC):** Sí
+- **Control estabilidad de remolque (TSC):** Sí
 - **Asistencia arranque en pendiente (HSA):** Sí
+- **Asistencia frenado de emergencia (EBA):** Sí
+- **Señal de frenado de emergencia (ESS):** Sí
+- **Control crucero con limitador de velocidad:** Sí
+- **Asistencia de desvío de carril:** No incluida
 - **Monitoreo presión neumáticos (TPM):** Sí
 - **Cámara de estacionamiento:** Sí
 - **Sensores de estacionamiento:** Traseros
 - **Visión 360°:** No incluido
-- **Keyless Entry & Go:** Sí
+- **Keyless Entry & Go:** No incluido
 - **Anclaje ISOFIX:** Sí
 - **Inmovilizador de motor:** Sí
 - **Alarma antirrobo perimetral:** Sí
 
 ### Versión: Laramie Crew Cab 4X4
-
 `versionId: laramie-crew-cab-4x4`
 
 #### Desempeño
-
 - **Motor:** 2.0L Turbo I4
 - **Potencia:** 217 HP @ 5,500 rpm
 - **Torque:** 288 lb-pie @ 1,900–3,300 rpm
@@ -7101,7 +6813,6 @@
 - **Rendimiento combinado:** 9.7 km/l
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 5,330 mm
 - **Ancho:** 1,963 mm
 - **Alto:** 1,897 mm
@@ -7109,43 +6820,49 @@
 - **Capacidad de carga:** 1,075 kg
 - **Capacidad de arrastre:** 2,500 kg
 - **Volumen de carga:** 1,276 L
+- **Ancho de carga máximo:** 1,595 mm
+- **Altura de carga:** 500 mm
 - **Longitud de carga máxima:** 1,600 mm
 - **Capacidad de pasajeros:** 5
 - **Rines:** Aluminio 18", cara pulida y pockets negros
 - **Neumáticos:** 265/60 R18
-- **Llanta de refacción:** Tamaño completo con rin de acero
+- **Llanta de refacción:** Tamaño completo con rin de aluminio
 
 #### Exterior
-
 - **Faros:** Halógeno + LED automático
 - **Luces diurnas (DRL):** LED
-- **Faros de niebla:** LED con función cornering
+- **Faros de niebla:** Sí, con función cornering
 - **Espejos laterales:** Cromados, calefactables y abatibles
 - **Manijas exteriores:** Cromadas
 - **Parrilla:** Con detalles en cromo
 - **Fascias:** Delantera al color, trasera metálica
 - **Estribos laterales:** Sí
+- **Escalón lateral de acceso a batea:** No incluido
+- **Ganchos de sujeción en área de carga:** 4
+- **Conexión 12V en batea:** Sí
+- **Limpiaparabrisas:** Automático
 - **Placa protectora de motor:** Sí
 - **Loderas:** Delanteras y traseras
+- **Colores disponibles:** Rojo metálico, Gris obscuro metálico, Gris, Blanco
 
 #### Interior
-
 - **Aire acondicionado:** Automático de doble zona
-- **Asientos:** Piel con ajuste eléctrico
+- **Asientos:** Piel con ajuste eléctrico (traseros en piel con descansabrazos)
 - **Asiento conductor:** Ajuste eléctrico
 - **Asientos traseros 60/40:** Sí
 - **Clúster:** 4.2" TFT a color
 - **Pantalla / Audio:** Táctil 10", Apple CarPlay y Android Auto, disco duro 10 GB
 - **Altavoces:** 4 + 2 tweeters
 - **Puertos USB:** 2 delanteros y 1 trasero
-- **Cristales eléctricos:** Bajada de un toque (conductor)
+- **Cristales eléctricos:** Subida y bajada de un toque (conductor), con anti pellizco
 - **Volante:** Ajuste de altura, controles de audio
 - **Volante en piel:** Sí
 - **Computadora de viaje:** Sí
+- **Desempañante trasero:** Sí
 - **Guantera con iluminación LED:** Sí
+- **Guantera con refrigeración:** Sí
 
 #### Seguridad
-
 - **Bolsas de aire frontales:** Conductor y pasajero
 - **Bolsas laterales delanteras:** Sí
 - **Bolsas tipo cortina:** Sí
@@ -7153,9 +6870,14 @@
 - **Control de estabilidad (ESP):** Sí
 - **Control de tracción:** Sí
 - **Control descenso pendientes (HDC):** Sí
+- **Control estabilidad de remolque (TSC):** Sí
 - **Asistencia arranque en pendiente (HSA):** Sí
+- **Asistencia frenado de emergencia (EBA):** Sí
+- **Señal de frenado de emergencia (ESS):** Sí
+- **Control crucero con limitador de velocidad:** Sí
+- **Asistencia de desvío de carril:** Sí
 - **Monitoreo presión neumáticos (TPM):** Sí
-- **Cámara de estacionamiento:** Sí
+- **Cámara de estacionamiento:** Sustituida por visión 360°
 - **Sensores de estacionamiento:** Delanteros y traseros
 - **Visión 360°:** Sí
 - **Keyless Entry & Go:** Sí
@@ -7164,15 +6886,12 @@
 - **Alarma antirrobo perimetral:** Sí
 
 ## RAM RAM 700 2026
-
 `id: ram-700-2026` · 5 versión(es)
 
 ### Versión: Tradesman Regular Cab
-
 `versionId: tradesman-reg-cab`
 
 #### Desempeño
-
 - **Motor:** 1.3L Firefly 4 cilindros
 - **Potencia:** 98 HP @ 6,000 rpm
 - **Torque:** 94 lb-ft @ 4,000 rpm
@@ -7189,7 +6908,6 @@
 - **Consumo combinado:** 18.3 km/L
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 4,474 mm
 - **Ancho:** 1,732 mm
 - **Alto:** 1,595 mm
@@ -7207,7 +6925,6 @@
 - **Placa protectora cárter:** —
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **DRL:** Halógeno
 - **Luces antiniebla:** —
@@ -7221,17 +6938,18 @@
 - **Compuerta combustible:** Manual
 - **Ganchos carga:** 10
 - **Batea:** Recubrimiento Bedliner + cubierta lona + iluminación
+- **Barras protección ventanilla trasera:** Sí
+- **Tercera luz de stop:** LED, detrás de la cabina
 - **Barras techo:** —
 - **Roll Bar:** —
 - **Colores disponibles:** Blanco, Plata, Rojo Colorado
 
 #### Interior
-
 - **Tapicería:** Tela Heavy Duty gris obscuro
 - **A/C:** Manual
 - **Asiento conductor:** Manual 4 posiciones
 - **Pasajeros 2ª fila:** —
-- **Volante:** Con ajuste de altura
+- **Volante:** Con ajuste de altura y controles de audio
 - **Clúster:** TFT 3.5"
 - **Pantalla:** 7" — Apple CarPlay® y Android Auto inalámbrico
 - **Audio:** 2 bocinas + 2 tweeters
@@ -7248,7 +6966,6 @@
 - **Tapetes:** —
 
 #### Seguridad
-
 - **Frenos ABS:** Sí
 - **ESC:** Sí
 - **EBD:** Sí
@@ -7266,11 +6983,9 @@
 - **FPS:** Sí
 
 ### Versión: Tradesman Crew Cab
-
 `versionId: tradesman-crew-cab`
 
 #### Desempeño
-
 - **Motor:** 1.3L Firefly 4 cilindros
 - **Potencia:** 98 HP @ 6,000 rpm
 - **Torque:** 94 lb-ft @ 4,000 rpm
@@ -7287,7 +7002,6 @@
 - **Consumo combinado:** 18.4 km/L
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 4,474 mm
 - **Ancho:** 1,732 mm
 - **Alto:** 1,586 mm
@@ -7305,7 +7019,6 @@
 - **Placa protectora cárter:** Sí
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **DRL:** Halógeno
 - **Luces antiniebla:** —
@@ -7319,17 +7032,18 @@
 - **Compuerta combustible:** Manual
 - **Ganchos carga:** 8
 - **Batea:** Recubrimiento Bedliner + cubierta lona + iluminación
+- **Barras protección ventanilla trasera:** Sí
+- **Tercera luz de stop:** LED, detrás de la cabina
 - **Barras techo:** —
 - **Roll Bar:** —
 - **Colores disponibles:** Blanco, Plata, Rojo Colorado
 
 #### Interior
-
 - **Tapicería:** Tela Heavy Duty gris obscuro
 - **A/C:** Manual
 - **Asiento conductor:** Manual 4 posiciones
 - **Pasajeros 2ª fila:** 3 pasajeros con cabeceras
-- **Volante:** Con ajuste de altura
+- **Volante:** Con ajuste de altura y controles de audio
 - **Clúster:** TFT 3.5"
 - **Pantalla:** 7" — Apple CarPlay® y Android Auto inalámbrico
 - **Audio:** 6 bocinas + 2 tweeters
@@ -7346,7 +7060,6 @@
 - **Tapetes:** —
 
 #### Seguridad
-
 - **Frenos ABS:** Sí
 - **ESC:** Sí
 - **EBD:** Sí
@@ -7364,11 +7077,9 @@
 - **FPS:** Sí
 
 ### Versión: Bighorn MT
-
 `versionId: bighorn-mt`
 
 #### Desempeño
-
 - **Motor:** 1.3L Firefly 4 cilindros
 - **Potencia:** 98 HP @ 6,000 rpm
 - **Torque:** 94 lb-ft @ 4,000 rpm
@@ -7385,7 +7096,6 @@
 - **Consumo combinado:** 18.4 km/L
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 4,474 mm
 - **Ancho:** 1,732 mm
 - **Alto:** 1,585 mm
@@ -7403,7 +7113,6 @@
 - **Placa protectora cárter:** Sí
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **DRL:** Halógeno
 - **Luces antiniebla:** Sí
@@ -7417,17 +7126,18 @@
 - **Compuerta combustible:** Eléctrica
 - **Ganchos carga:** 8
 - **Batea:** Recubrimiento Bedliner + cubierta lona + iluminación
+- **Barras protección ventanilla trasera:** Sí
+- **Tercera luz de stop:** LED, detrás de la cabina
 - **Barras techo:** —
 - **Roll Bar:** —
 - **Colores disponibles:** Blanco, Plata, Gris Cuarzo, Rojo Colorado
 
 #### Interior
-
 - **Tapicería:** Tela Heavy Duty gris obscuro
 - **A/C:** Manual
 - **Asiento conductor:** Manual 4 posiciones
 - **Pasajeros 2ª fila:** 3 pasajeros con cabeceras
-- **Volante:** Con ajuste de altura
+- **Volante:** Con ajuste de altura y controles de audio
 - **Clúster:** TFT 3.5"
 - **Pantalla:** 7" — Apple CarPlay® y Android Auto inalámbrico
 - **Audio:** 6 bocinas + 2 tweeters
@@ -7444,7 +7154,6 @@
 - **Tapetes:** —
 
 #### Seguridad
-
 - **Frenos ABS:** Sí
 - **ESC:** Sí
 - **EBD:** Sí
@@ -7462,11 +7171,9 @@
 - **FPS:** Sí
 
 ### Versión: Bighorn CVT
-
 `versionId: bighorn-cvt`
 
 #### Desempeño
-
 - **Motor:** 1.3L Firefly 4 cilindros
 - **Potencia:** 98 HP @ 6,000 rpm
 - **Torque:** 94 lb-ft @ 4,000 rpm
@@ -7483,7 +7190,6 @@
 - **Consumo combinado:** 18.4 km/L
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 4,474 mm
 - **Ancho:** 1,732 mm
 - **Alto:** 1,585 mm
@@ -7501,7 +7207,6 @@
 - **Placa protectora cárter:** Sí
 
 #### Exterior
-
 - **Faros:** Halógeno
 - **DRL:** Halógeno
 - **Luces antiniebla:** Sí
@@ -7515,17 +7220,18 @@
 - **Compuerta combustible:** Eléctrica
 - **Ganchos carga:** 8
 - **Batea:** Recubrimiento Bedliner + cubierta lona + iluminación
+- **Barras protección ventanilla trasera:** Sí
+- **Tercera luz de stop:** LED, detrás de la cabina
 - **Barras techo:** —
 - **Roll Bar:** —
 - **Colores disponibles:** Blanco, Plata, Gris Cuarzo, Rojo Colorado
 
 #### Interior
-
 - **Tapicería:** Tela Heavy Duty gris obscuro
 - **A/C:** Manual
 - **Asiento conductor:** Manual 4 posiciones
 - **Pasajeros 2ª fila:** 3 pasajeros con cabeceras
-- **Volante:** Forrado en piel
+- **Volante:** Forrado en piel, con ajuste de altura y controles de audio
 - **Clúster:** TFT 3.5"
 - **Pantalla:** 7" — Apple CarPlay® y Android Auto inalámbrico
 - **Audio:** 6 bocinas + 2 tweeters
@@ -7542,7 +7248,6 @@
 - **Tapetes:** —
 
 #### Seguridad
-
 - **Frenos ABS:** Sí
 - **ESC:** Sí
 - **EBD:** Sí
@@ -7560,11 +7265,9 @@
 - **FPS:** Sí
 
 ### Versión: Laramie CVT Turbo
-
 `versionId: laramie-cvt-turbo`
 
 #### Desempeño
-
 - **Motor:** 1.0L Turbo 3 cilindros
 - **Potencia:** 118 HP @ 5,750 rpm
 - **Torque:** 148 lb-ft @ 1,750 rpm
@@ -7581,7 +7284,6 @@
 - **Consumo combinado:** 17.0 km/L
 
 #### Dimensiones y Capacidades
-
 - **Largo:** 4,480 mm
 - **Ancho:** 1,732 mm
 - **Alto:** 1,585 mm
@@ -7599,7 +7301,6 @@
 - **Placa protectora cárter:** Sí
 
 #### Exterior
-
 - **Faros:** LED
 - **DRL:** LED
 - **Luces antiniebla:** LED
@@ -7613,17 +7314,18 @@
 - **Compuerta combustible:** Eléctrica
 - **Ganchos carga:** 8
 - **Batea:** Recubrimiento Bedliner + cubierta lona + iluminación
+- **Barras protección ventanilla trasera:** Sí
+- **Tercera luz de stop:** LED, detrás de la cabina
 - **Barras techo:** Longitudinales
-- **Roll Bar:** Sí
+- **Roll Bar:** Sí (barras de extensión de carga)
 - **Colores disponibles:** Blanco, Plata, Gris Cuarzo, Rojo Colorado
 
 #### Interior
-
 - **Tapicería:** Piel
 - **A/C:** Automático
 - **Asiento conductor:** Manual 4 posiciones
 - **Pasajeros 2ª fila:** 3 pasajeros con cabeceras
-- **Volante:** Forrado en piel
+- **Volante:** Forrado en piel, con ajuste de altura y controles de audio
 - **Clúster:** TFT 3.5"
 - **Pantalla:** 7" — Apple CarPlay® y Android Auto inalámbrico
 - **Audio:** 6 bocinas + 2 tweeters
@@ -7640,7 +7342,6 @@
 - **Tapetes:** Con bordado LARAMIE
 
 #### Seguridad
-
 - **Frenos ABS:** Sí
 - **ESC:** Sí
 - **EBD:** Sí
@@ -7659,4 +7360,4 @@
 
 ---
 
-_Total: 26 modelos · 70 versiones · 6181 specs._
+_Total: 26 modelos · 70 versiones · 6333 specs._
