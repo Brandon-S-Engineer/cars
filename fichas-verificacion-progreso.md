@@ -19,9 +19,9 @@
 
 ## Dodge (`src/lib/fichas/dodge.ts`)
 
-- ⬜ attitude-2026 (3 vers.) — `PDF/ficha-tecnica-nov25-dodge-attitude-2026.pdf`
-- ⬜ journey-2026 (3 vers.) — `PDF/ficha-tecnica-oct25-dodge-journey-2026-digital.pdf`
-- ⬜ durango-hellcat-2026 (2 vers.) — `PDF/ficha-tecnica-ene26-dodge-durango-hellcat-road-predator-ed-2026 (1).pdf` + `PDF/ficha-tecnica-28abr26-dodge-durango-redfury-2026.pdf`
+- ✅ attitude-2026 (3 vers.) — sin errores
+- ✅ journey-2026 (3 vers.) — `PDF/ficha-tecnica-oct25-dodge-journey-2026-digital.pdf` (10 correcciones)
+- ✅ durango-hellcat-2026 (2 vers.) — sin errores (ver dudas)
 
 ## Fiat (`src/lib/fichas/fiat.ts`)
 
@@ -60,9 +60,22 @@
 - **wrangler-2026 / Willys** · seguridad · Cámara Off-Road: «Sí» → «No incluida»; se agregó override «Sí» en Sahara (la tabla del díptico marca "-" solo en Willys).
 - **jt-2026 / Willys** · desempeño · Placa protección bajo chasis: «Sí» → «No incluida»; Salida 115V auxiliar: «Sí + 115V AC exterior» → «No incluida»; Inversor de potencia: «400 W» → «No incluido». Se agregaron como «Sí» en Rubicon (Mojave hereda).
 
+- **journey-2026 / SXT (base)** · exterior · Faros delanteros: «Halógenos» → «LED» (PDF: LED en las 3 versiones).
+- **journey-2026 / SXT (base)** · exterior · Espejos laterales: SXT NO tiene abatibles/calefactables (solo eléctricos con luz direccional); Sport/GT sí (override agregado).
+- **journey-2026 / SXT (base)** · exterior · Sensor de lluvia/luz: «Sí» → «No incluido» en SXT; Sport/GT sí.
+- **journey-2026 / Sport** · exterior · Quemacocos/Techo panorámico: el Sport trae techo panorámico (no quemacocos estándar); el código lo daba solo al GT Plus y además GT mostraba «Techo panorámico: No incluido» (inconsistencia interna corregida).
+- **journey-2026 / SXT (base)** · seguridad · HDC: «No incluido» → «Sí» (de serie en las 3).
+- **journey-2026 / SXT (base)** · seguridad · Cinturones 2ª fila con pretensores: «No incluidos» → «Sí» (de serie en las 3).
+- **journey-2026 / Sport** · seguridad · Smartbeam: el Sport NO lo trae (solo GT Plus); override movido de Sport a GT Plus.
+- **journey-2026 / SXT (base)** · tecnología · Android Auto, Keyless Entry & GO, Cargador inalámbrico y Modo Sport: «No incluido» → «Sí» (de serie en las 3 versiones según PDF).
+- **journey-2026 / GT Plus** · interior · Tapicería: se agregó «(roja opcional)» (PDF: Leatherette rojo OPCIONAL solo GT Plus).
+
 ## Dudas (PDF no lo especifica o es ilegible; se dejó el valor del código)
 
 - jeep-compass-2026 / High Altitude: Tanque 60 L, Maletero 476/1,180 L, Auto Hold, Limitador de velocidad, Smart Key — el PDF del HA no los menciona; se mantuvieron heredados de Altitude.
 - wrangler-2026 / Rubicon 2P: el PDF oficial dice «Distancia entre ejes 1,460 mm» (typo evidente del PDF; el real es ~2,459 mm). El código replica el PDF. Decidir si corregir contra el dato real.
 - jt-2026 / interior Willys (parasol, guantera, calefacción asientos): la tabla del díptico es ilegible por OCR en esas celdas; se mantuvo el código (No incluidos en Willys, Sí en Rubicon/Mojave).
 - jt-2026: Cableado/receptor remolque en Wrangler Willys/Sahara — tabla ilegible, se mantuvo el código.
+- durango-hellcat-2026 / Road Predator: «Llanta de refacción: Incluida» — su PDF no la menciona (el de Red Fury sí dice explícito que NO trae). Se mantuvo el código.
+- durango-hellcat-2026 / Red Fury: A/C «Automático 3 zonas» (heredado) — el PDF de Red Fury solo dice «automático» sin zonas. Se mantuvo el heredado.
+- attitude-2026: el PDF lista «Llanta de refacción compacta» en las 3 versiones; no existe ese spec en el código (omisión menor, no se agregó).
