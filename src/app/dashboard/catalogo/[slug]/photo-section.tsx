@@ -1,8 +1,10 @@
 'use client'
 
-import { useRef, useTransition } from 'react'
+import { useRef, useState, useTransition } from 'react'
 import { Plus, Trash2, Loader2 } from 'lucide-react'
 import { uploadPhoto, deletePhoto, type CatalogPhoto } from '@/lib/catalog-photos'
+
+const MAX_FILE_MB = 10
 
 export default function PhotoSection({
   title,
@@ -20,10 +22,19 @@ export default function PhotoSection({
   const fileRef = useRef<HTMLInputElement>(null)
   const [uploading, startUpload] = useTransition()
   const [deleting, startDelete] = useTransition()
+  const [error, setError] = useState<string | null>(null)
 
   function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
     if (!file) return
+
+    setError(null)
+
+    if (file.size > MAX_FILE_MB * 1024 * 1024) {
+      setError(`La foto pesa demasiado (máximo ${MAX_FILE_MB}MB). Intenta con una foto más ligera.`)
+      if (fileRef.current) fileRef.current.value = ''
+      return
+    }
 
     const fd = new FormData()
     fd.append('file', file)
@@ -31,8 +42,13 @@ export default function PhotoSection({
     if (versionId) fd.append('versionId', versionId)
 
     startUpload(async () => {
-      await uploadPhoto(fd)
-      if (fileRef.current) fileRef.current.value = ''
+      try {
+        await uploadPhoto(fd)
+      } catch {
+        setError('No se pudo subir la foto. Intenta de nuevo.')
+      } finally {
+        if (fileRef.current) fileRef.current.value = ''
+      }
     })
   }
 
@@ -90,6 +106,8 @@ export default function PhotoSection({
       {photos.length === 0 && !uploading && (
         <p className="text-xs text-muted-foreground/60">Sin fotos todavía.</p>
       )}
+
+      {error && <p className="text-xs text-destructive">{error}</p>}
     </div>
   )
 }
