@@ -217,10 +217,21 @@ function buildStandardColumns(headers: string[], rows: string[][]): Col[] {
 }
 
 // TRANSITO IMA/ AMSA: different schema, priority columns first then the rest
-function buildTransitoColumns(headers: string[]): Col[] {
+function buildTransitoColumns(headers: string[], rows: string[][]): Col[] {
   const all = headers.flatMap((h, i) => {
     const key = h.toLowerCase().trim()
-    if (TRANSITO_SKIP.has(key) || !key) return []
+    if (TRANSITO_SKIP.has(key)) return []
+    if (!key) {
+      // gviz strips headers for numeric columns — detect the model-year column
+      const sample = rows
+        .slice(0, 10)
+        .map((r) => r[i]?.trim())
+        .filter(Boolean)
+      if (sample.length && sample.every((v) => /^\d{4}$/.test(v)) && sample.map(Number).every((n) => n >= 1990 && n <= 2040)) {
+        return [{ label: 'Modelo', idx: i, role: 'other' as ColRole, key: 'modelo' }]
+      }
+      return []
+    }
     return [{ label: h.trim(), idx: i, role: 'other' as ColRole, key }]
   })
   const priority: Col[] = []
@@ -291,7 +302,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
     setFilterKind(null)
   }, [tab.name])
 
-  const cols = useMemo(() => (isTransito ? buildTransitoColumns(tab.headers) : buildStandardColumns(tab.headers, tab.rows)), [tab, isTransito])
+  const cols = useMemo(() => (isTransito ? buildTransitoColumns(tab.headers, tab.rows) : buildStandardColumns(tab.headers, tab.rows)), [tab, isTransito])
 
   // Assign stable # per row based on sorted order
   const sortedNumbered = useMemo(() => [...tab.rows].sort((a, b) => SORT_ORDER[classifyRow(a)] - SORT_ORDER[classifyRow(b)]).map((row, i) => ({ row, num: i + 1, kind: classifyRow(row) })), [tab.rows])
