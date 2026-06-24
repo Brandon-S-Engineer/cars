@@ -45,7 +45,7 @@ const INVENTORY_TOOL = {
         },
         marca: {
           type: 'string',
-          description: 'Tab del inventario: JEEP, MAINSTREAM, LCV, o TRANSITO IMA/ AMSA',
+          description: 'Tab del inventario: JEEP, MAINSTREAM, LCV, LEAPMOTOR, o TRANSITO IMA/ AMSA',
         },
         excluir_reservados: {
           type: 'boolean',

@@ -1,4 +1,4 @@
-const TABS_A_SINCRONIZAR = ['JEEP', 'MAINSTREAM', 'LCV', 'TRANSITO IMA/ AMSA']
+const TABS_A_SINCRONIZAR = ['JEEP', 'MAINSTREAM', 'LCV', 'TRANSITO IMA/ AMSA', 'LEAPMOTOR', 'LIQUIDACION']
 
 function getSpreadsheetId() {
   const match = window.location.href.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/)

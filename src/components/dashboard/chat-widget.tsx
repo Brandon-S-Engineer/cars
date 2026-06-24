@@ -11,7 +11,7 @@ import { useInventarioHighlight } from '@/lib/inventario-highlight-store'
 // Convert "JEEP #11" / "TRANSITO IMA/ AMSA #36" to markdown links
 function linkifyRefs(text: string): string {
   return text.replace(
-    /(JEEP|MAINSTREAM|LCV|TRANSITO IMA \/ AMSA) #(\d+)/g,
+    /(JEEP|MAINSTREAM|LCV|LEAPMOTOR|TRANSITO IMA \/ AMSA) #(\d+)/g,
     (_, tab, num) => `[${tab} #${num}](inventario://${encodeURIComponent(tab)}/${num})`,
   )
 }

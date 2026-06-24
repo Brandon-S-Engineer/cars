@@ -28,7 +28,7 @@ type ColRole = 'price' | 'vin' | 'eco' | 'other'
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
-const BRAND_ORDER = ['JEEP', 'MAINSTREAM', 'LCV', 'TRANSITO IMA/ AMSA']
+const BRAND_ORDER = ['JEEP', 'MAINSTREAM', 'LCV', 'LEAPMOTOR', 'TRANSITO IMA/ AMSA']
 
 const SORT_ORDER: Record<RowKind, number> = {
   demo: 0,
