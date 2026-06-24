@@ -221,8 +221,7 @@ function buildTransitoColumns(headers: string[]): Col[] {
   const all = headers.flatMap((h, i) => {
     const key = h.toLowerCase().trim()
     if (TRANSITO_SKIP.has(key) || !key) return []
-    const label = key === 'modelo' ? 'Año' : h.trim()
-    return [{ label, idx: i, role: 'other' as ColRole, key }]
+    return [{ label: h.trim(), idx: i, role: 'other' as ColRole, key }]
   })
   const priority: Col[] = []
   const rest: Col[] = []
