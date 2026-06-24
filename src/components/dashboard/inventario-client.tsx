@@ -68,7 +68,7 @@ const STANDARD_ORDER: Record<string, number> = {
 const TRANSITO_SKIP = new Set(['no.', 'no', 'n°'])
 
 // Priority order for TRANSITO columns
-const TRANSITO_PRIORITY = ['unidad', 'color', 'marca', 'modelo', 'distribuidor', 'vin']
+const TRANSITO_PRIORITY = ['modelo', 'unidad', 'color', 'marca', 'distribuidor', 'vin']
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -221,13 +221,13 @@ function buildTransitoColumns(headers: string[]): Col[] {
   const all = headers.flatMap((h, i) => {
     const key = h.toLowerCase().trim()
     if (TRANSITO_SKIP.has(key) || !key) return []
-    return [{ label: h.trim(), idx: i, role: 'other' as ColRole }]
+    const label = key === 'modelo' ? 'Año' : h.trim()
+    return [{ label, idx: i, role: 'other' as ColRole, key }]
   })
   const priority: Col[] = []
   const rest: Col[] = []
   for (const col of all) {
-    const key = col.label.toLowerCase().trim()
-    const rank = TRANSITO_PRIORITY.indexOf(key)
+    const rank = TRANSITO_PRIORITY.indexOf(col.key)
     if (rank >= 0) priority[rank] = col
     else rest.push(col)
   }
