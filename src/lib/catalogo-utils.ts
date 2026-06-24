@@ -144,7 +144,7 @@ export function parseInventarioForCatalog(
     const versionMins: Record<string, number> = {}
 
     for (const tab of tabs) {
-      if (tab.name === 'TRANSITO IMA/ AMSA') continue
+      if (tab.name === 'TRANSITO IMA/ AMSA' || tab.name === 'LIQUIDACION') continue
       const descIdx = detectDescIdx(tab.headers)
       const priceIdx = detectPriceColIdx(tab.headers, tab.rows)
       const comentIdx = detectComentarioIdx(tab.headers)

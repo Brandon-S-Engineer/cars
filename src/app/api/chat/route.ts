@@ -45,7 +45,7 @@ const INVENTORY_TOOL = {
         },
         marca: {
           type: 'string',
-          description: 'Tab del inventario: JEEP, MAINSTREAM, LCV, LEAPMOTOR, o TRANSITO IMA/ AMSA',
+          description: 'Tab del inventario: JEEP, MAINSTREAM, LCV, LEAPMOTOR, TRANSITO IMA/ AMSA, o LIQUIDACION',
         },
         excluir_reservados: {
           type: 'boolean',
@@ -157,8 +157,12 @@ function ejecutarBusqueda(
     // Detect price columns: named headers first, then empty headers by value > 100k
     let precioIdx = -1
     let ofertaIdx = -1
+    let liquidacionIdx = -1
+    let comisionIdx = -1
     tab.headers.forEach((h, i) => {
-      const k = h.toLowerCase()
+      const k = h.toLowerCase().trim()
+      if (k === 'precio liquidacion') { liquidacionIdx = i; return }
+      if (k === 'comision') { comisionIdx = i; return }
       if (k.includes('precio') && !k.includes('alterna') && !k.includes('msi')) {
         if (precioIdx === -1) precioIdx = i
         else if (ofertaIdx === -1) ofertaIdx = i
@@ -206,15 +210,18 @@ function ejecutarBusqueda(
 
       const listaNum = precioIdx >= 0 ? Number((row[precioIdx] ?? '').replace(/[^0-9.]/g, '')) : 0
       const ofertaNum = ofertaIdx >= 0 ? Number((row[ofertaIdx] ?? '').replace(/[^0-9.]/g, '')) : 0
+      const liquidacionNum = liquidacionIdx >= 0 ? Number((row[liquidacionIdx] ?? '').replace(/[^0-9.]/g, '')) : 0
       const fmt = (n: number) => n > 0 ? `$${n.toLocaleString('es-MX')}` : null
 
       const parts: string[] = [`${tab.name} #${num}`]
       if (descripIdx >= 0 && row[descripIdx]?.trim()) parts.push(`nombre:${row[descripIdx].trim()}`)
       if (listaNum > 0) parts.push(`precio:${fmt(listaNum)}`)
       if (ofertaNum > 0 && ofertaNum !== listaNum) parts.push(`oferta:${fmt(ofertaNum)}`)
+      if (liquidacionNum > 0) parts.push(`liquidacion:${fmt(liquidacionNum)}`)
       if (sucursalIdx >= 0 && row[sucursalIdx]?.trim()) parts.push(`sucursal:${row[sucursalIdx].trim()}`)
       row.forEach((v, i) => {
-        if (i === descripIdx || i === sucursalIdx || i === precioIdx || i === ofertaIdx) return
+        // comisionIdx is internal-only — never surface it to the assistant's context
+        if (i === descripIdx || i === sucursalIdx || i === precioIdx || i === ofertaIdx || i === liquidacionIdx || i === comisionIdx) return
         const val = v?.trim()
         if (!val) return
         if (i === colorExtIdx) parts.push(`ext:${val}`)
@@ -241,7 +248,8 @@ Tu trabajo es ayudarle a responder preguntas de clientes sobre disponibilidad de
 REGLAS:
 - Cuando un cliente pregunte por un auto, SIEMPRE llama a buscar_inventario antes de responder. Nunca respondas sobre disponibilidad sin haberla consultado.
 - Al presentar resultados: incluye la referencia exacta, el nombre del auto (nombre:), precio (precio:), precio de oferta si existe y es diferente (oferta:), color exterior, color interior, sucursal y status.
-- IMPORTANTE: la referencia viene como "NOMBRE_TABLA #número" (ej: "JEEP #11", "MAINSTREAM #5", "TRANSITO IMA/ AMSA #394"). Copia SIEMPRE el nombre exacto de la tabla que aparece antes del # — nunca lo sustituyas por otro.
+- Si aparece liquidacion: (solo en la tab LIQUIDACION), ese es el precio final de remate — cotízalo como el precio principal al cliente, e indica precio lista (precio:) como referencia de cuánto está ahorrando.
+- IMPORTANTE: la referencia viene como "NOMBRE_TABLA #número" (ej: "JEEP #11", "MAINSTREAM #5", "TRANSITO IMA/ AMSA #394", "LIQUIDACION #12"). Copia SIEMPRE el nombre exacto de la tabla que aparece antes del # — nunca lo sustituyas por otro.
 - Los colores están etiquetados ext: (exterior) e int: (interior). La sucursal aparece como sucursal:XXXX.
 - Unidades [RESERVADO por otro cliente]: ya están apartadas, no contarlas como disponibles — mencionarlo claramente.
 - Unidades [DEMO disponible]: son de exhibición pero también se venden.

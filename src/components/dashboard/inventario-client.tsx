@@ -24,11 +24,11 @@ type InventarioData = {
 }
 
 type RowKind = 'demo' | 'demo-reservado' | 'normal' | 'reservado'
-type ColRole = 'price' | 'vin' | 'eco' | 'other'
+type ColRole = 'price' | 'vin' | 'eco' | 'other' | 'liquidacion'
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
-const BRAND_ORDER = ['JEEP', 'MAINSTREAM', 'LCV', 'LEAPMOTOR', 'TRANSITO IMA/ AMSA']
+const BRAND_ORDER = ['JEEP', 'MAINSTREAM', 'LCV', 'LEAPMOTOR', 'TRANSITO IMA/ AMSA', 'LIQUIDACION']
 
 const SORT_ORDER: Record<RowKind, number> = {
   demo: 0,
@@ -69,6 +69,40 @@ const TRANSITO_SKIP = new Set(['no.', 'no', 'n°'])
 
 // Priority order for TRANSITO columns
 const TRANSITO_PRIORITY = ['modelo', 'unidad', 'color', 'marca', 'distribuidor', 'vin']
+
+// LIQUIDACION columns to skip — row number
+const LIQUIDACION_SKIP = new Set(['v no', 'no', 'no.', 'n°'])
+
+// Rename a few noisy/duplicated header names to clean labels
+const LIQUIDACION_LABELS: Record<string, string> = {
+  'unidades reportadas por planta  vin': 'VIN',
+  'unidades facturadas  ubicación': 'Ubicación',
+  'precio de lista': 'Precio',
+  'precio oferta principal': 'Oferta',
+  'precio liquidacion': 'Liquidación',
+  comision: 'Comisión',
+}
+
+// LIQUIDACION mixes brands per row, so unlike other tabs "Marca" stays visible.
+// Identity first, then the price cascade (Lista → Oferta → Liquidación), then details, then tail.
+const LIQUIDACION_PRIORITY = [
+  'marca',
+  'descripción....',
+  'modelo',
+  'precio de lista',
+  'precio oferta principal',
+  'precio liquidacion',
+  'color exterior',
+  'color interior',
+  'días',
+  'unidades facturadas  ubicación',
+  'status',
+  'fecha asignación',
+  'comentario',
+  'comision',
+  'unidades reportadas por planta  vin',
+  'eco',
+]
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -244,6 +278,34 @@ function buildTransitoColumns(headers: string[], rows: string[][]): Col[] {
   return [...priority.filter(Boolean), ...rest]
 }
 
+// LIQUIDACION: multi-brand clearance tab with a 3-tier price cascade (Lista → Oferta → Liquidación)
+function buildLiquidacionColumns(headers: string[]): Col[] {
+  const listaIdx = headers.findIndex((h) => h.toLowerCase().trim() === 'precio de lista')
+
+  const all = headers.flatMap((h, i) => {
+    const key = h.toLowerCase().trim()
+    if (LIQUIDACION_SKIP.has(key) || !key) return []
+
+    if (key === 'precio liquidacion') {
+      return [{ label: 'Liquidación', idx: i, role: 'liquidacion' as ColRole, listaIdx: listaIdx >= 0 ? listaIdx : undefined, key }]
+    }
+
+    const role: ColRole = key.includes('vin') ? 'vin' : key === 'eco' ? 'eco' : key === 'precio de lista' || key === 'precio oferta principal' || key === 'comision' ? 'price' : 'other'
+    const col = { label: LIQUIDACION_LABELS[key] ?? h.trim(), idx: i, role, key } as Col & { key: string }
+    if (key === 'precio oferta principal' && listaIdx >= 0) col.listaIdx = listaIdx
+    return [col]
+  })
+
+  const priority: Col[] = []
+  const rest: Col[] = []
+  for (const col of all) {
+    const rank = LIQUIDACION_PRIORITY.indexOf(col.key)
+    if (rank >= 0) priority[rank] = col
+    else rest.push(col)
+  }
+  return [...priority.filter(Boolean), ...rest]
+}
+
 // ── Row styling ───────────────────────────────────────────────────────────────
 
 function rowStyle(kind: RowKind, even: boolean): string {
@@ -296,13 +358,18 @@ function NoDataState() {
 
 function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; search: string; highlightRow: number | null; onRowClick: (car: CarAnuncio) => void }) {
   const isTransito = tab.name === 'TRANSITO IMA/ AMSA'
+  const isLiquidacion = tab.name === 'LIQUIDACION'
   const [filterKind, setFilterKind] = useState<RowKind | null>(null)
 
   useEffect(() => {
     setFilterKind(null)
   }, [tab.name])
 
-  const cols = useMemo(() => (isTransito ? buildTransitoColumns(tab.headers, tab.rows) : buildStandardColumns(tab.headers, tab.rows)), [tab, isTransito])
+  const cols = useMemo(() => {
+    if (isTransito) return buildTransitoColumns(tab.headers, tab.rows)
+    if (isLiquidacion) return buildLiquidacionColumns(tab.headers)
+    return buildStandardColumns(tab.headers, tab.rows)
+  }, [tab, isTransito, isLiquidacion])
 
   // Assign stable # per row based on sorted order
   const sortedNumbered = useMemo(() => [...tab.rows].sort((a, b) => SORT_ORDER[classifyRow(a)] - SORT_ORDER[classifyRow(b)]).map((row, i) => ({ row, num: i + 1, kind: classifyRow(row) })), [tab.rows])
@@ -372,7 +439,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
               {cols.map((col) => (
                 <th
                   key={col.idx}
-                  className={cn('px-4 py-3 text-left font-medium text-muted-foreground whitespace-nowrap', col.role === 'price' && 'text-right')}>
+                  className={cn('px-4 py-3 text-left font-medium text-muted-foreground whitespace-nowrap', (col.role === 'price' || col.role === 'liquidacion') && 'text-right')}>
                   {col.label}
                 </th>
               ))}
@@ -398,9 +465,11 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                       return col ? row[col.idx]?.trim() || null : null
                     }
                     const precioCol = cols.find((c) => c.role === 'price' && c.listaIdx === undefined)
-                    const ofertaCol = cols.find((c) => c.listaIdx !== undefined)
+                    const ofertaCol = cols.find((c) => c.role === 'price' && c.listaIdx !== undefined)
+                    const liquidacionCol = cols.find((c) => c.role === 'liquidacion')
                     const listaRaw = precioCol ? (row[precioCol.idx] ?? '') : ''
                     const ofertaRaw = ofertaCol ? (row[ofertaCol.idx] ?? '') : ''
+                    const liquidacionRaw = liquidacionCol ? (row[liquidacionCol.idx] ?? '').trim() : ''
                     const listaNum = Number(listaRaw.replace(/[^0-9.]/g, ''))
                     const ofertaNum = Number(ofertaRaw.replace(/[^0-9.]/g, ''))
                     const añoCol = cols.find((c) => c.label === 'Modelo')
@@ -412,7 +481,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                       año: añoCol ? row[añoCol.idx]?.trim() || null : null,
                       precio: listaNum > 0 ? listaRaw : null,
                       oferta: ofertaNum > 0 && ofertaNum !== listaNum ? ofertaRaw : null,
-                      precioEspecial: comentarioRaw ? extractPrecioEspecial(comentarioRaw) : null,
+                      precioEspecial: liquidacionRaw || (comentarioRaw ? extractPrecioEspecial(comentarioRaw) : null),
                       colorExt: getByLabel('color ext'),
                       colorInt: getByLabel('color int'),
                       sucursal: getByLabel('sucursal') ?? getByLabel('ubicac'),
@@ -424,6 +493,27 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                   {cols.map((col) => {
                     const val = row[col.idx] ?? ''
                     const empty = val === '' || val === '-'
+
+                    // Liquidación column: the headline remate price — own color, with % off vs. Lista
+                    if (col.role === 'liquidacion') {
+                      const listaNum = col.listaIdx !== undefined ? Number((row[col.listaIdx] ?? '').replace(/[^0-9.]/g, '')) : 0
+                      const liqNum = Number(val.replace(/[^0-9.]/g, ''))
+                      const pctOff = listaNum > 0 && liqNum > 0 && liqNum < listaNum ? Math.round((1 - liqNum / listaNum) * 100) : null
+                      return (
+                        <td
+                          key={col.idx}
+                          className='px-4 py-2.5 whitespace-nowrap text-sm text-right tabular-nums'>
+                          {empty ? (
+                            <span className='text-muted-foreground/30'>—</span>
+                          ) : (
+                            <span className='inline-flex items-center justify-end gap-1.5'>
+                              <span className='text-rose-600 dark:text-rose-400 font-bold'>{formatPrice(val)}</span>
+                              {pctOff !== null && <span className='text-[11px] font-semibold text-rose-700 dark:text-rose-300 bg-rose-100 dark:bg-rose-950/40 rounded px-1.5 py-0.5'>-{pctOff}%</span>}
+                            </span>
+                          )}
+                        </td>
+                      )
+                    }
 
                     // Oferta column: compare numeric value against the lista price
                     if (col.listaIdx !== undefined) {
