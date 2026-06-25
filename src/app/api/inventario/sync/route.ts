@@ -72,17 +72,32 @@ export async function POST(req: Request) {
 
   const spreadsheetId = parsed.data.spreadsheetId ?? 'extension-sync'
 
+  // Merge with whatever's already cached — an older browser/extension copy that doesn't
+  // know about a newly added tab should never be able to wipe it out by syncing a partial list.
+  const existing = await prisma.inventarioConfig.findUnique({ where: { id: 'singleton' } })
+  let mergedTabs = tabsData
+  if (existing?.cachedCsv) {
+    try {
+      const prevTabs: { name: string; headers: string[]; rows: string[][] }[] = JSON.parse(existing.cachedCsv)
+      const incomingNames = new Set(tabsData.map((t) => t.name))
+      const preserved = prevTabs.filter((t) => !incomingNames.has(t.name))
+      mergedTabs = [...preserved, ...tabsData]
+    } catch {
+      // old/invalid cache format — fall back to just the new sync
+    }
+  }
+
   await prisma.inventarioConfig.upsert({
     where: { id: 'singleton' },
     create: {
       id: 'singleton',
       spreadsheetId,
-      cachedCsv: JSON.stringify(tabsData),
+      cachedCsv: JSON.stringify(mergedTabs),
       lastSyncAt: new Date(),
     },
     update: {
       ...(parsed.data.spreadsheetId ? { spreadsheetId } : {}),
-      cachedCsv: JSON.stringify(tabsData),
+      cachedCsv: JSON.stringify(mergedTabs),
       lastSyncAt: new Date(),
     },
   })
