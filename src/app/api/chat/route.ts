@@ -121,7 +121,6 @@ function colorTerms(query: string): string[] {
 // ── Search function (runs in code, not by AI) ─────────────────────────────────
 
 type RowKind = 'demo' | 'demo-reservado' | 'normal' | 'reservado'
-const KIND_ORDER: Record<RowKind, number> = { demo: 0, 'demo-reservado': 1, normal: 2, reservado: 3 }
 
 function rowKind(row: string[]): RowKind {
   const flat = row.join(' ').toUpperCase()
@@ -182,11 +181,9 @@ function ejecutarBusqueda(
       })
     }
 
-    // Sort same as dashboard: demo → demo-reservado → normal → reservado
-    const sorted = [...tab.rows].sort((a, b) => KIND_ORDER[rowKind(a)] - KIND_ORDER[rowKind(b)])
-
-    // Number rows BEFORE filtering, same as the dashboard table
-    const numbered = sorted.map((row, i) => ({ row, num: i + 1 }))
+    // Number rows in original database order, same as the dashboard table, so a
+    // "TABLA #número" reference points at the exact row the user sees.
+    const numbered = tab.rows.map((row, i) => ({ row, num: i + 1 }))
 
     for (const { row, num } of numbered) {
       const flat = row.join(' ').toUpperCase()

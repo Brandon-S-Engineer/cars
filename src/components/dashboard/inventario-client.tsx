@@ -30,13 +30,6 @@ type ColRole = 'price' | 'vin' | 'eco' | 'other' | 'liquidacion'
 
 const BRAND_ORDER = ['JEEP', 'MAINSTREAM', 'LCV', 'LEAPMOTOR', 'TRANSITO IMA/ AMSA', 'LIQUIDACION']
 
-const SORT_ORDER: Record<RowKind, number> = {
-  demo: 0,
-  'demo-reservado': 1,
-  normal: 2,
-  reservado: 3,
-}
-
 // Columns to always skip — row numbers and brand duplicates
 const SKIP_COLS = new Set(['no', 'no.', 'n°', 'no..', 'marca', 'marca temporal'])
 
@@ -371,14 +364,15 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
     return buildStandardColumns(tab.headers, tab.rows)
   }, [tab, isTransito, isLiquidacion])
 
-  // Assign stable # per row based on sorted order
-  const sortedNumbered = useMemo(() => [...tab.rows].sort((a, b) => SORT_ORDER[classifyRow(a)] - SORT_ORDER[classifyRow(b)]).map((row, i) => ({ row, num: i + 1, kind: classifyRow(row) })), [tab.rows])
+  // Number rows in their original database order — the # here matches the row's
+  // position in the source sheet. Status filters still work by classifying each row.
+  const numberedRows = useMemo(() => tab.rows.map((row, i) => ({ row, num: i + 1, kind: classifyRow(row) })), [tab.rows])
 
   const filtered = useMemo(() => {
-    const bySearch = !search.trim() ? sortedNumbered : sortedNumbered.filter(({ row }) => row.some((c) => c?.toLowerCase().includes(search.toLowerCase())))
+    const bySearch = !search.trim() ? numberedRows : numberedRows.filter(({ row }) => row.some((c) => c?.toLowerCase().includes(search.toLowerCase())))
     if (!filterKind) return bySearch
     return bySearch.filter(({ kind }) => kind === filterKind)
-  }, [sortedNumbered, search, filterKind])
+  }, [numberedRows, search, filterKind])
 
   const counts = useMemo(() => {
     const c = { demo: 0, 'demo-reservado': 0, normal: 0, reservado: 0 }
