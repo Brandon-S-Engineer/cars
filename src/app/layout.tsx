@@ -35,12 +35,16 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: 'Dashboard',
   description: 'Internal Tool Dashboard',
+  // Stop Chrome's auto-translate: rewriting the DOM (e.g. "MAINSTREAM" → "Principal")
+  // crashes React with sporadic removeChild/insertBefore errors.
+  other: { google: 'notranslate' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      lang='en'
+      lang='es'
+      translate='no'
       suppressHydrationWarning>
       <body className={`${inter.variable} ${geistMono.variable} ${schibstedGrotesk.variable} ${hankenGrotesk.variable} ${caveat.variable} antialiased`}>
         <Providers>
