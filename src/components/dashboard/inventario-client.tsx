@@ -28,7 +28,7 @@ type ColRole = 'price' | 'vin' | 'eco' | 'other' | 'liquidacion'
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
-const BRAND_ORDER = ['JEEP', 'MAINSTREAM', 'LCV', 'LEAPMOTOR', 'TRANSITO IMA/ AMSA', 'LIQUIDACION']
+const BRAND_ORDER = ['JEEP', 'MAINSTREAM', 'LCV', 'LEAPMOTOR', 'TURBOFIN', 'DEMOS VTA ENERO', 'TRANSITO IMA/ AMSA', 'LIQUIDACION STELLANTIS', 'LIQUIDACION']
 
 // Columns to always skip — row numbers and brand duplicates
 const SKIP_COLS = new Set(['no', 'no.', 'n°', 'no..', 'marca', 'marca temporal'])
@@ -107,6 +107,17 @@ function timeAgo(dateStr: string) {
   const hrs = Math.floor(mins / 60)
   if (hrs < 24) return `hace ${hrs}h`
   return `hace ${Math.floor(hrs / 24)}d`
+}
+
+// The sheet's own row-number column (first or second column, digits only), so the # shown
+// matches the spreadsheet exactly — including its gaps and per-section restarts.
+function detectSheetNumIdx(rows: string[][]): number {
+  for (const i of [0, 1]) {
+    const vals = rows.map((r) => (r[i] ?? '').trim())
+    const filled = vals.filter(Boolean)
+    if (filled.length >= rows.length / 2 && filled.every((v) => /^\d+$/.test(v))) return i
+  }
+  return -1
 }
 
 function classifyRow(row: string[]): RowKind {
@@ -351,7 +362,7 @@ function NoDataState() {
 
 function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; search: string; highlightRow: number | null; onRowClick: (car: CarAnuncio) => void }) {
   const isTransito = tab.name === 'TRANSITO IMA/ AMSA'
-  const isLiquidacion = tab.name === 'LIQUIDACION'
+  const isLiquidacion = tab.name.startsWith('LIQUIDACION')
   const [filterKind, setFilterKind] = useState<RowKind | null>(null)
 
   useEffect(() => {
@@ -367,6 +378,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
   // Number rows in their original database order — the # here matches the row's
   // position in the source sheet. Status filters still work by classifying each row.
   const numberedRows = useMemo(() => tab.rows.map((row, i) => ({ row, num: i + 1, kind: classifyRow(row) })), [tab.rows])
+  const sheetNumIdx = useMemo(() => detectSheetNumIdx(tab.rows), [tab.rows])
 
   const filtered = useMemo(() => {
     const bySearch = !search.trim() ? numberedRows : numberedRows.filter(({ row }) => row.some((c) => c?.toLowerCase().includes(search.toLowerCase())))
@@ -483,7 +495,7 @@ function BrandTable({ tab, search, highlightRow, onRowClick }: { tab: TabData; s
                     })
                   }}
                   className={cn('border-b last:border-0 transition-colors cursor-pointer', num === highlightRow ? 'row-flash' : rowStyle(kind, num % 2 === 0))}>
-                  <td className='px-3 py-2.5 text-xs text-muted-foreground font-mono'>{num}</td>
+                  <td className='px-3 py-2.5 text-xs text-muted-foreground font-mono'>{sheetNumIdx >= 0 ? row[sheetNumIdx]?.trim() || '—' : num}</td>
                   {cols.map((col) => {
                     const val = row[col.idx] ?? ''
                     const empty = val === '' || val === '-'

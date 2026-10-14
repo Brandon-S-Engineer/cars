@@ -12,6 +12,11 @@ export async function OPTIONS() {
   return new Response(null, { status: 204, headers: CORS })
 }
 
+// old tab name → new tab name
+const RENAMED_TABS: Record<string, string> = {
+  LIQUIDACION: 'LIQUIDACION STELLANTIS',
+}
+
 const schema = z.object({
   tabs: z.array(z.object({ name: z.string(), csv: z.string().min(1) })).min(1),
   spreadsheetId: z.string().optional(),
@@ -80,7 +85,9 @@ export async function POST(req: Request) {
     try {
       const prevTabs: { name: string; headers: string[]; rows: string[][] }[] = JSON.parse(existing.cachedCsv)
       const incomingNames = new Set(tabsData.map((t) => t.name))
-      const preserved = prevTabs.filter((t) => !incomingNames.has(t.name))
+      // A tab that was renamed shouldn't linger in the cache under its old name
+      const superseded = new Set(Object.entries(RENAMED_TABS).filter(([, to]) => incomingNames.has(to)).map(([from]) => from))
+      const preserved = prevTabs.filter((t) => !incomingNames.has(t.name) && !superseded.has(t.name))
       mergedTabs = [...preserved, ...tabsData]
     } catch {
       // old/invalid cache format — fall back to just the new sync

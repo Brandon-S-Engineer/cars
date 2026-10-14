@@ -128,6 +128,10 @@ function extractPrecioFromComentario(val: string): number | null {
   return num > 100_000 && num < 10_000_000 ? num : null
 }
 
+// Only on-the-lot stock tabs feed the public catalog. Transit, clearance, demo and
+// financing tabs overlap with these or aren't sellable stock, so they'd double-count.
+const CATALOG_TABS = new Set(['JEEP', 'MAINSTREAM', 'LCV', 'LEAPMOTOR'])
+
 export function parseInventarioForCatalog(
   tabs: TabData[],
   models: ModeloFicha[],
@@ -144,7 +148,7 @@ export function parseInventarioForCatalog(
     const versionMins: Record<string, number> = {}
 
     for (const tab of tabs) {
-      if (tab.name === 'TRANSITO IMA/ AMSA' || tab.name === 'LIQUIDACION') continue
+      if (!CATALOG_TABS.has(tab.name)) continue
       const descIdx = detectDescIdx(tab.headers)
       const priceIdx = detectPriceColIdx(tab.headers, tab.rows)
       const comentIdx = detectComentarioIdx(tab.headers)
